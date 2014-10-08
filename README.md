@@ -10,7 +10,7 @@ just notes of lectures I attended or am interested in. additional information in
 
 [i110 - Grundlagen der Informatik I](i110/index.md)
 
-* [141006](i110/141006.md)
+* [141006](i110/141006-V.md)
 
 [i120 - Programmierung I](i120/index.md)
 
@@ -19,11 +19,12 @@ just notes of lectures I attended or am interested in. additional information in
 
 [i130 - Betriebssysteme I](i130/index.md)
 
-* 141006 - ausgefallen, Prof. n.e.
+* 141006-P - ausgefallen, Prof. n.e.
+* [141008-V](i130/141008-V.md) - 1. Vorlesung
 
-[i140 - Allgemeine Betriebswirtschaftslehre (BWL 1)](i140/index.md)
+[i470 - Allgemeine Betriebswirtschaftslehre (BWL 1)](i140/index.md)
 
-* 1410
+* [147008](i470/141008-V.md) - 1. Vorlesung
 
 [i480 - Wirtschaftsmathematik I (WiMa1)](i480/index.md)
 
