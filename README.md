@@ -1,7 +1,7 @@
 notes
 =====
 
-just notes of lectures I attended or am interested in. additional information as of [HTW/Modulux](https://apps.htw-dresden.de/index.php?id=199#!aW5kZXgucGhwP2lkPTE5OSZub19jYWNoZT0xJnR4X2V6cXVlcmllc19lenF1ZXJpZXNwbHVnaW4lNUJhY3Rpb24lNUQ9bGlzdCZ0eF9lenF1ZXJpZXNfZXpxdWVyaWVzcGx1Z2luJTVCY29udHJvbGxlciU1RD1SZWNvcmRNYW5hZ2VtZW50JnR4X2V6cXVlcmllc19lenF1ZXJpZXNwbHVnaW4lNUJzZWFyY2glNUQlNUJtX3N0Zy5iZXolNUQlNUJ2YWx1ZSU1RD13aXJ0c2NoYWZ0c2luZm9ybWF0aWs%3D) .
+just notes of lectures I attended or am interested in. additional information in index.md-files.
 
 1. Semester
 -----------
@@ -32,4 +32,6 @@ just notes of lectures I attended or am interested in. additional information as
 [S411 - Englisch B2/C1 (IIb/d: I-285, IWb/d: I-185, IMb/d: I-385) ](s411/index.md)
 
 * 141006 - ausgefallen wg. Einstufung/Orga
+
+[14H3PL1101 - Polnisch - Grundkurs, Stufe A1](VHS14H3PL1101/index.md)
 
