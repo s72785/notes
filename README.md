@@ -22,7 +22,7 @@ just notes of lectures I attended or am interested in. additional information in
 * 141006-P - ausgefallen, Prof. n.e.
 * [141008-V](i130/141008-V.md) - 1. Vorlesung
 
-[i470 - Allgemeine Betriebswirtschaftslehre (BWL 1)](i140/index.md)
+[i470 - Allgemeine Betriebswirtschaftslehre (BWL 1)](i470/index.md)
 
 * [147008](i470/141008-V.md) - 1. Vorlesung
 
