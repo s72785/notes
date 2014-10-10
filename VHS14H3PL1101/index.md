@@ -1,3 +1,6 @@
+
+[Konjugation](#konj)
+
 ## Allg. 
 
 Polnisch - Grundkurs, Stufe A1 (14H3PL1101)
@@ -19,3 +22,17 @@ Dauer
 Kursgebühr
 
     Kowalska-Kubitza, Monika Edyta
+
+<a name="konj"></a>### Konjugationen
+
+[byc - sein](konjugation-byc.md)
+[lubić - mögen](konjugation-lubic.md)
+[mieszkać - wohnen](konjugation-mieszkac.md)
+[nazywac - ](konjugation-nazywac.md)
+[pracować - arbeiten](konjugation-procowac.md)
+[słyszeć - hören](konjugation-slyszec.md)
+[wiedziec - ](konjugation-wiedziec.md)
+
+Quellen:
+
+* [język-polski](http://www.język-polski.de/konjugation.html)
