@@ -13,7 +13,7 @@
 
 * Lehrer   Kowalska-Kubitza, Monika Edyta
 
-<a name="konj"></a>### Konjugationen
+### Konjugationen <a name="konj"></a>
 
 * [byc - sein](konjugation-byc.md)
 * [lubić - mögen](konjugation-lubic.md)
