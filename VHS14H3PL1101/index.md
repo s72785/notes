@@ -13,6 +13,10 @@
 
 * Lehrer   Kowalska-Kubitza, Monika Edyta
 
+### Vokabeln
+
+[Witam](vokabeln-witam.md)
+
 ### Konjugationen <a name="konj"></a>
 
 * [byc - sein](konjugation-byc.md)
@@ -28,3 +32,4 @@ Quellen:
 
 * [język-polski](http://www.język-polski.de/konjugation.html)
 * [mówić po polsku](http://mowicpopolsku.com/de/polnische-grammatik/)
+* [wiktionary](http://de.wiktionary.org/)
