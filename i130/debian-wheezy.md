@@ -7,6 +7,8 @@
     #miredo
     # workspace
     PACKAGES=$PACKAGES tmux git cups lyx
+    # make, xstl tools (c3d2-web etc.)
+    PACKAGES=$PACKAGES make libxml2-utils xsltproc
     # multimedia
     #pulseaudio libao4 paprefs libpulse-mainloop-glib0 pulseaudio-module-jack
     #pulseaudio-module-x11 gstreamer0.10-pulseaudio pulseaudio-utils libasound2-plugins
