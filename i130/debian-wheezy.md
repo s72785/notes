@@ -6,7 +6,11 @@
     PACKAGES=$PACKAGES wpasupplicant ifenslave-2.6 tcpdump vpnc vpnc-scripts
     #miredo
     # workspace
-    PACKAGES=$PACKAGES tmux git cups lyx
+    PACKAGES=$PACKAGES tmux #terminal multiplexer
+    PACKAGES=$PACKAGES git  #version control system
+    PACKAGES=$PACKAGES cups #printer management
+    PACKAGES=$PACKAGES lyx  #tex system, easy to use
+    PACKAGES=$PACKAGES geany doc-base #geany editor
     # make, xstl tools (c3d2-web etc.)
     PACKAGES=$PACKAGES make libxml2-utils xsltproc
     # multimedia
