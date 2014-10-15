@@ -1,16 +1,9 @@
 
-Fakultät Informatik/Mathematik
-:
-Allgemeine
-Betriebswirtschaftslehre
-(BWL 1)
-für
-Wirtschaftsinformatik
-er (Bachelor, Diplom)
-Dr.
-Wolf
--
-Eckart Grüning
+Fakultät Informatik/Mathematik:
+
+Allgemeine Betriebswirtschaftslehre (BWL 1)
+für Wirtschaftsinformatiker (Bachelor, Diplom)
+Dr. Wolf - Eckart Grüning
 
 # Übung 1
 
