@@ -3,7 +3,7 @@
     # wifi firmware for intel 
     PACKAGES=firmware-iwlwifi #u.a. iwl4965 f. T61
     # networking
-    PACKAGES=$PACKAGES wpasupplicant ifenslave-2.6 tcpdump vpnc vpnc-scripts
+    PACKAGES=$PACKAGES wpasupplicant ifenslave-2.6 tcpdump vpnc vpnc-scripts curl
     #miredo
     # workspace
     PACKAGES=$PACKAGES tmux #terminal multiplexer
@@ -11,6 +11,7 @@
     PACKAGES=$PACKAGES cups #printer management
     PACKAGES=$PACKAGES lyx  #tex system, easy to use
     PACKAGES=$PACKAGES geany doc-base #geany editor
+    #
     # make, xstl tools (c3d2-web etc.)
     PACKAGES=$PACKAGES make libxml2-utils xsltproc
     # multimedia
