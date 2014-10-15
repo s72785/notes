@@ -25,9 +25,9 @@ benötigt? Nennen Sie jeweils Beispiele.
 Die Form des Wettbewerbs ist für jedes Unternehmen von zentraler Bedeutung.
 Überlegen Sie sich jeweils ein Beispiel für
 
-• ein bilaterales Oligopol,
-• ein Monopson sowie
-• ein beschränktes Monopol.
+* ein bilaterales Oligopol,
+* ein Monopson sowie
+* ein beschränktes Monopol.
 
 ## Aufgabe 4
 
