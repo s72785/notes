@@ -7,6 +7,7 @@
 * Dauer 	1 Semester
 * Turnus 	Wintersemester (WS)
 * Modulverantwortliche(r): [Prof. Dr. Anja Voß-Böhme](mailto:anja.voss-boehme@htw-dresden.de)
+* Übunsbetreuung:  [Prof. Dr. Anja Voß-Böhme](mailto:anja.voss-boehme@htw-dresden.de), [Dipl.-Math. Thomas Buder](buder@htw-dresden.de)
 * ECTS-Credits 	7
 * Workload 	240 Stunden
 * Präsenzzeit 	6 SWS (4 SWS Vorlesung | 2 SWS Übung | 0 SWS Praktikum | 0 SWS Sonstiges)
