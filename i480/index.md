@@ -40,6 +40,8 @@ Sonstige Kompetenz
 
 Notwendige Voraussetzungen: Schulmathematik (Hochschulzulassung)
 
+Empfohlene Voraussetzungen: [Fachbereichsspezifische Vorebreitungs-Aufgaben](http://www.htw-dresden.de/fakultaet-informatikmathematik/fakultaet/informationen-fuer-studieninteressierte/mathe-vorbereitung/vorbereitungskurse/standard-vorbereitungskurse/vorbereitung-mathematik.html) ([s.a. TeX-Abschrift für Informatik](LIFT_I_WW.tex), [Kurse](http://www.htw-dresden.de/fakultaet-informatikmathematik/fakultaet/informationen-fuer-studieninteressierte/mathe-vorbereitung/vorbereitungskurse.html))
+
 ### Literatur 	
 
 * Papula, L.:Mathematik für Ingenieure und Naturwissenschaftler, Bd. 1-2,13. Aufllage, Vieweg, 2011
@@ -53,3 +55,9 @@ weitere Fachliteratur (Wirtschaftsmathematik, Finanzmathematik, Lineare Algebra,
 
 Hinweise
 
+### Tools
+
+* [OPAL](https://bildungsportal.sachsen.de/opal/dmz/)
+* [Texteditor im Netz](https://pentapad.c3d2.de/ Pentapad)
+* [Online TeX-Hilfe (für insb. Mathematik)](http://atomurl.net/math/), [TeX-Hilfe](http://de.wikipedia.org/wiki/Hilfe:TeX)
+* [Online LaTeX-Editor für alles denkbare](http://www.jaxedit.com/)
