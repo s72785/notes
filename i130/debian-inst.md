@@ -10,6 +10,7 @@
     # workspace
     PACKAGES=$PACKAGES tmux #terminal multiplexer
     PACKAGES=$PACKAGES git  #version control system
+    PACKAGES=$PACKAGES geogebra  #geometry tool for math visualization
     # printers
     PACKAGES=$PACKAGES cups #printer management
     #PACKAGES=$PACKAGES hplip hplip-cups #hp deskjet printers, some laserjet
