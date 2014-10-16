@@ -12,7 +12,7 @@
     PACKAGES=$PACKAGES git  #version control system
     # printers
     PACKAGES=$PACKAGES cups #printer management
-    #PACKAGES=$PACKAGES hplip #hp deskjet printers, some laserjet
+    #PACKAGES=$PACKAGES hplip hplip-cups #hp deskjet printers, some laserjet
     #PACKAGES=$PACKAGES sane #scanning with hp deskjet aio devices
     PACKAGES=$PACKAGES lyx  #tex system, easy to use
     PACKAGES=$PACKAGES geany doc-base #geany editor
@@ -117,6 +117,9 @@
     #modprobe rtl8192ce 
     dhcp wlan0
 
+### Drucker einrichten
+
+* [HP AIO Geräte](https://help.ubuntu.com/community/HpAllInOne#Setup)
 
 ### set links from home to containers
 
