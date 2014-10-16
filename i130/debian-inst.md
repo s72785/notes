@@ -10,7 +10,10 @@
     # workspace
     PACKAGES=$PACKAGES tmux #terminal multiplexer
     PACKAGES=$PACKAGES git  #version control system
+    # printers
     PACKAGES=$PACKAGES cups #printer management
+    #PACKAGES=$PACKAGES hplip #hp deskjet printers, some laserjet
+    #PACKAGES=$PACKAGES sane #scanning with hp deskjet aio devices
     PACKAGES=$PACKAGES lyx  #tex system, easy to use
     PACKAGES=$PACKAGES geany doc-base #geany editor
     #
