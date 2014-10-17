@@ -2,7 +2,11 @@
 
 * [TeX-Formeleditor online](http://atomurl.net/math/)
 * [Math-MOOC](https://iversity.org/my/courses/mathematik-online-kurs-mathematisch-denken-0dfb6483-a44c-4ae1-9a8f-269f26357bed/lesson_units/28907)
-
+* [Mathematik-Online-Kurs: LaTeX - Darstellung mathematischer   Ausdrücke](http://mo.mathematik.uni-stuttgart.de/kurse/kurs44/seite25.html)
+* [LaTeX Befehls-Index](http://www.weinelt.de/latex/)
+* [Eine Übersicht für math. Symbole](http://garsia.math.yorku.ca/MPWP/LATEXmath/latexsym.html)
+* [Unterstreichen und Umrahmen](http://www.jkrieger.de/tools/latex/textlayout.html)
+  
 ## Grundzeichen
 
 LaTeX | Alternativ | Beschreibung
@@ -34,8 +38,8 @@ x_{1,2} =\begin{cases}1 & x>0\\-1 & x<0\end{cases}| | Fallunterscheidung von x1 
 LaTeX | Alternativ | Beschreibung
 :--- | :--- | :--- 
 \under{ABCD} | | unterschreichen
-\underbrace{ABCD}_{test} | | zusammenfassend darunter erklären
-
+\underbrace{ABCD}_{tes} | | zusammenfassend darunter erklären
+\overbrace | |  zusammenfassend darüber erklären
 
 ## Logische Operatoren
 
@@ -56,6 +60,7 @@ LaTeX | Alternativ | Beschreibung
 LaTeX | Alternativ | Beschreibung
 :--- | :--- | :--- 
 \in | | Element von
+\notin | | nicht Elm. von
 \bigtriangleup | \triangle | Symmetrische Differenz
 \setminus | | Differenz
 \cap | | Schnittmenge
