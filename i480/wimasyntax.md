@@ -67,6 +67,7 @@ LaTeX | Alternativ | Beschreibung
 \cup | | Vereinigungsmenge
 \supset | | Obermenge
 \subset | | Untermenge
+\circ | | Verknüpfungskreis (f. Relationen)
 
 ## Geometrie
 
