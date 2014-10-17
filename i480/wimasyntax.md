@@ -29,6 +29,14 @@ x_{1,2} =\begin{cases}1 & x>0\\-1 & x<0\end{cases}| | Fallunterscheidung von x1 
 \infty  | | Unendlich
 \cancel{abc} | \bcancel{abc}, \xcancel{abc} | Streichungen
 
+## Markierungen
+
+LaTeX | Alternativ | Beschreibung
+:--- | :--- | :--- 
+\under{ABCD} | | unterschreichen
+\underbrace{ABCD}_{test} | | zusammenfassend darunter erklären
+
+
 ## Logische Operatoren
 
 LaTeX | Alternativ | Beschreibung
