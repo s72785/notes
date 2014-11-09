@@ -33,3 +33,4 @@ Quellen:
 * [język-polski](http://www.język-polski.de/konjugation.html)
 * [mówić po polsku](http://mowicpopolsku.com/de/polnische-grammatik/)
 * [wiktionary](http://de.wiktionary.org/)
+* [blb.la słownik](http://pl.bab.la/slownik)
