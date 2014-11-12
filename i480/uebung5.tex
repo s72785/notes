@@ -1,0 +1,97 @@
+\documentclass[12pt,a4paper]{scrreprt}
+\usepackage{tikz}
+\usetikzlibrary{positioning,calc}
+\usepackage{amsmath,amssymb,mathrsfs,dsfont}
+\usepackage[latin1]{inputenc}
+\usepackage[ngerman]{babel}
+\oddsidemargin0mm \evensidemargin3mm \textwidth150mm \textheight23cm
+\parindent0mm \pagestyle{empty} \topmargin-1cm
+\newcommand{\E}{\mathds{E}}
+\newcommand{\V}{\mathds{V}}
+\newcommand{\C}{\mathds{C}}
+\newcommand{\N}{\mathds{N}}
+\newcommand{\Z}{\mathds{Z}}
+\newcommand{\R}{\mathds{R}}
+\pagestyle{headings}
+\begin{document} 
+\begin{flushleft}
+Prof. Dr.  Anja Voß-Böhme \\
+Dipl.-Math. Thomas Buder
+\end{flushleft}
+
+\begin{center}{\large\bf Wirtschaftsmathematik I} \\ \\ WS 2014/15 \end{center}
+
+\begin{center}{\large\bf Übung 5 } 
+\end{center}
+
+
+\bigskip
+\begin{enumerate}
+\item Gegeben seien folgende Matrizen. 
+\[A=\begin{pmatrix}
+2 & 4 & 4\\
+3 & -5 & 4\\
+
+\end{pmatrix}, \quad B=\begin{pmatrix}
+2 & 4 & 4\\
+3 & -5 & 4\\
+3 & 4 & 4\\
+\end{pmatrix}, \quad C=\begin{pmatrix}
+1 & 3 & 4\\
+1 & 2 & 4\\
+0 & 4 & 4\\
+\end{pmatrix},\quad D=\begin{pmatrix}
+0 & 3 \\
+1 & 2 \\
+0 & 4 \\
+\end{pmatrix}\]
+Berechnen Sie, falls dies möglich ist. \\
+
+ $A + B$, \quad $A^T$, \quad $B - C$, \quad $AB$, \quad $BA$, \quad $AC^T$, \quad $5A$, \quad $2A+3D^T$
+
+
+
+\item Die Firmen $A,B$ und $C$ beliefern einander und einen Endverbraucher $E$ entsprechend des folgenden
+Gozinto-Graphen (Angaben in entsprechenden Mengeneinheiten). \tikzset{
+  adim/.style={rectangle,minimum width=50,minimum height= 20,draw,thick},
+  nn/.style={rectangle,minimum width=210, minimum height=20,draw,thick},
+}
+
+\begin{tikzpicture}
+  \node (UR) [adim] at (5,4)  {B};
+  \node (UL) [adim] at (-1,4) {A};
+  \node (C)  [adim] at (2,2)  {C};
+  \node (B)  [nn]   at (2,0)  {E};
+\draw[thick,->] (UL.north)  to[out=90, in=180, looseness=6]node[above]{10} (UL.west);
+\draw[thick,->] (UR.north) to[out=90, in=0, looseness=6] node[above]{36} (UR.east);
+\draw[thick,->] ($(UR.west)+(0,0.2)$) -- ($(UL.east)+(0,0.2)$) node[midway,above]{39};
+\draw[thick,->] ($(UL.east)+(0,-0.2)$) -- ($(UR.west)+(0,-0.2)$) node[midway,below]{36};
+\draw[thick,->] (UR) -- ($(B.north)+(3,0)$) node[midway,right]{15};
+\draw[thick,->] (UL) -- ($(B.north)+(-3,0)$) node[midway,left]{14};
+\draw[thick,->] (C) -- ($(B.north)+(0,0)$) node[midway,left]{48};
+\draw[thick,<-] (UR.south west) -- (C.north east) node[midway,above]{10};
+\draw[thick,->] (UR.south) -- (C.south east) node[midway,below]{10};
+\draw[thick,<-] (UL.south east) -- (C.north west) node[midway,above]{12};
+\draw[thick,->] (UL.south) -- (C.south west) node[midway,left]{40};
+\draw[thick,->] ($(C.north east)+(-0.2,0)$) to[out=100,in=80] node[above]{30} ($(C.north west)+(0.2,0)$);
+\end{tikzpicture} 
+		\begin{enumerate}
+			\item Stellen Sie die Informationen des Gozinto-   Graphen in einer Tabelle dar.
+			\item Stellen Sie den Marktvektor, Produktionsvektor und die Verbrauchsmatrix auf.
+			\item Berechnen Sie die Input-Output-Matrix und interpretieren Sie deren Einträge.
+			\item Stellen Sie ein Gleichungssystem auf, aus dem sich die nötige Gesamtproduktion der drei Firmen berechnen lässt, wenn sich die Nachfrage des Produkts von Firma $A$ auf 30, Firma $B$ auf 50 und Firma $C$ auf 60 Einheiten ändert.
+		
+		\end{enumerate}
+\item Gegeben sei der Marktvektor $\bf y$$=\begin{pmatrix}
+2 \\
+3 \\
+5 \\
+\end{pmatrix}$, sowie die Verbrauchsmatrix $\bf X$$=\begin{pmatrix}
+2 & 5 & 7 \\
+3 & 3 & 4\\
+5 & 2 & 5\\
+\end{pmatrix}$.  Berechnen Sie den Produktionsvektor und erstellen sie den zugehörigen Gozinto-Graphen.
+\end{enumerate}
+\end{document}
+
+
