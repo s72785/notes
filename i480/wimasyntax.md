@@ -33,6 +33,7 @@ n! | | n-Fakultät
 x_{1,2} =\begin{cases}1 & x>0\\-1 & x<0\end{cases}| | Fallunterscheidung von x1 und x2
 \infty  | | Unendlich
 \cancel{abc} | \bcancel{abc}, \xcancel{abc} | Streichungen
+\lightning | | Wiederspruchs-Blitz, ben. \usepackage{wasysym}
 
 ## Markierungen
 
