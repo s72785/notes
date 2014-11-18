@@ -1,0 +1,25 @@
+PL | DE | EN
+---|----|----
+truskawka | Erdbeere | strawberrz
+owoc | Obst | fruit
+sos | Soße | sauce
+czosnek | Knoblauch | garlic
+pomidor  | Tomate | tomato
+jagoda | Heidelbeere | huckleberry
+Mięta | Minze | mint
+czarociejka | Zauberin | sorceress
+czarownica | Hexe | witch
+wróżka | Fee | ferry
+jogurt | Joghurt | yoghurt
+jajko | Ei | egg
+czekolada | Schokolade | chocolate
+sok | Saft | juice
+mleko | Milch | milk
+czawna | schwarz | black
+biała | weiß | white
+makowiec | Mohn | poppy
+lubić | mögen | like
+woleć | bevorzugen | prefer
+zrobić | zubereiten | prepare
+ciato | Kuchen | cake
+wspaniała | hervorragend | outstanding
