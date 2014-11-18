@@ -1,3 +1,5 @@
+[Source for this chronological list](http://www.imdb.com/title/tt0434409/quotes)
+
 EN | DE | PL
 ---|---|--- 
 vaudevillian | Varietekünstler | 
