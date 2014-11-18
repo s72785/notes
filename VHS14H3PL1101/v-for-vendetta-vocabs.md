@@ -1,5 +1,5 @@
 EN | DE | PL
--- | -- | -- 
+---|---|--- 
 vaudevillian | Varietekünstler | 
 veteran | Veteran/Kriegsverserter | 
 vicariously | stellvertretend | 
