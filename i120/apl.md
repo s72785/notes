@@ -58,3 +58,7 @@
 
 !! Sie müssen die Funktionsweise Ihres Programms vollständig erklären können. Wer dazu nicht in der Lage ist, erhält die Note 5.
 
+[PAP in LaTeX]:http://www.tex.ac.uk/tex-archive/support/flow/flowdoc.pdf]
+[Struktogramm alias Nasse-Schneiermann-Diagramm in LaTeX]:http://ctan.sharelatex.com/tex-archive/macros/latex/contrib/struktex/struktex.en.pdf
+[Struktogramme in verständlich]:http://www.rhinodidactics.de/Artikel/latex3.html
+[Struktogramme in verständlich II]:http://www.fh-bingen.de/fileadmin/user_upload/Lehrende/Kilsch_Dieter/internet/projekte/TedoGerGra_StAl.pdf
