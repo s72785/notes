@@ -54,7 +54,7 @@
 * Die Funktionen 2-5 dürfen nur ausgeführt werden, wenn der Kunde angemeldet ist. Es muss eine Menüsteuerung implementiert werden.
 * Eigenschaften, die sich aus diesen Anforderungen als selbstverständlich ergeben, müssen bei der Implementierung beachtet werden.
 * Das Programm muss sinnvoll und übersichtlich strukturiert sein. Variablen müssen Datentypen besitzen, die für den angestrebten Zweck sinnvoll sind. Befehle zur Benutzerinteraktion (Eingabe über Tastatur, Ausgabe auf den Bildschirm) dürfen nur in der Menüsteuerung verwendet werden.
-* Die Programmierrichtlinien http://www.informatik.htw-dresden.de/~hollas/P1/Programmierrichtlinien.pdf müssen beachtet werden.
+* Die [Programmierrichtlinien](http://www.informatik.htw-dresden.de/~hollas/P1/Programmierrichtlinien.pdf) müssen beachtet werden.
 
 !! Sie müssen die Funktionsweise Ihres Programms vollständig erklären können. Wer dazu nicht in der Lage ist, erhält die Note 5.
 
