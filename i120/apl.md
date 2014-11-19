@@ -5,7 +5,7 @@
 
 1. Einen neuen Kunden anlegen. Dabei wird dem Kunden eine 4-stellige Kontonummer mitgeteilt, ein Konto mit Guthaben 0 angelegt und eine 4-stellige PIN, bestehend aus den Ziffern 0-9, festgelegt.
 
-    + Hauptmenü
+    + Hauptmenü ([N]eukunde, [B]estandskunde, [P]rogramm beenden)
       - Neukunde anmelden
         + Kundennummer erzeugen
         + Kundennummer speichern
@@ -30,7 +30,7 @@
 
 3. Geld einzahlen, auszahlen und auf ein Konto dieser Bank überweisen. Die Beträge müssen positiv sein und das Konto darf nicht überzogen werden.
 
-      - Kontoübersicht
+      - Kontoübersicht ([G]uthaben, [A]uszahlung, [E]einzahlung, [U]eberweisung, [P]IN aendern)
         + Ausgabe Guthaben
         + Auswahl: Auszahlen
         + Auswahl: Einzahlen
@@ -38,7 +38,7 @@
 
 4. 4-stellige PIN ändern.
 
-        + Auswahl: PIN Ändern
+        + Auswahl: PIN ändern
           - Alte PIN eingeben
           - Neue PIN eingeben
           - Neue PIN bestätigen
@@ -48,7 +48,7 @@
 
 5. Einen Kunden abmelden.
 
-        + Auswahl: Abmelden (auch nach Zeitablauf wäre nett)
+        + Auswahl: [A]bmelden (auch nach Zeitablauf wäre nett)
           - Verabschieden und zurück zum Hauptmenü
 
 * Die Funktionen 2-5 dürfen nur ausgeführt werden, wenn der Kunde angemeldet ist. Es muss eine Menüsteuerung implementiert werden.
