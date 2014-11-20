@@ -19,6 +19,7 @@ lvcreate -n lmde -l 70440 volumes
 swapon /dev/volumes/swap
 mkfs -t ext4 -L root -j /dev/volumes/lmde
 #sudo cryptsetup -c aes-xts-plain64 -s 512 luksFormat /dev/sda2
-mount /dev/volumes/lmde /mnt
-mkdir /mnt/boot
-mount /dev/sda1 /mnt/boot
+mkdir /target
+mount /dev/volumes/lmde /target
+mkdir /target/boot
+mount /dev/sda1 /target/boot
