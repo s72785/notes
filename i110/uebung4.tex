@@ -1,0 +1,129 @@
+Aufgabe 1: Ein Algorithmus in Form eines Flussdiagrammes (PAP) oder Struktogrammes (Nassi-Shneidermann-Diagramm) soll die Umrechnung von Fahrenheit-Werten in Celsius-Werte ermöglichen. Die Variablen lower, upper und step sollen eingelesen werden. Diese Variablen beschreiben in der genannten Reihenfolge die untere und obere Fahrenheit-Temperatur und step die Schrittweite ( 0 < step gefordert). Die Umrechnungsformel lautet: celsius=5.0*(fahrenheit-32.0)/9.0 .
+Von lower bis upper sollen mit der Schrittweite step zu jedem Fahrenheit-Wert der zugehörige Celsius-Wert berechnet und ausgegeben werden. Der Algorithmus kann optional als C-Programm implementiert werden.
+
+    (1)_Start
+    (2)_Input:lower 
+    (1)->(2)
+    (3)_Input:upper
+    (2)->(3)
+    (4)_Input:step 
+    (3)->(4)
+    (6)_Output:(lower-32.0)/1.8  //ungekürzt: 5.0*(fahrenheit-32.0)/9.0
+    (4)->(5)
+    (5)_If(0 < step)?(5)->(6)
+    (5)->(4)
+    (7)_Set:lower+=step
+    (6)->(7)
+    (9)_End
+    (8)_If(lower < upper)?(8)->(6)
+    (8)->(9)
+
+Aufgabe 2: Gegeben sind die drei Koeffizienten a, b, c, wobei diese beliebige reele Werte ha-
+ben können. Gesucht sind alle reellen und komplexen Werte von x, für welche die Gleichung
+a * x2 + b * x + c = 0 erfüllt ist. Im Falle von – 1 setzen Sie den Buchstaben i ein.
+Der Algorithmus kann optional als C-Programm implementiert werden.
+
+Aufgabe 3: Gegeben seien 2 Zeitspannen der Form tag; h; min; sec; msec . Formulieren Sie
+ein Flußdiagramm, welches die Summe der beiden Zeitspannen berechnet und von der Summe
+die tag-, h-, min-, sec- und msec-Werte ausgibt. Für jeden Summanden sind die tag-, h-, min-,
+sec- und msec-Werte am Anfang einzulesen. Für die Werte sind folgende Intervalle einzuhalten:
+0<=tag, 0 <= h<24, 0<= min < 60, 0<= sec < 60, 0<= msec < 1000. Bei der Eingabe wird so-
+lange eine Schleife für jeden Wert durchlaufen, bis der gelesene Wert im angegebenen Intervall
+liegt. Der Algorithmus kann optional als C-Programm implementiert werden.
+
+Aufgabe 4: In unserem Kalender sind zum Ausgleich der astronomischen und kalendarischen
+Jahreslänge in regelmäßigen Abständen Schaltjahre eingebaut. Zur exakten Festlegung der
+Schaltjahre dienen die folgenden Regeln:
+i. Ist die Jahreszahl durch 4 teilbar, so ist das Jahr ein Schaltjahr. Diese Regel hat allerdings eine
+Ausnahme:
+ii. Ist die Jahreszahl durch 100 teilbar, so ist das Jahr kein Schaltjahr. Diese Ausnahme hat wie-
+derum eine Ausnahme:
+iii. Ist die Jahreszahl durch 400 teilbar, so ist das Jahr doch ein Schaltjahr.
+Erstellen Sie ein Flußdiagramm, das berechnet, ob eine vom Benutzer eingegebene Jahreszahl
+ein Schaltjahr ist oder nicht. Der Algorithmus kann optional als C-Programm implementiert
+werden.
+
+Aufgabe 5: Es ist der Funktionswert y = a für a = 4 mit dem sumerisch-babylonischen
+Wurzelziehen (Heron-Verfahren) manuell iterativ für 4 Iterationsschritte (x1, y1) bis (x4, y4)
+zu berechnen, wobei mit dem Iterationsverfahren
+x1 := (x0 + y0) / 2 , y1 := a / x1 bzw. xn+1 := (xn + yn) / 2 , yn+1 := a / xn+1
+gearbeitet werden soll. Für jedes i (1 <= i <= 4) ist xi * yi auszurechnen und zu notieren.
+Alternativ ist x4 mittels der folgenden Formel auszurechnen und zu notieren:
+x0 := a / 2 und xi := ( xi-1 + a / xi-1 ) / 2 , i = 1, 2, 3, ...
+
+Aufgabe 6: Der größte gemeinsame Teiler ist mittels des Euklidischen Algorithmus sowohl
+über ggT(54, 81) manuell rekursiv als auch über Euklid(54, 81) manuell iterativ zu bestimmen:
+long ggT(long n, long m){
+// Rekursiver Algorithmus von Euklid
+if(abs(m)>abs(n)) return abs(ggT(m,n)); // vertauschen von n und m
+if(!m) return abs(n);
+// if(m == 0) return abs(n), Abbruch
+return abs(ggT(m,n%m));
+// rekursiver Schritt
+}
+
+U ebung_4_2013 . fm
+W.Nes tler
+Gr u n d l ag en I n f o r m at i k I - Ü b u n g 4
+long Euklid(long a, long b){
+a = abs(a); b=abs(b);
+while(a*b){
+if(a >= b) a = a % b;
+else b = b % a;
+}
+return a + b;
+}
+// Iterativer Algorithmus von Euklid
+Aufgabe 7: Die Fakultät einer natürlichen Zahl ist wie folgt definiert: 0! = 1 , 1! = 1,
+n! = (n-1)! * n , für n >= 1. Formulieren Sie sowohl ein Struktogramm für die rekursive als auch
+für die iterative Berechnung. Die Algorithmen können optional als C-Programm implementiert
+werden (rekursiv und iterativ).
+Aufgabe 8: Fibonacci - Zahlen F(n) werden für natürliche Zahlen n >= 2 rekursiv über die For-
+mel F(n) := F(n-1) + F(n-2) berechnet, wobei die Anfangswerte F(0) = 0 für n = 0, F(1) = 1 für
+n = 1 gelten. Alternativ analytisch erfolgt die Berechnung von F(n) über die folgende Formel:
+1- --------------- n --------------- n
+F  n  = ------   1 + 5 –  1 – 5 
+-
+-
+ 2  
+5 2 
+Formulieren Sie ein Struktogramm für die rekursive, die analytische und die iterative Berech-
+nung der Fibonacci-Zahlen. Die Algorithmen können optional als C-Programme implemen-
+tiert werden (jeweils rekursiv, analytisch und iterativ).
+
+Aufgabe 9: Die Ackermannsche Funktion ist ein Beispiel für eine totale und berechenbare
+Funktion, die nicht primitiv-rekursiv ist. Diese Funktion ist mehrfach rekursiv:
+Ackermann(m, n) := wenn m == 0, dann n + 1;
+wenn n == 0, dann Ackermann( m - 1, 1)
+sonst Ackermann(m-1, Ackermann(m, n-1))
+
+a.) Rechnen Sie Ackermann(2, 3) manuell aus.
+b.) Formulieren Sie ein Struktogramm zur Berechnung der Ackermannschen Funktion.
+Der rekursive Algorithmus kann optional als C-Programm implementiert werden.
+
+Aufgabe 10:
+Binomialkoeffizienten  n beschreiben die Anzahl der Möglichkeiten, k Elemente aus einer
+ k
+Grundgesamtheit n auszuwählen, wobei immer 0 <= k <= n gelten muß und n und k natürliche
+Zahlen sind. Ein numerisch stabiles Verfahren, um Binomialkoeffizienten zu berechnen, ergibt
+sich aus folgender Formel:  n
+=  n – 1 +  n – 1
+ k
+ k – 1  k 
+Es gilt  n = 1 und  n = n
+ 0
+ 1
+n!
+und  n = ---------------------------
+-
+ k
+ n – k !  k!
+Der Algorithmus ist rekursiv und iterativ zu entwerfen. Beide Algorithmen können optional
+als C-Programme implementiert werden.
+Aufgabe 11: Eine weitere mehrfach rekursive Funktion, ähnlich der Ackermann-Funktion, ist die wie folgt defi-
+nierte Hofstadter-Funktion:
+hof(n) := 1, wenn n<= 2
+hof(n) := hof(n - hof(n-1)) + hof(n - hof(n-2)), wenn n>2
+a.) Rechnen Sie hof(5) manuell aus.
+b.) Formulieren Sie je einen Programmablaufplan für die rekursive und für die iterative Berechnung,
+implementieren Sie optional je ein C-Programm für die rekursive und die iterative Berechnung.
