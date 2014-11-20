@@ -20,6 +20,60 @@
    17  cat /target/etc/fstab
    18  echo /dev/sda1 /boot ext4 errors=remote-ro 0 2 >>/target/etc/fstab
    19  vi /target/etc/fstab 
+   
+   dateien...
+   
+   mint mint # cat /target/etc/fstab
+# UNCONFIGURED FSTAB FOR BASE SYSTEM
+proc		/proc	proc	defaults		0	0
+/dev/sda1	/boot	ext4 	errors=remote-ro 	0 	2
+ef04f7c4-7393-4b54-b847-c9b904476068	swap	none	swap	sw	0	0 
+755ebc0a-a45a-4484-b5f4-c3b6207fb41f	system	none	swap	sw	0	0
+mint mint # cat /target/etc/crypttab 
+# <target name>	<source device>		<key file>	<options>
+hd UUID=442013e9-da40-48b0-b341-5606a0e61199	none	luks
+
+mint mint # cat /target/etc/gr
+groff/  group   group-  grub.d/ 
+mint mint # cat /target/etc/gr
+groff/  group   group-  grub.d/ 
+mint mint # cat /target/etc/de
+debconf.conf    debian_version  default/        deluser.conf    
+mint mint # cat /target/etc/default/grub 
+# If you change this file, run 'update-grub' afterwards to update
+# /boot/grub/grub.cfg.
+# For full documentation of the options in this file, see:
+#   info -f grub -n 'Simple configuration'
+
+GRUB_DEFAULT=0
+GRUB_TIMEOUT=5
+GRUB_DISTRIBUTOR=`lsb_release -i -s 2> /dev/null || echo Debian`
+GRUB_CMDLINE_LINUX_DEFAULT="kopt=root=/dev/mapper/vg--hd-system"
+GRUB_CMDLINE_LINUX=""
+
+# Uncomment to enable BadRAM filtering, modify to suit your needs
+# This works with Linux (no patch required) and with any kernel that obtains
+# the memory map information from GRUB (GNU Mach, kernel of FreeBSD ...)
+#GRUB_BADRAM="0x01234567,0xfefefefe,0x89abcdef,0xefefefef"
+
+# Uncomment to disable graphical terminal (grub-pc only)
+#GRUB_TERMINAL=console
+
+# The resolution used on graphical terminal
+# note that you can use only modes which your graphic card supports via VBE
+# you can see them in real GRUB with the command `vbeinfo'
+#GRUB_GFXMODE=640x480
+
+# Uncomment if you don't want GRUB to pass "root=UUID=xxx" parameter to Linux
+#GRUB_DISABLE_LINUX_UUID=true
+
+# Uncomment to disable generation of recovery mode menu entries
+#GRUB_DISABLE_RECOVERY="true"
+
+# Uncomment to get a beep at grub start
+#GRUB_INIT_TUNE="480 440 1"
+
+
 
 
 sudo -s
