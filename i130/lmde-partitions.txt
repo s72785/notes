@@ -1,6 +1,27 @@
 1: http://forums.linuxmint.com/viewtopic.php?f=197&t=71159
 2: http://www.stura.htw-dresden.de/members/PaulRiegel/os/lmde/log
 
+    1  gdisk -l
+    2  gdisk -l /dev/sda
+    3  sudo cryptsetup -c aes-xts-plain64 -s 512 luksFormat /dev/sda2
+    4  sudo cryptsetup luksOpen /dev/sda2 hd
+    5  sudo pvcreate /dev/mapper/hd
+    6  sudo vgcreate vg-hd /dev/mapper/hd
+    7  sudo lvcreate -L 20G -n swap vg-hd
+    8  sudo mkswap /dev/mapper/swap
+    9  sudo mkswap /dev/mapper/vg--hd-swap 
+   10  sudo lvcreate -L 3000G -n system vg-hd
+   11  sudo lvcreate -l 70440 -n system vg-hd
+   12  sudo mkfs.ext4 /dev/mapper/vg--hd-system
+   13  sudo mkdir /target
+   14  mount /dev/mapper/vg--hd-system /target/
+   15  mkdir /target/boot
+   16  mount /dev/sda1 /target/boot/
+   17  cat /target/etc/fstab
+   18  echo /dev/sda1 /boot ext4 errors=remote-ro 0 2 >>/target/etc/fstab
+   19  vi /target/etc/fstab 
+
+
 sudo -s
 apt-get update
 apt-get install lvm2 squashfs-tools
