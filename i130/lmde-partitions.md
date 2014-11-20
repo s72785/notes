@@ -23,3 +23,10 @@ mkdir /target
 mount /dev/volumes/lmde /target
 mkdir /target/boot
 mount /dev/sda1 /target/boot
+mount
+vi /target/etc/fstab
+blkid /dev/sda2
+vi /target/etc/crypttab
+sudo chroot /target
+aptitude update
+aptitude install 
