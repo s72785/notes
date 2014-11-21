@@ -1,89 +1,162 @@
-Übungsaufgaben (Zahlendarstellung - Teil 1)
+\documentclass[12pt,a4paper]{scrreprt}
+\usepackage{amsmath,amssymb,mathrsfs,dsfont}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage{hyperref}
 
-1. Die Zahl (1997)_10 ist manuell (ohne Rechner) in eine Hexadezimalzahl, eine Dualzahl und eine Oktalzahl zu konvertieren. Das Ergebnis ist durch Rückkonvertierung in das Dezimalsystem auf Korrektheit zu überprüfen.
+\usepackage{color}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\usepackage{listings}
+\lstset{frame=tb,
+  language=C,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+
+\oddsidemargin0mm \evensidemargin3mm \textwidth150mm \textheight23cm
+\parindent0mm \pagestyle{empty} \topmargin-1cm
+\pagestyle{headings}
+
+%euro-zeichen f. utf8
+\usepackage{eurosym}
+\DeclareUnicodeCharacter{20AC}{\euro}
+
+\begin{document}
+
+\begin{flushleft}%https://www.htw-dresden.de/fakultaet-informatikmathematik/personal/professuren/prof-dr-wilfried-nestler.html
+\href{mailto:nestler@informatik.htw-dresden.de}{Prof. Wilfried Nestler}
+\end{flushleft}
+
+\large\textbf{Übungsaufgaben (Zahlendarstellung - Teil 1)}
+
+\begin{enumerate}
+
+%1.
+\item Die Zahl $(1997)_10$ ist manuell (ohne Rechner) in eine Hexadezimalzahl, eine Dualzahl und eine Oktalzahl zu konvertieren. Das Ergebnis ist durch Rückkonvertierung in das Dezimalsystem auf Korrektheit zu überprüfen.
 
 Umwandlung in Hexadezimal:
-
+\[
     1997 : 16 = 124 R 13 -> D
      124 : 16 =   7 R 12 -> C
        7 : 16 =   0 R  7 -> 7
-
+\]
 Probe:
-
+\[
     7*16^2 + 12*16^1 + 13*16^0 = 1997 q.e.d.
+\]
+%2.
+\item Die Zahl $(1997)_10$ ist manuell in eine Zahl mit Basis $20$ und eine Zahl mit Basis $32$ zu konvertieren. Hierzu ist die Tabelle der binären Repräsentation der Hexadezimalziffern $(0)_16 \ldots (F)_16$ bis $(10011)_2 = (J)_20$ bzw. bis $(11111)_2 = (V)_32$ zu erweitern. Aus der Darstellung mit Basis $32$ ist die Dualdarstellung und daraus die Hexadezimal- und die Oktaldarstellung der Zahl $(1997)_10$ zu ermitteln.
 
-2. Die Zahl (1997)_10 ist manuell in eine Zahl mit Basis 20 und eine Zahl mit Basis 32 zu konvertieren. Hierzu ist die Tabelle der binären Repräsentation der Hexadezimalziffern (0)_16 ..(F)_16 bis (10011)_2 = (J)_20 bzw. bis (11111)_2 = (V)_32 zu erweitern. Aus der Darstellung mit Basis 32 ist die Dualdarstellung und daraus die Hexadezimal- und die Oktaldarstellung der Zahl (1997)_10 zu ermitteln.
+%3.
+\item Die Zahl $(1234)_10$ ist im Siebener- und im Vierersystemarzustellen.
 
-3. Die Zahl (1234)_10 ist im Siebener- und im Vierersystemarzustellen.
+%4.
+\item Die Zahl $(430)_10$ ist in eine Dualzahl umzuwandeln. Aus der Dualzahl ist die äquivalenten Hexadezimal- und Oktalzahlzubestimmen. Die ermittelte Dualzahl der Form $z=a n b n +a n-1 b n - 1 + ... +a 2 b 2 +a 1 b 1 + a 0 b 0$ ist über das Horner-Schema $z = ((...(a n b+a n-1 )b+ ... a 2 ) b +a 1 ) b +a 0$ wieder in die Dezimaldarstellung umzuwandeln.
 
-4. Die Zahl (430)_10 ist in eine Dualzahl umzuwandeln. Aus der Dualzahl ist die äquivalenten Hexadezimal- und Oktalzahlzubestimmen. Die ermittelte Dualzahl der Form z=a n b n +a n-1 b n - 1 + ... +a 2 b 2 +a 1 b 1 + a 0 b 0 ist über das Horner-Schema z = ((...(a n b+a n-1 )b+ ... a 2 ) b +a 1 ) b +a 0 wieder in die Dezimaldarstellung umzuwandeln.
+%5.
+\item Die Zahlen sind mit dem Horner-Scema in Dezimalzahlen umzuwandeln: $(375)_8 , (1210)_8 , (888)_9 , (ADA)_16$
 
-5. Die Zahlen sind mit dem Horner-S ch e m a i n D e z i m a l z a hl e n u m z u w a nde l n : (375) 8 , (1210) 8 , ( 8 8 8 ) 9 , ( A D A ) 16
+%6.
+\item Manuell ist $(ABC) 16 + (ABC) 16$ zu berechnen. Die Korrektheit des Ergebnisses ist durch Umwandlung in das Dezimalsystem zu verifizieren.
 
-6. Manuell ist (ABC) 16 + (ABC) 16 zu berechnen. Die Korrektheit des E r g e b nisses ist durch Umwandlung in das Dezimalsyste m z u ve r if iz ie r e n .
+%7.
+\item Die folgenden Zahlen ist in das Dualsystem umzuwandeln: $(0,375)_10$
 
-7. Die folgenden Zahlen ist in das Dualsystem umzuwandeln: (0,375) 10
+%8.
+\item Die folgende Zahl ist in das Fünfersystem umzuwandeln: $(0,24)_10$
 
-8. Die folgende Zahl ist in das Fünfersystem umzuwandeln: (0,24) 10
+%9.
+\item Die folgende Zahl ist in das Oktalsystem umzuwandeln: $(0,2)_10$
 
-9. Die folgende Zahl ist in das Oktalsystem umzuwandeln: (0,2) 1 0
+%10.
+\item Die Zahl $(11,625)_10$ ist als Dual-, Hexadezimal- und Oktalzahl darzustellen.
 
-10. Die Zahl (11,625) 10 ist als Dual-, Hexadezimal- und Oktalzahl darzu- st e l l e n .
+%11.
+\item Die Aufgabe $11+14=25$ soll in binärer Arithmetik gelöst werden.
 
-11. Die Aufgabe 11+14=25 soll in binärer Arithmetik gelöst werden.
-
-12. Die folgenden Aufgaben sind dual zu berechnen, das Ergebnis ist danach dezimal zu verifizieren und hexadezimal und oktaldarzustellen:
-
+%12.
+\item Die folgenden Aufgaben sind dual zu berechnen, das Ergebnis ist danach dezimal zu verifizieren und hexadezimal und oktaldarzustellen:
+\[
 (11011)_2 + (10101)_2
 (11101)_2 - (10010)_2
 (11011)_2 * (10101)_2
 (1001000)_2 : (1000)_2
-
-13 . Die folgenden Aufgaben sind hexadezimal zu berechnen, das Ergebnis ist danach dezimal zu verifizieren:
-
+\]
+%13.
+\item Die folgenden Aufgaben sind hexadezimal zu berechnen, das Ergebnis ist danach dezimal zu verifizieren:
+\[
 (ABC)_16 + (987)_16
 (DDE9)_16 - (3F7B)_16
 (CDE)_16 * (A1)_16
-
-14. Die folgenden Aufgaben sind oktal zu berechnen, das Ergebnis ist danach dezimal zu verifizieren:
-
+\]
+%14.
+\item Die folgenden Aufgaben sind oktal zu berechnen, das Ergebnis ist danach dezimal zu verifizieren:
+\[
 (1775) 8 + (766) 8
 (3321) 8 - (763) 8
 (721) 8 * (72) 8
+\]
+%15.
+\item Die Aufgabe $151.875 + 27.625 = 179.5$ soll in binärer Arithmetik gelöst werden.
 
-15. Die Aufgabe 151.875 + 27.625 = 179.5 soll in binärer Arithmetik gelöst werden.
+%16.
+\item Die Aufgabe $10*13=130$ ist in binärer Arithmetik zu lösen
 
-16. Die Aufgabe 10*13=130 ist in binärer Arithmetik zu lösen
+%17.
+\item Die Aufgabe $17,375*9,75 = 169,40625$ ist in binärer Arithmetik zu lösen.
 
-17. Die Aufgabe 17,375*9,75 = 169,40625 ist in binärer Arithmetik zu lösen.
+%18.
+\item Wenn man eine Dualzahl um $n (n>0)$ Positionen nach links verschiebt und rechts mit $0$ auffüllt, ist das äquivalent der Multiplikation mit $2 n$ . Es ist $15*8$ sowohl mittels dualer Multiplikation als auch mittels Verschiebung nach links auszurechnen.
 
-18. Wenn man eine Dualzahl um n (n>0) Positionen nach links verschiebt und rechts mit 0 auffüllt, ist das äquivalent der M u l t i p l i k a t i o n m i t 2 n . Es ist 15*8 sowohl mittels dualer Mul t i p l i k a t i o n a l s a u ch m i t t el s Verschiebung nach links auszurechnen.
+%19.
+\item Wenn man eine Dualzahl um $n (n>0)$ Positione nnach rechts verschiebt und links m it $0$ auffüllt, ist das äquivalent der Division durch $2n$ . Es ist $1 2 0 / 4$ sowohl mittels dualer Division als auch mittels Verschiebung nach rechts auszurechnen.
 
-19. Wenn man eine Dualzahl um n (n>0) Positione n na c h r e c hts ve r sc hie bt u n d l inks m it 0 auffüllt, ist das äquivalent der Division durch 2 n . E s i s t 1 2 0 / 4 s o w o h l m i t t e l s d ualer Division als auch mittels Verschiebung nach rechts auszurechnen.
-
-20. Eine echt gebrochene Zahl n (n<1)
-
+%20.
+\item Eine echt gebrochene Zahl $n (n<1)$
+\[
 n =
 \Sigma
-bi ⋅ B
+bi \cdot B
 i
-läßt sich mit Hilfe
-i = –M
-des Hornerschem a s w i e f o l g t d ar s t e l l e n :
-n = 1/B*(b -1 + 1 / B * ( b -2 + 1/B*(b -3 + ... + 1/B*(b -M +1 + 1 / B * b -M ) ...)))
+\text{läßt sich mit Hilfe}
+i = -M
+\text{des Hornerschemas wie folgt darstellen:} \\
+n = 1/B*(b -1 + 1 / B * ( b -2 + 1/B*(b -3 + ... + 1/B*(b -M +1 + 1 / B * b -M ) \ldots)))
+\]
 
 Die folgenden Zahlen sind mit dem Hornerschema in Dezimalzahlen zu konvertieren:
 
-    (0,375)_8 = 
-    (0,1210)_10 = 
-    (0,888)_9 = 
-    (0,ADDA)_16 = 
+\begin{enumerate}
+	\item $(0,375)_8$
+	\item $(0,1210)_10$
+	\item $(0,888)_9$
+	\item $(0,ADDA)_16$
+\end{enumerate}
 
-21. Mit dem Zweierkompliment soll die negative Dualzahlz =-1 in einem Bereich von 4 Byte dargestellt wer den. Das Ergebnis ist mit 23^2-|z| zu vergleichen. Das Ergebnis ist zusätzlich in Form von 8 Hexadezimalziffern anzugeben. Wie wird z=|-2^31| dargestellt, auch hexadezimal?
-Wie lautet dual, hexadezimal und dezimal die größte positive Zahl mit Vorzeichen für 4 Byte? Wie lautet der Wertebereich für Zahlen mit Vorzeichen in einem 4 Byte Bereich ?
+%21.
+\item Mit dem Zweierkompliment soll die negative Dualzahl $z =-1$ in einem Bereich von $4$ Byte dargestellt wer den. Das Ergebnis ist mit $23^2-|z|$ zu vergleichen. Das Ergebnis ist zusätzlich in Form von $8$ Hexadezimalziffern anzugeben. Wie wird $z=|-2^31|$ dargestellt, auch hexadezimal?
+Wie lautet dual, hexadezimal und dezimal die größte positive Zahl mit Vorzeichen für $4$ Byte? Wie lautet der Wertebereich für Zahlen mit Vorzeichen in einem $4$ Byte Bereich ?
 
-22. Man stelle (-1)_10 , (-64)_10 und (-128)_10 für ein Byte dual dar.
-
+%22.
+\item Man stelle $(-1)_10, (-64)_10 und (-128)_10$ für $1$ Byte dual dar.
+\[
       (-1)_10 => (11111111)_2
      (-64)_10 => (01000000)_2 xor 255_10 + 1_10 => (10111111)_2 + 1_10 => (11000000)_2
     (-128)_10 => (10000000)_2 xor 255_10 + 1_10 => (01111111)_2 + 1_10 => (10000000)_2
+\]
+\end{enumerate}
+\end{document}
