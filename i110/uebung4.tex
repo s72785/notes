@@ -93,20 +93,7 @@ In unserem Kalender sind zum Ausgleich der astronomischen und kalendarischen Jah
 Erstellen Sie ein Flußdiagramm, das berechnet, ob eine vom Benutzer eingegebene Jahreszahl ein Schaltjahr ist oder nicht. Der Algorithmus kann optional als C-Programm implementiert werden.
 
     int schaltjahr(int jahr){
-      if(jahr%4){
-        if(jahr%100){
-          return -1;
-        }else{
-          if(jahr%100){
-            return 0;
-          }else{
-            return -1;
-          }
-        }
-      }else{
-        return -1;
-      }
-      //return (jahr%4)==0 && !((jahr%100)==0 && !((jahr%400)==0))
+      return !(jahr%4) && ((jahr%100) || !(jahr%400));
     }
 
 ## Aufgabe 5
