@@ -1,3 +1,38 @@
+\documentclass[12pt,a4paper]{scrreprt}
+\usepackage{amsmath,amssymb,mathrsfs,dsfont}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage{hyperref}
+\usepackage{color}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\usepackage{listings}
+\lstset{frame=tb,
+language=C,
+aboveskip=3mm,
+belowskip=3mm,
+showstringspaces=false,
+columns=flexible,
+basicstyle={\small\ttfamily},
+numbers=none,
+numberstyle=\tiny\color{gray},
+keywordstyle=\color{blue},
+commentstyle=\color{dkgreen},
+stringstyle=\color{mauve},
+breaklines=true,
+breakatwhitespace=true,
+tabsize=3
+}
+\oddsidemargin0mm \evensidemargin3mm \textwidth150mm \textheight23cm
+\parindent0mm \pagestyle{empty} \topmargin-1cm
+\pagestyle{headings}
+%euro-zeichen f. utf8
+\usepackage{eurosym}
+\DeclareUnicodeCharacter{20AC}{\euro}
+
+\begin{document}
+
 1. Die Zahlen +0 , -0 , +\infty , -\infty, not a number, 64.625, 75.4, -2 sind als 32-Bit Gleitpunktzahlen zu schreiben.s
 
     +0
@@ -50,3 +85,5 @@ Anzahl der Nachkommastellen im Zielsystem ? 10
 2 Ueberlauf 2
 0 * 16 =
 0 Ue berl auf 0
+
+\end{document}
