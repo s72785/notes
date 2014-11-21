@@ -106,13 +106,12 @@ $ x0 := a / 2 und xi := ( xi-1 + a / xi-1 ) / 2 , i = 1, 2, 3, ... $
 
 Der größte gemeinsame Teiler ist mittels des Euklidischen Algorithmus sowohl über ggT(54, 81) manuell rekursiv als auch über Euklid(54, 81) manuell iterativ zu bestimmen:
 
-    long ggT(long n, long m){
-      // Rekursiver Algorithmus von Euklid
-      if(abs(m)>abs(n)) return abs(ggT(m,n)); // vertauschen von n und m
-      if(!m) return abs(n);
-      // if(m == 0) return abs(n), Abbruch
-      return abs(ggT(m,n%m));
-      // rekursiver Schritt
+\begin{lstlisting}
+
+    long ggT(long n, long m){                   // Rekursiver Algorithmus von Euklid
+      if(abs(m)>abs(n)) return abs(ggT(m,n));   // vertauschen von n und m
+      if(!m) return abs(n);                     // if(m == 0) return abs(n), Abbruch
+      return abs(ggT(m,n%m));                   // rekursiver Schritt
     }
 
     long Euklid(long a, long b){
@@ -122,8 +121,9 @@ Der größte gemeinsame Teiler ist mittels des Euklidischen Algorithmus sowohl �
         else b = b % a;
       }
       return a + b;
-    }
-    // Iterativer Algorithmus von Euklid
+    }     // Iterativer Algorithmus von Euklid
+    
+\end{lstlisting}
 
 ## Aufgabe 7
 
