@@ -1,0 +1,153 @@
+\documentclass[12pt,a4paper]{scrreprt}
+\usepackage{tikz}
+\usetikzlibrary{positioning,calc}
+\usepackage{amsmath,amssymb,mathrsfs,dsfont}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage{color}
+\oddsidemargin0mm \evensidemargin3mm \textwidth150mm \textheight23cm
+\parindent0mm \pagestyle{empty} \topmargin-1cm
+\newcommand{\E}{\mathds{E}}
+\newcommand{\V}{\mathds{V}}
+\newcommand{\C}{\mathds{C}}
+\newcommand{\N}{\mathds{N}}
+\newcommand{\Z}{\mathds{Z}}
+\newcommand{\R}{\mathds{R}}
+\pagestyle{headings}
+\begin{document} 
+\begin{flushleft}
+Prof. Dr.  Anja Voß-Böhme \\
+Dipl.-Math. Thomas Buder
+\end{flushleft}
+
+\begin{center}
+{ \large\bf Wirtschaftsmathematik I} \\
+WS 2014/15 \end{center}
+
+\begin{center}{\large\bf Übung 6 } 
+\end{center}
+
+
+\bigskip
+\begin{enumerate}
+	\item	Gegeben seien die Vektoren
+		$a=\begin{pmatrix}
+			3 \\
+			2\\
+			0
+		\end{pmatrix}$,
+        $b=\begin{pmatrix}
+			-2 \\
+			4\\
+			0
+		\end{pmatrix}$ und
+        $c=\begin{pmatrix}
+			1 \\
+			0\\
+			-3
+		\end{pmatrix}.$
+	\begin{enumerate}
+		\item Berechnen Sie die Länge der Vektoren $a$, $a+b$ sowie $a^0:=\frac{a}{|a|}$.
+        
+        %\begin{mbox}
+        \begin{equation}
+        	|a| = \sqrt{3^2+2^2+0^2} = \sqrt{9+4} = \sqrt{13} \\
+    	    |a+b| = sqrt{(a_1+b_1)^2+(a_2+b_2)^2+(a_3+b_3)^2} =  \\
+	        a^0=\frac{a}{|a|}=1 \\
+        \end{equation}
+        %\end{mbox}}
+        
+\item Berechnen Sie die Skalarprodukte $a^Tb$ und  $b^Ta$.
+
+%----------------------------
+        \begin{equation}
+a \circ b = 3*-2+2*4 = -6+8 = 2 \\
+
+        \end{equation}
+%----------------------------
+
+\item Welchen Winkel schließen die Vektoren $a$ und  $b$
+ ein?
+\item Berechnen Sie die Länge des Vektors $d=a+2b-c.$
+\item Bestimmen Sie einen Vektor $f$, der dieselbe Länge wie $a$ besitzt, jedoch parallel zu $b$ verläuft.
+\item Stellen Sie den Vektor $a$ dar als die Summe zweier Vektoren $g$ und $h$, so dass $g$ parallel zu $b$ verläuft und $h$ senkrecht zu $b$ verläuft. \\
+(Hinweis: Man bezeichnet $g$ dann als Projektion des Vektors $a$ in Richtung des Vektors $b$.)
+
+\end{enumerate}
+\item
+ Für  $x \in \R$ seien die Vektoren
+$a=\begin{pmatrix}
+1 \\
+2x\\
+3
+
+\end{pmatrix}$ und $b=\begin{pmatrix}
+1 \\
+x\\
+x
+
+\end{pmatrix}$
+gegeben.
+\begin{enumerate}
+\item  Für welche $x \in \R$ stehen die Vektoren
+$a$ und $b$
+senkrecht aufeinander?
+\item Bestimmen Sie $x$ so, dass die Vektoren $a$ und $b$ linear abhängig sind.
+\item Für welche $x$ stehen die Vektoren $a$ und $b$ senkrecht zum Vektor \\$c=\begin{pmatrix}
+1 \\
+-2\\
+-1
+
+\end{pmatrix}?$
+\end{enumerate}
+\item
+
+ Gegeben seien die Vektoren
+$a=\begin{pmatrix}
+2 \\
+4\\
+0
+
+\end{pmatrix}$,  $b=\begin{pmatrix}
+0 \\
+-3\\
+0
+
+\end{pmatrix}$ und $c=\begin{pmatrix}
+1 \\
+0\\
+-2
+
+\end{pmatrix}.$
+\begin{enumerate}
+	\item Untersuchen Sie, ob die Vektoren $a$, $b$ und $c$ linear unabhängig sind.
+	\item Bilden die Vektoren $a$, $b$ und $c$ eine Basis von $\R^3$?
+	\item Stellen Sie den Vektor $a$, wenn möglich, als Linearkombination der Vektoren $b$ und $c$ dar.
+\end{enumerate}
+	\item Berechnen Sie die Determinanten folgender Matrizen!
+	\begin{enumerate}
+		\item $A=\begin{pmatrix}
+			-2 & 3  \\
+			4 & 5\\
+		\end{pmatrix}$
+		\item  $B=\begin{pmatrix}
+			1 & 1   \\
+			-2 & -2\\
+		\end{pmatrix}$
+		\item $C=\begin{pmatrix}
+			3 & 1 & 0  \\
+			-1 & 2 & 4 \\
+			4 & 1 & 5
+		\end{pmatrix}$
+	\end{enumerate}
+	\item Für welche Zahl $x \in \R$ gilt
+	\[
+    	\det \begin{pmatrix}
+			-x & 2 & -1 \\
+			-1 & 3x & x \\
+			1 & -2 & 0
+		\end{pmatrix} =0?
+    \]
+\end{enumerate}
+\end{document}
+
