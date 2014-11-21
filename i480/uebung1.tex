@@ -24,89 +24,95 @@ Dipl.-Math. Thomas Buder
 
 \bigskip
 \begin{enumerate}
- 				\item 
-			Prüfen Sie mit Hilfe einer Wahrheitstafel, ob die folgende Aussagen stets wahr sind.
-				
-				 \begin{enumerate}
-				 	\item   $A \wedge \overline{\overline{A} \Rightarrow B} $
-	\item   $(A \Rightarrow B) \Leftrightarrow ( \overline{B} \Rightarrow \overline{A}) $
-	\item   $\left( (A \vee B) \wedge ( A \Leftrightarrow \overline{C})\right)  \Rightarrow ( \overline{B \wedge C}) $
-\end{enumerate}
 
-\item Vereinfachen Sie diese logischen Ausdrücke durch Umformungen so weit wie möglich.
-			\begin{enumerate}
-					\item   $\overline{ \overline{A} \wedge \overline{B}}$
-				 	\item   $A \wedge \left( \left(B \wedge \overline{A}) \vee (C \wedge B) \right)$
-					\item $(A \wedge B) \vee (\overline{A} \wedge B) \vee (A \wedge \overline{B}) \vee \overline{ A \vee  B}$
-					
-\end{enumerate}
- \item Finden Sie eine Aussage $S$, die folgenden Wahrheitstabellen entspricht. Vereinfachen Sie diese so weit wie möglich.
+ 	\item 	Prüfen Sie mit Hilfe einer Wahrheitstafel, ob die folgende Aussagen stets wahr sind.
+
+	\begin{enumerate}
+	 	\item   $A \wedge \overline{\overline{A} \Rightarrow B} $
+		\item   $(A \Rightarrow B) \Leftrightarrow ( \overline{B} \Rightarrow \overline{A}) $
+		\item   $\left( (A \vee B) \wedge ( A \Leftrightarrow \overline{C})\right)  \Rightarrow ( \overline{B \wedge C}) $
+	\end{enumerate}
+
+	\item Vereinfachen Sie diese logischen Ausdrücke durch Umformungen so weit wie möglich.
+	
+	\begin{enumerate}
+		\item   $\overline{ \overline{A} \wedge \overline{B}}$
+	 	\item   $A \wedge \left( \left(B \wedge \overline{A}) \vee (C \wedge B) \right)$
+		\item $(A \wedge B) \vee (\overline{A} \wedge B) \vee (A \wedge \overline{B}) \vee \overline{ A \vee  B}$
+	\end{enumerate}
+	
+ 	\item Finden Sie eine Aussage $S$, die folgenden Wahrheitstabellen entspricht. Vereinfachen Sie diese so weit wie möglich.
 
 \begin{center}
-\begin{enumerate}
-\item \begin{tabular}{c c | c}
-					A & B & S \\
-					\hline 
-							0	&0	&1 \\
-							0	&1	&1 \\
-							1	&0	&1 \\
-							1	&1	&0 
-							\end{tabular}
-  \item 
+
+	\begin{enumerate}
+		\item
+			\begin{tabular}{c c | c}
+				A & B & S \\
+				\hline 
+				0	&0	&1 \\
+				0	&1	&1 \\
+				1	&0	&1 \\
+				1	&1	&0 
+			\end{tabular}
+
+		\item 
 	
 			\begin{tabular}{c c c| c}
-					A & B & C &S \\
-					\hline
-					0	&0	&0	&0 \\
-					0	&0	&1	&0 \\
-					0	&1	&0	&1 \\
-					0	&1	&1	&1 \\
-					1	&0	&0	&0 \\
-					1	& 0	&1	&1 \\
-					1	&1	& 0	&0 \\
-					1	&1	&1	&1 
+				A & B & C &S \\
+				\hline
+				0	&0	&0	&0 \\
+				0	&0	&1	&0 \\
+				0	&1	&0	&1 \\
+				0	&1	&1	&1 \\
+				1	&0	&0	&0 \\
+				1	& 0	&1	&1 \\
+				1	&1	& 0	&0 \\
+				1	&1	&1	&1 
 			\end{tabular}
 	
-\end{enumerate}
-\end{center}
-     
-
-
+	\end{enumerate}
+	\end{center}
 
     \item Es wird eine Menge $M$ betrachtet. $A$ und $B$ seien beliebige Teilmengen von $M$.  Gesucht wird die Menge aller Elemente von $M$, die
-		\begin{enumerate}
-						\item  nicht \textit{nur zu $A$ oder nur zu $B$} gehören,
-						\item  \textit{entweder nur zu $A$ oder nur zu $B$} gehören,
-						\item nicht \textit{gleichzeitig zu $A$ und $B$} gehören,
-						\item zu \textit{$A$ gehören, aber nicht zu $B$},
-						\item \textit{nicht zu $A^C$, aber zu $B$} gehören.
-		 \end{enumerate}
-	 Geben Sie die jeweiligen Mengen an und veranschaulichen Sie diese in einem Venn-Diagramm.
-	 
-   
-	  \item Gegeben sei die Menge $M=\{i \in \N | 1 \leq i \leq 15\}$ sowie zugehörige Teilmengen \\
-    \[A=\{1,3,5,7,9,11,13\}, \quad B=\{6,8,10,12\}, \quad C=\{2,3,5,12,13\}.\] 
-    Bestimmen Sie
-		 \begin{enumerate} 
-		 \item $A \cup B, \quad A \cap B, \quad  A^C, \quad C^C, \quad C^C \cap B, \quad B^C \cup C$
-		 \item  $M \backslash B^C, \quad C \backslash A, \quad \left(M \backslash C^C \right) \cap C, \quad B \backslash \left(A \cup C\right)^C.$
-		 \end{enumerate}
-		 \item Gegeben sei die Menge $M = \{T, 1, 2, 3 \}$. Geben Sie die Potenzmenge   
-		       von $M$ an.
-		 \item $A$, $B$ und $C$ seien beliebige Mengen. Untersuchen Sie die folgenden 							Gleichungen und begründen Sie mittels Venn-Diagrammen, welche der 									Beziehungen wahr und welche falsch sind.
-		 				\begin{enumerate}
-		 				\item $(A \backslash B) \cup (B \backslash A) = (A \cup B) \backslash (A                    \cap B)$
-						\item $A \cup (B \backslash C) = (A \cup B) \backslash (C \backslash A)$
-					\end{enumerate}
-								\item Für zwei Mengen $A$ und $B$ ist die symmetrische Differenz     
-								durch
-						\[A \Delta B := (A \backslash B) \cup (B \backslash A)\]
-						erklärt. Veranschaulichen Sie sich diese Definition mittels 
-						Venn-Diagramm. 
-						Gibt es Mengen $M$ und $N$, so dass $A\Delta M = A$ 
-						beziehungsweise $A \Delta N = \emptyset$?		
-					
-		
+
+	\begin{enumerate}
+		\item  nicht \textit{nur zu $A$ oder nur zu $B$} gehören,
+		\item  \textit{entweder nur zu $A$ oder nur zu $B$} gehören,
+		\item nicht \textit{gleichzeitig zu $A$ und $B$} gehören,
+		\item zu \textit{$A$ gehören, aber nicht zu $B$},
+		\item \textit{nicht zu $A^C$, aber zu $B$} gehören.
+	\end{enumerate}
+	
+	Geben Sie die jeweiligen Mengen an und veranschaulichen Sie diese in einem Venn-Diagramm.
+
+	\item Gegeben sei
+	die Menge $M=\{i \in \N | 1 \leq i \leq 15\}$
+	sowie zugehörige Teilmengen \\
+    		\[
+    		A=\{1,3,5,7,9,11,13\}, \quad
+    		B=\{6,8,10,12\}, \quad
+    		C=\{2,3,5,12,13\}.
+    		\] 
+	Bestimmen Sie
+		\begin{enumerate} 
+			\item $A \cup B, \quad A \cap B, \quad  A^C, \quad C^C, \quad C^C \cap B, \quad B^C \cup C$
+			\item  $M \backslash B^C, \quad C \backslash A, \quad \left(M \backslash C^C \right) \cap C, \quad B \backslash \left(A \cup C\right)^C.$
+		\end{enumerate}
+		\item Gegeben sei die Menge $M = \{T, 1, 2, 3 \}$. Geben Sie die Potenzmenge von $M$ an.
+		\item $A$, $B$ und $C$ seien beliebige Mengen. Untersuchen Sie die folgenden 							Gleichungen und begründen Sie mittels Venn-Diagrammen, welche der 									Beziehungen wahr und welche falsch sind.
+			\begin{enumerate}
+				\item $(A \backslash B) \cup (B \backslash A) = (A \cup B) \backslash (A                    \cap B)$
+				\item $A \cup (B \backslash C) = (A \cup B) \backslash (C \backslash A)$
+			\end{enumerate}
+		\item Für zwei Mengen $A$ und $B$ ist die symmetrische Differenz durch
+			\[
+			A \Delta B := (A \backslash B) \cup (B \backslash A)
+			\]
+			erklärt. Veranschaulichen Sie sich diese Definition mittels Venn-Diagramm. 
+			Gibt es Mengen $M$ und $N$, so dass $A\Delta M = A$ 
+			beziehungsweise $A \Delta N = \emptyset$?		
+
     \end{enumerate}
 
 \end{document}
