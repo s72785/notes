@@ -27,8 +27,7 @@
 # UNCONFIGURED FSTAB FOR BASE SYSTEM
 proc		/proc	proc	defaults		0	0
 /dev/sda1	/boot	ext4 	errors=remote-ro 	0 	2
-ef04f7c4-7393-4b54-b847-c9b904476068	swap	none	swap	sw	0	0 
-755ebc0a-a45a-4484-b5f4-c3b6207fb41f	system	none	swap	sw	0	0
+/dev/sda2	system	none	ext4	sw	0	0
 mint mint # cat /target/etc/crypttab 
 # <target name>	<source device>		<key file>	<options>
 hd UUID=442013e9-da40-48b0-b341-5606a0e61199	none	luks
