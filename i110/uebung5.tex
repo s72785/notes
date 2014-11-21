@@ -2,12 +2,21 @@
 \usepackage{amsmath,amssymb,mathrsfs,dsfont}
 \usepackage[utf8]{inputenc}
 \usepackage[ngerman]{babel}
-\usepackage{hyperref}
-
+\usepackage[pdfborderstyle={/S/U/W 1}]{hyperref}
+\usepackage[markup=nocolor,deletedmarkup=xout]{changes}
+\usepackage{siunitx}
+\usepackage{struktex}
 \usepackage{color}
 \definecolor{dkgreen}{rgb}{0,0.6,0}
 \definecolor{gray}{rgb}{0.5,0.5,0.5}
 \definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric}% für ellipse
+\newcommand\mrahmen[3][]{%
+  \tikz[anchor=base,baseline]\node[inner sep=2pt,draw=#2,#1]{$\displaystyle#3\mathstrut$};}
+\colorlet{mfarbe}{red}
+\newcommand{\kringel}[1]{\mrahmen[circle]{mfarbe}{#1}}
 
 \usepackage{listings}
 \lstset{frame=tb,
@@ -33,22 +42,28 @@
 
 %euro-zeichen f. utf8
 \usepackage{eurosym}
-\DeclareUnicodeCharacter{20AC}{\euro}
+\newcommand{\Lsg}{\par \textbf{Lsg.: }}
+\newcommand{\Byte}{\,Byte}
+\newcommand{\Bit}{\,Bit}
+
+\input binhex
 
 \begin{document}
+
+\large{\textbf{Übungsaufgaben} (Zahlendarstellung - Teil~5)}
 
 \begin{enumerate}
 
 \item Aufgabe %1:
 
-Die Funktion $ e^x $ ist wie folgt über eine unendliche Reihe definiert:
+Die Funktion $ e^x $ ist wie folgt über eine unendliche Reihe definiert: \\
 
-\[
+\begin{math}
 e^x = 1 + \frac{x^1}{1!} + \frac{x^2}{2!} + \frac{x^3}{3!} + \frac{x^4}{4!} + ...
 = \Sigma_{n=0}^{\infty} \frac{x^n}{n!}
-\]
+\end{math}
 
-Formulieren Sie einen Algorithmus in Form eines Flußdiagrammes, der die Berechnung der Summe abbricht, wenn zwei aufeinanderfolgende Summen eine Differenz kleiner als $\epsilon$ haben.
+\par Formulieren Sie einen Algorithmus in Form eines Flussdiagrammes, der die Berechnung der Summe abbricht, wenn zwei aufeinanderfolgende Summen eine Differenz kleiner als $\epsilon$ haben.
 Die Varaible $x$ und $\epsilon$ (z.B. $10^{-8}$ ) sind einzulesen. Der genäherte Wert für $ e^x $ und das erreichte $ n $ sind auszugeben.
 
 \begin{lstlisting}
@@ -67,7 +82,7 @@ Die Varaible $x$ und $\epsilon$ (z.B. $10^{-8}$ ) sind einzulesen. Der genähert
 
 \item Aufgabe %2:
 
-Die folgenden Summen sind solange zu berechnen, bis der Absolutbetrag des Quotienten eines Summanden und der bisherigen Summe kleiner einer vorher eingelesenen positiven Schranke Epsilon ist. Die Algorithmen sollen als Struktogramme bzw. Flußdiagramme bzw. Programmablaufpläne formuliert werden, optional können C-Programme formuliert werden.
+Die folgenden Summen sind solange zu berechnen, bis der Absolutbetrag des Quotienten eines Summanden und der bisherigen Summe kleiner einer vorher eingelesenen positiven Schranke Epsilon ist. Die Algorithmen sollen als Struktogramme bzw. Flussdiagramme bzw. Programmablaufpläne formuliert werden, optional können C-Programme formuliert werden.
 
 \begin{enumerate}
 
@@ -102,39 +117,40 @@ Die folgenden Summen sind solange zu berechnen, bis der Absolutbetrag des Quotie
 Auf Produkte x, y und z gibt es bei einem Händler folgende Rabatte:
 Beim Kauf von Produkt x gilt:
 Bis zum 9.Stck. gibt es keinen Rabatt, für das 10. - 19.Stück gibt es 10\% Rabatt pro Stück.
-Für das 20. - 39.Stück gibt es 15\% Rabatt pro Stück.
-Für das 40. - 49.Stück gibt es nur noch 5\% Rabatt pro Stück.
-Für das 50.Stück und weitere Stücke des Produktes x gibt es keinen Rabatt mehr.
+Für 20. - 39.Stück gibt es 15\% Rabatt pro Stück.
+Für \numrange{40}{49} Stück 40. - 49.Stück gibt es nur noch 5\% Rabatt pro Stück.
+Für \si{50}{Stück} und weitere Stücke des Produktes x gibt es keinen Rabatt mehr.
 Beim Kauf von Produkt y gilt:
-Ab 6. Stück gibt es 5,- € Rabatt pro Stück für alle Stücke von 1 an.
-Ab 10. Stück gibt es 10,- € Rabatt pro Stück für alle Stücke von 1 an.
-Der Gesamtrabatt für Produkt y ist auf maximal 140 € beschränkt.
+Ab \si{6}{Stück} gibt es \EUR{5,-} Rabatt pro Stück für alle Stücke von 1 an.
+Ab \si{10}{Stück} gibt es \EUR{10,-} Rabatt pro Stück für alle Stücke von 1 an.
+Der Gesamtrabatt für Produkt y ist auf maximal \EUR{140} beschränkt.
 Beim Kauf von Produkt z gilt:
 Auf jedes Stück gibt es 8\% Rabatt, ab 25. Stück gibt es keinen Rabatt mehr.
-Für die drei Produkte x, y und z gemeinsam ist die Gesamtrabattsumme auf 500,- €
-beschränkt, d.h. beim Überschreiten von 500,- € Gesamtrabattsumme für einen Warenkorb
+Für die drei Produkte $x, y$ und $z$ gemeinsam ist die Gesamtrabattsumme auf \EUR{500}
+beschränkt, d.h. beim Überschreiten von \EUR{500} Gesamtrabattsumme für einen Warenkorb
 aus x,y und z gibt es keinen Rabatt mehr !
-Es ist ein Flußdiagramm zu formulieren, welches die Anzahl der gekauften Produkte von
-x, y und z und die Preise/Produkt von x, y und z jeweils getrennt einliest und aufgrund der
+Es ist ein Flussdiagramm zu formulieren, welches die Anzahl der gekauften Produkte von
+x, y und z und die Preise/Produkt von $x, y$ und $z$ jeweils getrennt einliest und aufgrund der
 genannten Vorgaben algorithmisch den Gesamtpreis sowohl ohne als auch mit Rabatt ermittelt
 und ausgibt. Der Geldbetrag des erzielten Rabatts ist ebenfalls auszugeben. Beim Einlesen soll si-
-chergestellt werden, daß Anzahl 0 und Preis  0,- € ist.
+chergestellt werden, dass Anzahl 0 und Preis \EUR{500} ist.
 Optional kann der Algorithmus als ein C-Programm geschrieben werden.
 
 \item Aufgabe %4:
 
 (a) Führen Sie das Siebverfahren des Eratosthenes manuell auf Papier für die natürlichen Zahlen von 1 bis 60 durch.
 
-\begin{lstlisting}
- -1-   2   3   -4-   5   -6-   7   -8-   -9-  -10-
-11  -12-  13  -14-  -15-  -16-  17  -18-  19  -20-
--21-  -22-  23  -24-  -25-  -26-  -27-  -28-  29  -30-
-31  -32-  -33-  -34-  -35-  -36-  37  -38-  -39-  -40-
-41  -42-  43  -44-  -45-  -46-  47  -48-  -49-  -50-
--51-  -52-  53  -54-  -55-  -56-  -57-  -58-  59  -60-
-\end{lstlisting}
+\begin{tabular}{cccccccccc}
+ \xout{1}  &   \kringel{2}  &   \kringel{3}  &   \xout{4}  &   \kringel{5}  &   \xout{6}  &   \kringel{7}  &   \xout{8}  &   \xout{9}  &  \xout{10} \\
+\mrahmen[circle]{mfarbe}{11}  &  \xout{12}  &  \kringel{13}  &  \xout{14}  &  \xout{15}  &  \xout{16}  &  \kringel{17}  &  \xout{18}  &  \kringel{19}  &  \xout{20} \\
+ \xout{21}  &  \xout{22}  &  \kringel{23}  &  \xout{24}  &  \xout{25}  &  \xout{26}  &  \xout{27}  &  \xout{28}  &  \kringel{29}  &  \xout{30} \\
+ \kringel{31}  &  \xout{32}  &  \xout{33}  &  \xout{34}  &  \xout{35}  &  \xout{36}  &  \kringel{37}  &  \xout{38}  &  \xout{39}  &   \xout{40} \\
+\mrahmen[circle]{mfarbe}{41}  &  \xout{42}  &  \kringel{43}  &  \xout{44}  &  \xout{45}  &  \xout{46}  &  \kringel{47}  &  \xout{48}  &  \xout{49}  &  \xout{50} \\
+ \xout{51}  &  \xout{52}  &  \kringel{53}  &  \xout{54}  &  \xout{55}  &  \xout{56}  &  \xout{57}  &  \xout{58}  &  \kringel{59}  &  \xout{60} \\
+\end{tabular}
 
-(b) Formulieren Sie einen Programmablaufplan bzw. ein Flußdiagramm bzw. ein Struktogramm, welches das Siebverfahren von Eratosthenes bis n (n > 0) realisiert.
+
+(b) Formulieren Sie einen Programmablaufplan bzw. ein Flussdiagramm bzw. ein Struktogramm, welches das Siebverfahren von Eratosthenes bis n (n > 0) realisiert.
 
     solange i<n
       j = wähle nöchste zahl aus ungestrichenen zahlen
@@ -143,20 +159,20 @@ Optional kann der Algorithmus als ein C-Programm geschrieben werden.
 
 (c) Führen Sie das optimierte Verfahren, \href{run:Algorithmen_Heron_Euklid_Prim.pdf}{Algorithmen}, S. 11, Vorlesung 4 manuell auf Papier für die natürlichen Zahlen von 1 bis 60 durch.
 
-(d) Formulieren Sie einen Programmablaufplan bzw. ein Flußdiagramm bzw. ein Struktogramm, welches das optimierte Verfahren bis n (n > 0) realisiert.
+(d) Formulieren Sie einen Programmablaufplan bzw. ein Flussdiagramm bzw. ein Struktogramm, welches das optimierte Verfahren bis n (n > 0) realisiert.
 
 (e) optional: Schreiben Sie ein C-Programm zum Sieb- und zum optimierten Verfahren
 
 \item Aufgabe %5:
 
 Man teste den rekursiven Algorithmus zur Bestimmung der Primfaktoren am
-Beispiel PFR(330). Es ist ein Programmablaufplan bzw. ein Flußdiagramm bzw. ein Strukto-
+Beispiel PFR(330). Es ist ein Programmablaufplan bzw. ein Flussdiagramm bzw. ein Strukto-
 gramm zu formulieren, welches das rekursive Verfahren beschreibt.
 
 \item Aufgabe %6:
 
 Man teste den iterativen Algorithmus zur Bestimmung der Primfaktoren am
-Beispiel primefactorization(330). Es ist ein Programmablaufplan bzw. ein Flußdia-
+Beispiel primefactorization(330). Es ist ein Programmablaufplan bzw. ein Flussdia-
 gramm bzw. ein Struktogramm zu formulieren, welches das iterative Verfahren beschreibt.
 
 \item Aufgabe %7:
@@ -193,7 +209,7 @@ Removeall(inout: start)
 
 \item Aufgabe %8:
 
-Gesucht ist ein Algorithmus in Form eines Flußdiagrammes, Programmablaufpla-
+Gesucht ist ein Algorithmus in Form eines Flussdiagrammes, Programmablaufpla-
 nes oder Struktogrammes zur Berechnung von
 \[
 sin(x)=\Sigma_{i=0}^{\infty} (-1)^i \cdot \frac{x^{2 \cdot i+1}}{(2 \cdot i + 1)!}
@@ -204,7 +220,7 @@ positiven Schranke epsilon ist. Formulieren Sie den Algorithmus optional als C-P
 
 \item Aufgabe %9:
 
-Es ist je ein Flußdiagramm für folgende Aufgaben zu formulieren, wobei die Vek-
+Es ist je ein Flussdiagramm für folgende Aufgaben zu formulieren, wobei die Vek-
 toren, Matrizen und deren Grenzen als Parameter gegeben sind, die Zulässigkeit der mathema-
 tischen Operation (korrekte Indexe) ist jedoch zu überprüfen:
 Skalarprodukt zweier Vektoren, Summe zweier Vektoren, Multiplikation Matrix mit Vektor,
