@@ -1,0 +1,106 @@
+\documentclass[12pt,a4paper]{scrreprt}
+\usepackage{tikz}
+\usetikzlibrary{positioning,calc}
+\usepackage{amsmath,amssymb,mathrsfs,dsfont}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\oddsidemargin0mm \evensidemargin3mm \textwidth150mm \textheight23cm
+\parindent0mm \pagestyle{empty} \topmargin-1cm
+\newcommand{\E}{\mathds{E}}
+\newcommand{\V}{\mathds{V}}
+\newcommand{\C}{\mathds{C}}
+\newcommand{\N}{\mathds{N}}
+\newcommand{\Z}{\mathds{Z}}
+\newcommand{\R}{\mathds{R}}
+\pagestyle{headings}
+\begin{document} 
+\begin{flushleft}
+Prof. Dr.  Anja Voß-Böhme \\
+Dipl.-Math. Thomas Buder
+\end{flushleft}
+
+\begin{center}{\large\textbf Wirtschaftsmathematik I} \\ WS 2014/15 \end{center}
+
+\begin{center}
+\large{\textbf{ Übung 7 }} 
+\end{center}
+
+
+\bigskip
+\begin{enumerate}
+\item Berechnen Sie -möglichst geschickt- die Determinanten folgender Matrizen!
+\begin{enumerate}
+\item $A=\begin{pmatrix}
+0 & 0 & 2 & 5 \\
+0 & 7 & 1 & -4  \\
+-1 & 3 & 2 & 4\\
+0 & 0 & 0 & 4 \\
+\end{pmatrix}$
+\item $B=\begin{pmatrix}
+0 & 0 & -1 & 0 \\
+0 & 7 & 3 & 0  \\
+2 & 1 & 2 & 0\\
+5 & -4 & 4 & 4 \\
+\end{pmatrix}$
+\item $C=\begin{pmatrix}
+0 & 0 & -3 & 0 \\
+0 & 21 & 9 & 0  \\
+6 & 3 & 6 & 0\\
+15 & -12 & 12 & 12 \\
+\end{pmatrix}$
+\end{enumerate}
+\item Für welche $a,b \in \R$ ist $A=\begin{pmatrix}
+a & 2 & 3 \\
+a & 3 & 4\\
+a & 3 & 5
+\end{pmatrix}$ die Inverse der Matrix \\ $B=\begin{pmatrix}
+3 & -1 & -1 \\
+-1 & b+1 &-1\\
+0 & -1 & b
+\end{pmatrix}$ ?
+\item 
+ Gegeben sei die Matrix
+$A=\begin{pmatrix}
+-2 & 3 & 3 \\
+0 & 1 & 1\\
+0 & -1 & -3
+\end{pmatrix}.$
+\begin{enumerate}
+\item Prüfen Sie, ob die inverse Matrix $A^{-1}$ existiert.
+\item Berechnen Sie die inverse Matrix $A^{-1}$ mit Hilfe von Unterdeterminanten.
+\item Führen Sie eine Probe durch, ob die Inverse korrekt ist.
+\end{enumerate}
+\item Bestimmen Sie alle  reellwertigen 2$\times$2-Matrizen, die zu sich selbst invers sind.
+\item
+Für welches $a \in \R$ ist folgendes Gleichungssystem eindeutig lösbar? Lösen Sie für diesen Fall unter Verwendung der \textsc{Cramer'schen} Regel.
+\begin{align*}
+					 ax+y &= 3 \\
+					-2x +y &=-1
+\end{align*}
+\item 
+Lösen Sie folgendes Gleichungssystem  unter Verwendung der \textsc{Cramer'schen} Regel.
+\begin{align*}
+					 -z &= -y-2x+1 \\
+					-x-y+z +y &=	y+2z+1	\\
+						x+y &= 2z+2
+\end{align*}
+
+
+%\item Berechnen Sie mit Hilfe des Gauß-Algorithmus, für welche reellen Zahlen $a,b$ das lineare Gleichungssystem
+%
+		%\begin{align*}
+					 %x-2y+3z &= -4 \\
+					%2x +y +z &=  2 \\
+					%x + ay + 2z &= -b			
+		 %\end{align}
+%
+%\begin{enumerate}
+%\item genau eine Lösung hat.
+%\item keine Lösung hat.
+%\item unendlich viele Lösungen hat.
+%
+%\end{enumerate}
+%Geben Sie die für jeden Fall die Lösungen an.
+
+\end{enumerate}
+\end{document}
