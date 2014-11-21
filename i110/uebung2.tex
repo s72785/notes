@@ -3,213 +3,484 @@
 \usepackage[utf8]{inputenc}
 \usepackage[ngerman]{babel}
 \usepackage[pdfborderstyle={/S/U/W 1}]{hyperref}
+\usepackage{siunitx}
+\usepackage{struktex}
 \usepackage{color}
 \definecolor{dkgreen}{rgb}{0,0.6,0}
 \definecolor{gray}{rgb}{0.5,0.5,0.5}
 \definecolor{mauve}{rgb}{0.58,0,0.82}
+
 \usepackage{listings}
 \lstset{frame=tb,
-language=C,
-aboveskip=3mm,
-belowskip=3mm,
-showstringspaces=false,
-columns=flexible,
-basicstyle={\small\ttfamily},
-numbers=none,
-numberstyle=\tiny\color{gray},
-keywordstyle=\color{blue},
-commentstyle=\color{dkgreen},
-stringstyle=\color{mauve},
-breaklines=true,
-breakatwhitespace=true,
-tabsize=3
+  language=C,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
 }
+
 \oddsidemargin0mm \evensidemargin3mm \textwidth150mm \textheight23cm
 \parindent0mm \pagestyle{empty} \topmargin-1cm
 \pagestyle{headings}
+
 %euro-zeichen f. utf8
 \usepackage{eurosym}
 \DeclareUnicodeCharacter{20AC}{\euro}
+\newcommand{\Lsg}{\par \textbf{Lsg.: }}
+\newcommand{\Byte}{\,Byte}
+\newcommand{\Bit}{\,Bit}
+
+\input binhex
 
 \begin{document}
 
-\large{\textbf{Übungsaufgaben} ( Zahlendarstellung - Teil 2)}
+\large{\textbf{Übungsaufgaben} (Zahlendarstellung - Teil~2)}
 
 \begin{enumerate}
 
 %1.
-\item Die Zahlen $312_(4), AB1_(12), AFFE_(16), 7777_(8)$ sind im Dezimalsystem darzustellen.
+\item Die Zahlen $312_4, \text{AB1}_{12}, \text{AFFE}_{16}, 7777_8$ sind im Dezimalsystem darzustellen.
+
+%--------------------------
+\Lsg%--------------------------
 
 %2.
 \item In welchem Zahlensystem stellt folgende Gleichung $42 + 242 = 16 2$ eine wahre Aussage dar?
 
+%--------------------------
+\Lsg%--------------------------
+
 %3.
-\item Die Zahlen $1573,4_(8), ABC,CBA_(16), 1011.1101_(2), 0,4_(8)$ sind als Dual-, Dezimal- und als Hexadezimalzahlen darzustellen.
+\item Die folgenden Zahlen sind als Dual-, Dezimal- und als Hexadezimalzahlen darzustellen.
+
+\begin{enumerate}
+\item $1573,4_8$,
+\item $\text{ABC,CBA}_{16}$,
+\item $1011.1101_2$,
+\item $0,4_8$
+\end{enumerate}
+
+%--------------------------
+\Lsg%--------------------------
 
 %4.
 \item Die folgenden Aufgaben sind zu lösen, indem die Dezimalzahlen zuerst in das Dualsystem und dann im Dualsystem die Addition durchzuführen ist:
 
 \begin{enumerate}
-\item $123_(10) + 204_(10)$
-\item $15_(10) + 31_(10)$
-\item $105_(10) + 21_(10)$
+\item $123_{10} + 204_{10}$
+
+%--------------------------
+\Lsg%--------------------------
+
+\item $15_{10} + 31_{10}$
+
+%--------------------------
+\Lsg%--------------------------
+
+\item $105_{10} + 21_{10}$
+
+%--------------------------
+\Lsg%--------------------------
+
 \end{enumerate}
 
 %5.
-\item Die Zahlen sind mit dem Horner-Schema in Dezimalzahlen umzuwandeln: $0, 371_(8), 0,FFFF_(16), 0,110011_(2), ABD,DE_(16)$
+\item Die Zahlen sind mit dem Horner-Schema in Dezimalzahlen umzuwandeln:
+
+\begin{enumerate}
+\item ${0,371}_8$,
+\item $\text{0,FFFF}_{16}$,
+\item ${0,110011}_2$,
+\item $\text{ABD,DE}_{16}$
+\end{enumerate}
+
+%--------------------------
+\Lsg%--------------------------
 
 %6.
-\item Die Zahl $1100011100,1011011011_(2)$ ist als Oktal- und als Hexadezimalzahl durch Abtrennung von je 3 bzw. 4\,Bits darzustellen. Der Wert als Dezimalzahl ist zu bestimmen.
+\item Die Zahl ${1100011100,1011011011}_2$ ist als Oktal- und als Hexadezimalzahl durch Abtrennung von je~3 bzw. \si{4}{\Bit} darzustellen. Der Wert als Dezimalzahl ist zu bestimmen.
+
+%--------------------------
+\Lsg%--------------------------
 
 %7.
-\item Zu den folgenden Zahlen ist das B-Komplement bzgl. der Länge von 2 Byte zu bestimmen. Wie lautet der Dezimalwert der Ausgangszahl
+\item Zu den folgenden Zahlen ist das B-Komplement bzgl. der Länge von \si{2}{\Byte} zu bestimmen. Wie lautet der Dezimalwert der Ausgangszahl
 und des B-Komplements unter Beachtung des Vorzeichenbits?
 
 \begin{enumerate}
-\item $10101_(2)$,
-\item $785_(10)$,
-\item $AFFE_(16)$,
-\item $453_(16)$,
-\item $124_(5)$
+\item $10101_2$,
+
+%--------------------------
+\Lsg%--------------------------
+
+\item $785_{10}$,
+
+%--------------------------
+\Lsg%--------------------------
+
+\item $\text{AFFE}_{16}$,
+
+%--------------------------
+\Lsg%--------------------------
+
+\item $453_{16}$,
+
+%--------------------------
+\Lsg%--------------------------
+
+\item $124_{5}$
+
+%--------------------------
+\Lsg%--------------------------
+
 \end{enumerate}
 
 %8.
-\item Die folgenden Differenzen sind als Dualzahlen im B-Komplement für 8 Bit zu notieren und zu addieren. Das Ergebnis ist in das Dezimalsystem zu konvertieren:
+\item Die folgenden Differenzen sind als Dualzahlen im B-Komplement für \si{8}{\Bit} zu notieren und zu addieren. Das Ergebnis ist in das Dezimalsystem zu konvertieren:
 
 \begin{enumerate}
-\item $57_( 10) - 122_(10)$,
-\item $43_(10) - 11_(10)$,
-\item $17_(10) - 109_(10)$
+\item $57_{10} - 122_{10}$,
+
+%--------------------------
+\Lsg%--------------------------
+
+\item $43_{10} - 11_{10}$,
+
+%--------------------------
+\Lsg%--------------------------
+
+\item $17_{10} - 109_{10}$
+
+%--------------------------
+\Lsg%--------------------------
+
 \end{enumerate}
 
 %9.
-\item Man berechne $777_(8) + 777_(8)$ im Oktalsystem und durch Umwandlung in das Dual-, Dezimal- und Hexadezimalsystem.
+\item Man berechne $777_8 + 777_8$ im Oktalsystem und durch Umwandlung in das Dual-, Dezimal- und Hexadezimalsystem.
+
+%--------------------------
+\Lsg%--------------------------
 
 %10.
-\item Man berechne $AFFE_(16) + AFFE_(16)$ im Hexadezimalsystem und durch Umwandlung in das Dual-, Dezimal- und Oktalsystem.
+\item Man berechne $\text{AFFE}_{16} + \text{AFFE}_{16}$ im Hexadezimalsystem und durch Umwandlung in das Dual-, Dezimal- und Oktalsystem.
+
+%--------------------------
+\Lsg%--------------------------
 
 %11.
-\item Man berechne $3210_(4) + 3210_(4)$ im Vierersystem und wandle das Ergebnis in das Dual-, Dezimal-, Hexadezimal- und Oktalsystem um.
+\item Man berechne $3210_4 + 3210_4$ im Vierersystem und wandle das Ergebnis in das Dual-, Dezimal-, Hexadezimal- und Oktalsystem um.
+
+%--------------------------
+\Lsg%--------------------------
 
 %12.
 \item Mittels der Konvertierung durch sukzessive Multiplikation und Addition gemäß Folie 30 sind die Zahlen wie folgt zu konvertieren.
 
 \begin{enumerate}
-\item $11100_(2)$ nach Basis 10
-\item $555_(6)$ nach Basis 6
+\item $11100_2$ nach Basis 10
+
+%--------------------------
+\Lsg%--------------------------
+
+\item $555_6$ nach Basis 6
+
+%--------------------------
+\Lsg%--------------------------
+
 \item $0110110_2$ nach Basis 4
+
+%--------------------------
+\Lsg%--------------------------
+
 \end{enumerate}
 
 
-( 0 1 1 0 110) 2 nach (
-
 %1 3 .
-\item Z u f o lgenden Z ahlen ist die f loat - Da r ste llung (IEEE- For m at ) a nz u-
-g e b e n : 125.875 , -13.888 , 0.3, 0.01953125 , - 2.25
+\item Zu folgenden Zahlen ist die float-Darstellung (IEEE-Format) anzugeben:
 
-%1 4 .
-\item D i e Z ahl -32768 ( 10) ist als e ine inte r n im Re c hne r ge spe ic he r te 16 Bit -
-Bi n ä r - und H exadezimalzah l ( im B- Komple me nt) da r z uste lle n.
+\begin{enumerate}
+\item 125.875,
 
-%1 5 .
-\item I n e i n e r vorzeich enb ehaftete n 2 Byt e - Va r ia ble n se i r e c hne r inte r n de r
-W e r t 1000 0000 0000 1111 ( 2) ge spe ic he r t. Ma n ge be die he xa de z ima le
-D a r st e llung an. Man w andle de n binä r e n W e r t in e ine n de z ima le n
-Z a h l e nw ert m it korrektem V or z e ic he n um.
+%--------------------------
+\Lsg%--------------------------
 
-%1 6 .
-\item I n e i n er vorzeichenbehaftete n 2 Byte Va r ia ble n se i r e c hne r inte r n de r
-W e r t A 000 ( 16) gespeichert. Ma n ge be die binä r e Da r ste llung a n.
-M a n w andle den hexadezim ale n W e r t in e ine n de z ima le n Za hle nwe r t
-m i t k o rrektem V orzeichen um.
+\item -13.888,
+
+%--------------------------
+\Lsg%--------------------------
+
+\item 0.3,
+
+%--------------------------
+\Lsg%--------------------------
+
+\item 0.01953125,
+
+%--------------------------
+\Lsg%--------------------------
+
+\item -2.25
+
+%--------------------------
+\Lsg%--------------------------
+
+\end{enumerate}
+
+%14.
+\item Die Zahl $-32768_{10}$ ist als eine intern im Rechner gespeicherte \si{16}{\Bit}-Binär- und Hexadezimalzahl (im B-Komplement) darzustellen.
+
+%--------------------------
+\Lsg%--------------------------
+
+%15.
+\item In einer vorzeichenbehafteten \si{2}{\Byte}-Variablen sei rechnerintern der
+Wert $(1000 0000 0000 1111)_2$ gespeichert.
+
+\begin{enumerate}
+\item Man gebe die hexadezimale Darstellung an.
+\item Man wandle den binären Wert in einen dezimalen Zahlenwert mit korrektem Vorzeichenum.
+\end{enumerate}
+
+%--------------------------
+\Lsg%--------------------------
+
+%16.
+\item In einer vorzeichenbehafteten \si{2}{\Byte} Variablen seirechner intern der Wert $\text{A000}_{16}$ gespeichert.
+\begin{enumerate}
+\item Man gebe die binäre Darstellung an.
+\item Man wandle den hexadezimalen Wert in einen dezimalen Zahlenwert mit korrektem Vorzeichen um.
+\end{enumerate}
+
+%--------------------------
+\Lsg%--------------------------
 
 %17.
-\item M i t t e ls der K onvertierung dur c h sukz e ssive Multiplika tion und Additio n
-g e m ä ß F olie 30 sind die Z ah le n
-)2
-2 1 8 3 ( 1 0 ) nach (
-)4
-2 1 8 3 ( 1 0 ) nach (
-)8
-2 1 8 3 ( 1 0 ) nach (
-) 16 zu konve r tie r e n.
-2 1 8 3 ( 1 0 ) nach (
+\item Mittels der Konvertierung durch sukzessive Multiplikation und Addition
+gemäß Folie~30 ist die Zahl $2183_{10}$ in folgende Basen zu konvertieren.
 
-%1 8 .
-\item Ma n s chreibe die größten u nd kle inste n Za hle n binär , a ls Expone ntial -
-a u sd rü cke von 2, als D ezimalzahle n und a ls He xade zimalzahle n ,
-j e w e i ls mit und oh n e V orzeic he n, f ür 1 Byt e ( c har , unsigne d c har) ,
-2 B y t e ( sh ort, u n sign ed sh or t) , 4 Byt e (int , long, unsigne d int ,
-u n si g ned lon g) und 8 B yte ( long long , unsigne d long long) a uf und
-b e g r ü n de das V orgehen.
-M i t H ilfe der C - O peratoren < < , siz e of , ~ , * , - e r mittle ma n in je
-e i n e m A usdruck für die T ype n unsigne d c har , unsigne d shor t,
-u n si g ned in t, u n sign ed lon g und unsigne d long long die gr ößte n
-sp e i c herbaren Werte als D u a lz a hle n.
-W e l c he Werte sind die m inima l spe ic he r ba r ?
-F ü r d ie m it V orzeich en verse he ne n Type n c har , shor t, int , long und
-l o n g l on g ermittle m an ebenf a lls in je e ine m Ausdr uc k die minima le n
-u n d d ie m aximalen Werte als Dua lz a hle n.
-M a n schreibe hierzu ein C -Pr ogr am m und gebe für alle Typen die mini-
-m a l e n und m aximalen Werte mitte ls pr int f de z ima l ( mit Vor z e ic he n)
-u n d h exadezim al aus.
+\begin{enumerate}
+\item 2
+
+%--------------------------
+\Lsg%--------------------------
+
+\item 4
+
+%--------------------------
+\Lsg%--------------------------
+
+\item 8
+
+%--------------------------
+\Lsg%--------------------------
+
+\item 16
+
+%--------------------------
+\Lsg%--------------------------
+
+\end{enumerate}
+
+%18.
+\item Man schreibe die größten und kleinsten Zahlen binär, als Exponential-
+ausdrücke von 2, als Dezimalzahlen und als Hexadezimalzahlen,
+jeweils mit und ohne Vorzeichen, für \si{1}{\Byte} (char, unsigned char),
+\si{2}{\Byte} (short, unsigned short), \si{4}{\Byte} (int, long, unsigned int,
+unsigned long) und \si{8}{\Byte} (long long, unsigned long long) auf und
+begründe das Vorgehen.
+Mit Hilfe der C-Operatoren <<, sizeof, ~, *, - ermittle man in je
+einem Ausdruck für die Typen unsigned char, unsigned short,
+unsigned int, unsigned long und unsigned long long die größten
+speicherbaren Werte als Dualzahlen.
+Welche Werte sind die minimal speicherbar ?
+Für die mit Vorzeichen versehenen Typen char, short, int, long und
+long long ermittle man ebenfalls in je einem Ausdruck die minimalen
+und die maximalen Werte als Dualzahlen.
+Man schreibe hierzu ein C-Programm und gebe für alle Typen die minimalen und maximalen Werte mittels printf dezimal (mit Vorzeichen)
+und hexadezimal aus.
+
 Die
 von
 von
 Für
-% F ormatangab en von pr int f la ute n f ür die de z im ale Da r ste llung
-c har, sh ort , in t %d bz w. %u , von long % ld bz w. %lu ,
-l on g lon g % lld bzw . % llu .
-d ie A usgaben w ird %X, %lX und %llX ve r we nde t.
-B e i sp iel: prin tf(" max. sign e d long- We rt = % 20ld % 20lX\n", slo, slo);
+\% Formatangaben von printf lauten für die dezimale Darstellung
+char, short, int \%d bzw. \%u, von long \%ld bzw. \%lu,
+long long \%lld bzw. \%llu .
+die Ausgaben wird \%X, \%lX und \%llX verwendet.
 
-%1 9 .
-\item M a n w andele folgende D ezima lz a hle n in da s Dua l- und da s He xa -
-d e z i m a lsystem um:
-a . ) 3 5 ,75
-b.) -12,95
-c .) - 711,125
-d.) 29,6875
-e .) 5,7
-2 0 . M a n t ransform iere in das De z ima l- , Okta l- und He xa de z ima lsyste m:
-b.) 11,00011 (2)
-c .) 221,1122 (4)
-a . ) 1 1 0101,010111 ( 2)
-2 1 . M a n t ransformiere in das Dua l- , Okta l- und De z ima lsyste m:
-b.) 3C,FF (16)
-c .) 33,0002 (4)
-a . ) A B ,C D E ( 16)
+\par \textbf{ Beispiel: }
 
-2 2 . M a n t ransformiere in das Dua lsyste m:
-b.) 0,0C3D (16)
-a . ) B 3C ,F E ( 16)
-c .) 76,AEB (16)
+\begin{lstlisting}
+printf(" max. signed long-Wert = \% 20ld \% 20lX\\n", slo, slo);
+\end{lstlisting}
 
-2 3 . M a n berechne im D ualsystem a+ b, a- b , a*b, a/b mit a= 1000111,01 (2)
-u n d b = 11,11 ( 2) . Man überpr üf e die Re c hnung de z ima l.
+%--------------------------
+\Lsg%--------------------------
 
-2 4 . Ma n f ühre in der Z w eierkomple me ntda r ste llung ( 8 Bit) ga nz e r Dua l-
-z a h l e n folgende B erechnunge n dur c h. Es ist a nz uge be n, ob e in Übe r la u f
-v o r l i e gt (mit B egründung). Ande r e nf a lls ist da s Re sulta t dur c h Konve r -
-t i e r u n g in das D ezim alsyste m z u kontr ollie r e n:
-a . ) 3 7 - 16
-b.) - 64 - 65
-c .) 49 + 105
-d . ) 4 9 - 105
-e .) - 33 + 64
-f .) 33 - 64
+%19.
+\item Man wandele folgende Dezimalzahlen in das Dual- und das Hexadezimalsystem um:
 
-2 5 . Ma n s telle folgende D ezim alz a hle n f ür f loat ( 32 Bit ) im IEEE- For ma t
-d a r . F a lls notw endig, ist auf die nä c hstge le ge ne da r ste llba r e Za hl z u
-r u n d e n:
-a . ) 3 5 ,75
-b.) -0,95
-c .) - 711
-d.) 0,3 e .) 8,125
+\begin{enumerate}
+\item $3 5 ,75$
+\item $-12,95$
+\item $-711,125$
+\item $29,6875$
+\item $5,7$
+\end{enumerate}
+
+%--------------------------
+\Lsg%--------------------------
+
+%20.
+\item Man transformiere in das Dezimal-, Oktal- und Hexadezimalsystem:
+
+\begin{enumerate}
+\item $(11,00011)_2$
+
+%--------------------------
+\Lsg%--------------------------
+
+\item $(221,1122)_4$
+
+%--------------------------
+\Lsg%--------------------------
+
+\item $(110101,010111)_2$
+
+%--------------------------
+\Lsg%--------------------------
+
+\end{enumerate}
+
+%21.
+\item Man transformiere in das Dual-, Oktal- und Dezimalsystem:
+
+\begin{enumerate}
+\item $\text{3C,FF}_{16}$
+
+%--------------------------
+\Lsg%--------------------------
+
+\item $33,0002_4$
+
+%--------------------------
+\Lsg%--------------------------
+
+\item $\text{AB,CDE}_{16}$
+
+%--------------------------
+\Lsg%--------------------------
+
+\end{enumerate}
+
+%22.
+\item Man transformiere in das Dualsystem:
+
+\begin{enumerate}
+\item $\text{0,0C3D}_{16}$
+
+%--------------------------
+\Lsg%--------------------------
+
+\item $\text{B3C,FE}_{16}$
+
+%--------------------------
+\Lsg%--------------------------
+
+\item $\text{76,AEB}_{16}$
+
+%--------------------------
+\Lsg%--------------------------
+
+\end{enumerate}
+
+%23.
+\item Man berechne im Dualsystem $a+ b, a- b , a*b, a/b$ mit $a= 1000111,01_2$
+und $b = 11,11_2$ . Man überprüfe die Rechnung dezimal .
+
+%--------------------------
+\Lsg%--------------------------
+
+%24.
+\item Man führe in der Zweierkomplementdarstellung (\si{8}{\Bit}) ganzer Dualzahlen folgende Berechnungen durch. Es ist anzugeben, ob ein Überlauf
+vorliegt (mit Begründung). Anderenfalls ist das Resultat durch Konvertierung in das Dezimalsystem zu kontrollieren:
+
+\begin{enumerate}
+\item 37 - 16
+
+%--------------------------
+\Lsg%--------------------------
+
+\item - 64 - 65
+
+%--------------------------
+\Lsg%--------------------------
+
+\item 49 + 105
+
+%--------------------------
+\Lsg%--------------------------
+
+\item 49 - 105
+
+%--------------------------
+\Lsg%--------------------------
+
+\item -33 + 64
+
+%--------------------------
+\Lsg%--------------------------
+
+\item 33 - 64
+
+%--------------------------
+\Lsg%--------------------------
+
+\end{enumerate}
+
+%2 5 .
+\item Man stelle folgende Dezimalzahlen für float (\si{32}{\Bit}) im IEEE-Format dar. Falls notwendig, ist auf die nächstgelegene darstellbare Zahl zu runden:
+
+\begin{enumerate}
+\item 3 5 ,75
+
+%--------------------------
+\Lsg%--------------------------
+
+\item -0,95
+
+%--------------------------
+\Lsg%--------------------------
+
+\item -711
+
+%--------------------------
+\Lsg%--------------------------
+
+\item 0,3
+
+%--------------------------
+\Lsg%--------------------------
+
+\item 8,125
+
+%--------------------------
+\Lsg%--------------------------
+
+\end{enumerate}
 
 %26.
-\item Man wandle folgende im 32-Bit-Format der IEEE-Norm angegebenen
-Zahlen für in Dezimalzahlen und den Rest in Ausdrücke von Dualzahlen in Potenzschreibweise um:
+\item Man wandle folgende im \si{32}{\Bit}-Format der IEEE-Norm angegebenen Zahlen für in Dezimalzahlen und den Rest in Ausdrücke von Dualzahlen in Potenzschreibweise um:
 
 \item 
 \item 
@@ -229,6 +500,9 @@ Zahlen für in Dezimalzahlen und den Rest in Ausdrücke von Dualzahlen in Potenz
 \item 
 \item 
 \item 
+
+%--------------------------
+\Lsg%--------------------------
 
 \end{enumerate}
 
