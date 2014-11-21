@@ -1,3 +1,38 @@
+\documentclass[12pt,a4paper]{scrreprt}
+\usepackage{amsmath,amssymb,mathrsfs,dsfont}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage{hyperref}
+\usepackage{color}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\usepackage{listings}
+\lstset{frame=tb,
+language=C,
+aboveskip=3mm,
+belowskip=3mm,
+showstringspaces=false,
+columns=flexible,
+basicstyle={\small\ttfamily},
+numbers=none,
+numberstyle=\tiny\color{gray},
+keywordstyle=\color{blue},
+commentstyle=\color{dkgreen},
+stringstyle=\color{mauve},
+breaklines=true,
+breakatwhitespace=true,
+tabsize=3
+}
+\oddsidemargin0mm \evensidemargin3mm \textwidth150mm \textheight23cm
+\parindent0mm \pagestyle{empty} \topmargin-1cm
+\pagestyle{headings}
+%euro-zeichen f. utf8
+\usepackage{eurosym}
+\DeclareUnicodeCharacter{20AC}{\euro}
+
+\begin{document}
+
 Aufgabe 1: Ein Algorithmus in Form eines Flussdiagrammes (PAP) oder Struktogrammes (Nassi-Shneidermann-Diagramm) soll die Umrechnung von Fahrenheit-Werten in Celsius-Werte ermöglichen. Die Variablen lower, upper und step sollen eingelesen werden. Diese Variablen beschreiben in der genannten Reihenfolge die untere und obere Fahrenheit-Temperatur und step die Schrittweite ( 0 < step gefordert). Die Umrechnungsformel lautet: celsius=5.0*(fahrenheit-32.0)/9.0 .
 Von lower bis upper sollen mit der Schrittweite step zu jedem Fahrenheit-Wert der zugehörige Celsius-Wert berechnet und ausgegeben werden. Der Algorithmus kann optional als C-Programm implementiert werden.
 
@@ -185,3 +220,5 @@ hof(n) := hof(n - hof(n-1)) + hof(n - hof(n-2)), wenn n>2
 
 a.) Rechnen Sie hof(5) manuell aus.
 b.) Formulieren Sie je einen Programmablaufplan für die rekursive und für die iterative Berechnung, implementieren Sie optional je ein C-Programm für die rekursive und die iterative Berechnung.
+
+\end{document}
