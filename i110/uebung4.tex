@@ -33,7 +33,9 @@ tabsize=3
 
 \begin{document}
 
-Aufgabe 1: Ein Algorithmus in Form eines Flussdiagrammes (PAP) oder Struktogrammes (Nassi-Shneidermann-Diagramm) soll die Umrechnung von Fahrenheit-Werten in Celsius-Werte ermöglichen. Die Variablen lower, upper und step sollen eingelesen werden. Diese Variablen beschreiben in der genannten Reihenfolge die untere und obere Fahrenheit-Temperatur und step die Schrittweite ( 0 < step gefordert). Die Umrechnungsformel lautet: celsius=5.0*(fahrenheit-32.0)/9.0 .
+\begin{enumerate}
+\item Aufgabe %1:
+Ein Algorithmus in Form eines Flussdiagrammes (PAP) oder Struktogrammes (Nassi-Shneidermann-Diagramm) soll die Umrechnung von Fahrenheit-Werten in Celsius-Werte ermöglichen. Die Variablen lower, upper und step sollen eingelesen werden. Diese Variablen beschreiben in der genannten Reihenfolge die untere und obere Fahrenheit-Temperatur und step die Schrittweite ( 0 < step gefordert). Die Umrechnungsformel lautet: celsius=5.0*(fahrenheit-32.0)/9.0 .
 Von lower bis upper sollen mit der Schrittweite step zu jedem Fahrenheit-Wert der zugehörige Celsius-Wert berechnet und ausgegeben werden. Der Algorithmus kann optional als C-Programm implementiert werden.
 
     (1)_Start
@@ -53,7 +55,7 @@ Von lower bis upper sollen mit der Schrittweite step zu jedem Fahrenheit-Wert de
     (8)_If(lower < upper)?(8)->(6)
     (8)->(9)
 
-## Aufgabe 2
+\item Aufgabe %2
 
 Gegeben sind die drei Koeffizienten $ a, b, c$, wobei diese beliebige reele Werte haben können. Gesucht sind alle reellen und komplexen Werte von $ x $, für welche die Gleichung $ a * x^2 + b * x + c = 0 $ erfüllt ist. Im Falle von $ \sqrt{–1} $ setzen Sie den Buchstaben $ i $ ein.
 Der Algorithmus kann optional als C-Programm implementiert werden.
@@ -66,7 +68,7 @@ Der Algorithmus kann optional als C-Programm implementiert werden.
       return x;
     }
 
-## Aufgabe 3
+\item Aufgabe %3
 
 Gegeben seien 2 Zeitspannen der Form tag; h; min; sec; msec . Formulieren Sie ein Flußdiagramm, welches die Summe der beiden Zeitspannen berechnet und von der Summe die tag-, h-, min-, sec- und msec-Werte ausgibt. Für jeden Summanden sind die tag-, h-, min-, sec- und msec-Werte am Anfang einzulesen. Für die Werte sind folgende Intervalle einzuhalten: $ 0<=tag$, $ 0 <= h<24$, $ 0<= min < 60 $, $ 0<= sec < 60$, $ 0<= msec < 1000$. Bei der Eingabe wird solange eine Schleife für jeden Wert durchlaufen, bis der gelesene Wert im angegebenen Intervall liegt. Der Algorithmus kann optional als C-Programm implementiert werden.
 
@@ -117,7 +119,7 @@ Gegeben seien 2 Zeitspannen der Form tag; h; min; sec; msec . Formulieren Sie ei
       \output{Tage: t, Stunden: h, Minuten: m, Sekunden: m, Millisekunden: n}
     \end{flussdiagramm}
 
-## Aufgabe 4
+\item Aufgabe %4
 
 In unserem Kalender sind zum Ausgleich der astronomischen und kalendarischen Jahreslänge in regelmäßigen Abständen Schaltjahre eingebaut. Zur exakten Festlegung der Schaltjahre dienen die folgenden Regeln:
 
@@ -131,13 +133,13 @@ Erstellen Sie ein Flußdiagramm, das berechnet, ob eine vom Benutzer eingegebene
       return !(jahr%4) && ((jahr%100) || !(jahr%400));
     }
 
-## Aufgabe 5
+\item Aufgabe %5
 
 Es ist der Funktionswert $ y = a $ für $ a = 4 $ mit dem sumerisch-babylonischen Wurzelziehen (Heron-Verfahren) manuell iterativ für 4 Iterationsschritte $ (x_1, y_1) $ bis $ (x_4, y_4) $ zu berechnen, wobei mit dem Iterationsverfahren $ x_1 := (x_0 + y_0) / 2 , y_1 := a / x_1 $ bzw. $ x_n+1 := (x_n + y_n) / 2 , y_n+1 := a / x_n+1 $ gearbeitet werden soll. Für jedes $ i, 1 <= i <= 4 $ ist $ x_i * y_i $ auszurechnen und zu notieren.
 Alternativ ist $ x_4 $ mittels der folgenden Formel auszurechnen und zu notieren:
 $ x0 := a / 2 und xi := ( xi-1 + a / xi-1 ) / 2 , i = 1, 2, 3, ... $
 
-## Aufgabe 6
+\item Aufgabe %6
 
 Der größte gemeinsame Teiler ist mittels des Euklidischen Algorithmus sowohl über ggT(54, 81) manuell rekursiv als auch über Euklid(54, 81) manuell iterativ zu bestimmen:
 
@@ -160,11 +162,11 @@ Der größte gemeinsame Teiler ist mittels des Euklidischen Algorithmus sowohl �
     
 \end{lstlisting}
 
-## Aufgabe 7
+\item Aufgabe %7
 
 Die Fakultät einer natürlichen Zahl ist wie folgt definiert: $ 0! = 1 , 1! = 1, n! = (n-1)! * n \text{, für} n >= 1$. Formulieren Sie sowohl ein Struktogramm für die rekursive als auch für die iterative Berechnung. Die Algorithmen können optional als C-Programm implementiert werden (rekursiv und iterativ).
 
-## Aufgabe 8
+\item Aufgabe %8
 
 Fibonacci - Zahlen F(n) werden für natürliche Zahlen n >= 2 rekursiv über die For-
 mel F(n) := F(n-1) + F(n-2) berechnet, wobei die Anfangswerte F(0) = 0 für n = 0, F(1) = 1 für
@@ -179,7 +181,7 @@ Formulieren Sie ein Struktogramm für die rekursive, die analytische und die ite
 nung der Fibonacci-Zahlen. Die Algorithmen können optional als C-Programme implemen-
 tiert werden (jeweils rekursiv, analytisch und iterativ).
 
-## Aufgabe 9
+\item Aufgabe %9
 
 Die Ackermannsche Funktion ist ein Beispiel für eine totale und berechenbare
 Funktion, die nicht primitiv-rekursiv ist. Diese Funktion ist mehrfach rekursiv:
@@ -191,7 +193,7 @@ a.) Rechnen Sie Ackermann(2, 3) manuell aus.
 b.) Formulieren Sie ein Struktogramm zur Berechnung der Ackermannschen Funktion.
 Der rekursive Algorithmus kann optional als C-Programm implementiert werden.
 
-## Aufgabe 10:
+\item Aufgabe %10:
 
 Binomialkoeffizienten  n beschreiben die Anzahl der Möglichkeiten, k Elemente aus einer
  k
@@ -212,7 +214,7 @@ und  n = ---------------------------
 Der Algorithmus ist rekursiv und iterativ zu entwerfen. Beide Algorithmen können optional
 als C-Programme implementiert werden.
 
-## Aufgabe 11
+\item Aufgabe %11
 
 Eine weitere mehrfach rekursive Funktion, ähnlich der Ackermann-Funktion, ist die wie folgt definierte Hofstadter-Funktion:
 hof(n) := 1, wenn n<= 2
@@ -220,5 +222,7 @@ hof(n) := hof(n - hof(n-1)) + hof(n - hof(n-2)), wenn n>2
 
 a.) Rechnen Sie hof(5) manuell aus.
 b.) Formulieren Sie je einen Programmablaufplan für die rekursive und für die iterative Berechnung, implementieren Sie optional je ein C-Programm für die rekursive und die iterative Berechnung.
+
+\end{enumerate}
 
 \end{document}

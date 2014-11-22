@@ -1,0 +1,2 @@
+rsync -vv -r s72785@ilux150.informatik.htw-dresden.de:/home/rex/fi1/nestler/Grundlagen_Informatik_I_2014 ./
+find ./Grundlagen_Informatik_I_2014/ |grep Thumbs.db| xargs rm

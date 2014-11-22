@@ -1,4 +1,4 @@
-\documentclass[12pt,a4paper]{scrreprt}
+\documentclass[12pt,a4paper,ngerman]{scrreprt}
 \usepackage{amsmath,amssymb,mathrsfs,dsfont}
 \usepackage[utf8]{inputenc}
 \usepackage[ngerman]{babel}
@@ -7,12 +7,10 @@
 \usepackage{siunitx}
 \usepackage{struktex}
 \usepackage{color}
-\definecolor{dkgreen}{rgb}{0,0.6,0}
-\definecolor{gray}{rgb}{0.5,0.5,0.5}
-\definecolor{mauve}{rgb}{0.58,0,0.82}
-
 \usepackage{tikz}
-\usetikzlibrary{shapes.geometric}% für ellipse
+\usetikzlibrary{shapes.geometric,arrows}% für ellipse
+\usepackage{verbatim}
+
 \newcommand\mrahmen[3][]{%
   \tikz[anchor=base,baseline]\node[inner sep=2pt,draw=#2,#1]{$\displaystyle#3\mathstrut$};}
 \colorlet{mfarbe}{red}
@@ -29,8 +27,8 @@
   numbers=none,
   numberstyle=\tiny\color{gray},
   keywordstyle=\color{blue},
-  commentstyle=\color{dkgreen},
-  stringstyle=\color{mauve},
+  commentstyle=\color{violet},
+  stringstyle=\color{pruple},
   breaklines=true,
   breakatwhitespace=true,
   tabsize=3
@@ -42,15 +40,16 @@
 
 %euro-zeichen f. utf8
 \usepackage{eurosym}
-\newcommand{\Lsg}{\par \textbf{Lsg.: }}
+\newcommand{\Lsg}{\par \textbf{Lsg.: \hfill }}
 \newcommand{\Byte}{\,Byte}
 \newcommand{\Bit}{\,Bit}
 
 \input binhex
 
+
 \begin{document}
 
-\large{\textbf{Übungsaufgaben} (Zahlendarstellung - Teil~5)}
+\large{\textbf{Übungsaufgaben} (Teil~5)}
 
 \begin{enumerate}
 
@@ -63,8 +62,50 @@ e^x = 1 + \frac{x^1}{1!} + \frac{x^2}{2!} + \frac{x^3}{3!} + \frac{x^4}{4!} + ..
 = \Sigma_{n=0}^{\infty} \frac{x^n}{n!}
 \end{math}
 
-\par Formulieren Sie einen Algorithmus in Form eines Flussdiagrammes, der die Berechnung der Summe abbricht, wenn zwei aufeinanderfolgende Summen eine Differenz kleiner als $\epsilon$ haben.
+\par Formulieren Sie einen \textbf{Algorithmus in Form eines Flussdiagrammes}, der die Berechnung der Summe abbricht, wenn zwei aufeinanderfolgende Summen eine Differenz kleiner als $\epsilon$ haben.
 Die Varaible $x$ und $\epsilon$ (z.B. $10^{-8}$ ) sind einzulesen. Der genäherte Wert für $ e^x $ und das erreichte $ n $ sind auszugeben.
+
+%-------------------------------
+\Lsg
+
+%<<<<<<<<<<<<
+% Define block styles for flowchart
+\tikzstyle{decision} = [diamond, draw, fill=green!20, 
+    text width=4.25em, text badly centered, node distance=3cm, inner sep=0pt,
+    minimum height=2em] 
+\tikzstyle{block} = [rectangle, draw, fill=blue!20, 
+    text width=5em, text centered, rounded corners, minimum height=2em]
+\tikzstyle{line} = [draw, -latex']
+\tikzstyle{cloud} = [draw, ellipse,fill=red!20, node distance=3cm,
+    minimum height=2em]
+%>>>>>>>>>>>>
+\begin{tikzpicture}[node distance = 1.5cm, auto, thick, nodes = {align = center},
+    >=latex]
+
+	\node [cloud] (start) {Start};
+	\node [block, right of=start, node distance=4.5cm] (readx) {x};
+	\path [line] (start) -- (readx);
+	\node [block, right of=readx, node distance=4.5cm] (reade) {epsilon};
+	\path [line] (readx) -- (reade);
+	\node [block, below of=reade, node distance=1.5cm] (initsum2) {sum2=1.0};
+	\path [line] (reade) -- (initsum2);
+	\node [block, left of=initsum2, node distance=4.5cm] (initsum1) {sum1=0.0};
+	\path [line] (initsum2) -- (initsum1);
+	\node [block, left of=initsum1, node distance=4.5cm] (initn) {n=0};
+	\path [line] (initsum1) -- (initn);
+	\node [decision, below of=initn, node distance=3cm] (decide) { (sum2 - *sum1) gt epsilon };
+		\path [line] (initn) -- (decide);
+    		\node [block, right of=decide, yshift=-1cm, node distance=4.5cm] (setsum1) {sum1 = sum2};
+		\path [line] (decide) -- node [near start, below] {yes} (setsum1);
+    		\node [block, right of=setsum1, yshift=1cm, node distance=4.5cm] (setsum2) {sum2 += pow(x, n)/fac(n)};
+		\path [line] (setsum1) -- (setsum2);
+    		\node [block, above of=setsum1, yshift=0.8cm, node distance=1.5cm] (setn) {n++};
+		\path [line] (setsum2) -- (setn);
+		\path [line] (setn) -- (decide);
+    		\node [cloud, below of=decide, node distance=3cm] (stop) {Stop};
+		\path [line] (decide) -- node [near start] {no} (stop);
+
+\end{tikzpicture}
 
 \begin{lstlisting}
     #include<math.h>
@@ -74,20 +115,24 @@ Die Varaible $x$ und $\epsilon$ (z.B. $10^{-8}$ ) sind einzulesen. Der genähert
       *n=0;
       while( (sum2 - *sum1) > epsilon  ){
         *sum1 = sum2;
-        sum2 += pow(x, *n);
+        sum2 += pow(x, *n)/fac(*n);
         *n++;
       }
     }
 \end{lstlisting}
+%-------------------------------
 
 \item Aufgabe %2:
 
-Die folgenden Summen sind solange zu berechnen, bis der Absolutbetrag des Quotienten eines Summanden und der bisherigen Summe kleiner einer vorher eingelesenen positiven Schranke Epsilon ist. Die Algorithmen sollen als Struktogramme bzw. Flussdiagramme bzw. Programmablaufpläne formuliert werden, optional können C-Programme formuliert werden.
+Die folgenden Summen sind solange zu berechnen, bis der Absolutbetrag des Quotienten eines Summanden und der bisherigen Summe kleiner einer vorher eingelesenen positiven Schranke Epsilon ist.
+Die \textbf{Algorithmen sollen als Struktogramme, Flussdiagramme bzw. Programmablaufpläne} formuliert werden, \textit{\textbf{optional} können C-Programme formuliert} werden.
 
 \begin{enumerate}
 
 \item Berechnung von $\pi$ nach Leibniz: $ \Sigma_{n=0}^{\infty} \frac{(-1)^n}{2n+1} = 1-\frac{1}{3}+\frac{1}{5}-\frac{1}{7}+\frac{1}{9}-\ldots=\frac{\pi}{4} $
 
+%-------------------------------
+\Lsg
 \begin{lstlisting}
     #include<math.h>
     void leibnitzpi(double epsilon, double* sum1, int* n){
@@ -101,45 +146,69 @@ Die folgenden Summen sind solange zu berechnen, bis der Absolutbetrag des Quotie
       }
     }
 \end{lstlisting}
+%-------------------------------
 
 \item Berechnung von $\pi$ nach Bailey-Borwein-Plouffe (1996): $ \pi = \Sigma_{k=0}^{\infty} \frac{1}{16^k} \left( \frac{4}{8k+1} \frac{2}{8k+4} \frac{1}{8k+5} \frac{1}{8k+6} \right)  $
 
-\item Berechnung von ln(x):
+%-------------------------------
+\Lsg
+%-------------------------------
 
-\item Berechnung von cos(x):
+\item Berechnung von $ln(x)$:
 
-\item Berechnung von arctan(x) für |x| <= 1:
+%-------------------------------
+\Lsg
+%-------------------------------
+
+\item Berechnung von $cos(x)$:
+
+%-------------------------------
+\Lsg
+%-------------------------------
+
+\item Berechnung von $arctan(x) \text{für} |x|<=1$:
+
+%-------------------------------
+\Lsg
+%-------------------------------
 
 \end{enumerate}
 
 \item Aufgabe %3:
 
-Auf Produkte x, y und z gibt es bei einem Händler folgende Rabatte:
-Beim Kauf von Produkt x gilt:
-Bis zum 9.Stck. gibt es keinen Rabatt, für das 10. - 19.Stück gibt es 10\% Rabatt pro Stück.
-Für 20. - 39.Stück gibt es 15\% Rabatt pro Stück.
-Für \numrange{40}{49} Stück 40. - 49.Stück gibt es nur noch 5\% Rabatt pro Stück.
+Auf Produkte $x, y$ und $z$ gibt es bei einem Händler folgende Rabatte:
+\par Beim Kauf von \textit{Produkt $x$} gilt: \\
+Bis zum 9. Stück. gibt es keinen Rabatt, für das 10. -- 19. Stück gibt es 10\% Rabatt (pro Stück).
+Für \numrange{20}{39}{ Stück} gibt es \si{15}{\%} Rabatt pro Stück.
+Für \numrange{40}{49}{ Stück} gibt es nur noch \si{5}{\%} Rabatt pro Stück.
 Für \si{50}{Stück} und weitere Stücke des Produktes x gibt es keinen Rabatt mehr.
-Beim Kauf von Produkt y gilt:
-Ab \si{6}{Stück} gibt es \EUR{5,-} Rabatt pro Stück für alle Stücke von 1 an.
-Ab \si{10}{Stück} gibt es \EUR{10,-} Rabatt pro Stück für alle Stücke von 1 an.
+\par Beim Kauf von \textit{Produkt $y$} gilt: \\
+Ab \si{6}{ Stück} gibt es \EUR{5,-} Rabatt pro Stück für alle Stücke von $1$ an.
+Ab \si{10}{ Stück} gibt es \EUR{10,-} Rabatt pro Stück für alle Stücke von $1$ an.
 Der Gesamtrabatt für Produkt y ist auf maximal \EUR{140} beschränkt.
-Beim Kauf von Produkt z gilt:
-Auf jedes Stück gibt es 8\% Rabatt, ab 25. Stück gibt es keinen Rabatt mehr.
+\par Beim Kauf von \textit{Produkt $z$} gilt: \\
+Auf jedes Stück gibt es 8\% Rabatt, ab \si{25}{ Stück} gibt es keinen Rabatt mehr.
 Für die drei Produkte $x, y$ und $z$ gemeinsam ist die Gesamtrabattsumme auf \EUR{500}
 beschränkt, d.h. beim Überschreiten von \EUR{500} Gesamtrabattsumme für einen Warenkorb
-aus x,y und z gibt es keinen Rabatt mehr !
+aus $x, y$ und $z$ gibt es keinen Rabatt mehr!
 Es ist ein Flussdiagramm zu formulieren, welches die Anzahl der gekauften Produkte von
-x, y und z und die Preise/Produkt von $x, y$ und $z$ jeweils getrennt einliest und aufgrund der
+$x, y$ und $z$ und die Preise/Produkt von $x, y$ und $z$ jeweils getrennt einliest und aufgrund der
 genannten Vorgaben algorithmisch den Gesamtpreis sowohl ohne als auch mit Rabatt ermittelt
-und ausgibt. Der Geldbetrag des erzielten Rabatts ist ebenfalls auszugeben. Beim Einlesen soll si-
-chergestellt werden, dass Anzahl 0 und Preis \EUR{500} ist.
-Optional kann der Algorithmus als ein C-Programm geschrieben werden.
+und ausgibt. Der Geldbetrag des erzielten Rabatts ist ebenfalls auszugeben. Beim Einlesen soll sichergestellt werden, dass Anzahl $0$ und Preis \EUR{500} ist.
+\par \textbf{Optional} kann der Algorithmus als ein C-Programm geschrieben werden.
+
+%-------------------------------
+\Lsg
+%-------------------------------
 
 \item Aufgabe %4:
 
-(a) Führen Sie das Siebverfahren des Eratosthenes manuell auf Papier für die natürlichen Zahlen von 1 bis 60 durch.
+\begin{enumerate}
+\item Führen Sie das Siebverfahren des Eratosthenes manuell auf Papier für die natürlichen Zahlen von \numrange{1}{60} durch.
 
+%-----------------
+\Lsg
+%\begin{flushleft}
 \begin{tabular}{cccccccccc}
  \xout{1}  &   \kringel{2}  &   \kringel{3}  &   \xout{4}  &   \kringel{5}  &   \xout{6}  &   \kringel{7}  &   \xout{8}  &   \xout{9}  &  \xout{10} \\
 \mrahmen[circle]{mfarbe}{11}  &  \xout{12}  &  \kringel{13}  &  \xout{14}  &  \xout{15}  &  \xout{16}  &  \kringel{17}  &  \xout{18}  &  \kringel{19}  &  \xout{20} \\
@@ -148,83 +217,156 @@ Optional kann der Algorithmus als ein C-Programm geschrieben werden.
 \mrahmen[circle]{mfarbe}{41}  &  \xout{42}  &  \kringel{43}  &  \xout{44}  &  \xout{45}  &  \xout{46}  &  \kringel{47}  &  \xout{48}  &  \xout{49}  &  \xout{50} \\
  \xout{51}  &  \xout{52}  &  \kringel{53}  &  \xout{54}  &  \xout{55}  &  \xout{56}  &  \xout{57}  &  \xout{58}  &  \kringel{59}  &  \xout{60} \\
 \end{tabular}
+%\end{flushleft}
+%-----------------
 
+\item Formulieren Sie einen Programmablaufplan bzw. ein Flussdiagramm bzw. ein Struktogramm, welches das Siebverfahren von Eratosthenes bis $n, n > 0$ realisiert.
 
-(b) Formulieren Sie einen Programmablaufplan bzw. ein Flussdiagramm bzw. ein Struktogramm, welches das Siebverfahren von Eratosthenes bis n (n > 0) realisiert.
-
+%-------------------------------
+\Lsg
     solange i<n
       j = wähle nöchste zahl aus ungestrichenen zahlen
       solange j<n
         streiche vielfache von j
+%-------------------------------
 
-(c) Führen Sie das optimierte Verfahren, \href{run:Algorithmen_Heron_Euklid_Prim.pdf}{Algorithmen}, S. 11, Vorlesung 4 manuell auf Papier für die natürlichen Zahlen von 1 bis 60 durch.
+\item Führen Sie das optimierte Verfahren, \href{run:Algorithmen_Heron_Euklid_Prim.pdf}{Algorithmen, S.~11, Vorlesung~4} manuell auf Papier für die natürlichen Zahlen von \numrange{1}{60} durch.
 
-(d) Formulieren Sie einen Programmablaufplan bzw. ein Flussdiagramm bzw. ein Struktogramm, welches das optimierte Verfahren bis n (n > 0) realisiert.
+%-------------------------------
+\Lsg
+%-------------------------------
 
-(e) optional: Schreiben Sie ein C-Programm zum Sieb- und zum optimierten Verfahren
+\item Formulieren Sie einen Programmablaufplan bzw. ein Flussdiagramm bzw. ein Struktogramm, welches das optimierte Verfahren bis $n, n > 0$ realisiert.
+
+%-------------------------------
+\Lsg
+%-------------------------------
+
+\item \textbf{optional:} Schreiben Sie ein C-Programm zum Sieb- und zum optimierten Verfahren
+\end{enumerate}
 
 \item Aufgabe %5:
 
 Man teste den rekursiven Algorithmus zur Bestimmung der Primfaktoren am
-Beispiel PFR(330). Es ist ein Programmablaufplan bzw. ein Flussdiagramm bzw. ein Strukto-
-gramm zu formulieren, welches das rekursive Verfahren beschreibt.
+Beispiel PFR(330). Es ist ein Programmablaufplan bzw. ein Flussdiagramm bzw. ein Struktogramm zu formulieren, welches das rekursive Verfahren beschreibt.
+
+%-------------------------------
+\Lsg
+%-------------------------------
 
 \item Aufgabe %6:
 
 Man teste den iterativen Algorithmus zur Bestimmung der Primfaktoren am
-Beispiel primefactorization(330). Es ist ein Programmablaufplan bzw. ein Flussdia-
-gramm bzw. ein Struktogramm zu formulieren, welches das iterative Verfahren beschreibt.
+Beispiel primefactorization(330). Es ist ein Programmablaufplan bzw. ein Flussdiagramm bzw. ein Struktogramm zu formulieren, welches das iterative Verfahren beschreibt.
+
+%-------------------------------
+\Lsg
+%-------------------------------
 
 \item Aufgabe %7:
 
 Man formuliere Programmablaufpläne für eine einfach verkettete Liste mit
 
 \begin{lstlisting}
-struct el { int value; /* Daten */
-struct el *next; /* Zeiger auf naechstes Element */
+struct el {
+	int value;				/* Daten */
+	struct el *next;			/* Zeiger auf naechstes Element */
 }
-struct el *start = 0, *p = 0; /* start ist Startzeiger, p Hilfszeiger */ und gegebenem p mit
-p = (struct el *)malloc(sizeof(struct el)); /* Speicherplatz p auf dem heap */
+struct el *start = 0, *p = 0;			/* start ist Startzeiger, p Hilfszeiger */ und gegebenem p mit
+p = (struct el *)malloc(sizeof(struct el)); 	/* Speicherplatz p auf dem heap */
 \end{lstlisting}
 
 für
 
 \begin{lstlisting}
-Insertfirst(inout: start, in: p)
-/* Einfuegen p nach start */
-Insertlast(inout: start, in: p)
-/* Einfuegen p nach start */
-Removefirst(inout: start)
-/* Loeschen erstes Element nach start */
-Removelast(inout: start)
-/* Loeschen letztes Element nach start */
-int Anzahl(inout: start)
-/* Rueckgabe Anzahl der Listenelement */
-Show(in: start)
-/* Anzeige aller value-Werte */
-RemovePos(inout: start, in: pos) /* Element an der Stelle pos loeschen (pos = 0 ..) */
-Removeall(inout: start)
-/* Alle Elemente loeschen */
+Insertfirst(inout: start, in: p)	/* Einfuegen p nach start */
+Insertlast(inout: start, in: p)		/* Einfuegen p nach start */
+Removefirst(inout: start)		/* Loeschen erstes Element nach start */
+Removelast(inout: start)		/* Loeschen letztes Element nach start */
+int Anzahl(inout: start)		/* Rueckgabe Anzahl der Listenelement */
+Show(in: start)				/* Anzeige aller value-Werte */
+RemovePos(inout: start, in: pos)	/* Element an der Stelle pos loeschen (pos = 0 ..) */
+Removeall(inout: start)			/* Alle Elemente loeschen */
 \end{lstlisting}
+
+%-------------------------------
+\Lsg
+%-------------------------------
 
 \item Aufgabe %8:
 
-Gesucht ist ein Algorithmus in Form eines Flussdiagrammes, Programmablaufpla-
-nes oder Struktogrammes zur Berechnung von
-\[
+Gesucht ist ein Algorithmus in Form eines Flussdiagrammes, Programmablaufplanes oder Struktogrammes zur Berechnung von
+\begin{math}
 sin(x)=\Sigma_{i=0}^{\infty} (-1)^i \cdot \frac{x^{2 \cdot i+1}}{(2 \cdot i + 1)!}
-\]
+\end{math}
 mit ( $0 < x <= \pi/2$ ) . Die Berechnung ist abzubrechen, wenn der absolute Betrag des Quotienten
 aus dem ersten vernachlässigten Reihenglied und der Partialsumme kleiner als der Wert einer
-positiven Schranke epsilon ist. Formulieren Sie den Algorithmus optional als C-Programm.
+positiven Schranke epsilon ist. \par Formulieren Sie den Algorithmus \textbf{optional} als C-Programm.
+
+%-------------------------------
+\Lsg
+%-------------------------------
 
 \item Aufgabe %9:
 
-Es ist je ein Flussdiagramm für folgende Aufgaben zu formulieren, wobei die Vek-
-toren, Matrizen und deren Grenzen als Parameter gegeben sind, die Zulässigkeit der mathema-
-tischen Operation (korrekte Indexe) ist jedoch zu überprüfen:
-Skalarprodukt zweier Vektoren, Summe zweier Vektoren, Multiplikation Matrix mit Vektor,
-Multiplikation Matrix mit Matrix, Transponieren einer quadratischen Matrix.
+Es ist je ein Flussdiagramm für folgende Aufgaben zu formulieren, wobei die Vektoren, Matrizen und deren Grenzen als Parameter gegeben sind, die Zulässigkeit der mathematischen Operation (korrekte Indizes) ist jedoch zu überprüfen:
+
+\begin{enumerate}
+\item Skalarprodukt zweier Vektoren,
+
+%-------------------------------
+\Lsg
+%-------------------------------
+
+\item Summe zweier Vektoren,
+
+%-------------------------------
+\Lsg
+%-------------------------------
+
+\item Multiplikation Matrix mit Vektor,
+
+%-------------------------------
+\Lsg
+%-------------------------------
+
+\item Multiplikation Matrix mit Matrix,
+
+%-------------------------------
+\Lsg
+
+%\begin{tikzpicture}
+%\end{tikzpicture}
+%-------------------------------
+
+\item Transponieren einer quadratischen Matrix.
+
+%-------------------------------
+\Lsg
+
+* durchlaufe die spalten
+  * schreibe jedes element in sie Zeilen der zweiten matrix
+* zurück solange noch weitere spalten existieren
+
+\begin{comment}
+\begin{flushleft}
+\begin{struktogramm}(95,40)[Programmname]
+\while{\( test \)}test
+\whileend
+\case[10]{3}{3}{Signum(x)}{-1}
+	\assign{\(z \gets - \frac{1}{x}\)}
+\switch{0}
+	\assign{Ausgabe: Division durch 0}
+\switch[r]{1}
+	\assign{\(z \gets \frac{1}{x}\)}
+\caseend
+\end{struktogramm}
+\end{flushleft}
+\end{comment}
+
+%-------------------------------
+
+\end{enumerate}
 
 \end{enumerate}
 
