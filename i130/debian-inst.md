@@ -69,6 +69,10 @@
     
 ### Network
 
+    #nm-applet fix for lmde, debian, ubuntu in case eduroam does not work
+    sudo perl -i -pe 's/system-ca-certs=true\n//' /etc/NetworkManager/system-connections/eduroam
+    sudo service network-manager restart
+
     # interfaces
     auto lo
     iface lo inet loopback
