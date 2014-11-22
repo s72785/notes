@@ -73,33 +73,34 @@ Die Varaible $x$ und $\epsilon$ (z.B. $10^{-8}$ ) sind einzulesen. Der genähert
 \tikzstyle{decision} = [diamond, draw, fill=green!20, 
     text width=4.25em, text badly centered, node distance=3cm, inner sep=0pt,
     minimum height=2em] 
-\tikzstyle{block} = [rectangle, draw, fill=blue!20, 
-    text width=5em, text centered, rounded corners, minimum height=2em]
+%\tikzstyle{block} = [rectangle, draw, fill=blue!20, text width=5em, text centered, rounded corners, minimum height=2em]
 \tikzstyle{line} = [draw, -latex']
 \tikzstyle{cloud} = [draw, ellipse,fill=red!20, node distance=3cm,
     minimum height=2em]
+\tikzstyle{io} = [trapezium, trapezium left angle=70, trapezium right angle=110, minimum width=3cm, minimum height=1em, text centered, draw=black, fill=violet!30]
+\tikzstyle{process} = [rectangle, minimum width=2cm, minimum height=1cm, text centered, draw=black, fill=orange!30]
 %>>>>>>>>>>>>
 \begin{tikzpicture}[node distance = 1.5cm, auto, thick, nodes = {align = center},
     >=latex]
 
 	\node [cloud] (start) {Start};
-	\node [block, right of=start, node distance=4.5cm] (readx) {x};
+	\node [io, right of=start, node distance=4.5cm] (readx) {x};
 	\path [line] (start) -- (readx);
-	\node [block, right of=readx, node distance=4.5cm] (reade) {epsilon};
+	\node [io, right of=readx, node distance=4.5cm] (reade) {epsilon};
 	\path [line] (readx) -- (reade);
-	\node [block, below of=reade, node distance=1.5cm] (initsum2) {sum2=1.0};
+	\node [process, below of=reade, node distance=1.5cm] (initsum2) {sum2=1.0};
 	\path [line] (reade) -- (initsum2);
-	\node [block, left of=initsum2, node distance=4.5cm] (initsum1) {sum1=0.0};
+	\node [process, left of=initsum2, node distance=4.5cm] (initsum1) {sum1=0.0};
 	\path [line] (initsum2) -- (initsum1);
-	\node [block, left of=initsum1, node distance=4.5cm] (initn) {n=0};
+	\node [process, left of=initsum1, node distance=4.5cm] (initn) {n=0};
 	\path [line] (initsum1) -- (initn);
-	\node [decision, below of=initn, node distance=3cm] (decide) { (sum2 - *sum1) gt epsilon };
+	\node [decision, below of=initn, node distance=3cm] (decide) { (sum2 - sum1) gt epsilon };
 		\path [line] (initn) -- (decide);
-    		\node [block, right of=decide, yshift=-1cm, node distance=4.5cm] (setsum1) {sum1 = sum2};
+    		\node [process, right of=decide, yshift=-1.5cm, node distance=4.5cm] (setsum1) {sum1 = sum2};
 		\path [line] (decide) -- node [near start, below] {yes} (setsum1);
-    		\node [block, right of=setsum1, yshift=1cm, node distance=4.5cm] (setsum2) {sum2 += pow(x, n)/fac(n)};
+    		\node [process, right of=setsum1, yshift=1.5cm, node distance=4.5cm] (setsum2) {sum2 += $\frac{pow(x, n)}{fac(n)}$};
 		\path [line] (setsum1) -- (setsum2);
-    		\node [block, above of=setsum1, yshift=0.8cm, node distance=1.5cm] (setn) {n++};
+    		\node [process, above of=setsum1, yshift=1.5cm, node distance=1.5cm] (setn) {n++};
 		\path [line] (setsum2) -- (setn);
 		\path [line] (setn) -- (decide);
     		\node [cloud, below of=decide, node distance=3cm] (stop) {Stop};
