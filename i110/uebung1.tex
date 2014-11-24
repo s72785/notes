@@ -3,7 +3,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[ngerman]{babel}
 \usepackage[pdfborderstyle={/S/U/W 1}]{hyperref}
-
+%\usepackage{siunitx}
 \usepackage{color}
 \definecolor{dkgreen}{rgb}{0,0.6,0}
 \definecolor{gray}{rgb}{0.5,0.5,0.5}
@@ -324,43 +324,113 @@ darzustellen.
 %-------------
 
 %4.
-\item Die Zahl $(430)_{10}$ ist in eine Dualzahl umzuwandeln. Aus der Dualzahl ist die äquivalenten Hexadezimal- und Oktalzahl zu bestimmen. Die ermittelte Dualzahl der Form $z=a^n b^n +a^{n-1} b^{n - 1} + \ldots + a^2 b^2 + a^1 b^1 + a^0 b^0 $ ist über das Horner-Schema $ z = ((\ldots(a^n b+a^{n-1} )b + \ldots a^2 ) b + a^1 ) b + a^0$ wieder in die Dezimaldarstellung umzuwandeln.
+\item Die Zahl $(430)_{10}$ ist in eine Dualzahl umzuwandeln. Aus der Dualzahl ist die äquivalenten Hexadezimal- und Oktalzahl zu bestimmen.
+
+Die ermittelte Dualzahl der Form $z=a_n b^n +a_{n-1} b^{n - 1} + \ldots + a_2 b^2 + a_1 b^1 + a_0 b^0 $ ist über das Horner-Schema $ z = ((\ldots(a_n b + a_{n-1} )b + \ldots a_2 ) b + a_1 ) b + a_0$ wieder in die Dezimaldarstellung umzuwandeln.
 
 %-------------
-\Lsg%-------------
+\Lsg
+
+\begin{tabular}{rrrrrrrrrrr}
+430 : 2 = & 215 R & & & & & & & & & 0 \\
+215 : 2 = & 107 R & & & & & & & & 1 \\
+107 : 2 = &  53 R & & & & & & & 1 \\
+ 53 : 2 = &  26 R & & & & & & 1 \\
+ 26 : 2 = &  13 R & & & & & 0 \\
+ 13 : 2 = &   6 R & & & & 1 \\
+  6 : 2 = &   3 R & & & 0 \\
+  3 : 2 = &   1 R & & 1 \\
+  1 : 2 = &   0 R & 1 \\
+\hline
+ & & 1 & 1 & 0 & 1 & 0 & 1 & 1 & 1 & 0 \\
+ & & $\underbrace{0001}$ & $\underbrace{1010}$ & $\underbrace{1110}$ \\
+ & & 1 & A & E
+\end{tabular}
+
+Probe:
+
+\begin{math}
+ 1*2^8
++1*2^7
++0*2^6
++1*2^5
++0*2^4
++1*2^3
++1*2^2
++1*2^1
++0*2^0
+= \lsg{
+	430_{10} = {110101110}_{2}
+}
+\end{math}
+
+%-------------
 
 %5.
-\item Die Zahlen sind mit dem Horner-Scema in Dezimalzahlen umzuwandeln: $(375)_8 , (1210)_8 , (888)_9 , (ADA)_{16}$
+\item Die Zahlen sind mit dem Horner-Scema in Dezimalzahlen umzuwandeln: \begin{enumerate}
+\item $375_8$,
+\item $1210_8$,
+\item $888_9$,
+\item $\texttt{ADA}_{16}$
+\end{enumerate}
 
 %-------------
-\Lsg%-------------
+\Lsg
+
+\begin{enumerate}
+\item $375_8$
+\item $1210_8$
+\item $888_9$
+\item $\texttt{ADA}_{16}$
+\end{enumerate}%-------------
 
 %6.
-\item Manuell ist $(ABC)_{16} + (ABC)_{16}$ zu berechnen. Die Korrektheit des Ergebnisses ist durch Umwandlung in das Dezimalsystem zu verifizieren.
+\item Manuell ist $\texttt{ABC}_{16} + \texttt{ABC}_{16}$ zu berechnen. Die Korrektheit des Ergebnisses ist durch Umwandlung in das Dezimalsystem zu verifizieren.
 
+%01 02 03 04 05 06 07 08 09 10 11 12 13 14 15
+% 1  2  3  4  5  6  7  8  9  A  B  C  D  E  F
 %-------------
-\Lsg%-------------
+\Lsg
+
+\begin{tabular}{lllll}
+  & & $A$ & $B$ & $C$ \\
++ & & $A_{1}$ & $B_{1}$ & $C$ \\
+\hline 
+= & 1 & 5 & 7 & 8
+\end{tabular}
+
+$\texttt{ABC}_{16} + \texttt{ABC}_{16} = \texttt{1578}_{16}$
+%-------------
 
 %7.
-\item Die folgenden Zahlen ist in das Dualsystem umzuwandeln: $(0,375)_{10}$
+\item Die folgenden Zahlen ist in das Dualsystem umzuwandeln: ${0,375}_{10}$
 
 %-------------
-\Lsg%-------------
+\Lsg
+
+\begin{math}
+{0,375}_{10} = 
+\frac{1}{4} + \frac{1}{8} 
+ = 0*2^{-1} + 1*2^{-2} + 1*2^{-3} = \lsg{
+	\texttt{011}_{2}
+}
+\end{math}
+%-------------
 
 %8.
-\item Die folgende Zahl ist in das Fünfersystem umzuwandeln: $(0,24)_{10}$
+\item Die folgende Zahl ist in das Fünfersystem umzuwandeln: ${0,24}_{10}$
 
 %-------------
 \Lsg%-------------
 
 %9.
-\item Die folgende Zahl ist in das Oktalsystem umzuwandeln: $(0,2)_{10}$
+\item Die folgende Zahl ist in das Oktalsystem umzuwandeln: ${0,2}_{10}$
 
 %-------------
 \Lsg%-------------
 
 %10.
-\item Die Zahl $(11,625)_{10}$ ist als Dual-, Hexadezimal- und Oktalzahl darzustellen.
+\item Die Zahl ${11,625}_{10}$ ist als Dual-, Hexadezimal- und Oktalzahl darzustellen.
 
 %-------------
 \Lsg%-------------
@@ -372,13 +442,14 @@ darzustellen.
 \Lsg%-------------
 
 %12.
-\item Die folgenden Aufgaben sind dual zu berechnen, das Ergebnis ist danach dezimal zu verifizieren und hexadezimal und oktaldarzustellen: \\
-\begin{math}
-(11011)_2 + (10101)_2  \\
-(11101)_2 - (10010)_2  \\
-(11011)_2 * (10101)_2  \\
-(1001000)_2 : (1000)_2
-\end{math}
+\item Die folgenden Aufgaben sind dual zu berechnen, das Ergebnis ist danach dezimal zu verifizieren und hexadezimal und oktaldarzustellen:
+
+\begin{enumerate}
+\item $(11011)_2 + (10101)_2$
+\item $(11101)_2 - (10010)_2$
+\item $(11011)_2 * (10101)_2$
+\item $(1001000)_2 : (1000)_2$
+\end{enumerate}
 
 %-------------
 \Lsg%-------------
@@ -386,9 +457,9 @@ darzustellen.
 %13.
 \item Die folgenden Aufgaben sind hexadezimal zu berechnen, das Ergebnis ist danach dezimal zu verifizieren: \\
 \begin{math}
-(ABC)_{16} + (987)_{16}   \\
-(DDE9)_{16} - (3F7B)_{16} \\
-(CDE)_{16} * (A1)_{16}
+\texttt{ABC}_{16} + \texttt{987}_{16}   \\
+\texttt{DDE9}_{16} - \texttt{3F7B}_{16} \\
+\texttt{CDE}_{16} * \texttt{A1}_{16}
 \end{math}
 
 %-------------
@@ -397,34 +468,34 @@ darzustellen.
 %14.
 \item Die folgenden Aufgaben sind oktal zu berechnen, das Ergebnis ist danach dezimal zu verifizieren: \\
 \begin{math}
-(1775)_8 + (766)_8 \\
-(3321)_8 - (763)_8 \\
-(721)_8 * (72)_8
+{1775}_8 + {766}_8 \\
+{3321}_8 - {763}_8 \\
+{721}_8 * {72}_8
 \end{math}
 
 %-------------
 \Lsg%-------------
 
 %15.
-\item Die Aufgabe $151.875 + 27.625 = 179.5$ soll in binärer Arithmetik gelöst werden.
+\item Die Aufgabe ${151.875}_{10} + {27.625}_{10} = {179.5}_{10}$ soll in binärer Arithmetik gelöst werden.
 
 %-------------
 \Lsg%-------------
 
 %16.
-\item Die Aufgabe $10*13=130$ ist in binärer Arithmetik zu lösen
+\item Die Aufgabe ${10}_{10}*{13}_{10}={130}_{10}$ ist in binärer Arithmetik zu lösen
 
 %-------------
 \Lsg%-------------
 
 %17.
-\item Die Aufgabe $17,375*9,75 = 169,40625$ ist in binärer Arithmetik zu lösen.
+\item Die Aufgabe ${17,375}_{10}*{9,75}_{10} = {169,40625}_{10}$ ist in binärer Arithmetik zu lösen.
 
 %-------------
 \Lsg%-------------
 
 %18.
-\item Wenn man eine Dualzahl um $n, n>0$ Positionen nach links verschiebt und rechts mit $0$ auffüllt, ist das äquivalent der Multiplikation mit $2 n$ . Es ist $15*8$ sowohl mittels dualer Multiplikation als auch mittels Verschiebung nach links auszurechnen.
+\item Wenn man eine Dualzahl um $n, n>0$ Positionen nach links verschiebt und rechts mit $0$ auffüllt, ist das äquivalent der Multiplikation mit $2 n$ . Es ist ${15}*{8}$ sowohl mittels dualer Multiplikation als auch mittels Verschiebung nach links auszurechnen.
 
 %-------------
 \Lsg%-------------
@@ -439,8 +510,7 @@ darzustellen.
 \item Eine echt gebrochene Zahl $n, n<1$ \\
 \begin{math}
 n =
-\Sigma
-bi \cdot B
+\Sigma\,bi \cdot B
 i
 \end{math}
 läßt sich mit Hilfe
@@ -452,27 +522,29 @@ n = 1/B*(b -1 + 1 / B * ( b -2 + 1/B*(b -3 + ... + 1/B*(b -M +1 + 1 / B * b -M )
 Die folgenden Zahlen sind mit dem Hornerschema in Dezimalzahlen zu konvertieren:
 
 \begin{enumerate}
-	\item $(0,375)_8$
-	\item $(0,1210)_{10}$
-	\item $(0,888)_9$
-	\item $(0,ADDA)_{16}$
+	\item ${0,375}_{8}$
+	\item ${0,1210}_{10}$
+	\item ${0,888}_{9}$
+	\item $\text{0,ADDA}_{16}$
 \end{enumerate}
 
 %-------------
 \Lsg%-------------
 
 %21.
-\item Mit dem Zweierkompliment soll die negative Dualzahl $z =-1$ in einem Bereich von $4$ Byte dargestellt wer den. Das Ergebnis ist mit $23^2-|z|$ zu vergleichen. Das Ergebnis ist zusätzlich in Form von $8$ Hexadezimalziffern anzugeben. Wie wird $z=|-2^31|$ dargestellt, auch hexadezimal?
-Wie lautet dual, hexadezimal und dezimal die größte positive Zahl mit Vorzeichen für $4$ Byte? Wie lautet der Wertebereich für Zahlen mit Vorzeichen in einem $4$ Byte Bereich ?
+\item Mit dem Zweierkompliment soll die negative Dualzahl $z =-1$ in einem Bereich von $4$\,Byte dargestellt wer den. Das Ergebnis ist mit $23^2-|z|$ zu vergleichen. Das Ergebnis ist zusätzlich in Form von $8$ Hexadezimalziffern anzugeben. Wie wird $z=|-2^31|$ dargestellt, auch hexadezimal?
+Wie lautet dual, hexadezimal und dezimal die größte positive Zahl mit Vorzeichen für $4$\,Byte? Wie lautet der Wertebereich für Zahlen mit Vorzeichen in einem $4$\,Byte Bereich ?
 
 %-------------
 \Lsg%-------------
 
 %22.
-\item Man stelle $(-1)_{10}, (-64)_{10} und (-128)_{10}$ für $1$ Byte dual dar. \\
+\item Man stelle ${-1}_{10}, {-64}_{10}$ und ${-128}_{10}$ für $1$\,Byte dual dar. \\
 
 %-------------
-\Lsg\begin{math}
+\Lsg
+
+\begin{math}
       (-1)_{10} => (11111111)_2 \\
      (-64)_{10} => (01000000)_2 xor 255_{10} + 1_{10} \\ => (10111111)_2 + 1_{10} => (11000000)_2 \\
     (-128)_{10} => (10000000)_2 xor 255_{10} + 1_{10} \\ => (01111111)_2 + 1_{10} => (10000000)_2 
