@@ -1,28 +1,36 @@
 #include<stdio.h>
 #include<string.h>
 #define MAX 20
-    float sparbrief(float b, float a[], int s){
+
+    float sparbrief(float betrag, float zinsen[], int perioden){
+printf("\n");
       int i;
-      for(i=0; i<s; i++){
-        b*=(1+a[i]);
+      //float anfang=betrag;
+      for(i=0; i < perioden; i++){
+        betrag *= (1+zinsen[i]);
+printf("%f   ", betrag);
       }
-      return b;
+//printf("\n");
+printf("\n");
+      return betrag;//-anfang;
     }
-    float besterendite(float b, float z[],char banken[][20], int l, int c, float* max, char* bbank){
-      int i,mac;
-      float r[3];
-      float br=0.0;
-      for(i=0; i<l; i++){
-        r[i]=sparbrief(b, &z[i], c);
-        if(r[i] > br){
-          max = &r[i];
+
+    float maxrendite(float betrag, float zinsen[][4],char banknamen[][20], int banken, int perioden, float *max, char *bestbank){
+      int i, mac;
+      float rendite[3]={0.0,0.0,0.0};
+      for(i=0; i < banken; i++){
+        rendite[i] = sparbrief(betrag, zinsen[i], perioden) - betrag;
+//printf("%i %f %f %f \n", i, betrag, zinsen[i], rendite[i]);
+//printf("%i %i %f %f %f \n", i, mac, rendite[i], rendite[mac], *max);
+        if(rendite[i] > *max){
+		  max = &rendite[i];
           mac = i;
         }
       }
-      printf("%i\n", i);
-      strcpy(bbank, banken[mac]);//, ( strlen(banken[i]) > (MAX-1) ) ? (MAX-1) : strlen(banken[i]) );
+      strcpy(bestbank, banknamen[mac]);//, ( strlen(banken[i]) > (MAX-1) ) ? (MAX-1) : strlen(banken[i]) );
       return *max;
     }
+
     int main(void){
       //Banken
       char c[3][MAX];
@@ -39,16 +47,16 @@
       int s=4;
       int h=3;
       int i=0;
-      float v=100.0;
-      float br=0.0;
+      float betrag=100.0;
+      float besterendite = 0.0;
       char bestebank[MAX];
 
       //float b, float z, int l, int c,      
       for(i=0; i<h; i++){
-        r[i]=sparbrief(v, a[i], s);
-        printf("%d. Anlage-Betrag bei %s %8.2f ist nach %d Perioden %8.2f\n", (i+1), c[i], v, s, r[i]);
+        r[i]=sparbrief(betrag, a[i], s);
+        printf("%d. Anlage-Betrag bei %s %8.2f ist nach %d Perioden %8.2f\n", (i+1), c[i], betrag, s, r[i]);
       }
-      besterendite(v, *a, c, h, s, &br, bestebank);
-      printf("bei %s\n", bestebank); 
+      besterendite=maxrendite( betrag, a, c, h, s, &besterendite, bestebank);
+      printf("\nBestes Ergebnis bei %s: %8.2f\n", bestebank, besterendite); 
       return 0;
     }
