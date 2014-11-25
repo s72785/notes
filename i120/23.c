@@ -19,7 +19,8 @@
           mac = i;
         }
       }
-      strcpy(bbank, banken[i]);//, ( strlen(banken[i]) > (MAX-1) ) ? (MAX-1) : strlen(banken[i]) );
+      printf("%i\n", i);
+      strcpy(bbank, banken[mac]);//, ( strlen(banken[i]) > (MAX-1) ) ? (MAX-1) : strlen(banken[i]) );
       return *max;
     }
     int main(void){
@@ -40,7 +41,7 @@
       int i=0;
       float v=100.0;
       float br=0.0;
-      char *bestebank;
+      char bestebank[MAX];
 
       //float b, float z, int l, int c,      
       for(i=0; i<h; i++){
