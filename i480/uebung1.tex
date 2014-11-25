@@ -3,6 +3,7 @@
 \usepackage{amsmath,amssymb,mathrsfs,dsfont}
 \usepackage[utf8]{inputenc}
 \usepackage[ngerman]{babel}
+\usepackage{comment}
 \oddsidemargin0mm \evensidemargin3mm \textwidth150mm \textheight23cm
 \parindent0mm \pagestyle{empty} \topmargin-1cm
 \newcommand{\E}{\mathds{E}}
@@ -12,35 +13,48 @@
 \pagestyle{headings}
 \begin{document} 
 \begin{flushleft}
-Prof. Dr.  Anja Voß-Böhme \\
+Prof. Dr. Anja Voß-Böhme \\
 Dipl.-Math. Thomas Buder
 \end{flushleft}
 
-\begin{center}{\large\bf Lineare Algebra und Höhere Mathematik} \\ WS 2014/15 \end{center}
+\begin{center}
+\large{\textbf{ Wirtschaftsmathematik I}} \\
+WS 2014/15 \end{center}
 
-\begin{center}{\large\bf Übung 1 } 
-\end{center}
-
+\begin{center}\large{\textbf{ Übung 1 }} \end{center}
 
 \bigskip
 \begin{enumerate}
 
+	%1.
  	\item 	Prüfen Sie mit Hilfe einer Wahrheitstafel, ob die folgende Aussagen stets wahr sind.
 
 	\begin{enumerate}
 	 	\item   $A \wedge \overline{\overline{A} \Rightarrow B} $
+\begin{comment}
+\begin{tabular}{lllll}
+$A$ & $B$ & $\overline{A}$ & $\overline{\overline{A} \Rightarrow B}$ & $A \wedge \overline{\overline{A} \Rightarrow B}$ \\
+1 & 1 & 0 & 	\\
+1 & 0 & 0 & 	\\
+0 & 1 & 1 & 	\\
+0 & 0 & 1 & 
+\end{tabular}
+\end{comment}
+
 		\item   $(A \Rightarrow B) \Leftrightarrow ( \overline{B} \Rightarrow \overline{A}) $
 		\item   $\left( (A \vee B) \wedge ( A \Leftrightarrow \overline{C})\right)  \Rightarrow ( \overline{B \wedge C}) $
 	\end{enumerate}
 
+	%2.
 	\item Vereinfachen Sie diese logischen Ausdrücke durch Umformungen so weit wie möglich.
 	
 	\begin{enumerate}
 		\item   $\overline{ \overline{A} \wedge \overline{B}}$
-	 	\item   $A \wedge \left( \left(B \wedge \overline{A}) \vee (C \wedge B) \right)$
+	 	\item   $A \wedge \left( ( B \wedge \overline{A} ) \vee (C \wedge B) \right) $
 		\item $(A \wedge B) \vee (\overline{A} \wedge B) \vee (A \wedge \overline{B}) \vee \overline{ A \vee  B}$
 	\end{enumerate}
 	
+	%3.
  	\item Finden Sie eine Aussage $S$, die folgenden Wahrheitstabellen entspricht. Vereinfachen Sie diese so weit wie möglich.
 
 \begin{center}
