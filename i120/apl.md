@@ -38,18 +38,18 @@
 
 4. 4-stellige PIN ändern.
 
-        + Auswahl: PIN ändern
-          - Alte PIN eingeben
-          - Neue PIN eingeben
-          - Neue PIN bestätigen
-          - Wenn Neue PIN mit Bestätigung überein stimmt und Alte PIN stimmt...
-            + true:Neue Pin speichern und zurück zur Kontoübersicht
-            + false:Fehler melden (und zurück zum Hauptmenü)
+    + Auswahl: PIN ändern
+      - Alte PIN eingeben
+      - Neue PIN eingeben
+      - Neue PIN bestätigen
+      - Wenn Neue PIN mit Bestätigung überein stimmt und Alte PIN stimmt...
+        + true:Neue Pin speichern und zurück zur Kontoübersicht
+        + false:Fehler melden (und zurück zum Hauptmenü)
 
 5. Einen Kunden abmelden.
 
-        + Auswahl: [A]bmelden (auch nach Zeitablauf wäre nett)
-          - Verabschieden und zurück zum Hauptmenü
+    + Auswahl: [A]bmelden (auch nach Zeitablauf wäre nett)
+      - Verabschieden und zurück zum Hauptmenü
 
 * Die Funktionen 2-5 dürfen nur ausgeführt werden, wenn der Kunde angemeldet ist. Es muss eine Menüsteuerung implementiert werden.
 * Eigenschaften, die sich aus diesen Anforderungen als selbstverständlich ergeben, müssen bei der Implementierung beachtet werden.

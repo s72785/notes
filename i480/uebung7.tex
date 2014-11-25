@@ -4,6 +4,7 @@
 \usepackage{amsmath,amssymb,mathrsfs,dsfont}
 \usepackage[utf8]{inputenc}
 \usepackage[ngerman]{babel}
+\usepackage{comment}
 \oddsidemargin0mm \evensidemargin3mm \textwidth150mm \textheight23cm
 \parindent0mm \pagestyle{empty} \topmargin-1cm
 \newcommand{\E}{\mathds{E}}
@@ -13,6 +14,7 @@
 \newcommand{\Z}{\mathds{Z}}
 \newcommand{\R}{\mathds{R}}
 \pagestyle{headings}
+
 \begin{document} 
 \begin{flushleft}
 Prof. Dr.  Anja Voß-Böhme \\
@@ -25,31 +27,56 @@ Dipl.-Math. Thomas Buder
 \large{\textbf{ Übung 7 }} 
 \end{center}
 
-
 \bigskip
 \begin{enumerate}
-\item Berechnen Sie -möglichst geschickt- die Determinanten folgender Matrizen!
-\begin{enumerate}
-\item $A=\begin{pmatrix}
+
+%1.
+	\item Berechnen Sie -möglichst geschickt- die Determinanten folgender Matrizen!
+	\begin{enumerate}
+%a)
+		\item $A=\begin{pmatrix}
 0 & 0 & 2 & 5 \\
 0 & 7 & 1 & -4  \\
 -1 & 3 & 2 & 4\\
 0 & 0 & 0 & 4 \\
 \end{pmatrix}$
-\item $B=\begin{pmatrix}
+
+%1. und 3. Zeile tauschen, det(A) berechnen
+
+%b)
+		\item $B=\begin{pmatrix}
 0 & 0 & -1 & 0 \\
 0 & 7 & 3 & 0  \\
 2 & 1 & 2 & 0\\
 5 & -4 & 4 & 4 \\
 \end{pmatrix}$
-\item $C=\begin{pmatrix}
+
+%Spalte 1 und 3 tauschen...
+
+%c)
+		\item $C=\begin{pmatrix}
 0 & 0 & -3 & 0 \\
 0 & 21 & 9 & 0  \\
 6 & 3 & 6 & 0\\
 15 & -12 & 12 & 12 \\
 \end{pmatrix}$
-\end{enumerate}
-\item Für welche $a,b \in \R$ ist $A=\begin{pmatrix}
+
+% C=3B \Rightarrow det(C) = 3^4*det(B)
+
+\begin{comment}
+\item $D=\begin{pmatrix}
+0 & 0 & -3 & 0 \\
+0 & 21 & 9 & 0  \\
+6 & 3 & 6 & 0\\
+21 & -9 & 18 & 12 \\
+\end{pmatrix}$
+\end{comment}
+
+% zwei Zeilen (3 und 4) wurden addiert \Rightarrow det(D) = det(C)
+	\end{enumerate}
+
+%2.
+	\item Für welche $a,b \in \R$ ist $A=\begin{pmatrix}
 a & 2 & 3 \\
 a & 3 & 4\\
 a & 3 & 5
@@ -58,32 +85,119 @@ a & 3 & 5
 -1 & b+1 &-1\\
 0 & -1 & b
 \end{pmatrix}$ ?
-\item 
+
+\begin{comment}
+Inverse von $A$ gibt es nur für $det(A) \neq 0$
+also hier $A$ mit $B$ multiplizieren und mit der Einheitsmatrix gleichsetzen
+3a-2=1 \Rightarrow a=1
+-a+3(b+1)-4 \Rightarrow b=1
+restliche Werte auch prüfen
+\end{comment}
+
+%3.
+	\item 
  Gegeben sei die Matrix
 $A=\begin{pmatrix}
 -2 & 3 & 3 \\
 0 & 1 & 1\\
 0 & -1 & -3
 \end{pmatrix}.$
-\begin{enumerate}
-\item Prüfen Sie, ob die inverse Matrix $A^{-1}$ existiert.
-\item Berechnen Sie die inverse Matrix $A^{-1}$ mit Hilfe von Unterdeterminanten.
-\item Führen Sie eine Probe durch, ob die Inverse korrekt ist.
-\end{enumerate}
-\item Bestimmen Sie alle  reellwertigen 2$\times$2-Matrizen, die zu sich selbst invers sind.
-\item
+	\begin{enumerate}
+%a)
+		\item Prüfen Sie, ob die inverse Matrix $A^{-1}$ existiert.
+\begin{comment}
+wenn det(A)\neq0, dann existiert A^{-1}
+det(A) = (-2)*(-2) = 4 \Rightarrow A^{-1} existiert
+\end{comment}
+
+%b)
+		\item Berechnen Sie die inverse Matrix $A^{-1}$ mit Hilfe von Unterdeterminanten.
+\begin{comment}
+(A^{-1})^T = \fraq{1}{det(A)}*A'
+A'_{ij} = (-1)^{i+j}D_{ij}
+A'_{11} = 1 * | 1 1 \\ -1 -3 | = (-3)-(-1) = -2
+A'_{12} = -1 * | 0 1 \\ 0 -3 | = 0
+A'_{13} = 1 * | 0 1 \\ 9 -1 | = 0
+A'_{21} = -1* | 3 3 \\ -1 -3 | = 6
+\vdots
+A'_{33} = -2
+A^{-1} = \left( \frac{1}{4} \begin{pmatrix} -2 0 0 \\ 6 6 2 \\ 0 -2 -2 \end{pmatrix} \right)^T
+= \begin{pmatrix} -2 6 0 \\ 0 6 -2 \\ 0 2 -2 \end{pmatrix} 
+\end{comment}
+
+%c)
+		\item Führen Sie eine Probe durch, ob die Inverse korrekt ist.
+\begin{comment}
+A*A^{-1} = I_3
+\end{comment}
+	\end{enumerate}
+
+%4.
+	\item Bestimmen Sie alle  reellwertigen $2 \times 2$-Matrizen, die zu sich selbst invers sind.
+\begin{comment}
+A=\begin{pmatrix}a b \\ a b\end{pmatrix}
+A=A^{-1}
+AA^{-1}=I_2 \Rightarrow AA=I-2
+\begin{tabular}{rr|rr}
+	&	&	a &	b \\
+	&	&	c &	d \\
+ a	& d	& a^2+bc & ab+bd \\
+ c	& d	& ac+cd	& bc+d^2 
+\end{tabular}
+welche vier Zahlen erfüülen die Einheitsmatrix hier?
+\end{comment}
+
+%5.
+	\item
 Für welches $a \in \R$ ist folgendes Gleichungssystem eindeutig lösbar? Lösen Sie für diesen Fall unter Verwendung der \textsc{Cramer'schen} Regel.
 \begin{align*}
 					 ax+y &= 3 \\
 					-2x +y &=-1
 \end{align*}
+\begin{comment}
+CRAMERsche Regel - nur anwendbar wenn LGS eindeutig lösbar (d.h. det(A) \neq 0 )
+\Rightleftarrow A\vec{x}=\vec{b}
+mit A=\begin{pmatrix} a 1 \\ -2 1 \end{pmatrix}, \vec{x}=\begin{pmatrix} x \\ y \end{pmatrix}, \vec{b}=\begin{pmatrix} 3 \\ -1 \end{pmatrix}
+det(A)=a-2 \Rightarrow lösbar für a \neq -2
+x=\frac{det A_1}{det A} = \frac{4}{a-2}
+y=\frac{det A_2}{det A} = \frac{-a+6}{a-2}
+\end{comment}
+
+
+%6.
 \item 
 Lösen Sie folgendes Gleichungssystem  unter Verwendung der \textsc{Cramer'schen} Regel.
-\begin{align*}
-					 -z &= -y-2x+1 \\
-					-x-y+z +y &=	y+2z+1	\\
-						x+y &= 2z+2
-\end{align*}
+	\begin{align*}
+		-z			&= -y-2x+1 \\
+		-x-y+z +y	&= y+2z+1 \\
+		x+y			&= 2z+2
+	\end{align*}
+\begin{comment}
+erst umforme in Standardform
+A=\begin{pmatrix}2 1 -1 \\
+-1 -1 -1 \\
+1 1 -2
+\end{pmatrix}, \vec{b} = \begin{pmatrix} 1 \\ 1 \\ 2 \end{pmatrix}, vec{x} = \begin{pmatrix} x \\ y \\ z \end{pmatrix}
+det A = -1 \neq 0 \Rightarrow LGS eindeutlich lösbar \Rightarrow CRAMERsche Regel ist anwendbar
+x = \frac{\begin{matrix}
+1 1 -1 \\
+1 -1 -1 \\
+2 1 -2
+\end{matrix}}{-1} = 0
+
+y = \frac{\begin{matrix}
+2  1  -1 \\
+-1 1 -1 \\
+1  2  -2
+\end{matrix}}{-1} = 0
+
+z = \frac{\begin{matrix}
+2 1 1 \\
+-1 -1 1 \\
+1 1 2
+\end{matrix}}{-1} = \frac{1}{-1} = -1
+
+\end{comment}
 
 
 %\item Berechnen Sie mit Hilfe des Gauß-Algorithmus, für welche reellen Zahlen $a,b$ das lineare Gleichungssystem
@@ -91,7 +205,7 @@ Lösen Sie folgendes Gleichungssystem  unter Verwendung der \textsc{Cramer'schen
 		%\begin{align*}
 					 %x-2y+3z &= -4 \\
 					%2x +y +z &=  2 \\
-					%x + ay + 2z &= -b			
+					%x + ay + 2z &= -b
 		 %\end{align}
 %
 %\begin{enumerate}
