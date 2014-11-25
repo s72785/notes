@@ -1,17 +1,16 @@
 #include<stdio.h>
 #include<string.h>
 #define MAX 20
+#define DEBUG 0
 
     float sparbrief(float betrag, float zinsen[], int perioden){
-printf("\n");
       int i;
       //float anfang=betrag;
       for(i=0; i < perioden; i++){
         betrag *= (1+zinsen[i]);
-printf("%f   ", betrag);
+if(DEBUG)printf("debug:\t%f   ", betrag);
       }
-//printf("\n");
-printf("\n");
+if(DEBUG)printf("\n");
       return betrag;//-anfang;
     }
 
@@ -20,8 +19,7 @@ printf("\n");
       float rendite[3]={0.0,0.0,0.0};
       for(i=0; i < banken; i++){
         rendite[i] = sparbrief(betrag, zinsen[i], perioden) - betrag;
-//printf("%i %f %f %f \n", i, betrag, zinsen[i], rendite[i]);
-//printf("%i %i %f %f %f \n", i, mac, rendite[i], rendite[mac], *max);
+if(DEBUG)printf("debug:\ti:%i i[r_max]:%i r[i]%f r_max:%f\n", i, mac, rendite[i], *max);
         if(rendite[i] > *max){
 		  max = &rendite[i];
           mac = i;
