@@ -52,7 +52,7 @@
       (div) edge (set)
       (set) edge (cond)
       (cond) edge node[right] {Ja} (out);
-    \draw[->] (cond) -- node[below] {Nein} ++(1.5 %hier will ich keine Zahl haben!
-,0) |- (div);
+    \draw[->] (cond) -- (current bounding box.north east |- cond) -- +(.5ex,0) node[below] {Nein} |- (div);
+%    \draw[->] (cond) -- node[below] {Nein} ++(1.5,0) |- (div);
   \end{tikzpicture}
 \end{document}
