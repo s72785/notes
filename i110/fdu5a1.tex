@@ -1,0 +1,101 @@
+% Dokuementen-Klasse für Bilder mit notwendigen Abmessungen
+\documentclass{standalone}
+
+% Mehrzeilige Kommentare
+\usepackage{comment}
+
+% Kodierung dieser Datei angeben
+\usepackage[utf8]{inputenc}
+
+% Schönere Schriftart laden
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
+% Deutsche Silbentrennung verwenden
+\usepackage[ngerman]{babel}
+
+% Bessere Unterstützung für PDF-Features
+\usepackage[breaklinks=true]{hyperref}
+
+\begin{comment}
+\KOMAoptions{%
+  % Absätze durch Abstände
+  parskip=full,%
+  % Satzspiegel berechnen lassen
+  DIV=calc%
+}
+\end{comment}
+
+% Mathematikumgebungen von der AMS laden
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+% TikZ laden
+\usepackage{tikz}
+
+% Verwendete TikZ-Bibliotheken laden
+\usetikzlibrary{positioning,shapes.geometric}
+
+% Styles für Flussdiagramm
+% Stil für Operationen
+\tikzstyle{op} = [rectangle, fill=blue!10, draw=blue, text badly centered] 
+% Stil für Ein- und Ausgabe
+\tikzstyle{io} = [trapezium, trapezium left angle=70, trapezium right angle=110, fill=magenta!10, draw=magenta]
+% Stil für Entscheidungen
+\tikzstyle{cn} = [diamond, aspect=2, inner sep=2pt, fill=orange!10, draw=orange, text badly centered] 
+% Stil für Zustand
+\tikzstyle{ss} = [draw, ellipse, fill=red!20]
+
+\begin{document}
+
+  \begin{tikzpicture}[
+      % Distanz zwischen den Knoten
+      node distance=1em,
+      auto
+  ]
+
+    \node[ss] (start) {Start};
+    \node[io, below=of start] (in) {Eingabe $x, \epsilon$};
+    \node[op, below=of in] (sin) {$S2=1.0,\ S1=0.0$};
+    \node[op, below=of sin] (nin) {$n=0$};
+    \node[cn, below=of nin] (cond) {$(S2-S1)>\epsilon$};
+    \node[io, left=of cond] (out) {$S1,\ S2$};
+    \node[ss, below=of out] (stop) {Stop};
+    \node[op, below=of cond] (s2save) {$S1=S2$};
+    \node[op, below=of s2save] (s2inc) {$S2+=\frac{x^2}{n!}$};
+    \node[op, below=of s2inc] (ninc) {n++};
+
+    \path[->]
+      (start) edge (in)
+      (in) edge (sin)
+      (sin) edge (nin)
+      (nin) edge (cond)
+      (cond) edge node[below] {N} (out)
+      (out) edge (stop)
+      (cond) edge node[right] {J} (s2save)
+      (s2save) edge (s2inc)
+      (s2inc) edge (ninc);
+    \draw[->] (ninc) -- (current bounding box.north east |- ninc) -- +(1ex,0) |- (cond);
+
+\begin{comment}
+    % Knoten
+    \node[ss] (start) {Start};
+    \node[io, below=of start] (in) {Eingabe $a,b$};
+    \node[op, below=of in] (div) {$r=a \mod b$};
+    \node[op, below=of div] (set) {$a=b,\ b=r$};
+    \node[cn, below=of set] (cond) {$b==0$};
+    \node[io, below=of cond] (out) {Ausgabe $a$};
+    \node[ss, below=of out] (stop) {Stop};
+    % Kanten
+    \path[->]
+      (start) edge (in)
+      (in) edge (div)
+      (div) edge (set)
+      (set) edge (cond)
+      (cond) edge node[right] {Ja} (out)
+      (out) edge (stop);
+    \draw[->] (cond) -- (current bounding box.north east |- cond) -- +(.5ex,0) node[below] {Nein} |- (div);
+\end{comment}
+
+  \end{tikzpicture}
+\end{document}
