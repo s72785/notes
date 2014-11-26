@@ -1,4 +1,8 @@
-\documentclass{scrartcl}
+% Dokuementen-Klasse für Bilder mit notwendigen Abmessungen
+\documentclass{standalone}
+
+% Mehrzeilige Kommentare
+\usepackage{comment}
 
 % Kodierung dieser Datei angeben
 \usepackage[utf8]{inputenc}
@@ -13,12 +17,14 @@
 % Bessere Unterstützung für PDF-Features
 \usepackage[breaklinks=true]{hyperref}
 
+\begin{comment}
 \KOMAoptions{%
   % Absätze durch Abstände
   parskip=full,%
   % Satzspiegel berechnen lassen
   DIV=calc%
 }
+\end{comment}
 
 % Mathematikumgebungen von der AMS laden
 \usepackage{amsmath}
@@ -30,21 +36,24 @@
 % Verwendete TikZ-Bibliotheken laden
 \usetikzlibrary{positioning,shapes.geometric}
 
+% Styles für Flussdiagramm
+% Stil für Operationen
+\tikzstyle{op} = [rectangle, fill=orange!10, draw=orange, text badly centered] 
+% Stil für Ein- und Ausgabe
+\tikzstyle{io} = [trapezium, trapezium left angle=70, trapezium right angle=110, fill=magenta!10, draw=magenta]
+% Stil für Entscheidungen
+\tikzstyle{cn} = [diamond, aspect=2, inner sep=2pt, fill=red!10, draw=red, text badly centered] 
+
 \begin{document}
   \begin{tikzpicture}[
-      % Stil für Ein- und Ausgabe
-      io/.style={trapezium, trapezium left angle=70, trapezium right angle=110, fill=magenta!10, draw=magenta},
-      % Stil für Operationen
-      op/.style={rectangle, fill=orange!10, draw=orange},
-      % Stil für Entscheidungen
-      cn/.style={diamond, aspect=2, inner sep=2pt, fill=red!10, draw=red},
       % Distanz zwischen den Knoten
-      node distance=5mm]
+      node distance=1em
+  ]
     % Knoten
     \node[io] (in) {Eingabe $a,b$};
     \node[op, below=of in] (div) {$r=a \mod b$};
     \node[op, below=of div] (set) {$a=b,\ b=r$};
-    \node[cn, below=of set] (cond) {$b=0?$};
+    \node[cn, below=of set] (cond) {$b==0$};
     \node[io, below=of cond] (out) {Ausgabe $a$};
     % Kanten
     \path[->]
@@ -53,6 +62,5 @@
       (set) edge (cond)
       (cond) edge node[right] {Ja} (out);
     \draw[->] (cond) -- (current bounding box.north east |- cond) -- +(.5ex,0) node[below] {Nein} |- (div);
-%    \draw[->] (cond) -- node[below] {Nein} ++(1.5,0) |- (div);
   \end{tikzpicture}
 \end{document}
