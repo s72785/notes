@@ -116,8 +116,6 @@ Die \textbf{Algorithmen sollen als Struktogramme, Flussdiagramme bzw. Programmab
 %-------------------------------
 \Lsg
 
-
-
 \begin{lstlisting}
     #include<math.h>
     void leibnitzpi(double epsilon, double* sum1, int* n){
@@ -127,7 +125,7 @@ Die \textbf{Algorithmen sollen als Struktogramme, Flussdiagramme bzw. Programmab
       while( (sum2 / *sum1) >= epsilon ){
         *sum1 = sum2;
         sum2 += pow(-1,*n)/(*n*2 + 1);
-        *n+=2;
+        *n++;
       }
     }
 \end{lstlisting}
@@ -137,24 +135,62 @@ Die \textbf{Algorithmen sollen als Struktogramme, Flussdiagramme bzw. Programmab
 
 %-------------------------------
 \Lsg
+
+
 %-------------------------------
 
 \item Berechnung von $ln(x)$:
 
 %-------------------------------
 \Lsg
+
+\begin{lstlisting}
+int x=2;
+int n=(int)(1.0/0.000001);
+
+while ( divisor <= x*10^n ){
+	ln_x += 1 / divisor;
+	divisor++;
+}
+return ln_x;
+\end{lstlisting}
+
 %-------------------------------
 
 \item Berechnung von $cos(x)$:
 
 %-------------------------------
 \Lsg
+
+\begin{lstlisting}
+float mycos(float number)
+{
+    float cos = 0;
+    float step = 1;
+    int i = 1;
+
+    while(i <= 5)
+    {
+        step = step * (-number) * number / (((2*i)-1)*((2*i)-2));
+        cos += step;
+        i++;
+    }
+
+    return cos;
+}
+\end{lstlisting}
 %-------------------------------
 
 \item Berechnung von $arctan(x) \text{für} |x|<=1$:
 
 %-------------------------------
 \Lsg
+
+$arctan(x) = \int\,\frac{1}{1+x^2}$\,dx
+
+\begin{lstlisting}
+
+\end{lstlisting}
 %-------------------------------
 
 \end{enumerate}
@@ -166,7 +202,26 @@ Auf Produkte $x, y$ und $z$ gibt es bei einem Händler folgende Rabatte:
 Bis zum 9. Stück. gibt es keinen Rabatt, für das 10. -- 19. Stück gibt es 10\% Rabatt (pro Stück).
 Für \numrange{20}{39}{ Stück} gibt es \si{15}{\%} Rabatt pro Stück.
 Für \numrange{40}{49}{ Stück} gibt es nur noch \si{5}{\%} Rabatt pro Stück.
-Für \si{50}{Stück} und weitere Stücke des Produktes x gibt es keinen Rabatt mehr.
+Für \si{50}{ Stück} und weitere Stücke des Produktes x gibt es keinen Rabatt mehr.
+
+\begin{lstlisting}
+rabatt_x(anzahl){
+	float rabatt=0.0;
+	if(anzahl > 9){
+		rabatt+=1.0;
+	}
+	if(anzahl > 19){
+		rabatt+=0.15*(anzahl<40 ? anzahl-19 : 20);
+	}
+	if(anzahl > 39){
+		rabatt+=0.05*(anzahl<50 ? anzahl-39 : 10);
+	}
+	return rabatt/anzahl;
+}
+anzahl=100;
+//%printf("Rabatt: %8.2f\%", rabatt_x(anzahl)*100.0);
+\end{lstlisting}
+
 \par Beim Kauf von \textit{Produkt $y$} gilt: \\
 Ab \si{6}{ Stück} gibt es \EUR{5,-} Rabatt pro Stück für alle Stücke von $1$ an.
 Ab \si{10}{ Stück} gibt es \EUR{10,-} Rabatt pro Stück für alle Stücke von $1$ an.
@@ -206,7 +261,7 @@ und ausgibt. Der Geldbetrag des erzielten Rabatts ist ebenfalls auszugeben. Beim
 %\end{flushleft}
 %-----------------
 
-\item Formulieren Sie einen Programmablaufplan bzw. ein Flussdiagramm bzw. ein Struktogramm, welches das Siebverfahren von Eratosthenes bis $n, n > 0$ realisiert.
+\item Formulieren Sie einen Programmablaufplan bzw. ein Flussdiagramm bzw. ein Struktogramm, welches das Siebverfahren von Eratosthenes bis $n \in \mathbb{N}, n > 0$ realisiert.
 
 %-------------------------------
 \Lsg
@@ -222,7 +277,7 @@ und ausgibt. Der Geldbetrag des erzielten Rabatts ist ebenfalls auszugeben. Beim
 \Lsg
 %-------------------------------
 
-\item Formulieren Sie einen Programmablaufplan bzw. ein Flussdiagramm bzw. ein Struktogramm, welches das optimierte Verfahren bis $n, n > 0$ realisiert.
+\item Formulieren Sie einen Programmablaufplan bzw. ein Flussdiagramm bzw. ein Struktogramm, welches das optimierte Verfahren bis $n \in \mathbb{N}, n > 0$ realisiert.
 
 %-------------------------------
 \Lsg
