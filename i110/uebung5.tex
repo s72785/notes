@@ -10,6 +10,10 @@
 \usepackage{tikz}
 \usetikzlibrary{shapes.geometric,arrows}% für ellipse
 \usepackage{verbatim}
+%\usepackage{ifthen}
+%\usepackage{comment}
+
+\newcommand{\Lsg}{\par \textbf{Lsg.: } \hfill}
 
 \newcommand\mrahmen[3][]{%
   \tikz[anchor=base,baseline]\node[inner sep=2pt,draw=#2,#1]{$\displaystyle#3\mathstrut$};}
@@ -40,7 +44,6 @@
 
 %euro-zeichen f. utf8
 \usepackage{eurosym}
-\newcommand{\Lsg}{\par \textbf{Lsg.: \hfill }}
 \newcommand{\Byte}{\,Byte}
 \newcommand{\Bit}{\,Bit}
 
