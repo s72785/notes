@@ -37,14 +37,7 @@
 \usetikzlibrary{positioning,shapes.geometric}
 
 % Styles für Flussdiagramm
-% Stil für Operationen
-\tikzstyle{op} = [rectangle, fill=blue!10, draw=blue, text badly centered] 
-% Stil für Ein- und Ausgabe
-\tikzstyle{io} = [trapezium, trapezium left angle=70, trapezium right angle=110, fill=magenta!10, draw=magenta]
-% Stil für Entscheidungen
-\tikzstyle{cn} = [diamond, aspect=2, inner sep=2pt, fill=orange!10, draw=orange, text badly centered] 
-% Stil für Zustand
-\tikzstyle{ss} = [draw, ellipse, fill=red!20]
+\input{fdstyles}
 
 \begin{document}
 
@@ -55,11 +48,11 @@
   ]
 
     \node[ss] (start) {Start};
-    \node[io, below=of start] (in) {Eingabe $x, \epsilon$};
+    \node[io, below=of start] (in) {E: $x, \epsilon$};
     \node[op, below=of in] (sin) {$S2=1.0,\ S1=0.0$};
     \node[op, below=of sin] (nin) {$n=0$};
     \node[cn, below=of nin] (cond) {$(S2-S1)>\epsilon$};
-    \node[io, left=of cond] (out) {$S1,\ S2$};
+    \node[io, left=of cond] (out) {A: $S1,\ S2$};
     \node[ss, below=of out] (stop) {Stop};
     \node[op, below=of cond] (s2save) {$S1=S2$};
     \node[op, below=of s2save] (s2inc) {$S2+=\frac{x^2}{n!}$};
@@ -70,32 +63,12 @@
       (in) edge (sin)
       (sin) edge (nin)
       (nin) edge (cond)
-      (cond) edge node[below] {N} (out)
+      (cond) edge node[below] {f} (out)
       (out) edge (stop)
-      (cond) edge node[right] {J} (s2save)
+      (cond) edge node[right] {w} (s2save)
       (s2save) edge (s2inc)
       (s2inc) edge (ninc);
-    \draw[->] (ninc) -- (current bounding box.north east |- ninc) -- +(1ex,0) |- (cond);
-
-\begin{comment}
-    % Knoten
-    \node[ss] (start) {Start};
-    \node[io, below=of start] (in) {Eingabe $a,b$};
-    \node[op, below=of in] (div) {$r=a \mod b$};
-    \node[op, below=of div] (set) {$a=b,\ b=r$};
-    \node[cn, below=of set] (cond) {$b==0$};
-    \node[io, below=of cond] (out) {Ausgabe $a$};
-    \node[ss, below=of out] (stop) {Stop};
-    % Kanten
-    \path[->]
-      (start) edge (in)
-      (in) edge (div)
-      (div) edge (set)
-      (set) edge (cond)
-      (cond) edge node[right] {Ja} (out)
-      (out) edge (stop);
-    \draw[->] (cond) -- (current bounding box.north east |- cond) -- +(.5ex,0) node[below] {Nein} |- (div);
-\end{comment}
+    \draw[->] (ninc) -- (current bounding box.north east |- ninc) -- +(1em,0) |- (cond);
 
   \end{tikzpicture}
 \end{document}
