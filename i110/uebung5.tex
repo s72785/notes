@@ -27,6 +27,7 @@
 %\usepackage{comment}
 
 \newcommand{\Lsg}{\par \textbf{Lsg.: } \hfill}
+\newcommand{\lsg}[1]{\underline{\underline{#1}}}
 
 \newcommand\mrahmen[3][]{%
   \tikz[anchor=base,baseline]\node[inner sep=2pt,draw=#2,#1]{$\displaystyle#3\mathstrut$};}
@@ -265,22 +266,57 @@ und ausgibt. Der Geldbetrag des erzielten Rabatts ist ebenfalls auszugeben. Beim
 
 %-------------------------------
 \Lsg
+
+\begin{lstlisting}
     solange i<n
-      j = wähle nöchste zahl aus ungestrichenen zahlen
+      j = waehle die naechste zahl aus ungestrichenen zahlen
       solange j<n
         streiche vielfache von j
+\end{lstlisting}
 %-------------------------------
 
 \item Führen Sie das optimierte Verfahren, \href{run:Algorithmen_Heron_Euklid_Prim.pdf}{Algorithmen, S.~11, Vorlesung~4} manuell auf Papier für die natürlichen Zahlen von \numrange{1}{60} durch.
 
 %-------------------------------
 \Lsg
+
+Für die Zahl $60$ und eine Genauigkeit von $0,1$:
+
+\begin{align*}
+a = 60, y = 1 \\
+x = a &\\
+x_i = (x+y)/2; y_i=a/x \\ \Rightarrow x_i=(x+a/x)/2; \epsilon<0,1 \\ 
+x_1 = (60+1/1)/2 = 31,5; \epsilon=28,5 \\
+x_2 = ((60+1)/2+60/61)/2 = 15,74; \epsilon=15,76 \\
+x_3 = (15,74+60/15,74)/2 = 9,78; \epsilon=5,96 \\
+x_4 = (9,78+60/9,78)/2 = 7,96; \epsilon=1,82 \\
+x_5 = (7,96+60/7,96)/2 = 7,75; \epsilon=0,21 \\
+x_6 = (7,75+60/7,75)/2 = 7,75; \epsilon=0 \\
+\lsg{\sqrt{60} \approx 7,7}
+\end{align*}
 %-------------------------------
 
 \item Formulieren Sie einen Programmablaufplan bzw. ein Flussdiagramm bzw. ein Struktogramm, welches das optimierte Verfahren bis $n \in \mathbb{N}, n > 0$ realisiert.
 
 %-------------------------------
 \Lsg
+
+\includestandalone%[width=.8\textwidth]
+{fdu5a4d}
+
+\begin{lstlisting}
+//a=seitenlaenge
+//e=genauigkeit
+i=0
+x=a
+x_i=x
+solange (x - x_i) < e
+	x_i=(x + a/x)/2;
+	x=x_i
+	i++
+Ausgabe: x_i auf genauigkeit e nach i Durchgaengen
+\end{lstlisting}
+
 %-------------------------------
 
 \item \textbf{optional:} Schreiben Sie ein C-Programm zum Sieb- und zum optimierten Verfahren
