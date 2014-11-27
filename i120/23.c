@@ -1,7 +1,7 @@
-#include<stdio.h>
-#include<string.h>
-#define MAX 20
-#define DEBUG 0
+	#include<stdio.h>
+	#include<string.h>
+	#define MAX 20
+	#define DEBUG 0
 
 	float sparbrief(float betrag, float zinsen[], int perioden){
 
