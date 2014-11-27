@@ -1,0 +1,70 @@
+% Dokuementen-Klasse für Bilder mit notwendigen Abmessungen
+\documentclass{standalone}
+
+% Mehrzeilige Kommentare
+\usepackage{comment}
+
+% Kodierung dieser Datei angeben
+\usepackage[utf8]{inputenc}
+
+% Schönere Schriftart laden
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
+% Deutsche Silbentrennung verwenden
+\usepackage[ngerman]{babel}
+
+% Bessere Unterstützung für PDF-Features
+\usepackage[breaklinks=true]{hyperref}
+
+\begin{comment}
+\KOMAoptions{%
+  % Absätze durch Abstände
+  parskip=full,%
+  % Satzspiegel berechnen lassen
+  DIV=calc%
+}
+\end{comment}
+
+% Mathematikumgebungen von der AMS laden
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+% TikZ laden
+\usepackage{tikz}
+
+% Verwendete TikZ-Bibliotheken laden
+\usetikzlibrary{positioning,shapes.geometric}
+
+% Styles für Flussdiagramm
+\input{fdstyles}
+
+\begin{document}
+
+  \begin{tikzpicture}[
+      % Distanz zwischen den Knoten
+      node distance=1em,
+      auto
+  ]
+
+    \node[ss] (start) {Start};
+    \node[io, below=of start] (in) {E: $n,a[1,n],b[1,n]$};
+    \node[op, below=of in] (sin) {$i=0,s=0$};
+    \node[cn, below=of sin] (cond) {Index $i <$ Größe $n$};
+    \node[op, below=of cond] (sum) {$s=a[0,i]*b[0,i]$};
+    \node[op, below=of sum] (inc) {$i=i+1$};
+    \node[io, left=of cond] (out) {A: $s$};
+    \node[ss, below=of out] (stop) {Stop};
+
+    \path[->]
+      (start) edge (in)
+      (in) edge (sin)
+      (sin) edge (cond)
+      (cond) edge node[below] {f} (out)
+      (out) edge (stop)
+      (cond) edge node[right] {w} (sum)
+      (sum) edge (inc);
+    \draw[->] (inc) -- (current bounding box.north east |- inc) -- +(1em,0) |- (cond);
+
+  \end{tikzpicture}
+\end{document}
