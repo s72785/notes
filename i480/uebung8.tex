@@ -2,8 +2,11 @@
 \usepackage{tikz}
 \usetikzlibrary{positioning,calc}
 \usepackage{amsmath,amssymb,mathrsfs,dsfont}
-\usepackage[latin1]{inputenc}
+\usepackage[utf8]{inputenc}
 \usepackage[ngerman]{babel}
+\usepackage[colorlinks=false, pdfborderstyle={/S/U/W 1}
+]{hyperref}
+\usepackage{comment}
 \oddsidemargin0mm \evensidemargin3mm \textwidth150mm \textheight23cm
 \parindent0mm \pagestyle{empty} \topmargin-1cm
 \newcommand{\E}{\mathds{E}}
@@ -13,15 +16,19 @@
 \newcommand{\Z}{\mathds{Z}}
 \newcommand{\R}{\mathds{R}}
 \pagestyle{headings}
+
+
+\newcommand{\Lsg}{\textbf{Lsg.:}}
+
 \begin{document} 
 \begin{flushleft}
-Prof. Dr.  Anja Voß-Böhme \\
-Dipl.-Math. Thomas Buder
+\href{mailto:anja.voss-boehme@htw-dresden.de}{Prof. Dr. Anja VoÃŸ-BÃ¶hme} \\
+\href{mailto:buder@htw-dresden.de}{Dipl.-Math. Thomas Buder}
 \end{flushleft}
 
-\begin{center}{\large\bf Wirtschaftsmathematik I} \\ \\ WS 2014/15 \end{center}
+\begin{center}{\large\textbf Wirtschaftsmathematik I} \\ WS 2014/15 \end{center}
 
-\begin{center}{\large\bf Übung 8 } 
+\begin{center}{\large\bf Ãœbung 8 } 
 \end{center}
 
 
@@ -31,29 +38,29 @@ Dipl.-Math. Thomas Buder
  2 & 7 & 3\\
  3 & 9 & 4 \\
  1 & 5 & 3\\
-\end{pmatrix}$ mit Hilfe des Gauß-Algorithmus.
-\item Lösen Sie das folgende Gleichungssystem.
+\end{pmatrix}$ mit Hilfe des GauÃŸ-Algorithmus.
+\item LÃ¶sen Sie das folgende Gleichungssystem.
 		\begin{align*}
 x - y +  z &= 1 \\
 7x - 4y - z &= -2\\
 -x + 2y + 5z &= 2\\
 5y + 17z &= 18
-\end{align}
-\item Für welche reellen Zahlen $a,b$ hat das lineare Gleichungssystem
+\end{align*}
+\item FÃ¼r welche reellen Zahlen $a,b$ hat das lineare Gleichungssystem
 
 		\begin{align*}
 					 x-2y+3z &= -4 \\
 					2x +y +z &=  2 \\
 					x + ay + 2z &= -b			
-		 \end{align}
+		 \end{align*}
 
 \begin{enumerate}
-\item genau eine Lösung,
-\item keine Lösung,
-\item unendlich viele Lösungen ?
+\item genau eine LÃ¶sung,
+\item keine LÃ¶sung,
+\item unendlich viele LÃ¶sungen ?
 
 \end{enumerate}
-Geben Sie die Lösungen in den Fällen a) und c) an.
+Geben Sie die LÃ¶sungen in den FÃ¤llen a) und c) an.
 
 \item 
 Zeigen Sie, dass die Vektoren $a=\begin{pmatrix}
@@ -72,7 +79,7 @@ Zeigen Sie, dass die Vektoren $a=\begin{pmatrix}
 3
 
 \end{pmatrix}$ eine Basis von $\R^3$ bilden. \\
- Wie lässt sich der Vektor $d=\begin{pmatrix}
+ Wie lÃ¤sst sich der Vektor $d=\begin{pmatrix}
 1 \\
 -2\\
 -2
@@ -94,7 +101,7 @@ $A=\begin{pmatrix}
  1 & 1 & 1 & 1 & 1 & 1 & 1\\
  1 & 1 & 1 & 1 & 1 & 1 & 1 \\
  1 & 1 & 1 & 1 & 1 & 1 & x
-\end{pmatrix}$ für $x \in \R.$
+\end{pmatrix}$ fÃ¼r $x \in \R.$
 \end{enumerate}
 \item Seien $A=\begin{pmatrix}
  1 & 1 & 0 \\
@@ -108,12 +115,12 @@ $A=\begin{pmatrix}
   
 
 \end{pmatrix}.$ 
-	\begin{enumerate}
-\item Für welche $c \in \R$ haben die Matrizen $A$ und $B$ denselben Rang?
-\item Für welche $c \in \R$ ist die Matrix $A$ invertierbar? Bestimmen Sie für diesen Fall den Rang der Matrix $A^{-1}$.
-\item Für welche $c \in \R$ gilt $\det B=0$?
+\begin{enumerate}
+	\item FÃ¼r welche $c \in \R$ haben die Matrizen $A$ und $B$ denselben Rang?
+	\item FÃ¼r welche $c \in \R$ ist die Matrix $A$ invertierbar? Bestimmen Sie fÃ¼r diesen Fall den Rang der Matrix $A^{-1}$.
+	\item FÃ¼r welche $c \in \R$ gilt $\det B=0$?
+
+\end{enumerate}
 
 \end{enumerate}
 \end{document}
-
-
