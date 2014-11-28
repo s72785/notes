@@ -4,6 +4,7 @@
 \usepackage[ngerman]{babel}
 \usepackage{hyperref}
 \usepackage{color}
+\usepackage{comment}
 \definecolor{dkgreen}{rgb}{0,0.6,0}
 \definecolor{gray}{rgb}{0.5,0.5,0.5}
 \definecolor{mauve}{rgb}{0.58,0,0.82}
@@ -38,6 +39,7 @@ tabsize=3
 Ein Algorithmus in Form eines Flussdiagrammes (PAP) oder Struktogrammes (Nassi-Shneidermann-Diagramm) soll die Umrechnung von Fahrenheit-Werten in Celsius-Werte ermöglichen. Die Variablen lower, upper und step sollen eingelesen werden. Diese Variablen beschreiben in der genannten Reihenfolge die untere und obere Fahrenheit-Temperatur und step die Schrittweite ( 0 < step gefordert). Die Umrechnungsformel lautet: celsius=5.0*(fahrenheit-32.0)/9.0 .
 Von lower bis upper sollen mit der Schrittweite step zu jedem Fahrenheit-Wert der zugehörige Celsius-Wert berechnet und ausgegeben werden. Der Algorithmus kann optional als C-Programm implementiert werden.
 
+\begin{comment}
     (1)_Start
     (2)_Input:lower 
     (1)->(2)
@@ -54,12 +56,14 @@ Von lower bis upper sollen mit der Schrittweite step zu jedem Fahrenheit-Wert de
     (9)_End
     (8)_If(lower < upper)?(8)->(6)
     (8)->(9)
+\end{comment}
 
 \item Aufgabe %2
 
 Gegeben sind die drei Koeffizienten $ a, b, c$, wobei diese beliebige reele Werte haben können. Gesucht sind alle reellen und komplexen Werte von $ x $, für welche die Gleichung $ a * x^2 + b * x + c = 0 $ erfüllt ist. Im Falle von $ \sqrt{–1} $ setzen Sie den Buchstaben $ i $ ein.
 Der Algorithmus kann optional als C-Programm implementiert werden.
 
+\begin{lstlisting}
     double gleichung(double a, double b, double c){
       double x;
       /*
@@ -67,11 +71,13 @@ Der Algorithmus kann optional als C-Programm implementiert werden.
       */
       return x;
     }
+\end{lstlisting}
 
 \item Aufgabe %3
 
 Gegeben seien 2 Zeitspannen der Form tag; h; min; sec; msec . Formulieren Sie ein Flußdiagramm, welches die Summe der beiden Zeitspannen berechnet und von der Summe die tag-, h-, min-, sec- und msec-Werte ausgibt. Für jeden Summanden sind die tag-, h-, min-, sec- und msec-Werte am Anfang einzulesen. Für die Werte sind folgende Intervalle einzuhalten: $ 0<=tag$, $ 0 <= h<24$, $ 0<= min < 60 $, $ 0<= sec < 60$, $ 0<= msec < 1000$. Bei der Eingabe wird solange eine Schleife für jeden Wert durchlaufen, bis der gelesene Wert im angegebenen Intervall liegt. Der Algorithmus kann optional als C-Programm implementiert werden.
 
+\begin{comment}
     \begin{flussdiagramm}
       \begin{while}{!(0<=tag1)}
         \input{tag1}
@@ -118,6 +124,7 @@ Gegeben seien 2 Zeitspannen der Form tag; h; min; sec; msec . Formulieren Sie ei
       \command{n=sum/(1000)}
       \output{Tage: t, Stunden: h, Minuten: m, Sekunden: m, Millisekunden: n}
     \end{flussdiagramm}
+\end{comment}
 
 \item Aufgabe %4
 
@@ -144,8 +151,7 @@ $ x0 := a / 2 und xi := ( xi-1 + a / xi-1 ) / 2 , i = 1, 2, 3, ... $
 Der größte gemeinsame Teiler ist mittels des Euklidischen Algorithmus sowohl über ggT(54, 81) manuell rekursiv als auch über Euklid(54, 81) manuell iterativ zu bestimmen:
 
 \begin{lstlisting}
-
-    long ggT(long n, long m){                   // Rekursiver Algorithmus von Euklid
+   long ggT(long n, long m){                   // Rekursiver Algorithmus von Euklid
       if(abs(m)>abs(n)) return abs(ggT(m,n));   // vertauschen von n und m
       if(!m) return abs(n);                     // if(m == 0) return abs(n), Abbruch
       return abs(ggT(m,n%m));                   // rekursiver Schritt
@@ -159,27 +165,111 @@ Der größte gemeinsame Teiler ist mittels des Euklidischen Algorithmus sowohl �
       }
       return a + b;
     }     // Iterativer Algorithmus von Euklid
-    
 \end{lstlisting}
 
 \item Aufgabe %7
 
-Die Fakultät einer natürlichen Zahl ist wie folgt definiert: $ 0! = 1 , 1! = 1, n! = (n-1)! * n \text{, für} n >= 1$. Formulieren Sie sowohl ein Struktogramm für die rekursive als auch für die iterative Berechnung. Die Algorithmen können optional als C-Programm implementiert werden (rekursiv und iterativ).
+Die Fakultät einer natürlichen Zahl ist wie folgt definiert: $ 0! = 1 , 1! = 1, n! = (n-1)! * n \text{, für} n >= 1$. Formulieren Sie \textbf{sowohl ein Struktogramm für die rekursive als auch für die iterative Berechnung}. Die Algorithmen können \textbf{optional als C-Programm} implementiert werden (rekursiv und iterativ).
+
+%howto struktogramm
+%http://ctan.sharelatex.com/tex-archive/macros/latex/contrib/struktex/struktex.en.pdf
+\begin{comment}
+- (in)E: n
+- (cond)? n>=0
+- (f:back:in)
+- (cond)? n=>2
+- (f:out) A: 1
+- (fin) f=1
+- i=2
+- f=f*i
+\end{comment}
+
+\begin{lstlisting}
+unisgned long long fak_iterativ(n){
+	unsigned long long f=1ULL;
+	unsigned int i;
+	if(n > 20U){
+		return 0;	//keine Loesung
+	}
+	for(i=0U ; i <= n ; i++){
+		f*=i;
+	}
+	return f;
+}
+
+unisgned long long fak_rekursiv(int n){
+	if(n > 20U || n < 0){
+		return 0ULL;	//keine Loesung fuer negative Zahlen oder zu grosse Zahlen
+	}else if(n < 2){
+		return 1ULL;
+	}
+	return fak_rekursiv(n-1)*n;
+}
+\end{lstlisting}
 
 \item Aufgabe %8
 
-Fibonacci - Zahlen F(n) werden für natürliche Zahlen n >= 2 rekursiv über die For-
-mel F(n) := F(n-1) + F(n-2) berechnet, wobei die Anfangswerte F(0) = 0 für n = 0, F(1) = 1 für
-n = 1 gelten. Alternativ analytisch erfolgt die Berechnung von F(n) über die folgende Formel:
-1- --------------- n --------------- n
-F  n  = ------   1 + 5 –  1 – 5 
--
--
- 2  
-5 2 
-Formulieren Sie ein Struktogramm für die rekursive, die analytische und die iterative Berech-
-nung der Fibonacci-Zahlen. Die Algorithmen können optional als C-Programme implemen-
-tiert werden (jeweils rekursiv, analytisch und iterativ).
+Fibonacci - Zahlen F(n) werden für natürliche Zahlen $n>=2$ \textbf{rekursiv} über die For-
+mel $F(n) := F(n-1) + F(n-2)$ berechnet, wobei die Anfangswerte $F(0)=0$ für $n=0$, $F(1)=1$ für
+$n=1$ gelten. Alternativ analytisch erfolgt die Berechnung von $F(n)$ über die folgende Formel:
+
+$F(n)=\frac{1}{\sqrt{5}} (\frac{1+\sqrt{5}}{2})=^{n} - (\frac{1-\sqrt{5}}{2})^{n})$
+
+Formulieren Sie ein Struktogramm für die \textbf{rekursive}, die \textbf{analytische} und die \textbf{iterative} Berechnung der Fibonacci-Zahlen. Die Algorithmen können optional als C-Programme implementiert werden (jeweils rekursiv, analytisch und iterativ).
+
+\begin{comment}
+algo rekursiv:
+F(4) = F(3) + F(2)
+     = F(2)+F(1) + F(1)+F(0)
+     = 1+1 + 1+0
+
+%struktogramm
+fibr:
+(n>=0)f: A:Fehler
+(n>0)f: A:0
+(n>1)f: A:1
+fibr(n-1)+fibr(n-2)
+
+\begin{lstlisting}
+unsigned long long(unsigned char n){
+	if(n==0U)return 0ULL;
+	if(n==1U)return 1ULL;
+	return fibr(n-1U)+fibr(n-2U);
+}
+\end{lstlisting}
+
+algo iterativ:
+fibi:
+(n>=0)f: Fehler
+vorgaenger=1
+vorvorgaenger=0
+zaehler=1
+(inc)zaehler++
+(i<=n)f: A:zahl
+zahl=vorgaenger+vorvorgaenger
+back:inc
+
+%struktogramm
+fibi:
+
+\begin{lstlisting}
+unsigned long long fibi(unsigned char n){
+	unsigned long long *f;
+	unsigned long long i,r;
+	if(n<=14)return (unsigned long long)n;
+	f=(unsigned long long*)malloc((n+1)*sizeof(unsigned lon long));
+	f[0]=0ULL;//zwei elm reichen statt 
+	f[1]=1ULL;
+	for(i=2U ; i<=n ; i++){
+		f[i]=f[i-1]+f[i-1];
+	}
+	r=f[n];
+	free(f);
+	return f[i-1];
+}
+\end{lstlisting}
+
+\end{comment}
 
 \item Aufgabe %9
 
@@ -195,24 +285,24 @@ Der rekursive Algorithmus kann optional als C-Programm implementiert werden.
 
 \item Aufgabe %10:
 
-Binomialkoeffizienten  n beschreiben die Anzahl der Möglichkeiten, k Elemente aus einer
- k
-Grundgesamtheit n auszuwählen, wobei immer 0 <= k <= n gelten muß und n und k natürliche
-Zahlen sind. Ein numerisch stabiles Verfahren, um Binomialkoeffizienten zu berechnen, ergibt
-sich aus folgender Formel:  n
-=  n – 1 +  n – 1
- k
- k – 1  k 
-Es gilt  n = 1 und  n = n
- 0
- 1
-n!
-und  n = ---------------------------
--
- k
- n – k !  k!
-Der Algorithmus ist rekursiv und iterativ zu entwerfen. Beide Algorithmen können optional
-als C-Programme implementiert werden.
+Binomialkoeffizienten $\binom{n}{k}$ beschreiben die Anzahl der Möglichkeiten, $k$ Elemente aus einer Grundgesamtheit $n$ auszuwählen, wobei immer $0 <= k <= n$ gelten muss und $n$ und $k$ natürliche Zahlen sind. Ein numerisch stabiles Verfahren, um Binomialkoeffizienten zu berechnen, ergibt sich aus folgender Formel:
+$\binom{n}{k} = \binom{n-1}{k-1}+\binom{n-1}{k}$ \\
+Es gilt $\binom{n}{0}=1$, $\binom{n}{1}=n$ und \binom{n}{k}=\frac{n!}{(n-1)! \cdot k!}
+
+Der Algorithmus ist \textbf{rekursiv} und \textbf{iterativ} zu entwerfen. Beide Algorithmen können optional als C-Programme implementiert werden.
+
+\begin{comment}
+n ueber k mit einer matrix
+
+iterativ
+\begin{tabular}
+0 & k	\\
+n & 1 & 0 & 0 & 0	\\
+  & ... & 1 & 1 & 0	\\
+  & 1 & 2
+\end{tabular}
+
+\end{comment}
 
 \item Aufgabe %11
 
