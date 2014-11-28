@@ -2,7 +2,7 @@
 \usepackage{amsmath,amssymb,mathrsfs,dsfont}
 \usepackage[utf8]{inputenc}
 \usepackage[ngerman]{babel}
-\usepackage{hyperref}
+\usepackage[pdfborderstyle={/S/U/W 1}]{hyperref}
 \usepackage{color}
 \definecolor{dkgreen}{rgb}{0,0.6,0}
 \definecolor{gray}{rgb}{0.5,0.5,0.5}
@@ -30,6 +30,8 @@ tabsize=3
 %euro-zeichen f. utf8
 \usepackage{eurosym}
 \DeclareUnicodeCharacter{20AC}{\euro}
+\newcommand{\Lsg}{\par \textbf{Lsg.: \hfill }}
+\newcommand{\lsg}[1]{\underline{\underline{#1}}}
 
 \begin{document}
 
@@ -43,7 +45,7 @@ Die Zahlen $+0 , -0 , +\infty , -\infty,$ not a number$, 64.625, 75.4, -2$ sind 
     \item $-0$
     \item $+\infty 1.0·2^128$
     \item $-\infty $
-	\item NAN
+	\item NaN
     \item $64.625$
     \item $75.4$
     \item $-2$
@@ -70,35 +72,28 @@ Die folgenden 64-Bit Gleitpunktzahlen sind dual, hexadzimal und angenähert dezi
 \end{itemize}
 
 \item\label{umwandlungsalgo} %4.
-Die Umwandlung einer ganzen positiven Dezimalzahl in eine Zahl mit Basis b ($2 < = b <= 36$) soll als Algorithmus in Form eines Programmablaufplanes formuliert werden. Im Algorithmus sollen die Dezimalzahl d und die Basis b eingelesen und auf $d>=0$ und $2<=b<=36$
-getestet werden. Die Speicherung der Ziffern der umgewandelten Zahl soll in einem Vektor in Form von ASCII-Zeichen erfolgen. Der Vektor soll ausgegeben werden.
+Die Umwandlung einer ganzen positiven Dezimalzahl in eine Zahl mit Basis b ($2 < = b <= 36$) soll als Algorithmus in Form eines Programmablaufplanes formuliert werden. Im Algorithmus sollen die Dezimalzahl d und die Basis b eingelesen und auf $d>=0$ und $2<=b<=36$ getestet werden. Die Speicherung der Ziffern der umgewandelten Zahl soll in einem Vektor in Form von ASCII-Zeichen erfolgen. Der Vektor soll ausgegeben werden.
 
 \item\label{umwandlungsprogramm} %5.
-Der Algorithmus der \ref{umwandlungsalgo}. Aufgabe ist als C-Programm zu implementieren. Die Umrechnung von d in eine Zahl zur Basis b soll über eine Funktion mit 3 Parametern (unsigned long d, unsigned long b, char *z) und dem Funktionstyp int erfolgen. Im Falle einer unzulässigen Basis $(b<2 oder b>36)$ wird eine 1 zurückgegeben, sonst 0. Das Ergebnis der Umwandlung wird als Folge von ASCII-Zeichen in z eingetragen. Eine Funktion
-reverse(char *) kehrt den Inhalt von z (vor der Ausgabe) um.
+Der Algorithmus der \ref{umwandlungsalgo}. Aufgabe ist als C-Programm zu implementieren. Die Umrechnung von d in eine Zahl zur Basis b soll über eine Funktion mit $3$ Parametern \texttt{(unsigned long d, unsigned long b, char *z)} und dem Funktionstyp int erfolgen. Im Falle einer unzulässigen Basis $(b<2 oder b>36)$ wird eine $1$ zurückgegeben, sonst 0. Das Ergebnis der Umwandlung wird als Folge von ASCII-Zeichen in z eingetragen. Eine Funktion \texttt{reverse(char *)} kehrt den Inhalt von $z$ (vor der Ausgabe) um.
 
 \item\label{algo2} %6.
-Die Umwandlung einer gebrochenen positiven Dezimalzahl der Form
-$0.f..f$ in eine Zahl mit Basis $b (2 <= b <= 36)$ soll als Algorithmus
-formuliert werden. Im Algorithmus sollen der Bruch d, die Basisb und
-die Anzahl der Nachkommastellen im Zielsystem eingelesen und auf
-$d >= 0$ und $2 <= b <= 36$ getestet werden. Die Speicherung der Ziffern
-der umgewandelten Zahl soll in einem Vektor in Form von ASCII-Zeichen
-erfolgen. Der Vektor soll ausgegeben werden.
+Die Umwandlung einer gebrochenen positiven Dezimalzahl der Form $0.f..f$ in eine Zahl mit Basis $b (2 <= b <= 36)$ soll als Algorithmus formuliert werden. Im Algorithmus sollen der Bruch d, die Basisb und die Anzahl der Nachkommastellen im Zielsystem eingelesen und auf $d >= 0$ und $2 <= b <= 36$ getestet werden. 
+Die Speicherung der Ziffern der umgewandelten Zahl soll in einem Vektor in Form von ASCII-Zeichen erfolgen. Der Vektor soll ausgegeben werden.
 
 \item %7.
-Der Algorithmus der \ref{algo2}. Aufgabe so ll analog zur \ref{umwandlungsprogramm}.Aufgabe als C-Pro-
-gramm implementiert werden. Beispiel für den Dialog:
-Umwandlung eines Dezimalbruchs in beliebiges System
-===================================================
-Umzuwandelnder Dezimalbruch aus [0,1] ? 0.125
-B as is d es Z ie ls y ste m s a u s [ 2 , 36 ] ? 1 6
-Anzahl der Nachkommastellen im Zielsystem ? 10
-(0.125)10 = (0.2)16
-0.125 * 16 =
-2 Ueberlauf 2
-0 * 16 =
-0 Ue berl auf 0
+Der Algorithmus der \ref{algo2}. Aufgabe soll analog zur \ref{umwandlungsprogramm}. Aufgabe als C-Programm implementiert werden. Beispiel für den Dialog:
+
+\begin{tabular}{rr}
+\multicolumn{2}{c}{Umwandlung eines Dezimalbruchs in beliebiges System} \\
+\hline
+\multicolumn{2}{c}{Umzuwandelnder Dezimalbruch aus [0,1] ? 0.125}	\\
+\multicolumn{2}{c}{Basis des Zielsystems aus [2,36] ? 16}	\\
+\multicolumn{2}{c}{Anzahl der Nachkommastellen im Zielsystem ? 10}	\\
+(0.125)10 = (0.2)16 &	\\
+0.125 * 16 = &	2 Ueberlauf 2	\\
+0 * 16 = &	0 Ueberlauf 0	
+\end{tabular}
 
 \end{enumerate}
 
