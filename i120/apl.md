@@ -1,11 +1,11 @@
-# APL Programmierung 1, Teil 1
+# APL Programmierung 1, Teil 12
 
 * Abnahme am 15.12. bzw. 16.12. in den Praktika
 * Aufgabe: Programmieren Sie ein interaktives Banksystem. Das System nimmt Eingaben von der Tastatur entgegen und erzeugt Ausgaben auf dem Bildschirm. Folgende Funktionen des Banksystems müssen implementiert werden:
 
 1. Einen neuen Kunden anlegen. Dabei wird dem Kunden eine 4-stellige Kontonummer mitgeteilt, ein Konto mit Guthaben 0 angelegt und eine 4-stellige PIN, bestehend aus den Ziffern 0-9, festgelegt.
 
-    + Hauptmenü ([N]eukunde, [B]estandskunde, [P]rogramm beenden)
+    + Hauptmenü ([N]eukunde, Bestands[k]unde, Programm b[e]enden)
       - Neukunde anmelden
         + Kundennummer erzeugen
         + Kundennummer speichern
@@ -13,6 +13,7 @@
         + PIN speichern
         + Guthaben erzeugen = 0
         + Guthaben speichern
+        + (Zeitpunkt der Registrierung wäre nett)
         + Kundennummer und PIN ausgeben
         + Bestätigung durch Nutzer(, Zeitablauf/Timer wäre nett)
         + exit zum Hauptmenü
@@ -62,3 +63,7 @@
 [Struktogramm alias Nasse-Schneiermann-Diagramm in LaTeX]:http://ctan.sharelatex.com/tex-archive/macros/latex/contrib/struktex/struktex.en.pdf
 [Struktogramme in verständlich]:http://www.rhinodidactics.de/Artikel/latex3.html
 [Struktogramme in verständlich II]:http://www.fh-bingen.de/fileadmin/user_upload/Lehrende/Kilsch_Dieter/internet/projekte/TedoGerGra_StAl.pdf
+
+Punkte für Funktionale Anforderungen
+Abzug für Fehler
+Punkte für Nichtfunktionale Anforderungen (z.B. Strukturierung)

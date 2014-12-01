@@ -1,0 +1,93 @@
+
+
+\subparagraph{ Eingabe in C }
+
+scanf("%s", &var1);	//ein String
+scanf("%lf", &var2);	//ein Double
+var3=getch();	//ein Char
+
+unter Visual Studio:
+scanf_s("%s", &var1);	//ein String
+scanf_s("%lf", &var2);	//ein Double
+
+
+\section Benutzerdefinierte Datentypen
+
+typedef TYP NAME;
+
+Um einen neuen Namen für einen Datentypen festzulegen wird typedef verwendet.
+Dies fördert unter anderem die Lesbarkeit und Wartbarkeit des Programmes.
+Sowohl enum als auch struct können mit typedef wartbarer gestaltet werden.
+
+Bsp.: typedef int geschwindigkeit;
+
+\subsection Aufzählungstypen defenieren
+
+enum NAME {$Wert_1, Wert_2, \ldots, Wert_n$}
+
+Bsp.: enum farbe {rot, gruen, blau};
+
+enum farb f=rot;
+
+Enums werden durch den Typ int dargestellt. Bei der Ausgabe mit printf wird die entsprechende Zahl vom Typ int ausgegeben. Es wird nicht geprüft, ob der definierte Wertbereich eingehalten wird.
+Die Verwendung begründet sich in einer besseren Lesbarkeit.
+
+\subsection Kombination von enum mit typedef
+
+Bsp.:
+typedef enum farbe color;
+color f=rot;
+
+\subsection Strukturen
+
+Besonders nützlich sind Strukturen um mehrere Datentypen in einer Variable zu kombinieren.
+
+struct NAME {$Deklaration_1, Deklaration_2, \ldots, Deklaration_n$};
+
+Bsp.:
+struct tier{
+	char name[30];
+	int anzahlBeine;
+};
+
+Schreib-Zugriff auf Variablen einer Struktur
+
+Bsp.:
+struct tier katze;
+strcpy(karte.name, "Reni");
+katze.anzahlBeine=4;
+
+Kobination von typedef und struct
+
+Bsp.:
+typedef struct{
+	char name[30];
+	int semester;
+	char studiengang[10];
+} student;
+student peter;
+strcpy(peter.name,"Peter");
+peter.semester=1;
+strcpy(peter.studiengang,"042");
+
+Zugriff auf Zeiger
+
+Wenn die Variable vom Typ Zeiger ist, kann mit dem Operator "->" auf die Membervariablen zugagriffen werden.
+
+Bsp.:
+student *p;
+p->semester=1; //gleichwertig mit (*p).semster=1;
+
+\section Objektorientierung
+
+Objektorientierung ist ein Paradigma, ein Prinzip nach dem man programmiert. Dies kann durch eine Programmiersprache unterstützt werden, ist aber nicht notwednig.
+Die Idee ist Daten, Funktionen, die auf ihnen operieren, in einem Datentyp zusammen zu fassen. Dieser Datentyp heißt Klasse. Eine konkrete Variable mit diesem Datentyp heißt Objekt. D.h. ein Objekt ist eine Instanz einer Klasse. Die Funktionen für Daten innerhalb einer Klasse heißen Methoden. Die innerhalb einer Klasse definierten Datentypen heißen Membervariablen (Attribute).
+
+Prinzip:
+Klasse Student
+	Membervariablen: Name, Studiengang, Semester
+	Methoden: Einschreiben, Rueckmelden, Studiengangswechsel, Exmatrikulieren
+
+Näheres im Quellcode zu Programm v17.c und Point.java im Vergleich.
+
+Strukturen werden 'by value' an Funktionen übergeben, d.h. die Member-Variablen wreden kopiert und diese Kopie wird an die Funktion übergeben. Ebenso kann eine struct eine Rückgabe einer Funktion sein. Damit gibt es eine wietere Möglichkeit, um mehrere Werte an einen Aufrufer zurück zu geben. Jedoch muss dazu jeweils eine sruct deklariert werden.
