@@ -36,6 +36,7 @@
         + Auswahl: Auszahlen
         + Auswahl: Einzahlen
         + Auswahl: Überweisen (Bankintern)
+        (+ Konto löschen)
 
 4. 4-stellige PIN ändern.
 
@@ -51,6 +52,12 @@
 
     + Auswahl: [A]bmelden (auch nach Zeitablauf wäre nett)
       - Verabschieden und zurück zum Hauptmenü
+
+	Datenstruktur
+	+ Kontonummer[4]
+	+ PIN[4]
+	+ Guthaben (Fließkommazahl)
+	+ Sperrvermerk
 
 * Die Funktionen 2-5 dürfen nur ausgeführt werden, wenn der Kunde angemeldet ist. Es muss eine Menüsteuerung implementiert werden.
 * Eigenschaften, die sich aus diesen Anforderungen als selbstverständlich ergeben, müssen bei der Implementierung beachtet werden.

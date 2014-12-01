@@ -1,0 +1,85 @@
+\usepackage{comment}
+
+\begin{comment}
+Z208, GdI-V, Prof. Nestler
+\end{comment}
+
+\section Binärer Baum
+
+24
+22
+20
+18
+21
+19
+17
+25
+44
+40
+36
+32
+28
+30
+34
+38
+42
+46
+48
+33
+35
+37
+39
+41
+0
+
+24:	<22
+22: <20
+20: <18
+20: >21
+18: >19
+18: <17
+24: >25
+25: >44
+44: <40
+40: <36
+36: <32
+32: <28
+28: >30
+32: >34
+36: >38
+40: >42
+44: >46
+46: >48
+34: <33
+34: >35
+38: <37
+38: >39
+42: <41
+17: <0
+
+Die tiefste Ebene gibt die Höhe des Baumes an. Hier: 8
+Blätter sind die Endpunkte. Hier: 10
+Innere Knoten sind Nicht-Blätter. Hier: 15
+Pfadlänge des Baumes (in einer Ebene) sind die Summe der Pfade bis zur Ebene. Damit ist es das Produkt der Anzahl der Elemente mit der Ebene für jede Ebene.
+Algorithmus s.a. binbaum.c .
+
+Ausgabe-Methoden:
+
+inorder-Durchlauf (zuerst links, akt. Elm., rechter Zweig)
+ganz nach links: 0
+Ausgabe von links unten nach oben und rechts
+die Ausgabe ist von links niedrig nach rechts hoch sortiert
+
+preorder-Durchlauf (zuerst Elm., dann linker Teil, dann rechter Teil)
+
+postorder-Durchlauf (linker Zweig, rechter Zweig, Elm. selbst)
+
+\section Sortierverfahren
+
+Interessante Eigenschaften von Sortieralgorithmen sind
+* Ressourcenbedarf
+* Laufzeit
+* Stabilität
+
+Inplace-Verfahren benötigen keinen zusätzlichen Speicherplatz.
+Beispiel: Bubblesort, Insertsort, Selectionsort
