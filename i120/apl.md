@@ -5,7 +5,7 @@
 
 1. Einen neuen Kunden anlegen. Dabei wird dem Kunden eine 4-stellige Kontonummer mitgeteilt, ein Konto mit Guthaben 0 angelegt und eine 4-stellige PIN, bestehend aus den Ziffern 0-9, festgelegt.
 
-    + Hauptmenü ([N]eukunde, Bestands[k]unde, Programm b[e]enden)
+    + Hauptmenü (Bestands[k]unde, [N]eukunde, Programm b[e]enden)
       - Neukunde anmelden
         + Kundennummer erzeugen
         + Kundennummer speichern
