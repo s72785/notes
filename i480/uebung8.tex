@@ -41,78 +41,156 @@ $A=\begin{pmatrix}
  3 & 9 & 4 \\
  1 & 5 & 3\\
 \end{pmatrix}$ mit Hilfe des Gauß-Algorithmus.
+
+%\Lsg
+$
+\begin{pmatrix}
+ 2 & 7 & 3 \vert 1 & 0 & 0 \\
+ 3 & 9 & 4 \vert 0 & 1 & 0 \\
+ 1 & 5 & 3 \vert 0 & 0 & 1 \\
+\end{pmatrix}\cdot\begin{pmatrix} 3 \\ 2 \\ 6 \end{pmatrix}
+$
+%2.-1. u. 3-1. Zeile
+%2. Zeile *3 und zur 3. addieren
+%3. Zeile durch 6 und zur zweiten hinzu
+%3. Zeile mal -9 und zur ersten Zeile
+
 	%2.
-	\item Lösen Sie das folgende Gleichungssystem.
-		\begin{align*}
+	\item Lösen Sie das folgende Gleichungssystem.\begin{align*}
 x - y +  z &= 1 \\
 7x - 4y - z &= -2\\
 -x + 2y + 5z &= 2\\
 5y + 17z &= 18
 \end{align*}
-	%3.
-	\item Für welche reellen Zahlen $a,b$ hat das lineare Gleichungssystem
 
-		\begin{align*}
+%\Lsg
+$
+\begin{pmatrix}
+1	&	-1	&	1	|	1	\\
+7	&	-4	&	-1	|	-2	\\
+-1	&	2	&	5	|	2	\\
+0	&	5	&	17	|	18
+\end{pmatrix}
+%ziel ist dreiecksform
+%1. zur 3. Zeile
+%1- mal (-7) zur 2. Zeile
+%2. und 3. Zeile tauschen
+%2. mal (-5) zur 4. Zeile
+%3. durch (-2) zur 4.
+=
+\begin{pmatrix}
+1	&	-1	&	1	&	1	\\
+0	&	1	&	6	&	3	\\
+0	&	0	&	-26	&	-18	\\
+0	&	0	&	0	&	12
+\end{pmatrix}
+$ ist aufgrund der letzten Zeile nicht lösbar.
+
+	%3.
+	\item Für welche reellen Zahlen $a,b$ hat das lineare Gleichungssystem	\begin{align*}
 					 x-2y+3z &= -4 \\
 					2x +y +z &=  2 \\
 					x + ay + 2z &= -b			
 		 \end{align*}
 
+%\Lsg
+$
+\begin{pmatrix}
+x	&	y	&	z	&		\\
+1	&	-2	&	3	&	-4	\\
+2	&	1	&	1	&	2	\\
+1	&	a	&	2	&	-b
+\end{pmatrix}
+%wieder Dreiecksform ermitteln
+%1. Zeile mal -2 zur 2.
+%1. Zeile mal -1 zur 3.
+%3. und 2. Spalte tauschen (namen merken)
+%2. Zeile durch -5 und zur 3. hinzu
+=\begin{pmatrix}
+x	&	z	&	y	&		\\
+1	&	3	&	-2	&	-4	\\
+0	&	-3	&	5	&	10	\\
+0	&	0	&	a+1	&	-b+2
+\end{pmatrix}
+$
+
 	\begin{enumerate}
 		%a
 		\item genau eine Lösung,
+
+		$a\neq -1, b egal$
+		
+		für $a=0, b=0$: $y=2, z=0, x=0$
+		
 		%b
 		\item keine Lösung,
+		
+		sodass min. eine Zeile einen Wiederspruch ergibt
+		$a=-1, b\neq 2$
+		
 		%c
 		\item unendlich viele Lösungen ?
+		
+		sodass eine Zeile komplett Null ist: 
+		$a=-1, b=2 $ soweit keine weiteren Gleichungen zum LGS zählen
+		
+		$\Rightarrow  y=t, z=2-t, x=-10+5t$ ergibt unendliche viele Lösungen für $t \in \R$
 	\end{enumerate}
 Geben Sie die Lösungen in den Fällen a) und c) an.
 	
 	%4
 	\item
-Zeigen Sie, dass die Vektoren $a=\begin{pmatrix}
-2 \\
-3\\
-1
-
-\end{pmatrix}$,  $b=\begin{pmatrix} 7 \\ 9 \\ 5 \end{pmatrix}$ und $c=\begin{pmatrix} 3 \\ 4 \\ 3 \end{pmatrix}$ eine Basis von $\R^3$ bilden. \\
+Zeigen Sie, dass die Vektoren $a=\begin{pmatrix} 2 \\ 3 \\ 1 \end{pmatrix}$,  $b=\begin{pmatrix} 7 \\ 9 \\ 5 \end{pmatrix}$ und $c=\begin{pmatrix} 3 \\ 4 \\ 3 \end{pmatrix}$ eine Basis von $\R^3$ bilden. \\
  Wie lässt sich der Vektor $d=\begin{pmatrix} 1 \\ -2 \\ -2 \end{pmatrix}$ mit dieser Basis darstellen? 
 
-	%5
-	\item Bestimmen Sie den Rang der folgenden Matrizen.
+%1. teil
+%lineare unabhängigkeit
+
+%2.teil
+%d= c_1 * a+c_2 * b+c_3 * c
+
+	%5.
+	\item Bestimmen Sie den Rang der folgenden Matrizen. %heißt: gaußalgo, wieviele Zeilen sind nicht null?
 	\begin{enumerate}
-		\item 
-$A=\begin{pmatrix}
- 1 & 4 & 7\\
+		\item $A=\begin{pmatrix}
+ 1 & 4 & 7 \\
  2 & 5 & 8 \\
- 3 & 6 & 9\\
- 4 & 8 & 12
-\end{pmatrix}$
+ 3 & 6 & 9 \\
+ 4 & 8 & 12 \end{pmatrix}$
 		\item $B=\begin{pmatrix}
  1 & 1 & 1 & 1 & 1 & 1 & 1\\
  1 & 1 & 1 & 1 & 1 & 1 & 1 \\
  1 & 1 & 1 & 1 & 1 & 1 & 1\\
  1 & 1 & 1 & 1 & 1 & 1 & 1 \\
- 1 & 1 & 1 & 1 & 1 & 1 & x
-\end{pmatrix}$ für $x \in \R.$
+ 1 & 1 & 1 & 1 & 1 & 1 & x \end{pmatrix}$ für $x \in \R.$
 	\end{enumerate}
-	
+
+%\Lsg
+$
+x=1 \Rightarrow Rang=1
+x\neq 1 \Rightarrow Rang=2
+$
+
+	%6.
 	\item Seien $A=\begin{pmatrix}
  1 & 1 & 0 \\
  0 & 1 & 3 \\
- c & 0 & 1 \\
-
-\end{pmatrix}$ und $B=\begin{pmatrix}
+ c & 0 & 1 \\ \end{pmatrix}$
+ und $B=\begin{pmatrix}
  1 & 2 & 0 \\
  0 & -c & 2c \\
--c & 0 & 2 \\
-  
-
-\end{pmatrix}.$ 
+-c & 0 & 2 \end{pmatrix}.$ 
+%Rang für beide berechnen, anschließend Beziehung/Eigenschaften prüfen
+%Rang A = 3 f. c \neq -\fraq{1}{3}; 2 f. c=-\fraq{1}{3}
+%Rang B = 3 f. c\neq -\fraq{1}{2} u. c\neq 0; 2 f.  c=-\fraq{1}{2} o. c=0
 	\begin{enumerate}
 		\item Für welche $c \in \R$ haben die Matrizen $A$ und $B$ denselben Rang?
+		%3 f. c \neq -\fraq{1}{3}, c\neq -\fraq{1}{2} u. c\neq 0
 		\item Für welche $c \in \R$ ist die Matrix $A$ invertierbar? Bestimmen Sie für diesen Fall den Rang der Matrix $A^{-1}$.
+		%nur sodass es eine quadratische Matrix bleibt, also Vollrang/Maximaler Rang (hier 3. Rang ) Vorraussetzung ist
+		%der Rang A^{-1} entspricht dem Vollrang von A, hier 3
 		\item Für welche $c \in \R$ gilt $\det B=0$?
+		%det B = 0 heißt, die Matrix kann nicht invertiert werden, also für die -\fraq{1}{2} und 0
 	\end{enumerate}
 
 \end{enumerate}
