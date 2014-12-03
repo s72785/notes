@@ -72,6 +72,27 @@ void bank_init(bank *this, double kapital){
 	this->neuesterkunde=KUNDENKONTO_PRIM;
 }
 
+void menue_pause(char *s){
+	char c;
+	while ((c = getchar()) != '\n' && c != EOF);
+	printf("%s", s);
+	getchar();
+}
+
+void bank_status(bank *this){
+	printf("Guthaben:\t%f\n",this->konten[BARGELDKONTO].guthaben);
+	printf("Konten:\t\t%d\n",this->kontenzahl);
+	printf("Neuester Kunde:\t%d\n\n\n",this->neuesterkunde);
+	menue_pause("Weiter ...\n");
+}
+
+void menue_cls(){
+	int i;
+	for(i=0;i<80;i++){
+		printf("\n");
+	}
+}
+
 double betrag(double betrag){
 	if(betrag < 0){
 		return (double)(-betrag);
@@ -174,11 +195,10 @@ int chkZahl(char s[]){
 	return 0;
 }
 
-int menue_abfragen(){//char *stringArrayFragen,char *charArrayAntworten){
+int menue_abfragen(char *antwort){//char *stringArrayFragen,char *charArrayAntworten){
 //	int i;
-//	int loop=1U;
-	int antwort=1;
-	scanf("%s", &antwort);
+//	int loop=1;
+	scanf("%s", antwort);
 //Idee:Eingabe innerhalb einer Zeitspanne, sonst Funktion verlassen und Terminal sperren
 /*
 	time_t now;
@@ -199,31 +219,24 @@ int menue_abfragen(){//char *stringArrayFragen,char *charArrayAntworten){
 				loop=0U;
 	}
 */
-	return antwort;
+	return 0;
 }
 
 int menue_programmbeenden(){
 	int antwort=1;
 	char pass[4];
 
+	menue_cls();
 	printf("\n\n\n\nSie sind im Begriff das Programm zu beenden!");
 	printf("\nDie Kundendaten werden hierbei gelöscht.");
 	printf("\n\nPasswort: ");
 	scanf("%4s", &pass);
+
 	if(!strcmp(pass, PWD)){
-		return 1;
+		return 0;
 	}else{
 		printf("[J]a, Programm beenden und alle Kundenfaten verlieren");
 		printf("[N]ein, auf keinen Fall");
-	/*
-		char arrFragen[3][80]={
-			"[J]a, Programm beenden und alle Kundenfaten verlieren\0",
-			"[N]ein, auf keinen Fall\0",
-			TERM_STRING};
-		char arrAntworten[]="JjNn"; //zulaessige Antworten
-	
-		antwort=menue_abfragen( arrFragen, arrAntworten);
-	*/	
 		switch (antwort){
 			case 'J':
 			case 'j': antwort=1;
@@ -238,13 +251,18 @@ int menue_programmbeenden(){
 /**/
 
 
-void menue_neukunde(konto *this, int n){ //ToDo
-	konto_eroeffnen(this, n);
-	printf("\nKonto-/Kunden-Nummer:\t%4d\n", this->ktonr);
-	printf("Ihre PIN:\t\t%4d\n", this->pin);
-	printf("Ihr Kontostand:\t\t%16.8lf\n", this->guthaben);
-	printf("\n\nWeiter ...\n");
-	(void)getchar();
+void menue_neukunde(bank *this){ //ToDo
+	int n;
+	n=this->kontenzahl+KUNDENKONTO_PRIM+1;
+	konto_eroeffnen(&(this->konten[n]), n);
+
+	menue_cls();
+	printf("\nKonto-/Kunden-Nummer:\t%4d\n", this->konten[n].ktonr);
+	printf("Ihre PIN:\t\t%4d\n", this->konten[n].pin);
+	printf("Ihr Kontostand:\t\t%16.8lf\n", this->konten[n].guthaben);
+	this->kontenzahl++;
+	menue_pause("Weiter ...\n");
+	menue_cls();
 }
 
 /*
@@ -256,10 +274,11 @@ int strtoint(char *s, l){
 
 int menue_kundenlogin(bank *this){ //ToDo
 	int loop=1;	//true for continuing "bank os"
-	int antwort=1;
+	int rc=1;
 	int kontonr=0;
 	int pin=0;
 
+	menue_cls();
 	while(loop){
 		printf("\n\n\n\nKundenlogin %d\n\n", kontonr);
 
@@ -269,16 +288,21 @@ int menue_kundenlogin(bank *this){ //ToDo
 		
 		//teste KtoNr ist nichtnegative Zahl
 
-		
 		//+ Abfrage PIN
 		printf("PIN:\t\t");
 		scanf("%4d", &pin);
 
+		//leere Eingabe zurueck zu Vormenue
+		if(pin <= 0 || kontonr <= 0){
+			printf("Ungueltige Kontodaten!\n\n");
+			menue_pause("Weiter ...\n");
+		}
 		//teste ob Kto ist eroeffnet
 		if(this->konten[kontonr].sperrung == pin3){
-			//printf("Dieses Konto ist wg. Falschanmeldung gesperrt!\nBitte nehmen Sie Kontakt zum Service auf.\n");
-			//(void)getchar();
-			//return -1;
+			if(DEBUG_PRINT)printf("Dieses Konto ist wg. Falschanmeldung gesperrt!\nBitte nehmen Sie Kontakt zum Service auf.\n\n");
+			menue_pause("Weiter ...\n");
+			loop=0;
+			break;
 		}
 
 		//+ Prüfung PIN
@@ -310,38 +334,20 @@ printf("PIN!!! %d\n", this->konten[kontonr].pin);
 		
 	}
 
-	while(loop){
-		printf("\n\n");
-		printf("Bestands[k]unde\n");
-		printf("[N]eukunde\n");
-	//		printf("Programm b[e]enden\n");
-	
-		antwort=menue_abfragen();
-/*	
-		switch (antwort){
-			case 'E':
-			case 'e':
-				if(DEBUG_PRINT)printf("\nAufruf: Programm beenden\n");
-				loop = menue_programmbeenden();
-				antwort=0;
-				break;
-		}
-*/
-	}
-
 	return loop;
 }
 
 /*
 void menue_kundenkonto(bank *this){ //ToDo
+	menue_cls();
 }
 */
 
 unsigned char menue_hauptmenue(bank *this){
-	int loop=1;	//true for continuing "bank os"
-	int antwort=1;
-	konto neukonto;
-	int neukontonr;
+	int rc=1;//true for continuing "bank os"
+	char antwort;
+	
+	menue_cls();
 
 	if(DEBUG_PRINT)printf("\n\n\n\n# Bank hat %d Kunden\n", this->kontenzahl);
 	if(DEBUG_PRINT)printf("Konto %d hat %16.8lf Guthaben \n",(KUNDENKONTO_PRIM+this->kontenzahl), this->konten[KUNDENKONTO_PRIM+this->kontenzahl].guthaben);
@@ -351,44 +357,38 @@ unsigned char menue_hauptmenue(bank *this){
 	printf("[N]eukunde\n");
 //		printf("Programm b[e]enden\n");
 
-	antwort=menue_abfragen();
+	printf("\n\nAuswahl: ");
+	scanf("%1s", &antwort);
 
-/*	byteAntwort=menue_abfragen(
-		{ // Fragearray
-			"Bestandskunde\0",
-			"Neukunde\0",
-			"Programm beenden\0",
-			TERM_STRING
-		},
-		"NnKkEe" //zulaessigeantworten
-	);*/
 	switch (antwort){
 		case 'E':
 		case 'e':
 			if(DEBUG_PRINT)printf("\nAufruf: Programm beenden\n");
-			loop = menue_programmbeenden();
-			antwort=0;
+			rc = menue_programmbeenden();
+			if(DEBUG_PRINT)printf("\nProgramm wird beendet!\n");
+			rc=0;
 			break;
 		case 'N':
 		case 'n':
 			if(DEBUG_PRINT)printf("\nAufruf: Neukunde\n");
-			if(DEBUG_PRINT)printf("Kontenzahl:\t%d\n",this->kontenzahl+1);
-			neukontonr=this->kontenzahl+KUNDENKONTO_PRIM+1;
-			if(DEBUG_PRINT)printf("Naechstes Konto:\t%d\n",neukontonr);
-			neukonto = this->konten[neukontonr];
-			menue_neukunde(&neukonto, neukontonr);
-			this->kontenzahl++;
-			antwort=0;
+			menue_neukunde(this);
+			rc=1;
 			break;
 		case 'K':
 		case 'k':
 			if(DEBUG_PRINT)printf("\nAufruf: Kundenlogin\n");
 			menue_kundenlogin(this);
-			antwort=0;
+			rc=1;
 			break;
+		case 'S':
+		case 's':
+			bank_status(this);
+			rc=1;
+			break;
+		//default://nuexx
 	}
 
-	return loop;
+	return rc;
 }
 
 /**
@@ -396,7 +396,7 @@ void myfflush{
 		char c;
 		//windows-alternative
 		//fflush(stdin)
-		while(getchar()!='\n')scanf("%c",&c);
+		while(getchar()!='\n');
 }
 **/
 main(){
