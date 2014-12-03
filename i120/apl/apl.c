@@ -4,15 +4,20 @@
 //#include<time.h>
 #define PWD "0987"
 #define BS_GROESSE 10000//f. 4-stellige Kontonummern
-#define PIN_LAENGE 4U
+#define PIN_LAENGE 4
+#define PIN_LAENGE_BIT 13
+#define KTO_LAENGE 4
+#define KTO_LAENGE_BIT 13
 #define TERM_STRING "-0-\0"
 #define DEBUG_PRINT 1	//debug-ausgabe kann abgeschalten werden
-#define KUNDENKONTO_PRIM 1000U
+#define KUNDENKONTO_PRIM 1000
 #define BARGELDKONTO 1000
 #define WE "XBT" //Haupt-Waehrungseinheit definiert
 #define GUTHABEN_MAX 21000000.0	//max. Guthaben d. we
 #define GUTHABEN_MIN 1.0	//min. 1 we Guthaben
-#define ZEIT_MENUEVERLASSEN 30U //in Sekunden
+#define ZEIT_MENUEVERLASSEN 30 //in Sekunden
+#define Fflush(int_keyboard_buffer)\
+	while(( (int_keyboard_buffer)=getchar() ) != '\n')
 //#define NACHKOMMA_MAX 8U //es gibt nur 8 Nachkomma-Stellen
 /* //Uberweisungsgebuehren
 #define UEBGEB_MINABS 0.1	//min x we
@@ -39,15 +44,15 @@ typedef struct {
 */
 
 typedef struct {
-	int ktonr;
+	int ktonr;//: KTO_LAENGE_BIT;	//n-stellig -> m bit
+	int pin;//: PIN_LAENGE_BIT;
+	double guthaben;
+	enum sperrung_t {gesperrt, eroeffnet, pin1, pin2, pin3, geloescht, gekuendigt} sperrung;
 //	person	kunde;
 //	enum kontotyp_t {privatkonto, geschaeftskonto, firmenkonto} kontotyp;
-	int pin;
 //	int aktivetanliste;
 //	services service;
 //	enum waehrung_t { btc, eur, usd } waehrung;
-	double guthaben;
-	enum sperrung_t {eroeffnet, pin1, pin2, pin3, geloescht, gekuendigt} sperrung;
 } konto;
 
 /* Bank hat BS_GROESSE-1 Konten
@@ -55,7 +60,7 @@ typedef struct {
  * Kundenkonten beginnen ab 1001, s. KUNDENKONTO_PRIM
  * */
 typedef struct {
-	int kontenzahl;
+	int kontenzahl;//: KTO_LAENGE_BIT;
 //	double kundenvermoegen;
 	konto konten[BS_GROESSE];
 	int neuesterkunde;
@@ -386,11 +391,18 @@ unsigned char menue_hauptmenue(bank *this){
 	return loop;
 }
 
+/**
+void myfflush{
+		char c;
+		//windows-alternative
+		//fflush(stdin)
+		while(getchar()!='\n')scanf("%c",&c);
+}
+**/
 main(){
 	bank schalterbank;
-	konto neu;
 	bank_init(&schalterbank, 50000.0);
-/*
+	/*
 	printf("Konten:\t%d\n",(&schalterbank)->kontenzahl);
 	neu = (&schalterbank)->konten[(&schalterbank)->kontenzahl + KUNDENKONTO_PRIM+1];
 	printf("Guthaben:\t%d\n",(&neu)->guthaben);
