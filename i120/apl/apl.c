@@ -47,7 +47,8 @@ typedef struct {
 	int ktonr;//: KTO_LAENGE_BIT;	//n-stellig -> m bit
 	int pin;//: PIN_LAENGE_BIT;
 	double guthaben;
-	enum sperrung_t {gesperrt, eroeffnet, pin1, pin2, pin3, geloescht, gekuendigt} sperrung;
+	enum sperrung_t { gesperrt, eroeffnet, pin1, pin2, pin3, geloescht, gekuendigt } sperrung;
+//	time	letzterlogin;
 //	person	kunde;
 //	enum kontotyp_t {privatkonto, geschaeftskonto, firmenkonto} kontotyp;
 //	int aktivetanliste;
@@ -72,18 +73,23 @@ void bank_init(bank *this, double kapital){
 	this->neuesterkunde=KUNDENKONTO_PRIM;
 }
 
-void menue_pause(char *s){
+void cleartoendofline(void){
 	char c;
 	while ((c = getchar()) != '\n' && c != EOF);
+}
+
+void menue_pause(char *s){
+	char c;
 	printf("%s", s);
 	getchar();
+	cleartoendofline();
 }
 
 void bank_status(bank *this){
 	printf("Guthaben:\t%f\n",this->konten[BARGELDKONTO].guthaben);
 	printf("Konten:\t\t%d\n",this->kontenzahl);
 	printf("Neuester Kunde:\t%d\n\n\n",this->neuesterkunde);
-	menue_pause("Weiter ...\n");
+	menue_pause("\n\nWeiter ...\n");
 }
 
 void menue_cls(){
@@ -198,7 +204,8 @@ int chkZahl(char s[]){
 int menue_abfragen(char *antwort){//char *stringArrayFragen,char *charArrayAntworten){
 //	int i;
 //	int loop=1;
-	scanf("%s", antwort);
+	scanf("%c", antwort);
+	cleartoendofline();
 //Idee:Eingabe innerhalb einer Zeitspanne, sonst Funktion verlassen und Terminal sperren
 /*
 	time_t now;
@@ -231,8 +238,10 @@ int menue_programmbeenden(){
 	printf("\nDie Kundendaten werden hierbei gelöscht.");
 	printf("\n\nPasswort: ");
 	scanf("%4s", &pass);
+	cleartoendofline();
 
 	if(!strcmp(pass, PWD)){
+		printf("\nProgramm wird beendet!\n");
 		return 0;
 	}else{
 		printf("[J]a, Programm beenden und alle Kundenfaten verlieren");
@@ -257,12 +266,11 @@ void menue_neukunde(bank *this){ //ToDo
 	konto_eroeffnen(&(this->konten[n]), n);
 
 	menue_cls();
-	printf("\nKonto-/Kunden-Nummer:\t%4d\n", this->konten[n].ktonr);
-	printf("Ihre PIN:\t\t%4d\n", this->konten[n].pin);
-	printf("Ihr Kontostand:\t\t%16.8lf\n", this->konten[n].guthaben);
+	printf("\nKonto-/Kunden-Nummer:\t%7d\n", this->konten[n].ktonr);
+	printf("Ihre PIN:\t\t%7d\n", this->konten[n].pin);
+	printf("Ihr Kontostand:\t\t%16.8lf\n   ", this->konten[n].guthaben);
 	this->kontenzahl++;
-	menue_pause("Weiter ...\n");
-	menue_cls();
+	menue_pause("\n\nWeiter ...\n");
 }
 
 /*
@@ -280,27 +288,30 @@ int menue_kundenlogin(bank *this){ //ToDo
 
 	menue_cls();
 	while(loop){
-		printf("\n\n\n\nKundenlogin %d\n\n", kontonr);
+		printf("\n\n\n\nKundenlogin %d\n\n(0) Zurueck ...\n\n", kontonr);
 
 	    //+ Abfrage Kundennummer
 		printf("Kundennummer:\t");
 		scanf("%4d", &kontonr);
+		cleartoendofline();
 		
 		//teste KtoNr ist nichtnegative Zahl
 
 		//+ Abfrage PIN
 		printf("PIN:\t\t");
 		scanf("%4d", &pin);
+		cleartoendofline();
 
 		//leere Eingabe zurueck zu Vormenue
 		if(pin <= 0 || kontonr <= 0){
 			printf("Ungueltige Kontodaten!\n\n");
-			menue_pause("Weiter ...\n");
+			menue_pause("\n\nWeiter ...\n");
+			loop=0;
 		}
 		//teste ob Kto ist eroeffnet
 		if(this->konten[kontonr].sperrung == pin3){
 			if(DEBUG_PRINT)printf("Dieses Konto ist wg. Falschanmeldung gesperrt!\nBitte nehmen Sie Kontakt zum Service auf.\n\n");
-			menue_pause("Weiter ...\n");
+			menue_pause("\n\nWeiter ...\n");
 			loop=0;
 			break;
 		}
@@ -350,36 +361,41 @@ unsigned char menue_hauptmenue(bank *this){
 	menue_cls();
 
 	if(DEBUG_PRINT)printf("\n\n\n\n# Bank hat %d Kunden\n", this->kontenzahl);
+	/* how to put together a format string? */
 	if(DEBUG_PRINT)printf("Konto %d hat %16.8lf Guthaben \n",(KUNDENKONTO_PRIM+this->kontenzahl), this->konten[KUNDENKONTO_PRIM+this->kontenzahl].guthaben);
 
 	printf("\n\n");
-	printf("Bestands[k]unde\n");
-	printf("[N]eukunde\n");
-//		printf("Programm b[e]enden\n");
+	printf("(1) Bestands[k]unde\n");
+	printf("(2) [N]eukunde\n");
+//		printf("(3) Programm b[e]enden\n");
+//		printf("(4) Bank[s]tatus\n");
 
 	printf("\n\nAuswahl: ");
-	scanf("%1s", &antwort);
+	scanf("%1c", &antwort);
+//	cleartoendofline();
 
 	switch (antwort){
-		case 'E':
-		case 'e':
-			if(DEBUG_PRINT)printf("\nAufruf: Programm beenden\n");
-			rc = menue_programmbeenden();
-			if(DEBUG_PRINT)printf("\nProgramm wird beendet!\n");
-			rc=0;
-			break;
-		case 'N':
-		case 'n':
-			if(DEBUG_PRINT)printf("\nAufruf: Neukunde\n");
-			menue_neukunde(this);
-			rc=1;
-			break;
+		case '1':
 		case 'K':
 		case 'k':
 			if(DEBUG_PRINT)printf("\nAufruf: Kundenlogin\n");
 			menue_kundenlogin(this);
 			rc=1;
 			break;
+		case '2':
+		case 'N':
+		case 'n':
+			if(DEBUG_PRINT)printf("\nAufruf: Neukunde\n");
+			menue_neukunde(this);
+			rc=1;
+			break;
+		case '3':
+		case 'E':
+		case 'e':
+			if(DEBUG_PRINT)printf("\nAufruf: Programm beenden\n");
+			rc = menue_programmbeenden();
+			break;
+		case '4':
 		case 'S':
 		case 's':
 			bank_status(this);
