@@ -48,30 +48,23 @@
   ]
 
     \node[ss] (start) {Start};
-
-\begin{comment}
-    \node[io, below=of start] (in) {E: $x, \epsilon$};
-    \node[op, below=of in] (sin) {$S2=1.0,\ S1=0.0$};
-    \node[op, below=of sin] (nin) {$n=0$};
-    \node[cn, below=of nin] (cond) {$(S2-S1)>\epsilon$};
-    \node[io, left=of cond] (out) {A: $S1,\ S2$};
+    \node[io, below=of start] (in) {E: $\epsilon \in \mathds{N}$};
+    \node[op, below=of in] (sin) {$x=2, d=1, ln=0$};
+    \node[cn, below=of sin] (cond) {$d \leq x\cdot 10^\epsilon$};
+    \node[io, left=of cond] (out) {A: $ln$};
     \node[ss, below=of out] (stop) {Stop};
-    \node[op, below=of cond] (s2save) {$S1=S2$};
-    \node[op, below=of s2save] (s2inc) {$S2+=\frac{x^2}{n!}$};
-    \node[op, below=of s2inc] (ninc) {n++};
+    \node[op, below=of cond] (s2inc) {$ln = ln + \frac{1}{d}$};
+    \node[op, below=of s2inc] (ninc) {d=d+1};
 
     \path[->]
       (start) edge (in)
       (in) edge (sin)
-      (sin) edge (nin)
-      (nin) edge (cond)
+      (sin) edge (cond)
       (cond) edge node[below] {f} (out)
       (out) edge (stop)
-      (cond) edge node[right] {w} (s2save)
-      (s2save) edge (s2inc)
+      (cond) edge node[right] {w} (s2inc)
       (s2inc) edge (ninc);
     \draw[->] (ninc) -- (current bounding box.north east |- ninc) -- +(1em,0) |- (cond);
-\end{comment}
 
   \end{tikzpicture}
 \end{document}

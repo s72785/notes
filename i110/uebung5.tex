@@ -111,28 +111,17 @@ Die folgenden Summen sind solange zu berechnen, bis der Absolutbetrag des Quotie
 Die \textbf{Algorithmen sollen als Struktogramme, Flussdiagramme bzw. Programmablaufpläne} formuliert werden, \textit{\textbf{optional} können C-Programme formuliert} werden.
 
 \begin{enumerate}
+%a
+\item Berechnung von $\pi$ nach Leibniz:
 
-\item Berechnung von $\pi$ nach Leibniz: $ \Sigma_{n=0}^{\infty} \frac{(-1)^n}{2n+1} = 1-\frac{1}{3}+\frac{1}{5}-\frac{1}{7}+\frac{1}{9}-\ldots=\frac{\pi}{4} $
+\[
+\Sigma_{n=0}^{\infty} \frac{(-1)^n}{2n+1} = 1-\frac{1}{3}+\frac{1}{5}-\frac{1}{7}+\frac{1}{9}-\ldots=\frac{\pi}{4}
+\]
 
 %-------------------------------
 \Lsg
 
-%\includestandalone{fdu5a2a}
-\begin{comment}
-E: eps
-(eps>0) -> nein: -> (E)
-ja
-n=0
-s=0
-q=1
-C2: n%2==0	-> nein: s=s-q -> (S)
-ja
-s=s+q
-S: n=n+1
-q=1/(2*n+1)
-(q/s<eps) -> nein -> (C2)
-a: s
-\end{comment}
+\includestandalone{fdu5a2a}
 
 \begin{lstlisting}
     #include<math.h>
@@ -148,8 +137,12 @@ a: s
     }
 \end{lstlisting}
 %-------------------------------
+%b
+\item Berechnung von $\pi$ nach Bailey-Borwein-Plouffe (1996): 
 
-\item Berechnung von $\pi$ nach Bailey-Borwein-Plouffe (1996): $ \pi = \Sigma_{k=0}^{\infty} \frac{1}{16^k} \left( \frac{4}{8k+1} \frac{2}{8k+4} \frac{1}{8k+5} \frac{1}{8k+6} \right)  $
+\[
+\pi = \Sigma_{k=0}^{\infty} \frac{1}{16^k} \left( \frac{4}{8k+1} \frac{2}{8k+4} \frac{1}{8k+5} \frac{1}{8k+6} \right)
+\]
 
 %-------------------------------
 \Lsg
@@ -157,19 +150,20 @@ a: s
 %\includestandalone{fdu5a2b}
 \begin{comment}
 
-\end{comment}
-
 \begin{lstlisting}
 \end{lstlisting}
 
-%-------------------------------
+\end{comment}
 
+
+%-------------------------------
+%c
 \item Berechnung von $ln(x)$:
 
 %-------------------------------
 \Lsg
 
-%\includestandalone{fdu5a2c}
+\includestandalone{fdu5a2c}
 \begin{comment}
 
 \end{comment}
@@ -186,13 +180,13 @@ return ln_x;
 \end{lstlisting}
 
 %-------------------------------
-
+%d
 \item Berechnung von $cos(x)$:
 
 %-------------------------------
 \Lsg
 
-%\includestandalone{fdu5a2d}
+\includestandalone{fdu5a2d}
 \begin{comment}
 \end{comment}
 

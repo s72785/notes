@@ -50,20 +50,12 @@
     \node[ss] (start) {Start};
     \node[io, below=of start] (in) {E: $\epsilon$};
     \node[op, below=of in] (sin) {$s1=1.0,\ s2=1.0, n=1$};
-    \node[cn, below=of sin] (cond) {$(s2 / *s1) >= epsilon$};
-    \node[io, left=of cond] (out) {A: $s1$};
+    \node[cn, below=of sin] (cond) {$\frac{s2}{s1} \geq epsilon$};
+    \node[io, left=of cond] (out) {A: $s2$};
     \node[ss, below=of out] (stop) {Stop};
-
-\begin{comment}
-      while( (sum2 / *sum1) >= epsilon ){
-        *sum1 = sum2;
-        sum2 += pow(-1,*n)/(*n*2 + 1);
-        *n++;
-      }
-
-    \node[op, below=of cond] (s2save) {$S1=S2$};
-    \node[op, below=of s2save] (s2inc) {$S2+=\frac{x^2}{n!}$};
-    \node[op, below=of s2inc] (ninc) {n++};
+    \node[op, below=of cond] (s2save) {$s1=s2$};
+    \node[op, below=of s2save] (s2inc) {$s2=s2+\frac{(-1)^{n}}{2n + 1}$};
+    \node[op, below=of s2inc] (ninc) {n=n+1};
 
     \path[->]
       (start) edge (in)
@@ -76,7 +68,6 @@
       (s2save) edge (s2inc)
       (s2inc) edge (ninc);
     \draw[->] (ninc) -- (current bounding box.north east |- ninc) -- +(1em,0) |- (cond);
-\end{comment}
 
   \end{tikzpicture}
 \end{document}
