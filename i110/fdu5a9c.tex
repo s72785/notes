@@ -1,0 +1,78 @@
+% Dokuementen-Klasse für Bilder mit notwendigen Abmessungen
+\documentclass{standalone}
+
+% Mehrzeilige Kommentare
+\usepackage{comment}
+
+% Kodierung dieser Datei angeben
+\usepackage[utf8]{inputenc}
+
+% Schönere Schriftart laden
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
+% Deutsche Silbentrennung verwenden
+\usepackage[ngerman]{babel}
+
+% Bessere Unterstützung für PDF-Features
+\usepackage[breaklinks=true]{hyperref}
+
+\begin{comment}
+\KOMAoptions{%
+  % Absätze durch Abstände
+  parskip=full,%
+  % Satzspiegel berechnen lassen
+  DIV=calc%
+}
+\end{comment}
+
+% Mathematikumgebungen von der AMS laden
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+% TikZ laden
+\usepackage{tikz}
+
+% Verwendete TikZ-Bibliotheken laden
+\usetikzlibrary{positioning,shapes.geometric}
+
+% Styles für Flussdiagramm
+\input{fdstyles}
+
+\begin{document}
+
+  \begin{tikzpicture}[
+      % Distanz zwischen den Knoten
+      node distance=1em,
+      auto
+  ]
+
+    \node[ss] (start) {Start};
+    \node[io, below=of start] (in) {E: $m,n,a[m,n],b[1,n]$};
+    \node[op, below=of in] (sin) {$i=0,s[]=\vec{0}$};
+    \node[op, below=of sin] (jin) {$j=0$};
+    \node[cn, below=of jin] (cond) {Zeile $i <$ Größe $n$};
+    \node[op, below=of cond] (sum) {$s[j,i]+=a[j,i]*b[0,i]$};
+    \node[op, below=of sum] (inci) {$i=i+1$};
+    \node[cn, below=of inci] (cond2) {Spalte $j <$ Größe $n$};
+    \node[op, below=of cond2] (incj) {$j=j+1$};
+    \node[io, left=of cond] (out) {A: $s[]$};
+    \node[ss, below=of out] (stop) {Stop};
+
+    \path[->]
+      (start) edge (in)
+      (in) edge (sin)
+      (sin) edge (jin)
+      (jin) edge (cond)
+      (cond) edge node[below] {f} (out)
+      (out) edge (stop)
+      (cond) edge node[right] {w} (sum)
+      (sum) edge node[right] {w} (inci)
+      (inci) edge (cond2)
+      (cond2) edge (incj)
+      ;
+    \draw[->] (incj) -- (current bounding box.north east |- incj) -- +(1em,0) |- (sum);
+    \draw[->] (cond2) -- node[above] {f} (current bounding box.north east |- cond2) -- +(1em,0) |- (jin);
+
+  \end{tikzpicture}
+\end{document}

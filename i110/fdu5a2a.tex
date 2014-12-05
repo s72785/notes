@@ -1,0 +1,82 @@
+% Dokuementen-Klasse für Bilder mit notwendigen Abmessungen
+\documentclass{standalone}
+
+% Mehrzeilige Kommentare
+\usepackage{comment}
+
+% Kodierung dieser Datei angeben
+\usepackage[utf8]{inputenc}
+
+% Schönere Schriftart laden
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
+% Deutsche Silbentrennung verwenden
+\usepackage[ngerman]{babel}
+
+% Bessere Unterstützung für PDF-Features
+\usepackage[breaklinks=true]{hyperref}
+
+\begin{comment}
+\KOMAoptions{%
+  % Absätze durch Abstände
+  parskip=full,%
+  % Satzspiegel berechnen lassen
+  DIV=calc%
+}
+\end{comment}
+
+% Mathematikumgebungen von der AMS laden
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+% TikZ laden
+\usepackage{tikz}
+
+% Verwendete TikZ-Bibliotheken laden
+\usetikzlibrary{positioning,shapes.geometric}
+
+% Styles für Flussdiagramm
+\input{fdstyles}
+
+\begin{document}
+
+  \begin{tikzpicture}[
+      % Distanz zwischen den Knoten
+      node distance=1em,
+      auto
+  ]
+
+    \node[ss] (start) {Start};
+    \node[io, below=of start] (in) {E: $\epsilon$};
+    \node[op, below=of in] (sin) {$s1=1.0,\ s2=1.0, n=1$};
+    \node[cn, below=of sin] (cond) {$(s2 / *s1) >= epsilon$};
+    \node[io, left=of cond] (out) {A: $s1$};
+    \node[ss, below=of out] (stop) {Stop};
+
+\begin{comment}
+      while( (sum2 / *sum1) >= epsilon ){
+        *sum1 = sum2;
+        sum2 += pow(-1,*n)/(*n*2 + 1);
+        *n++;
+      }
+
+    \node[op, below=of cond] (s2save) {$S1=S2$};
+    \node[op, below=of s2save] (s2inc) {$S2+=\frac{x^2}{n!}$};
+    \node[op, below=of s2inc] (ninc) {n++};
+
+    \path[->]
+      (start) edge (in)
+      (in) edge (sin)
+      (sin) edge (nin)
+      (nin) edge (cond)
+      (cond) edge node[below] {f} (out)
+      (out) edge (stop)
+      (cond) edge node[right] {w} (s2save)
+      (s2save) edge (s2inc)
+      (s2inc) edge (ninc);
+    \draw[->] (ninc) -- (current bounding box.north east |- ninc) -- +(1em,0) |- (cond);
+\end{comment}
+
+  \end{tikzpicture}
+\end{document}
