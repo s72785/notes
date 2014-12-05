@@ -6,6 +6,7 @@
 \usepackage[ngerman]{babel}
 \usepackage[colorlinks=false, pdfborderstyle={/S/U/W 1}
 ]{hyperref}
+\usepackage{stmaryrd}
 \usepackage{comment}
 \oddsidemargin0mm \evensidemargin3mm \textwidth150mm \textheight23cm
 \parindent0mm \pagestyle{empty} \topmargin-1cm
@@ -44,11 +45,21 @@ $A=\begin{pmatrix}
 
 %\Lsg
 $
-\begin{pmatrix}
- 2 & 7 & 3 \vert 1 & 0 & 0 \\
- 3 & 9 & 4 \vert 0 & 1 & 0 \\
- 1 & 5 & 3 \vert 0 & 0 & 1 \\
-\end{pmatrix}\cdot\begin{pmatrix} 3 \\ 2 \\ 6 \end{pmatrix}
+\left(
+\begin{matrix}
+ 2 & 7 & 3 \\
+ 3 & 9 & 4  \\
+ 1 & 5 & 3  
+\end{matrix}
+\left|
+\begin{matrix}
+1 & 0 & 0 \\
+0 & 1 & 0 \\
+0 & 0 & 1 \\
+\end{matrix}
+\right)
+\right.
+\hspace{1em} \left|\cdot\begin{pmatrix} 3 \\ 2 \\ 6 \end{pmatrix}\right.
 $
 %2.-1. u. 3-1. Zeile
 %2. Zeile *3 und zur 3. addieren
@@ -65,12 +76,22 @@ x - y +  z &= 1 \\
 
 %\Lsg
 $
-\begin{pmatrix}
-1	&	-1	&	1	|	1	\\
-7	&	-4	&	-1	|	-2	\\
--1	&	2	&	5	|	2	\\
-0	&	5	&	17	|	18
-\end{pmatrix}
+\left(
+\begin{matrix}
+1	&	-1	&	1	\\
+7	&	-4	&	-1	\\
+-1	&	2	&	5	\\
+0	&	5	&	17
+\end{matrix}
+\left|
+\begin{matrix}
+1	\\
+-2	\\
+2	\\
+18
+\end{matrix}
+\right)
+\right.
 %ziel ist dreiecksform
 %1. zur 3. Zeile
 %1- mal (-7) zur 2. Zeile
@@ -78,13 +99,26 @@ $
 %2. mal (-5) zur 4. Zeile
 %3. durch (-2) zur 4.
 =
-\begin{pmatrix}
-1	&	-1	&	1	&	1	\\
-0	&	1	&	6	&	3	\\
-0	&	0	&	-26	&	-18	\\
-0	&	0	&	0	&	12
-\end{pmatrix}
-$ ist aufgrund der letzten Zeile nicht lösbar.
+\left(
+\begin{matrix}
+1	&	-1	&	1	\\
+0	&	1	&	6	\\
+0	&	0	&	-26	\\
+0	&	0	&	0
+\end{matrix}
+\left|
+\begin{matrix}
+1	\\	
+3	\\
+-18	\\
+12
+\end{matrix}
+\right)
+\right.
+0=12 \lightning
+$
+
+ist aufgrund der letzten Zeile nicht lösbar.
 
 	%3.
 	\item Für welche reellen Zahlen $a,b$ hat das lineare Gleichungssystem	\begin{align*}
@@ -95,30 +129,50 @@ $ ist aufgrund der letzten Zeile nicht lösbar.
 
 %\Lsg
 $
-\begin{pmatrix}
-x	&	y	&	z	&		\\
-1	&	-2	&	3	&	-4	\\
-2	&	1	&	1	&	2	\\
-1	&	a	&	2	&	-b
-\end{pmatrix}
+\left(
+\begin{matrix}
+x	&	y	&	z	\\
+1	&	-2	&	3	\\
+2	&	1	&	1	\\
+1	&	a	&	2
+\end{matrix}
+\left|
+\begin{matrix}
+	\\
+-4	\\
+2	\\
+-b
+\end{matrix}
+\right)
+\right.
 %wieder Dreiecksform ermitteln
 %1. Zeile mal -2 zur 2.
 %1. Zeile mal -1 zur 3.
 %3. und 2. Spalte tauschen (namen merken)
 %2. Zeile durch -5 und zur 3. hinzu
-=\begin{pmatrix}
-x	&	z	&	y	&		\\
-1	&	3	&	-2	&	-4	\\
-0	&	-3	&	5	&	10	\\
-0	&	0	&	a+1	&	-b+2
-\end{pmatrix}
+\left(
+=\begin{matrix}
+x	&	z	&	y	\\
+1	&	3	&	-2	\\
+0	&	-3	&	5	\\
+0	&	0	&	a+1
+\end{matrix}
+\left|
+\begin{matrix}
+	\\
+-4	\\
+10	\\
+-b+2
+\end{matrix}
+\right)
+\right.
 $
 
 	\begin{enumerate}
 		%a
 		\item genau eine Lösung,
 
-		$a\neq -1, b egal$
+		$a\neq -1$ \hspace{1em}($b$ egal)
 		
 		für $a=0, b=0$: $y=2, z=0, x=0$
 		
@@ -135,19 +189,64 @@ $
 		$a=-1, b=2 $ soweit keine weiteren Gleichungen zum LGS zählen
 		
 		$\Rightarrow  y=t, z=2-t, x=-10+5t$ ergibt unendliche viele Lösungen für $t \in \R$
+		
+		z.B. $t=1 \Rightarrow x=-5, y=1, z=1$
 	\end{enumerate}
+
 Geben Sie die Lösungen in den Fällen a) und c) an.
+%
+
 	
 	%4
 	\item
 Zeigen Sie, dass die Vektoren $a=\begin{pmatrix} 2 \\ 3 \\ 1 \end{pmatrix}$,  $b=\begin{pmatrix} 7 \\ 9 \\ 5 \end{pmatrix}$ und $c=\begin{pmatrix} 3 \\ 4 \\ 3 \end{pmatrix}$ eine Basis von $\R^3$ bilden. \\
  Wie lässt sich der Vektor $d=\begin{pmatrix} 1 \\ -2 \\ -2 \end{pmatrix}$ mit dieser Basis darstellen? 
 
-%1. teil
-%lineare unabhängigkeit
+1. Teil
 
-%2.teil
-%d= c_1 * a+c_2 * b+c_3 * c
+lineare Unabhängigkeit
+
+2.Teil
+
+$
+d= c_1\cdot a + c_2\cdot b + c_3\cdot c
+$
+
+$
+\begin{matrix}
+2	&	7	&	3	\\
+3	&	9	&	4	\\
+1	&	5	&	3
+\end{matrix}
+\left|
+\begin{matrix}
+1	\\
+-2	\\
+-2
+\end{matrix}
+\right.
+=
+\begin{matrix}
+1	&	5	&	3	\\
+0	&	-6	&	-5	\\
+0	&	0	&	-1
+\end{matrix}
+\left|
+\begin{matrix}
+-2	\\
+4	\\
+6
+\end{matrix}
+\right.
+\rightarrow
+\left|
+\begin{matrix}
+	c_1=-\frac{17}{3}	\\
+	c_2=\frac{13}{3}	\\
+	c_3=-6
+\end{matrix}
+\right.
+$
 
 	%5.
 	\item Bestimmen Sie den Rang der folgenden Matrizen. %heißt: gaußalgo, wieviele Zeilen sind nicht null?
@@ -157,6 +256,12 @@ Zeigen Sie, dass die Vektoren $a=\begin{pmatrix} 2 \\ 3 \\ 1 \end{pmatrix}$,  $b
  2 & 5 & 8 \\
  3 & 6 & 9 \\
  4 & 8 & 12 \end{pmatrix}$
+ 
+%\Lsg
+% Dreiecksform bilden
+% Nullzeilen entfernen
+% Rang entspricht den verbleibenden Zeilen
+ 
 		\item $B=\begin{pmatrix}
  1 & 1 & 1 & 1 & 1 & 1 & 1\\
  1 & 1 & 1 & 1 & 1 & 1 & 1 \\
@@ -164,6 +269,8 @@ Zeigen Sie, dass die Vektoren $a=\begin{pmatrix} 2 \\ 3 \\ 1 \end{pmatrix}$,  $b
  1 & 1 & 1 & 1 & 1 & 1 & 1 \\
  1 & 1 & 1 & 1 & 1 & 1 & x \end{pmatrix}$ für $x \in \R.$
 	\end{enumerate}
+
+%
 
 %\Lsg
 $
@@ -180,9 +287,24 @@ $
  1 & 2 & 0 \\
  0 & -c & 2c \\
 -c & 0 & 2 \end{pmatrix}.$ 
-%Rang für beide berechnen, anschließend Beziehung/Eigenschaften prüfen
-%Rang A = 3 f. c \neq -\fraq{1}{3}; 2 f. c=-\fraq{1}{3}
-%Rang B = 3 f. c\neq -\fraq{1}{2} u. c\neq 0; 2 f.  c=-\fraq{1}{2} o. c=0
+
+%\Lsg
+Rang für beide berechnen, anschließend Beziehung/Eigenschaften prüfen \ldots
+
+$
+rg A = \begin{cases}
+	3 & \text{für} c \neq - \fraq{1}{3} \\
+	2 & \text{für} c=-\fraq{1}{3}
+\end{cases} \\
+$
+
+$
+rg B = \begin{cases}
+	3 & \text{für} c \neq - \fraq{1}{2} u. c \neq 0 \\
+	2 & \text{für}  c=-\fraq{1}{2} o. c=0
+\end{cases}
+$
+
 	\begin{enumerate}
 		\item Für welche $c \in \R$ haben die Matrizen $A$ und $B$ denselben Rang?
 		%3 f. c \neq -\fraq{1}{3}, c\neq -\fraq{1}{2} u. c\neq 0

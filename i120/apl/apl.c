@@ -2,6 +2,8 @@
 #include<stdlib.h>
 #include<math.h>
 //#include<time.h>
+#define VORL_SCANF 1
+//#define VORL_RAND 0 /* wir hatten nun doch endlich mal scanf in der Vorlesung */
 #define PWD "0987"
 #define BS_GROESSE 10000//f. 4-stellige Kontonummern
 #define PIN_LAENGE 4
@@ -16,8 +18,10 @@
 #define GUTHABEN_MAX 21000000.0	//max. Guthaben d. we
 #define GUTHABEN_MIN 1.0	//min. 1 we Guthaben
 #define ZEIT_MENUEVERLASSEN 30 //in Sekunden
+/* //idee fflush als makro nachzubilden
 #define Fflush(int_keyboard_buffer)\
 	while(( (int_keyboard_buffer)=getchar() ) != '\n')
+*/
 //#define NACHKOMMA_MAX 8U //es gibt nur 8 Nachkomma-Stellen
 /* //Uberweisungsgebuehren
 #define UEBGEB_MINABS 0.1	//min x we
@@ -109,13 +113,15 @@ double betrag(double betrag){
 
 /* Zufallszahlen ohne fuehrende Nullen */
 int intZufallszahl(int stellen){
-	time_t t;
-	srand((unsigned) time(&t));
-	int z=0;
+	if(VORL_RAND)time_t t;
+	if(VORL_RAND)srand((unsigned) time(&t));
+	int z=1928;
 	int i=0;
-	while((pow(10,stellen-1)-z)>0){
-		z = (int)rand() % (int)pow(10,stellen);
-		i++;
+	if(VORL_RAND){
+		while((pow(10,stellen-1)-z)>0){
+			z = (int)rand() % (int)pow(10,stellen);
+			i++;
+		}
 	}
 	if(DEBUG_PRINT)printf("Zufallszahl brauchte %d Durchlaeufe!\n",i);
 	return z;
