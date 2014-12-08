@@ -10,6 +10,7 @@
 #define PWD "0987"
 #define BS_GROESSE 10000//f. 4-stellige Kontonummern
 #define PIN_LAENGE 4
+//#define PIN_VERSUCHE 3
 #define PIN_LAENGE_BIT 13
 #define KTO_LAENGE 4
 #define KTO_LAENGE_BIT 13
@@ -152,7 +153,7 @@ void konto_eroeffnen(konto *this, int nummer){
 	this->guthaben = 0;
 }
 
-// bonus...
+// bonus function, not necessary for the enlisted tasks...
 //0 - no error
 //1 - unwanted input
 int chkPIN(int z){
@@ -378,7 +379,55 @@ printf("PIN!!! %d\n", this->konten[kontonr].pin);
 
 /*
 void menue_kundenkonto(bank *this){ //ToDo
+	char antwort;
+	int laenge;
 	menue_cls();
+
+	printf("\n\n");
+	printf("(1) \n");
+	printf("(2) \n");
+
+	printf("\n\nAuswahl: ");
+	scanf("%1c", &antwort);
+//	cleartoendofline();
+
+	if(laenge!=1){
+		printf("Bitte beachten Sie die gültigen Eingabeoptionen!\n");
+	}
+	else{
+
+		switch (antwort){
+			case '1':
+			case 'K':
+			case 'k':
+				if(DEBUG_PRINT)printf("\nAufruf: Kundenlogin\n");
+				menue_kundenlogin(this);
+				rc=1;
+				break;
+			case '2':
+			case 'N':
+			case 'n':
+				if(DEBUG_PRINT)printf("\nAufruf: Neukunde\n");
+				menue_neukunde(this);
+				rc=1;
+				break;
+			case '3':
+			case 'E':
+			case 'e':
+				if(DEBUG_PRINT)printf("\nAufruf: Programm beenden\n");
+				rc = menue_programmbeenden();
+				break;
+			case '4':
+			case 'S':
+			case 's':
+				bank_status(this);
+				rc=1;
+				break;
+			//default://nuexx
+		}
+
+	}
+	return rc;
 }
 */
 
@@ -395,8 +444,8 @@ unsigned char menue_hauptmenue(bank *this){
 	printf("\n\n");
 	printf("(1) Bestandskunde\n");
 	printf("(2) Neukunde\n");
-//		printf("(3) Programm b[e]enden\n");
-//		printf("(4) Bank[s]tatus\n");
+//		printf("(3) Programm beenden\n");
+//		printf("(4) Bankstatus\n");
 
 	printf("\n\nAuswahl: ");
 	scanf("%1c", &antwort);
@@ -448,5 +497,4 @@ main(){
 	while(menue_hauptmenue(&schalterbank)){
 		//einfach Dauerschleife, ist halt ne Bank
 	}
-	/***/
 }
