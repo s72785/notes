@@ -1,9 +1,12 @@
+// external libs
+
 #include<stdio.h>
 #include<stdlib.h>
 #include<math.h>
-//#include<time.h>
-#define VORL_SCANF 1
-//#define VORL_RAND 0 /* wir hatten nun doch endlich mal scanf in der Vorlesung */
+#include<time.h>
+
+// definitions for preprocessor
+
 #define PWD "0987"
 #define BS_GROESSE 10000//f. 4-stellige Kontonummern
 #define PIN_LAENGE 4
@@ -18,6 +21,9 @@
 #define GUTHABEN_MAX 21000000.0	//max. Guthaben d. we
 #define GUTHABEN_MIN 1.0	//min. 1 we Guthaben
 #define ZEIT_MENUEVERLASSEN 30 //in Sekunden
+
+// experimental
+
 /* //idee fflush als makro nachzubilden
 #define Fflush(int_keyboard_buffer)\
 	while(( (int_keyboard_buffer)=getchar() ) != '\n')
@@ -44,8 +50,71 @@ typedef struct {
 	char zip[10];
 	char land[50];
 } person;
-
 */
+
+//dont use typeof for sticking to iso/standard
+//0 - no error
+//1 - unwanted input
+int chkZahl(char s[]){
+	int i=0;//counter
+	char c;
+	while(!strcmp(s[i],'\0')){//todo: string durchlaufen um ungueltiges auszuschliessen
+		c=(char)s[i];
+		if(c < 48 || c > 57){
+			return 1;
+		}
+	}
+	return 0;
+}
+
+/**
+void myfflush{
+		char c;
+		//windows-alternative
+		//fflush(stdin)
+		while(getchar()!='\n');
+}
+**/
+
+//Eingabe will man so haben: http://www.undertec.de/blog/2009/05/kbhit-und-getch-fur-linux.html
+
+// general functions
+
+void cleartoendofline(void){
+	char c;
+	while ((c = getchar()) != '\n' && c != EOF);
+}
+
+double betrag(double betrag){
+	if(betrag < 0){
+		return (double)(-betrag);
+	}else{
+		return (double)betrag;
+	}
+}
+
+/* Zufallszahlen ohne fuehrende Nullen */
+int intZufallszahl(int stellen){
+	time_t t;
+	srand((unsigned) time(&t));
+	int z=1928;
+	int i=0;
+	while((pow(10,stellen-1)-z)>0){
+		z = (int)rand() % (int)pow(10,stellen);
+		i++;
+	}
+	if(DEBUG_PRINT)printf("Zufallszahl brauchte %d Durchlaeufe!\n",i);
+	return z;
+}
+
+void mypause(char *s){
+	char c;
+	printf("%s", s);
+	getchar();
+	cleartoendofline();
+}
+
+// class konto (account)
 
 typedef struct {
 	int ktonr;//: KTO_LAENGE_BIT;	//n-stellig -> m bit
@@ -59,6 +128,53 @@ typedef struct {
 //	services service;
 //	enum waehrung_t { btc, eur, usd } waehrung;
 } konto;
+
+/**/
+int konto_einzahlung(konto *this, double summe){
+	//GUTHABEN_MAX
+	this->guthaben += summe;
+}
+
+/* Fehler-Codes:
+ * 0 - alles ok
+ * */
+int konto_auszahlung(konto *this, double summe){
+	//GUTHABEN_MIN
+	this->guthaben -= summe;
+	return 0;
+}
+
+void konto_eroeffnen(konto *this, int nummer){
+	//todo: Registrierungsdatum speichern
+	this->ktonr = nummer;	//Kontonummer festlegen
+	this->pin = intZufallszahl(PIN_LAENGE);	//Pin generieren
+	this->sperrung = eroeffnet;
+	this->guthaben = 0;
+}
+
+// bonus...
+//0 - no error
+//1 - unwanted input
+int chkPIN(int z){
+	/*
+	if(chkZahl(s[])!=0){//Zahl?!
+		return 1;
+	}
+	*/
+	//todo: checke auf triviale pins (
+	//alles zahlen?
+	//1. jede Zahl nur einmal,
+	//2. nicht 4 aufeinander folgende)
+	return z;
+}
+
+/*
+void konto_pinaendern(konto *this, int pin){
+
+}
+*/
+
+// class bank
 
 /* Bank hat BS_GROESSE-1 Konten
  * Konto 0-1000 ist die Bank selbst
@@ -77,86 +193,11 @@ void bank_init(bank *this, double kapital){
 	this->neuesterkunde=KUNDENKONTO_PRIM;
 }
 
-void cleartoendofline(void){
-	char c;
-	while ((c = getchar()) != '\n' && c != EOF);
-}
-
-void menue_pause(char *s){
-	char c;
-	printf("%s", s);
-	getchar();
-	cleartoendofline();
-}
-
 void bank_status(bank *this){
 	printf("Guthaben:\t%f\n",this->konten[BARGELDKONTO].guthaben);
 	printf("Konten:\t\t%d\n",this->kontenzahl);
 	printf("Neuester Kunde:\t%d\n\n\n",this->neuesterkunde);
-	menue_pause("\n\nWeiter ...\n");
-}
-
-void menue_cls(){
-	int i;
-	for(i=0;i<80;i++){
-		printf("\n");
-	}
-}
-
-double betrag(double betrag){
-	if(betrag < 0){
-		return (double)(-betrag);
-	}else{
-		return (double)betrag;
-	}
-}
-
-/* Zufallszahlen ohne fuehrende Nullen */
-int intZufallszahl(int stellen){
-	if(VORL_RAND)time_t t;
-	if(VORL_RAND)srand((unsigned) time(&t));
-	int z=1928;
-	int i=0;
-	if(VORL_RAND){
-		while((pow(10,stellen-1)-z)>0){
-			z = (int)rand() % (int)pow(10,stellen);
-			i++;
-		}
-	}
-	if(DEBUG_PRINT)printf("Zufallszahl brauchte %d Durchlaeufe!\n",i);
-	return z;
-}
-
-
-// bonus...
-//0 - no error
-//1 - unwanted input
-int chkPIN(int z){
-	/*
-	if(chkZahl(s[])!=0){//Zahl?!
-		return 1;
-	}
-	*/
-	//todo: checke auf triviale pins (
-	//alles zahlen?
-	//1. jede Zahl nur einmal,
-	//2. nicht 4 aufeinander folgende)
-	return z;
-}
-
-/**/
-int konto_einzahlung(konto *this, double summe){
-	//GUTHABEN_MAX
-	this->guthaben += summe;
-}
-
-/* Fehler-Codes:
- * 0 - alles ok
- * */
-int konto_auszahlung(konto *this, double summe){
-	//GUTHABEN_MIN
-	this->guthaben -= summe;
-	return 0;
+	mypause("\n\nWeiter ...\n");
 }
 
 /* Fehler-Codes:
@@ -177,34 +218,13 @@ int bank_ueberweisen(bank *this, konto *auszahlungskonto, konto *einzahlungskont
 	return 0;
 }
 
-/*
-void konto_pinaendern(konto *this, int pin){
+// menue functions
 
-}
-*/
-
-void konto_eroeffnen(konto *this, int nummer){
-	//todo: Registrierungsdatum speichern
-	this->ktonr = nummer;	//Kontonummer festlegen
-	this->pin = intZufallszahl(PIN_LAENGE);	//Pin generieren
-	this->sperrung = eroeffnet;
-	this->guthaben = 0;
-}
-//Eingabe will man so haben: http://www.undertec.de/blog/2009/05/kbhit-und-getch-fur-linux.html
-
-//dont use typeof for sticking to iso/standard
-//0 - no error
-//1 - unwanted input
-int chkZahl(char s[]){
-	int i=0;//counter
-	char c;
-	while(!strcmp(s[i],'\0')){//todo: string durchlaufen um ungueltiges auszuschliessen
-		c=(char)s[i];
-		if(c < 48 || c > 57){
-			return 1;
-		}
+void menue_cls(){
+	int i;
+	for(i=0;i<80;i++){
+		printf("\n");
 	}
-	return 0;
 }
 
 int menue_abfragen(char *antwort){//char *stringArrayFragen,char *charArrayAntworten){
@@ -250,12 +270,14 @@ int menue_programmbeenden(){
 		printf("\nProgramm wird beendet!\n");
 		return 0;
 	}else{
-		printf("[J]a, Programm beenden und alle Kundenfaten verlieren");
-		printf("[N]ein, auf keinen Fall");
+		printf("(1) Ja, Programm beenden und alle Kundenfaten verlieren");
+		printf("(2) Nein, auf keinen Fall");
 		switch (antwort){
+			case '1':
 			case 'J':
 			case 'j': antwort=1;
 			break;
+			case '2':
 			case 'N':
 			case 'n': antwort=0;
 			break;
@@ -276,7 +298,7 @@ void menue_neukunde(bank *this){ //ToDo
 	printf("Ihre PIN:\t\t%7d\n", this->konten[n].pin);
 	printf("Ihr Kontostand:\t\t%16.8lf\n   ", this->konten[n].guthaben);
 	this->kontenzahl++;
-	menue_pause("\n\nWeiter ...\n");
+	mypause("\n\nWeiter ...\n");
 }
 
 /*
@@ -311,13 +333,13 @@ int menue_kundenlogin(bank *this){ //ToDo
 		//leere Eingabe zurueck zu Vormenue
 		if(pin <= 0 || kontonr <= 0){
 			printf("Ungueltige Kontodaten!\n\n");
-			menue_pause("\n\nWeiter ...\n");
+			mypause("\n\nWeiter ...\n");
 			loop=0;
 		}
 		//teste ob Kto ist eroeffnet
 		if(this->konten[kontonr].sperrung == pin3){
 			if(DEBUG_PRINT)printf("Dieses Konto ist wg. Falschanmeldung gesperrt!\nBitte nehmen Sie Kontakt zum Service auf.\n\n");
-			menue_pause("\n\nWeiter ...\n");
+			mypause("\n\nWeiter ...\n");
 			loop=0;
 			break;
 		}
@@ -371,8 +393,8 @@ unsigned char menue_hauptmenue(bank *this){
 	if(DEBUG_PRINT)printf("Konto %d hat %16.8lf Guthaben \n",(KUNDENKONTO_PRIM+this->kontenzahl), this->konten[KUNDENKONTO_PRIM+this->kontenzahl].guthaben);
 
 	printf("\n\n");
-	printf("(1) Bestands[k]unde\n");
-	printf("(2) [N]eukunde\n");
+	printf("(1) Bestandskunde\n");
+	printf("(2) Neukunde\n");
 //		printf("(3) Programm b[e]enden\n");
 //		printf("(4) Bank[s]tatus\n");
 
@@ -413,14 +435,8 @@ unsigned char menue_hauptmenue(bank *this){
 	return rc;
 }
 
-/**
-void myfflush{
-		char c;
-		//windows-alternative
-		//fflush(stdin)
-		while(getchar()!='\n');
-}
-**/
+// main function
+
 main(){
 	bank schalterbank;
 	bank_init(&schalterbank, 50000.0);
