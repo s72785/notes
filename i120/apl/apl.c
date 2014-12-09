@@ -377,59 +377,59 @@ printf("PIN!!! %d\n", this->konten[kontonr].pin);
 	return loop;
 }
 
-/*
 void menue_kundenkonto(bank *this){ //ToDo
 	char antwort;
-	int laenge;
-	menue_cls();
+	int rc=1;
 
-	printf("\n\n");
-	printf("(1) \n");
-	printf("(2) \n");
-
-	printf("\n\nAuswahl: ");
-	scanf("%1c", &antwort);
-//	cleartoendofline();
-
-	if(laenge!=1){
-		printf("Bitte beachten Sie die gültigen Eingabeoptionen!\n");
-	}
-	else{
-
-		switch (antwort){
-			case '1':
-			case 'K':
-			case 'k':
-				if(DEBUG_PRINT)printf("\nAufruf: Kundenlogin\n");
-				menue_kundenlogin(this);
-				rc=1;
-				break;
-			case '2':
-			case 'N':
-			case 'n':
-				if(DEBUG_PRINT)printf("\nAufruf: Neukunde\n");
-				menue_neukunde(this);
-				rc=1;
-				break;
-			case '3':
-			case 'E':
-			case 'e':
-				if(DEBUG_PRINT)printf("\nAufruf: Programm beenden\n");
-				rc = menue_programmbeenden();
-				break;
-			case '4':
-			case 'S':
-			case 's':
-				bank_status(this);
-				rc=1;
-				break;
-			//default://nuexx
+	while(rc){
+		menue_cls();
+	
+		printf("\n\n");
+		printf("(1) Guthaben anzeigen\n");
+		printf("(2) Einzahlung\n");
+		printf("(3) Auszahlung\n");
+		printf("(4) Ueberweisung (Bank-intern)\n");
+		printf("(5) PIN aendern\n");
+		printf("(6) Abmelden\n");
+	
+		printf("\n\nAuswahl: ");
+		scanf("%1c", &antwort);
+	//	cleartoendofline();
+	
+		if(laenge!=1){
+			printf("Bitte beachten Sie die gueltigen Eingabeoptionen!\n");
 		}
-
+		else{
+	
+			switch (antwort){
+				case '1':
+					if(DEBUG_PRINT)printf("\nAufruf: Guthaben anzeigen\n");
+					rc=1;
+					break;
+				case '2':
+					if(DEBUG_PRINT)printf("\nAufruf: Enzahlung\n");
+					rc=1;
+					break;
+				case '3':
+					if(DEBUG_PRINT)printf("\nAufruf: Auszahlung\n");
+					break;
+				case '4':
+					if(DEBUG_PRINT)printf("\nAufruf: Ueberweisung\n");
+					break;
+				case '5':
+					if(DEBUG_PRINT)printf("\nAufruf: PIN aendern\n");
+					break;
+				case '6':
+					rc=0;
+					if(DEBUG_PRINT)printf("\nAufruf: Abmelden\n");
+					break;
+				//default://nuexx
+			}
+	
+		}
 	}
 	return rc;
 }
-*/
 
 unsigned char menue_hauptmenue(bank *this){
 	int rc=1;//true for continuing "bank os"
@@ -444,8 +444,8 @@ unsigned char menue_hauptmenue(bank *this){
 	printf("\n\n");
 	printf("(1) Bestandskunde\n");
 	printf("(2) Neukunde\n");
-//		printf("(3) Programm beenden\n");
-//		printf("(4) Bankstatus\n");
+	printf("(3) Programm beenden\n");
+//	printf("(4) Bankstatus\n");
 
 	printf("\n\nAuswahl: ");
 	scanf("%1c", &antwort);
@@ -453,31 +453,22 @@ unsigned char menue_hauptmenue(bank *this){
 
 	switch (antwort){
 		case '1':
-		case 'K':
-		case 'k':
 			if(DEBUG_PRINT)printf("\nAufruf: Kundenlogin\n");
 			menue_kundenlogin(this);
 			rc=1;
 			break;
 		case '2':
-		case 'N':
-		case 'n':
 			if(DEBUG_PRINT)printf("\nAufruf: Neukunde\n");
 			menue_neukunde(this);
 			rc=1;
 			break;
 		case '3':
-		case 'E':
-		case 'e':
 			if(DEBUG_PRINT)printf("\nAufruf: Programm beenden\n");
 			rc = menue_programmbeenden();
 			break;
-		case '4':
-		case 'S':
-		case 's':
-			bank_status(this);
-			rc=1;
-			break;
+//		case '4':
+//			bank_status(this);
+//			break;
 		//default://nuexx
 	}
 
