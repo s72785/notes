@@ -94,13 +94,17 @@ double betrag(double betrag){
 	}
 }
 
-/* Zufallszahlen ohne fuehrende Nullen */
+/* Zufallszahlen für Stellenzahl > 0 */
 int intZufallszahl(int stellen){
 	time_t t;
+	if(stellen <= 0)
+		return -1;//error code: ungueltiges Argument
 	srand((unsigned) time(&t));
 	int z=1928;
+	int a;
 	int i=0;
-	while((pow(10,stellen-1)-z)>0){
+	while(z==a){
+		a=z;
 		z = (int)rand() % (int)pow(10,stellen);
 		i++;
 	}
