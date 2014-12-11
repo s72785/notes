@@ -9,7 +9,7 @@ Sheet| Status   | points /100 | Team | Link
 -----|----------|------------:|----- |:----
 p00  |          |             | i    | [md](p0.md)
 p01  | x:tbdvs  | 10          | t    | [md](p1.md)
-p02  | x:tbdvs  | 20          | i    | [md](p2.md)
+p02  | d:10.dec | 20          | i    | [md](p2.md)
 p03  | d:4.dec  | 15          | t    | [md](p3.md)
 p04  | d:4.dec  |  6          | t    | [md](p4.md)
 p05  | d:4.dec  | 20          | t    | [md](p5.md)

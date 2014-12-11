@@ -77,7 +77,7 @@ void myfflush{
 }
 **/
 
-//Eingabe will man so haben: http://www.undertec.de/blog/2009/05/kbhit-und-getch-fur-linux.html
+//Eingabe will man ggf. so haben: http://www.undertec.de/blog/2009/05/kbhit-und-getch-fur-linux.html
 
 // general functions
 
@@ -313,30 +313,90 @@ int strtoint(char *s, l){
 	}
 }*/
 
+void menue_kundenkonto(bank *this, int k){ //ToDo
+	char antwort;
+	int rc=1, laenge;
+	konto kto=this->konten[k];
+
+	while(rc){
+		menue_cls();
+	
+		printf("\n\n");
+		printf("(1) Guthaben anzeigen\n");
+		printf("(2) Einzahlung\n");
+		printf("(3) Auszahlung\n");
+		printf("(4) Ueberweisung (Bank-intern)\n");
+		printf("(5) PIN aendern\n");
+		printf("(6) Abmelden\n");
+	
+		printf("\n\nAuswahl: ");
+		laenge=scanf("%1c", &antwort);
+	//	cleartoendofline();
+	
+		if(laenge!=1){
+			printf("Bitte beachten Sie die gueltigen Eingabeoptionen!\n");
+		}
+		else{
+	
+			switch (antwort){
+				case '1':
+					if(DEBUG_PRINT)printf("\nAufruf: Guthaben anzeigen\n");
+					printf("Guthaben: %f", kto.guthaben);
+					rc=1;
+					break;
+				case '2':
+					if(DEBUG_PRINT)printf("\nAufruf: Einzahlung\n");
+					rc=1;
+					break;
+				case '3':
+					if(DEBUG_PRINT)printf("\nAufruf: Auszahlung\n");
+					break;
+				case '4':
+					if(DEBUG_PRINT)printf("\nAufruf: Ueberweisung\n");
+					break;
+				case '5':
+					if(DEBUG_PRINT)printf("\nAufruf: PIN aendern\n");
+					break;
+				case '6':
+					rc=0;
+					if(DEBUG_PRINT)printf("\nAufruf: Abmelden\n");
+					break;
+				//default://nuexx
+			}
+			mypause("\n\nWeiter ...\n");
+		}
+	}
+	//return rc;
+}
+
 int menue_kundenlogin(bank *this){ //ToDo
 	int loop=1;	//true for continuing "bank os"
 	int rc=1;
 	int kontonr=0;
-	int pin=0;
+	int pin=0, laenge;
 
 	menue_cls();
 	while(loop){
-		printf("\n\n\n\nKundenlogin %d\n\n(0) Zurueck ...\n\n", kontonr);
+		printf("\n\n\n\nKundenlogin");
+		if(DEBUG_PRINT)printf("% d", kontonr);
+		printf("\n\n(0) Zurueck ...\n\n");
 
 	    //+ Abfrage Kundennummer
 		printf("Kundennummer:\t");
-		scanf("%4d", &kontonr);
+		laenge=scanf("%4d", &kontonr);
 		cleartoendofline();
+		if(laenge != KTO_LAENGE )continue;
 		
 		//teste KtoNr ist nichtnegative Zahl
 
 		//+ Abfrage PIN
 		printf("PIN:\t\t");
-		scanf("%4d", &pin);
+		laenge=scanf("%4d", &pin);
 		cleartoendofline();
+		if(laenge != PIN_LAENGE )continue;
 
 		//leere Eingabe zurueck zu Vormenue
-		if(pin <= 0 || kontonr <= 0){
+		if( pin <= 0 || kontonr <= 0){
 			printf("Ungueltige Kontodaten!\n\n");
 			mypause("\n\nWeiter ...\n");
 			loop=0;
@@ -368,6 +428,7 @@ printf("PIN!!! %d\n", this->konten[kontonr].pin);
 			kontonr=0;
 		}else{
 			this->konten[kontonr].sperrung=eroeffnet;
+			menue_kundenkonto(this, kontonr);
 		}
 
 
@@ -379,60 +440,6 @@ printf("PIN!!! %d\n", this->konten[kontonr].pin);
 	}
 
 	return loop;
-}
-
-void menue_kundenkonto(bank *this){ //ToDo
-	char antwort;
-	int rc=1;
-
-	while(rc){
-		menue_cls();
-	
-		printf("\n\n");
-		printf("(1) Guthaben anzeigen\n");
-		printf("(2) Einzahlung\n");
-		printf("(3) Auszahlung\n");
-		printf("(4) Ueberweisung (Bank-intern)\n");
-		printf("(5) PIN aendern\n");
-		printf("(6) Abmelden\n");
-	
-		printf("\n\nAuswahl: ");
-		scanf("%1c", &antwort);
-	//	cleartoendofline();
-	
-		if(laenge!=1){
-			printf("Bitte beachten Sie die gueltigen Eingabeoptionen!\n");
-		}
-		else{
-	
-			switch (antwort){
-				case '1':
-					if(DEBUG_PRINT)printf("\nAufruf: Guthaben anzeigen\n");
-					rc=1;
-					break;
-				case '2':
-					if(DEBUG_PRINT)printf("\nAufruf: Enzahlung\n");
-					rc=1;
-					break;
-				case '3':
-					if(DEBUG_PRINT)printf("\nAufruf: Auszahlung\n");
-					break;
-				case '4':
-					if(DEBUG_PRINT)printf("\nAufruf: Ueberweisung\n");
-					break;
-				case '5':
-					if(DEBUG_PRINT)printf("\nAufruf: PIN aendern\n");
-					break;
-				case '6':
-					rc=0;
-					if(DEBUG_PRINT)printf("\nAufruf: Abmelden\n");
-					break;
-				//default://nuexx
-			}
-	
-		}
-	}
-	return rc;
 }
 
 unsigned char menue_hauptmenue(bank *this){
