@@ -19,7 +19,8 @@ LaTeX | Alternativ | Beschreibung
 : | \div | Divisions-Zeichen
 \mathbb{N} | \N | Zeichen für Natürliche Zahlen
 \frac{a}{b} | | Bruchschreibweise: a/b
-\sqrt{a} | \sqrt[2]{ab}  | Quadratwurzel von a
+\sqrt{a} | \sqrt[2]{a}  | Quadratwurzel von a
+\sqrt[n]{a} |  | n-te Wurzel von a
 a^{b} | a^b | Potenz: a hoch b
 x_{k} | | Indexierung / a über b
 \neq | | Ungleich
