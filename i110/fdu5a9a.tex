@@ -51,7 +51,7 @@
     \node[io, below=of start] (in) {E: $n,a[1,n],b[1,n]$};
     \node[op, below=of in] (sin) {$i=0,s=0$};
     \node[cn, below=of sin] (cond) {Index $i <$ Größe $n$};
-    \node[op, below=of cond] (sum) {$s=a[0,i]*b[0,i]$};
+    \node[op, below=of cond] (sum) {$s=s+a[0,i]*b[0,i]$};
     \node[op, below=of sum] (inc) {$i=i+1$};
     \node[io, left=of cond] (out) {A: $s$};
     \node[ss, below=of out] (stop) {Stop};
