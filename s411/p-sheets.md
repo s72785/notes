@@ -1,8 +1,9 @@
 consider this legend:
-d: - done at $date
-x: - to be reached in before xmas
-tbdvs - to be done very soon
-tbdny - to be done next year
+
+* d: - done at $date
+* x: - to be reached in before xmas
+* tbdvs - to be done very soon
+* tbdny - to be done next year
 
 Sheet| Status   | points /100 | Team | Link
 -----|----------|------------:|----- |:----
