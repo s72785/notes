@@ -1,0 +1,9 @@
+set number
+syntax on
+set cursorline
+set colorcolumn=80
+colorscheme elflord
+set modeline
+set noexpandtab
+set shiftwidth=4
+set tabstop=4

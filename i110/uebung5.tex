@@ -160,11 +160,23 @@ Die \textbf{Algorithmen sollen als Struktogramme, Flussdiagramme bzw. Programmab
 %c
 \item Berechnung von $ln(x)$:
 
+\[
+ln x = \Sigma_{k=o}^{\infty} \frac{2}{2k+1} \cdot \(\frac{x-1}{x+1}\)^{2k+1} , x>0 
+\]
 %-------------------------------
 \Lsg
 
 \includestandalone{fdu5a2c}
 \begin{comment}
+
+%draft
+\begin{lstlisting}
+double f(x, epsilon){
+	if(!(x>0 && epsilon>0))return -1.0;
+	k=0;
+	f=(x-1)/(x+1)
+}
+\end{lstlisting}
 
 \end{comment}
 

@@ -374,6 +374,7 @@ int menue_kundenlogin(bank *this){ //ToDo
 	int rc=1;
 	int kontonr=0;
 	int pin=0, laenge;
+	int *c[4];
 
 	menue_cls();
 	while(loop){
@@ -383,8 +384,11 @@ int menue_kundenlogin(bank *this){ //ToDo
 
 	    //+ Abfrage Kundennummer
 		printf("Kundennummer:\t");
-		laenge=scanf("%4d", &kontonr);
+		laenge=scanf("%c%c%c%c", c[0], c[1], c[2], c[3]);
 		cleartoendofline();
+		//convert string to int
+		kontonr=sscanf(&c);
+		printf("%d %d",laenge,kontonr);
 		if(laenge != KTO_LAENGE )continue;
 		
 		//teste KtoNr ist nichtnegative Zahl

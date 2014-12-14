@@ -1,0 +1,247 @@
+\documentclass[12pt,a4paper]{scrreprt}
+\usepackage{tikz}
+\usetikzlibrary{positioning,calc}
+\usepackage{amsmath,amssymb,mathrsfs,dsfont}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage[colorlinks=false, pdfborderstyle={/S/U/W 1}]{hyperref}
+\usepackage{stmaryrd}
+\usepackage{comment}
+\oddsidemargin0mm \evensidemargin3mm \textwidth150mm \textheight23cm
+\parindent0mm \pagestyle{empty} \topmargin-1cm
+\newcommand{\E}{\mathds{E}}
+\newcommand{\V}{\mathds{V}}
+\newcommand{\C}{\mathds{C}}
+\newcommand{\N}{\mathds{N}}
+\newcommand{\Z}{\mathds{Z}}
+\newcommand{\R}{\mathds{R}}
+%\renewcommand{\i}{\text{i}}
+\pagestyle{headings}
+
+
+\newcommand{\Lsg}{\textbf{Lsg.:}}
+\usepackage{tikz}
+\usetikzlibrary{arrows,calc}
+\tikzset{
+%Define standard arrow tip
+>=stealth',
+%Define style for different line styles
+help lines/.style={dashed, thick},
+axis/.style={<->},
+important line/.style={thick},
+connection/.style={thick, dotted},
+}
+
+\begin{document} 
+\begin{flushleft}
+\href{mailto:anja.voss-boehme@htw-dresden.de}{Prof. Dr. Anja Voß-Böhme} \\
+\href{mailto:buder@htw-dresden.de}{Dipl.-Math. Thomas Buder}
+\end{flushleft}
+
+\begin{center}{\large\textbf Wirtschaftsmathematik I} \\ WS 2014/15 \end{center}
+
+\begin{center}{\large\textbf{Übung 9} } 
+\end{center}
+
+
+\bigskip
+
+\begin{enumerate}
+	%1.
+	\item Gegeben sind die komplexen Zahlen
+	$ z_1 = 1- i $,
+	$z_2 = -5 i $,
+	$z_3 = 3e^{ \pi i }$ und
+	$z_4 = 2e^{ \frac{\pi}{6} i }$
+
+\begin{tabular}{lll}
+$ z=e^{i \phi}$ &$= |z| e^{i arg(z)}$ & Eulersche Form \\
+$ z= a + i b$ &$= Re(z) + Im(z)  i $ & Kartesische / Arithmetische Form \\
+$ z=r(cos \phi + i sin \phi) $ & & Trigonometrische Form
+\end{tabular}
+
+$Re(z):  a= $
+
+$Im(z):  i b= $
+
+%skizze todo
+%------
+%achsen x,i
+%punkt
+%winkel
+%-------
+
+
+	\begin{enumerate}
+	
+		%a
+		\item Geben Sie die Eulersche Darstellung von $z_1$ und $z_2$, sowie die kartesische Darstellung von $z_3$ und $z_4$ an.
+
+
+\[
+\]
+
+		%b
+		\item Skizzieren Sie $z_1$ bis $z_4$ in der komplexen Zahlenebene.
+
+
+%skizze
+%---------
+\begin{tikzpicture}[scale=1]
+    % Axis
+    \coordinate (y1) at (0,5);
+    \coordinate (y0) at (0,-2);
+    \coordinate (x1) at (5,0);
+    \coordinate (x0) at (-2,0);
+    \draw[->] (y0) -- (y1) node[above] {$\mathit{Im}$};
+    \draw[->] (x0) -- (x1) node[right] {$\mathit{Re}$};
+    % A grid can be useful when defining coordinates
+    % \draw[step=1mm, gray, thin] (0,0) grid (5,5); 
+    % \draw[step=5mm, black] (0,0) grid (5,5); 
+
+	
+
+    \end{tikzpicture}
+%-----------
+
+\[
+\]
+
+		%c
+		\item Berechnen Sie:
+
+			\begin{enumerate}
+	
+\item $z_1 \cdot \overline{z_1}$,
+
+\[
+\]
+
+\item $z_1 + z_3$,
+
+\[
+\]
+
+\item $\frac{z_1}{z_4}$,
+
+\[
+\]
+
+\item $z1 \cdot z2$,
+
+\[
+\]
+
+\item $(z_{3})^{4}$
+
+\[
+\]
+
+			\end{enumerate}
+
+		%d
+		\item Bestimmen Sie $|z_1|$ und $|z_4|$.
+
+
+\[
+\]
+
+	\end{enumerate}
+
+	%2.
+	\item Skizzieren Sie in der komplexen Zahlenebene die Menge der Punkte, für die gilt:
+
+	\begin{enumerate}
+
+		%a
+		\item $|z - 2 + i| \leq 5$
+
+
+		%b
+		\item $|z + 3| = 2$
+
+
+		%c
+		\item $|arg z| < \frac{\pi}{2}$
+
+
+	\end{enumerate}
+
+	%3.
+	\item Geben Sie die Lösungen der folgenden Gleichungen für $z \in \C$ an und skizzieren Sie diese in der komplexen Zahlenebene.
+
+	\begin{enumerate}
+
+		%a
+		\item $z^2=-1$
+
+\[
+z^2=1 \cdot e^{\pi i}
+\]
+
+		%b
+		\item $z^3=8i$
+
+\[
+\]
+
+		%c
+		\item $z^5=-1$
+
+\[
+\]
+
+	\end{enumerate}
+
+	%4.
+	\item Welche komplexe Zahl ist das Spiegelbild von $z = a + b i (a, b \in \R)$ bei Spiegelung
+
+	\begin{enumerate}
+
+		%a
+		\item am Ursprung,
+
+		%b
+		\item an der reellen Achse,
+
+
+		%c
+		\item an der imaginären Achse,
+
+
+		%d
+		\item an der Winkelhalbierenden des I. und III. Quadranten,
+
+
+		%e
+		\item an der Winkelhalbierenden des II. und IV. Quadranten?
+
+
+	\end{enumerate}
+
+	%5.
+	\item Bestimmen Sie Real- und Imaginärteil von $z = e^{-	1+ \frac{\pi}{2} i}$
+
+	%6.
+	\item 
+
+	\begin{enumerate}
+
+		%a
+		\item Für welche komplexen Zahlen $z$ gilt $z = \overline{z}$ ?
+
+
+
+		%b
+		\item Welche $z \in \C$ erfüllen sowohl $|z| = \sqrt{8}$ als auch $z + \overline{z} = 4$ ?
+
+\begin{displaymath}
+|z| = \sqrt{8} \Rightarrow z = \sqrt[4]{8}
+z + \overline{z} = 4
+= 
+\end{displaymath}
+
+	\end{enumerate}
+
+\end{enumerate}
+\end{document}
