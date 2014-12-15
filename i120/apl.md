@@ -5,11 +5,11 @@
 
 1. Einen neuen Kunden anlegen. Dabei wird dem Kunden eine 4-stellige Kontonummer mitgeteilt, ein Konto mit Guthaben 0 angelegt und eine 4-stellige PIN, bestehend aus den Ziffern 0-9, festgelegt.
 
-    + Hauptmenü (Bestands[k]unde, [N]eukunde, Programm b[e]enden)
-      - Neukunde anmelden
+    + Hauptmenü (Bestandskunde, Neukunde, Programm beenden)
+      - Neukunde anlegen
         + Kundennummer erzeugen
         + Kundennummer speichern
-        + PIN erzeugen
+        + PIN erzeugen (mgl. Doppelung aufgr. Generator-Eigenschaften abfangen, ggf. zu simple PINs vermeiden)
         + PIN speichern
         + Guthaben erzeugen = 0
         + Guthaben speichern
@@ -31,7 +31,7 @@
 
 3. Geld einzahlen, auszahlen und auf ein Konto dieser Bank überweisen. Die Beträge müssen positiv sein und das Konto darf nicht überzogen werden.
 
-      - Kontoübersicht ([G]uthaben, [A]uszahlung, [E]einzahlung, [U]eberweisung, [P]IN aendern)
+      - Kontoübersicht (Guthaben, Auszahlung, Eeinzahlung, Ueberweisung, PIN aendern)
         + Ausgabe Guthaben
         + Auswahl: Auszahlen
         + Auswahl: Einzahlen
@@ -40,7 +40,8 @@
 
 4. 4-stellige PIN ändern.
 
-    + Auswahl: PIN ändern
+	+ (hinreichend:)neue PIN generieren
+    + (oder:)Auswahl: PIN ändern
       - Alte PIN eingeben
       - Neue PIN eingeben
       - Neue PIN bestätigen
@@ -50,7 +51,7 @@
 
 5. Einen Kunden abmelden.
 
-    + Auswahl: [A]bmelden (auch nach Zeitablauf wäre nett)
+    + Auswahl: Abmelden (auch nach Zeitablauf wäre nett)
       - Verabschieden und zurück zum Hauptmenü
 
 	Datenstruktur
@@ -66,11 +67,15 @@
 
 !! Sie müssen die Funktionsweise Ihres Programms vollständig erklären können. Wer dazu nicht in der Lage ist, erhält die Note 5.
 
+<!--
+Ressourcen:
+
 [PAP in LaTeX]:http://www.tex.ac.uk/tex-archive/support/flow/flowdoc.pdf]
 [Struktogramm alias Nasse-Schneiermann-Diagramm in LaTeX]:http://ctan.sharelatex.com/tex-archive/macros/latex/contrib/struktex/struktex.en.pdf
 [Struktogramme in verständlich]:http://www.rhinodidactics.de/Artikel/latex3.html
 [Struktogramme in verständlich II]:http://www.fh-bingen.de/fileadmin/user_upload/Lehrende/Kilsch_Dieter/internet/projekte/TedoGerGra_StAl.pdf
+-->
 
-Punkte für Funktionale Anforderungen
-Abzug für Fehler
+15 Punkte für Funktionale Anforderungen
+Abzug für Fehler (3 für jede der 5 Funktionen)
 Punkte für Nichtfunktionale Anforderungen (z.B. Strukturierung)

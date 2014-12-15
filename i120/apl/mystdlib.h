@@ -1,7 +1,5 @@
-
-#ifndef	_MYSTDLIB_H
-# define	_MYSTDLIB_H	1
-#endif
+#ifndef _MYSTDLIB_H
+# define _MYSTDLIB_H
 
 #ifndef _STDIO_H
 # include <stdio.h>
@@ -22,31 +20,67 @@ betrag( double betrag ) {
 	}
 }
 
-/* Zufallszahlen für Stellenzahl > 0 */
+/* renerate random number, avoid double ones */
 int
 intZufallszahl ( int stellen ) {
+
 	time_t t;
+//	int i=0;
+	int z,a;
+
 	if( stellen <= 0 ) {
 		return -1;//error code: ungueltiges Argument
 	}
+
+	z=1928;
+	a=z;
+
 	srand((unsigned) time(&t));
-	int z=1928;
-	int a=z;
-	int i=0;
+
 	while( z==a ) {
-		a=z;
 		z = (int)rand() % (int)pow( 10, stellen );
-		i++;
+//		i++; // number ob rounds needed
 	}
+
 	return z;
 }
 
+/*
+ * 1=true
+ * 0=false
+ * */
 int
 isnumchar ( char c ) {
 	if( c >= '0' && c <= '9'){
+		return 1;
+	} else {
 		return 0;
 	}
-	return 1;
+}
+
+/*
+ * 1=true
+ * 0=false
+ * */
+int
+isboolint ( int i ) {
+	if( i >= 0 && i <= 1){
+		return 1;
+	} else {
+		return 0;
+	}
+}
+
+/*
+-1 = no number char as input
+*/
+int
+char2int(char c){
+	if( isnumchar(c) ){
+		return (int)(c-48);
+	} else {
+		return -1;
+	}
 }
 
 //dont use typeof for sticking to iso/standard
@@ -79,3 +113,5 @@ strlen ( char *str ) {
 	return i;
 }
 /**/
+
+#endif // _MYSTDLIB_H
