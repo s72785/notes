@@ -33,7 +33,6 @@ bank_kontoeroeffnen( bank *this ){
 	this->konten[nr].pin=0;
 	this->neuesterkunde = nr;
 	konto_neuepin( &(this->konten[nr]) );
-	//this->neuesterkunde += 1;
 }
 
 void
@@ -45,23 +44,15 @@ bank_init( bank *this, double kapital ) {
 	this->konten[BARGELDKONTO].pin = 1928;
 }
 
-/* Fehler-Codes:
- * 0 - Zu geringes Guthaben
- * 1 - alles ok
- * 2 - ein Konto ist gesperrt
- * */
 int
-bank_ueberweisen( bank *this, int auszahlungskonto, int einzahlungskonto, double summe ) {
-	if(
-		this->konten[auszahlungskonto].sperrung != eroeffnet
-		|| this->konten[einzahlungskonto].sperrung != eroeffnet
-	) {
+bank_ueberweisen( bank *this, int auszahlungskonto, int einzahlungskonto, double summe ) { /* rc: 0 - Zu geringes Guthaben, 1 - alles ok, 2 - ein Konto ist gesperrt, 3 gleiches Konto */
+	if( auszahlungskonto == einzahlungskonto ) {
+		return 3;
+	}
+	if( this->konten[auszahlungskonto].sperrung != eroeffnet || this->konten[einzahlungskonto].sperrung != eroeffnet ) {
 		return 2;
 	}
-	if (
-		konto_auszahlung( &(this->konten[auszahlungskonto]), summe )
-		&& konto_einzahlung( &(this->konten[einzahlungskonto]), summe )
-	){	
+	if ( konto_auszahlung( &(this->konten[auszahlungskonto]), summe ) && konto_einzahlung( &(this->konten[einzahlungskonto]), summe ) ){	
 		return 1;
 	} else {
 		return 0;

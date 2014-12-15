@@ -1,7 +1,7 @@
 #ifndef _KONTO_CLASS_H
 # define _KONTO_CLASS_H
 
-//todo: redo as list
+//todo: redo as list / hashtable with sublists
 // deleting accounts
 typedef struct {
 	int ktonr;//: KTO_LAENGE_BIT;	//n-stellig -> m bit
@@ -17,21 +17,8 @@ typedef struct {
 //	enum waehrung_t { btc, eur, usd } waehrung;
 } konto;
 
-/*
-int konto_einzahlung( konto *this, double summe );
-int konto_auszahlung( konto *this, double summe );
-int konto_checkpin( int z );
-void konto_neuepin( konto *this );
-void konto_eroeffnen( konto *this, int nummer );
-void konto_pinaendern(konto *this, int npin);
-*/
-
-/* Fehler-Codes:
- * 1 - alles ok
- * 0 - Grenze ueberschritten
- * */
 int
-konto_einzahlung( konto *this, double summe ) {
+konto_einzahlung( konto *this, double summe ) { /* rc: 1 - alles ok, 0 - Grenze ueberschritten */
 	if( (this->guthaben + summe) <= GUTHABEN_MAX ) {
 		this->guthaben += summe;
 		return 1;
@@ -39,12 +26,8 @@ konto_einzahlung( konto *this, double summe ) {
 	return 0;
 }
 
-/* Fehler-Codes:
- * 1 - alles ok
- * 0 - Grenze unterschritten
- * */
 int
-konto_auszahlung( konto *this, double summe ) {
+konto_auszahlung( konto *this, double summe ) { /* rc: 1 - alles ok, 0 - Grenze unterschritten */
 	if( (this->guthaben - summe) >= GUTHABEN_MIN ) {
 		this->guthaben -= summe;
 		return 1;
@@ -52,11 +35,9 @@ konto_auszahlung( konto *this, double summe ) {
 	return 0;
 }
 
-// bonus function, not necessary for the enlisted tasks...
-//1 - no error
-//0 - unwanted input
-int
-konto_checkpin( int z ) {
+/* bonus function, not necessary for the enlisted tasks... */
+int 
+konto_checkpin( int z ) { /* 1 - no error, 0 - unwanted input */
 	if( z == 0) return 0;
 	if( z == 123) return 0;
 	if( z == 1234) return 0;
@@ -93,7 +74,7 @@ konto_checkpin( int z ) {
 		return 1;
 	}
 	*/
-	//todo: checke auf triviale pins (
+	//todo: checke algorithmisch auf triviale pins (
 	//alles zahlen? -> enforced with input implementation
 	// ciphers max two times
 	int n[10] = { 2, 2, 2, 2, 2, 2, 2, 2, 2, 2 };
@@ -120,7 +101,6 @@ konto_neuepin( konto *this ) {
 
 void
 konto_eroeffnen( konto *this, int nummer ) {
-	//todo: save date of registration
 	this->ktonr = nummer;	// determine account number
 	this->sperrung = eroeffnet;
 	this->guthaben = 0.0;

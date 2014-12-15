@@ -11,28 +11,10 @@
 # include <time.h>
 #endif
 
-/*
-double betrag( double betrag );
-int intZufallszahl ( int stellen );
-int isnumchar ( char c );
-int isboolint ( int i );
-int char2int(char c);
-*/
-
-double
-betrag( double betrag ) {
-	if( betrag < 0 ) {
-		return (double)( -betrag );
-	} else {
-		return (double)betrag;
-	}
-}
-
-/* renerate random number, avoid double ones */
 int
-intZufallszahl ( int stellen ) {
-	time_t t;
-	int z,a;
+intZufallszahl ( int stellen ) { /* renerate random number, avoid double ones */
+	int z;
+	int a;
 
 	if( stellen <= 0 ) {
 		return -1;//error code: ungueltiges Argument
@@ -40,7 +22,7 @@ intZufallszahl ( int stellen ) {
 
 	z=0;
 
-	srand( (unsigned)time(&t) );
+	srand( (unsigned)clock() );
 
 	while( z == a || z == 0 || a == 0 ) {
 		a=z;
@@ -50,12 +32,8 @@ intZufallszahl ( int stellen ) {
 	return z;
 }
 
-/*
- * 1=true
- * 0=false
- * */
 int
-isnumchar ( char c ) {
+isnumchar ( char c ) { /* 1=true, 0=false */
 	if( c >= '0' && c <= '9'){
 		return 1;
 	} else {
@@ -63,12 +41,8 @@ isnumchar ( char c ) {
 	}
 }
 
-/*
- * 1=true
- * 0=false
- * */
 int
-isboolint ( int i ) {
+isboolint ( int i ) { /* 1=true, 0=false */
 	if( i >= 0 && i <= 1){
 		return 1;
 	} else {
@@ -76,12 +50,8 @@ isboolint ( int i ) {
 	}
 }
 
-/*
--1 = no number char as input
-0-9 = int for char '0'-'9'
-*/
 int
-char2int(char c){
+char2int(char c){ /* -1 = no number char as input, 0-9 = int for char '0'-'9' */
 	if( isnumchar(c) ){
 		return (int)(c-48);
 	} else {

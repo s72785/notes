@@ -18,19 +18,6 @@
 # include <math.h>
 #endif
 
-/*
-int kbhit (void);
-char waitkbhit (void);
-char waitnankbhit (void);
-char waitnumkbhit (void);
-char waitfloatkbhit( int kpos, char delimiter );
-void mypause( char *s );
-void cleartoendofline( void );
-void printcurrency();
-int myinputint( int laenge, int output );
-*/
-
-/* http://cboard.cprogramming.com/c-programming/63166-kbhit-linux.html  */
 int
 kbhit (void) {
 	struct termios oldt, newt;
