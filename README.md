@@ -33,7 +33,7 @@ just notes of lectures I attended or am interested in. additional information in
 
 * [Vorbereitung](http://www.htw-dresden.de/fileadmin/userfiles/info_math/Dokumente/Onl_Math_Vorb/LIFT_I_WW.pdf), [TeX](i480/LIFT_I_WW.tex)
 * [141007](i480/141007-V.md) - Vorlesung &amp; [Übung](i480/141007-P.md)
-* 141015-R - tex-Quellen durch Dr. Buder zugesagt
+* 141015-R - tex-Quellen durch Dipl.-Math. Buder zugesagt
 
 [S411 - Englisch B2/C1 (IIb/d: I-285, IWb/d: I-185, IMb/d: I-385) ](s411/index.md)
 
