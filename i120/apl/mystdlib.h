@@ -11,6 +11,14 @@
 # include <time.h>
 #endif
 
+/*
+double betrag( double betrag );
+int intZufallszahl ( int stellen );
+int isnumchar ( char c );
+int isboolint ( int i );
+int char2int(char c);
+*/
+
 double
 betrag( double betrag ) {
 	if( betrag < 0 ) {
@@ -23,23 +31,20 @@ betrag( double betrag ) {
 /* renerate random number, avoid double ones */
 int
 intZufallszahl ( int stellen ) {
-
 	time_t t;
-//	int i=0;
 	int z,a;
 
 	if( stellen <= 0 ) {
 		return -1;//error code: ungueltiges Argument
 	}
 
-	z=1928;
-	a=z;
+	z=0;
 
-	srand((unsigned) time(&t));
+	srand( (unsigned)time(&t) );
 
-	while( z==a ) {
+	while( z == a || z == 0 || a == 0 ) {
+		a=z;
 		z = (int)rand() % (int)pow( 10, stellen );
-//		i++; // number ob rounds needed
 	}
 
 	return z;
@@ -73,6 +78,7 @@ isboolint ( int i ) {
 
 /*
 -1 = no number char as input
+0-9 = int for char '0'-'9'
 */
 int
 char2int(char c){
@@ -82,36 +88,5 @@ char2int(char c){
 		return -1;
 	}
 }
-
-//dont use typeof for sticking to iso/standard
-//0 - no error
-//1 - unwanted input
-/*
-int chkZahl ( char *s ) {
-	int i = 0;//counter
-	char c;
-	while( !strcmp(s[i],'\0') ) {//todo: string durchlaufen um ungueltiges auszuschliessen
-		c = (char)s[i];
-		if( c < 48 || c > 57 ) {
-			return 1;
-		}
-	}
-	return 0;
-}
-*/
-
-/*
-//already built in
-int
-strlen ( char *str ) {
-	int i = 0 ;
-
-	while ( *str++ ) {
-		i++;
-	}
-
-	return i;
-}
-/**/
 
 #endif // _MYSTDLIB_H

@@ -14,13 +14,28 @@
 #ifndef	_FCNTL_H
 # include <fcntl.h>
 #endif
+#ifndef	_MATH_H
+# include <math.h>
+#endif
+
+/*
+int kbhit (void);
+char waitkbhit (void);
+char waitnankbhit (void);
+char waitnumkbhit (void);
+char waitfloatkbhit( int kpos, char delimiter );
+void mypause( char *s );
+void cleartoendofline( void );
+void printcurrency();
+int myinputint( int laenge, int output );
+*/
 
 /* http://cboard.cprogramming.com/c-programming/63166-kbhit-linux.html  */
 int
 kbhit (void) {
 	struct termios oldt, newt;
-	int ch;
-	int oldf;
+	int ch=0;
+	int oldf=0;
 
 	tcgetattr(STDIN_FILENO, &oldt);
 	newt = oldt;
@@ -44,7 +59,7 @@ kbhit (void) {
 
 char
 waitkbhit (void) {
-	char c;
+	char c='\0';
 
 	while(!kbhit());
 
@@ -55,7 +70,7 @@ waitkbhit (void) {
 
 char
 waitnankbhit (void) {
-	char c;
+	char c='\0';
 
 	while(c >= '0' && c <= '9' ){
 		while(!kbhit());
@@ -91,21 +106,24 @@ waitfloatkbhit( int kpos, char delimiter ) {
 
 void
 mypause( char *s ) {
-	char c;
+	char c = '\0';
 
 	printf( "%s", s );
-	waitkbhit();
+	while( !( c == '\n' || c == '\r' ) ){
+		while(!kbhit());
+		c=getchar();
+	}
 }
 
 void
 cleartoendofline( void ) {
-	char c;
+	char c='\0';
 
 	while( (c = getchar()) != '\n' && c != EOF );
 }
 
 void
-printcurrency(){
+printcurrency() {
 #ifdef WE
 	puts(" " WE);
 #endif
@@ -132,15 +150,5 @@ myinputint( int laenge, int output ) { /* output: 0=none, 1=digits, >char(output
 	printf("\n");
 	return d;
 }
-
-/*
-void
-* myfflush {
-		char c;
-		//windows-alternative
-		//fflush(stdin)
-		while (getchar() != '\n');
-}
-*/
 
 #endif // _MYIO_H

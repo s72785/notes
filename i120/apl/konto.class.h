@@ -17,6 +17,15 @@ typedef struct {
 //	enum waehrung_t { btc, eur, usd } waehrung;
 } konto;
 
+/*
+int konto_einzahlung( konto *this, double summe );
+int konto_auszahlung( konto *this, double summe );
+int konto_checkpin( int z );
+void konto_neuepin( konto *this );
+void konto_eroeffnen( konto *this, int nummer );
+void konto_pinaendern(konto *this, int npin);
+*/
+
 /* Fehler-Codes:
  * 1 - alles ok
  * 0 - Grenze ueberschritten
@@ -36,31 +45,11 @@ konto_einzahlung( konto *this, double summe ) {
  * */
 int
 konto_auszahlung( konto *this, double summe ) {
-	if(DEBUG_PRINT == 2)printf("\n# this %d\n",this);
 	if( (this->guthaben - summe) >= GUTHABEN_MIN ) {
 		this->guthaben -= summe;
 		return 1;
 	}
 	return 0;
-}
-
-void
-konto_neuepin( konto *this ) {
-	if(DEBUG_PRINT == 2)printf("\n# this %d\n",this);
-	this->pin=0;
-	while( !(konto_checkpin(this->pin)) ) {
-		this->pin = intZufallszahl(PIN_LAENGE); // generate new(!) PIN 
-	}
-}
-
-void
-konto_eroeffnen( konto *this, int nummer ) {
-	if(DEBUG_PRINT == 2)printf("\n# this %d\n",this);
-	//todo: save date of registration
-	this->ktonr = nummer;	// determine account number
-	this->sperrung = eroeffnet;
-	this->guthaben = 0.0;
-	konto_neuepin( this );
 }
 
 // bonus function, not necessary for the enlisted tasks...
@@ -69,7 +58,16 @@ konto_eroeffnen( konto *this, int nummer ) {
 int
 konto_checkpin( int z ) {
 	if( z == 0) return 0;
+	if( z == 123) return 0;
 	if( z == 1234) return 0;
+	if( z == 2345) return 0;
+	if( z == 3456) return 0;
+	if( z == 4567) return 0;
+	if( z == 5678) return 0;
+	if( z == 6789) return 0;
+	if( z == 7890) return 0;
+	if( z == 8901) return 0;
+	if( z == 9012) return 0;
 	if( z == 1111) return 0;
 	if( z == 2222) return 0;
 	if( z == 3333) return 0;
@@ -80,6 +78,15 @@ konto_checkpin( int z ) {
 	if( z == 8888) return 0;
 	if( z == 9999) return 0;
 	if( z == 4321) return 0;
+	if( z == 3210) return 0;
+	if( z == 2109) return 0;
+	if( z == 1098) return 0;
+	if( z == 987) return 0;
+	if( z == 9876) return 0;
+	if( z == 8765) return 0;
+	if( z == 7654) return 0;
+	if( z == 6543) return 0;
+	if( z == 5432) return 0;
 	return 1;
 	/*
 	if(chkZahl(s[])!=0) {//Zahl?!
@@ -103,7 +110,25 @@ konto_checkpin( int z ) {
 	return 1;
 }
 
-void konto_pinaendern(konto *this, int npin) {
+void
+konto_neuepin( konto *this ) {
+	this->pin=0;
+	while( !(konto_checkpin(this->pin)) ) {
+		this->pin = intZufallszahl(PIN_LAENGE); // generate new(!) PIN 
+	}
+}
+
+void
+konto_eroeffnen( konto *this, int nummer ) {
+	//todo: save date of registration
+	this->ktonr = nummer;	// determine account number
+	this->sperrung = eroeffnet;
+	this->guthaben = 0.0;
+	konto_neuepin( this );
+}
+
+void
+konto_pinaendern(konto *this, int npin) {
 	this->pin = npin;
 }
 

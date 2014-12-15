@@ -10,6 +10,28 @@
 #ifndef _KONTO_CLASS_H
 # include "konto.class.h"
 #endif
+#ifndef	_MATH_H
+# include <math.h>
+#endif
+
+/*
+void menue_cls();
+void menue_bankstatus( bank *this );
+void menue_kontostatus( konto *this );
+int menue_eingabepin( int laenge );
+int menue_bestaetigen(){
+int menue_programmbeenden();
+void menue_pineditieren( konto *this );
+void menue_zeigekontodaten( konto *this );
+int menue_eingabekontonummer( int laenge );
+double menue_eingabebetrag( double maximalbetrag );
+void menue_einzahlen( konto *this );
+void menue_auszahlen( konto *this );
+void menue_ueberweisen( bank *this, int akonto );
+void menue_kundenkonto( bank *this, int k ); //ToDo
+int menue_kundenlogin( bank *this ); //ToDo
+int menue_hauptmenue( bank *this );
+*/
 
 void
 menue_cls() {
@@ -34,6 +56,14 @@ menue_kontostatus( konto *this ) {
 	printf("PIN:          %04d\n\n\n", this->pin);
 }
 
+/* ask for PIN, same as for account number */
+int
+menue_eingabepin( int laenge ) {
+	printf("PIN (####):          ");
+
+	return myinputint( laenge, (int)'*' );
+}
+
 int
 menue_bestaetigen(){
 	char a = '9';
@@ -55,7 +85,7 @@ menue_programmbeenden() {
 
 	menue_cls();
 	printf("\n\n\n\nSie sind im Begriff das Programm zu beenden!");
-	printf("\nDie Kundendaten werden hierbei gelöscht.");
+	printf("\nDie Kundendaten werden hierbei geloescht.");
 	printf("\n\nPasswort: ");
 
 	pass = myinputint( 4, (int)'*' );
@@ -73,11 +103,15 @@ menue_pineditieren( konto *this ) {
 	int pin1=0;
 	int pin2=0;
 	int loop=1;
+	int cnt=0;
 
 	while( loop ) {
+		menue_cls();
 		pin1 = 0;
 		pin2 = 0;
-		menue_cls();
+		if( cnt > 0 ) {
+			printf("\nVersuch # %d\n", cnt);
+		}
 		printf("\nAlte PIN\n");
 		pin0 = menue_eingabepin( PIN_LAENGE );
 		printf("\nNeue PIN\n");
@@ -91,12 +125,17 @@ menue_pineditieren( konto *this ) {
 			|| konto_checkpin(pin1)!=1
 		) {
 			printf("Ungueltige Eingabe oder Neue PIN zu einfach!!\n");
-			mypause("\n\nWeiter ...\n");
+			mypause("\n\nWeiter mit Enter ...\n");
 		} else {
 			this->pin = pin2;
 			printf("\nPIN neu festgelegt!\n");
 			loop = 0;
 		}
+		if( cnt >= 3 ) {
+			loop = 0;
+			break;
+		}
+		cnt++;
 	}
 }
 
@@ -118,14 +157,6 @@ menue_eingabekontonummer( int laenge ) {
 	printf("Kundennummer (####): ");
 		
 	return myinputint( laenge, 1 );
-}
-
-/* ask for PIN, same as for account number */
-int
-menue_eingabepin( int laenge ) {
-	printf("PIN (####):          ");
-
-	return myinputint( laenge, (int)'*' );
 }
 
 double
@@ -152,7 +183,7 @@ menue_eingabebetrag( double maximalbetrag ) {
 				loop = 0;
 				break;
 			}
-			if( kpos==0 && (i >= STELLEN_VKOMMA) ){
+			if( kpos==0 && (i >= ( STELLEN_VKOMMA - 1 )) ){
 				loop = 0;
 			}
 			if( kpos!=0 && ((i - kpos) >= STELLEN_NKOMMA) ){
@@ -177,13 +208,6 @@ menue_eingabebetrag( double maximalbetrag ) {
 	
 	return betrag;
 }
-
-/*
-int strtoint(char *s, l) {
-	int i;
-	for(i=l; i>0; i--) {
-	}
-}*/
 
 void
 menue_einzahlen( konto *this ) {
@@ -239,7 +263,7 @@ menue_ueberweisen( bank *this, int akonto ) {
 	printf( "\nSoll die Transaktion ausgefuehrt werden?\n\n" );
 	antwort=menue_bestaetigen();
 	if(antwort == 1) {
-		if(DEBUG_PRINT)printf("\n# %f %f\n", this->konten[akonto].guthaben, this->konten[ekonto]);
+		if(DEBUG_PRINT)printf("\n# %f %f\n", this->konten[akonto].guthaben, this->konten[ekonto].guthaben);
 		switch( bank_ueberweisen( this, akonto, ekonto, betrag ) ){
 			case 1:
 				printf( "\nUeberweisung ausgefuehrt!\n" );
@@ -258,7 +282,7 @@ menue_ueberweisen( bank *this, int akonto ) {
 }
 
 void
-menue_kundenkonto( bank *this, int k ) { //ToDo
+menue_kundenkonto( bank *this, int k ) {
 	char antwort;
 	int rc=1;
 
@@ -322,19 +346,15 @@ menue_kundenkonto( bank *this, int k ) { //ToDo
 				break;
 		}
 		antwort='0';
-		mypause("\n\nWeiter ...\n");
+		mypause("\n\nWeiter mit Enter ...\n");
 	}
 }
 
 int
 menue_kundenlogin( bank *this ) { //ToDo
 	int loop=1;	//true for continuing "bank os"
-	int rc=1;
 	int kontonr=0;
 	int pin=0;
-	int i;
-	char c;
-	char *s[4];
 
 	while( loop ) {
 		menue_cls();
@@ -344,7 +364,7 @@ menue_kundenlogin( bank *this ) { //ToDo
 		
 		pin = menue_eingabepin( PIN_LAENGE );
 
-		//mypause("\n\nWeiter ...\n");
+		//mypause("\n\nWeiter mit Enter ...\n");
 
 		// unknown data, exit func
 		// pin 0000 == 0 theoretically possible
@@ -352,9 +372,9 @@ menue_kundenlogin( bank *this ) { //ToDo
 			printf("Ungueltige Kontodaten!\n\n");
 			if(DEBUG_PRINT)printf("# KtoNr:    %d\n", this->konten[kontonr].ktonr);
 			if(DEBUG_PRINT)printf("# Sperrung: %d\n", this->konten[kontonr].sperrung);
-			if(DEBUG_PRINT)printf("# Guthaben: %d %s\n", this->konten[kontonr].guthaben, WE);
+			if(DEBUG_PRINT)printf("# Guthaben: %17.8f %s\n", this->konten[kontonr].guthaben, WE);
 			if(DEBUG_PRINT)printf("# PIN:      %d\n", this->konten[kontonr].pin);
-			mypause("\nWeiter ...\n");
+			mypause("\nWeiter mit Enter ...\n");
 			loop=0;
 			break;
 		}
@@ -362,15 +382,15 @@ menue_kundenlogin( bank *this ) { //ToDo
 		// test on account status
 		if(this->konten[kontonr].sperrung == pin3) {
 			if(DEBUG_PRINT)printf("# Dieses Konto ist gesperrt!\nBitte nehmen Sie Kontakt zum Service auf.\n\n");
-			mypause("\n\nWeiter ...\n");
+			mypause("\n\nWeiter mit Enter ...\n");
 			loop=0;
 			break;
 		}
 
-		//+ Prüfung PIN
+		//+ Pruefung PIN
 		if(this->konten[kontonr].pin != pin) {
 			menue_cls();
-			if(DEBUG_PRINT)printf("# PIN!!! %d %d\n", this->konten[kontonr].pin, pin, pin==this->konten[kontonr].pin);
+			if(DEBUG_PRINT)printf("# PIN!!! %04d %04d %04d\n", this->konten[kontonr].pin, pin, pin==this->konten[kontonr].pin);
 			switch(this->konten[kontonr].sperrung) {
 				case eroeffnet:
 					this->konten[kontonr].sperrung=pin1;
@@ -384,10 +404,14 @@ menue_kundenlogin( bank *this ) { //ToDo
 					this->konten[kontonr].sperrung=pin3;
 					printf("PIN-Fehlversuch 3/3!\n\n");
 					break;
-				case pin3:
+				default:
 					break;
-			}
-			mypause("\n\nWeiter ...\n");
+/*				case pin3:
+					break;
+				case gesperrt:
+					break;
+*/			}
+			mypause("\n\nWeiter mit Enter ...\n");
 			kontonr=0;
 		}else{
 			this->konten[kontonr].sperrung=eroeffnet;
@@ -396,9 +420,9 @@ menue_kundenlogin( bank *this ) { //ToDo
 		}
 
 
-		//+ Prüfung counter<3
-		//  - true:Kontoübersicht
-		//  - false:counter erhöhen
+		//+ Pruefung counter<3
+		//  - true:Kontouebersicht
+		//  - false:counter erhoehen
 	
 		
 	}
@@ -411,7 +435,7 @@ menue_hauptmenue( bank *this ) {
 	int rc=1; // true for continuing "bank os"
 	char antwort = '\0';
 	int i;
-	
+
 	menue_cls();
 	if(DEBUG_PRINT)printf("# DEBUG Modus ist aktiv!\n\n");
 	printf("APL Programmierung 1, 1. Semester Wirtschaftsinformatik, WS/2014\n\tbei Prof. B. Hollas\t\tAutor: <s72785>\n\nEin interaktives Banksystem\n");
@@ -427,8 +451,8 @@ menue_hauptmenue( bank *this ) {
 	printf("  (2) Neukunde anlegen\n");
 	if(DEBUG_PRINT)printf("# (3) Programm beenden\n");
 	if(DEBUG_PRINT)printf("# (4) Bankstatus\n");
-
 	printf("\n\nAuswahl: ");
+
 	while (
 		antwort != '1'
 		&& antwort != '2'
@@ -448,7 +472,7 @@ menue_hauptmenue( bank *this ) {
 			if(DEBUG_PRINT)printf("\n# Aufruf: Neukunde\n");
 			bank_kontoeroeffnen( this );
 			menue_zeigekontodaten( &(this->konten[this->neuesterkunde]) );
-			mypause("\n\nWeiter ...\n");
+			mypause("\n\nWeiter mit Enter ...\n");
 			break;
 		case '3':
 			if(DEBUG_PRINT)printf("\n# Aufruf: Programm beenden\n");
@@ -457,9 +481,9 @@ menue_hauptmenue( bank *this ) {
 		case '4':
 			if ( DEBUG_PRINT >= 1 ) {
 				menue_cls();
-				printf("Bank Status\n\n", antwort);
+				printf("Bank Status %c\n\n", antwort);
 				menue_bankstatus(this);
-				mypause("\n\nWeiter ...\n");
+				mypause("\n\nWeiter mit Enter ...\n");
 			}
 			break;
 	}
