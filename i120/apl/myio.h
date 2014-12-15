@@ -2,6 +2,10 @@
 #ifndef _MYIO_H
 # define _MYIO_H
 
+#ifndef _STDIO_H
+# include <stdio.h>
+#endif
+
 /* windows, can be implemented by somone who actually uses it */
 // conio.h ? or sth more modern
 /* linux */
@@ -136,6 +140,21 @@ myinputint( int laenge, int output ) { /* output: 0=none, 1=digits, >char(output
 	}
 	printf("\n");
 	return d;
+}
+
+int
+askyesno(char* text){
+	int a = 9;
+
+	printf("%s", text);
+
+	while(!( isboolint( a ) )) {
+		a = char2int(waitnumkbhit());
+	}
+	if(DEBUG_PRINT)printf( "\n# Antwort: %d %c \t", a, a );
+	printf("%i\n", a);
+
+	return a;
 }
 
 #endif // _MYIO_H

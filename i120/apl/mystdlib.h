@@ -1,14 +1,11 @@
 #ifndef _MYSTDLIB_H
 # define _MYSTDLIB_H
 
-#ifndef _STDIO_H
-# include <stdio.h>
-#endif
 #ifndef	_MATH_H
-# include <math.h>
+# include <math.h> //for rand() and pow()
 #endif
 #ifndef	_TIME_H
-# include <time.h>
+# include <time.h> //for clock() or time()
 #endif
 
 int

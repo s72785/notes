@@ -46,17 +46,7 @@ menue_eingabepin( int laenge ) { /* ask for PIN, same as for account number */
 
 int
 menue_bestaetigen(){
-	char a = '9';
-
-	printf("(1) Ja\n(0) Nein\n\nEntscheidung: ");
-
-	while(!( isboolint( char2int( a ) ) )) {
-		a = waitnumkbhit();
-	}
-	if(DEBUG_PRINT)printf( "\n# Antwort: %d %x \t", a, a );
-	printf("%c\n", a);
-
-	return char2int( a );
+	return askyesno("(1) Ja\n(0) Nein\n\nEntscheidung: ");
 }
 
 int
@@ -75,15 +65,12 @@ menue_programmbeenden() {
 	}
 	return !(menue_bestaetigen());
 }
-/**/
 
 void
-menue_pineditieren( konto *this ) {
-	int pin0=0;	//for not leaking which entry was wrong, the user has to enter all three every time again
-	int pin1=0;
-	int pin2=0;
-	int loop=1;
-	int cnt=0;
+menue_pineditieren( konto *this ) { //for not leaking which entry was wrong, the user has to enter all three every time again
+	int loop = 1;
+	int cnt = 0;
+	int pin0, pin1, pin2;
 
 	while( loop ) {
 		menue_cls();
@@ -98,12 +85,7 @@ menue_pineditieren( konto *this ) {
 		pin1 = menue_eingabepin( PIN_LAENGE );
 		printf("Bitte Wiederholen\n");
 		pin2 = menue_eingabepin( PIN_LAENGE );
-		if(
-			this->pin != pin0
-			|| pin0 == pin1
-			|| pin1 != pin2
-			|| konto_checkpin(pin1)!=1
-		) {
+		if( this->pin != pin0 || pin0 == pin1 || pin1 != pin2 || konto_checkpin(pin1)!=1 ) {
 			printf("Ungueltige Eingabe oder Neue PIN zu einfach!!\n");
 			mypause("\n\nWeiter mit Enter ...\n");
 		} else {
@@ -129,10 +111,18 @@ menue_zeigekontodaten( konto *this ) {
 
 int
 menue_eingabekontonummer( int laenge ) { /* ask for account number, do not accept anything but numbers and just KTO_LAENGE of them */
-	printf("Kundennummer (####): ");
+	printf("Kundennummer (####): "); //todo: make format depending on length-int
 		
 	return myinputint( laenge, 1 );
 }
+
+//todo: input for float, general implementation
+/*double myfloatinput(char delim, char* ignore) {
+	double float = 0.0;
+
+
+	return f;
+}*/
 
 double
 menue_eingabebetrag( double maximalbetrag ) {
@@ -148,24 +138,17 @@ menue_eingabebetrag( double maximalbetrag ) {
 		i = 0;
 		while ( c != '\n' && loop ){
 			c=waitfloatkbhit( kpos, BETRAG_DELIMETER );
-			if( c == BETRAG_DELIMETER ) {
-				kpos = i;
-			}
-			if( c == '\n' ) {
-				loop = 0;
-				break;
-			}
-			if( ( kpos == 0 && (i >= ( STELLEN_VKOMMA - 1 )) ) || ( kpos!=0 && ((i - kpos) >= STELLEN_NKOMMA) )) {
-				loop = 0;
-			}
-			betrag = ( (kpos == 0)? 10.0*betrag + (double)char2int(c) : (( isnumchar(c) )? betrag + pow( 10, kpos - i ) * (double)char2int(c) : betrag ) );
+			if( c == BETRAG_DELIMETER ) { kpos = i; }
+			if( c == '\n' || ( kpos == 0 && (i >= ( STELLEN_VKOMMA - 1 )) ) || ( kpos!=0 && ((i - kpos) >= STELLEN_NKOMMA) )) { loop = 0; }
+			betrag = ( (kpos == 0 && isnumchar(c) )? 10.0*betrag + (double)char2int(c) : (( isnumchar(c) )? betrag + pow( 10, kpos - i ) * (double)char2int(c) : betrag ) );
 			if(DEBUG_PRINT)printf("\n# %02d %02d %02d %02d %17.8f \t", c, c, i, kpos, betrag);
-			printf("%c", c);
+			if( c != '\n' ) { printf("%c", c); }
 			i++;
 		}
 		printf("\n");
+
 		if( loop==0 ) {
-			if(DEBUG_PRINT)printf("# Betragseingabe beendet\n");
+			if(DEBUG_PRINT)printf("# Betragseingabe beendet %17.8f\n", betrag);
 		}
 	}
 	
@@ -181,8 +164,9 @@ menue_einzahlen( konto *this ) {
 	printf( "Geben Sie den Einzahlungsbetrag an!\n\n" );
 	betrag = menue_eingabebetrag( this->guthaben );
 	printf( "\nSoll die Transaktion ausgefuehrt werden?\n\n" );
-	antwort=menue_bestaetigen();
-	if(antwort == 1) {
+	antwort = menue_bestaetigen();
+	if(DEBUG_PRINT)printf( "\n# Konto %04d Betrag %17.8f Rueckgabe %i\n\n", this->ktonr, betrag, antwort );
+	if(antwort != 0) {
 		if ( konto_einzahlung( this, betrag ) ) {
 			printf( "\nEinzahlung ausgefuehrt\n" );
 		} else {
@@ -217,7 +201,7 @@ menue_auszahlen( konto *this ) {
 void
 menue_ueberweisen( bank *this, int akonto ) {
 	int ekonto = 1000;
-	int antwort=0;
+	int antwort = 0;
 	double betrag = 0.0;
 	
 	printf( "Ueberweisung vom Konto %04d\n\n", akonto );
@@ -358,11 +342,11 @@ menue_kundenlogin( bank *this ) { //ToDo
 					break;
 			}
 			mypause("\n\nWeiter mit Enter ...\n");
-			kontonr=0;
+			kontonr = 0;
 		}else{
 			this->konten[kontonr].sperrung=eroeffnet;
 			menue_kundenkonto(this, kontonr);
-			loop=0;
+			loop = 0;
 		}
 	}
 
