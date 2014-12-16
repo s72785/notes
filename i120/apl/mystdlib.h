@@ -8,7 +8,7 @@
 # include <time.h> //for clock() or time()
 #endif
 
-int
+int /* rc: -1 = unknown argument, z = random number */
 intZufallszahl ( int stellen ) { /* renerate random number, avoid double ones */
 	int z;
 	int a;
@@ -30,7 +30,7 @@ intZufallszahl ( int stellen ) { /* renerate random number, avoid double ones */
 }
 
 int
-isnumchar ( char c ) { /* 1=true, 0=false */
+isnumchar ( char c ) { /* rc: 1=true, 0=false */
 	if( c >= '0' && c <= '9'){
 		return 1;
 	} else {
@@ -39,7 +39,7 @@ isnumchar ( char c ) { /* 1=true, 0=false */
 }
 
 int
-isboolint ( int i ) { /* 1=true, 0=false */
+isboolint ( int i ) { /* rc: 1=true, 0=false */
 	if( i >= 0 && i <= 1){
 		return 1;
 	} else {
@@ -48,7 +48,7 @@ isboolint ( int i ) { /* 1=true, 0=false */
 }
 
 int
-char2int(char c){ /* -1 = no number char as input, 0-9 = int for char '0'-'9' */
+char2int(char c){ /* rc: -1 = no number char as input, 0-9 = int for char '0'-'9' */
 	if( isnumchar(c) ){
 		return (int)(c-48);
 	} else {

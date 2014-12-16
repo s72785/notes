@@ -3,7 +3,7 @@
 
 //todo: redo as list / hashtable with sublists
 // deleting accounts
-typedef struct {
+typedef struct _konto {
 	int ktonr;//: KTO_LAENGE_BIT;	//n-stellig -> m bit
 	int pin;//: PIN_LAENGE_BIT;
 	double guthaben;
@@ -15,6 +15,7 @@ typedef struct {
 //	int aktivetanliste;
 //	services service;
 //	enum waehrung_t { btc, eur, usd } waehrung;
+	struct _konto* naechster;	//pointer on next user in same slot (of the hashtable)
 } konto;
 
 int
@@ -104,6 +105,7 @@ konto_eroeffnen( konto *this, int nummer ) {
 	this->ktonr = nummer;	// determine account number
 	this->sperrung = eroeffnet;
 	this->guthaben = 0.0;
+	this->naechster = NULL;	// Null-pointer for "last" entry markup
 	konto_neuepin( this );
 }
 
