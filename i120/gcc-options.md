@@ -7,3 +7,4 @@
 	0 aus
 	2 poduction code
 -o	Ausgabedatei
+-E  nach Präprozessor stoppen (nicht zu prozessierende Dateien werdne ignoriert)
