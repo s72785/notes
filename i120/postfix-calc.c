@@ -1,17 +1,17 @@
 #include <stdio.h>  //printf
-#include <stdlib.h> //malloc, free, exit
-#include <ctype.h>  //?
-#include <string.h> //?
+#include <stdlib.h> //malloc, free, exit, atoi
+#include <ctype.h>  //isdigit
+#include <string.h> //(obsolete)? 
 #include <assert.h> //assert()
 #include "stack.h"  //custom "class" stack
-// Postfix-Rechner
 
-//helper-function
+// helper-function
 int isnum(char *a) {
 	if(*a == '\0') return 1;
 	else return isdigit(*a) && isnum(a+1);
 }
 
+// Postfix-Rechner
 int calc(char *expr[], int expr_length) {
 	int k, n1, n2;
 	stack *s = NULL;
