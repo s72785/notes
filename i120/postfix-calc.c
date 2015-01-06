@@ -1,14 +1,17 @@
-#include <stdio.h>  //printf
-#include <stdlib.h> //malloc, free, exit, atoi
-#include <ctype.h>  //isdigit
+#include <stdio.h>  //printf()
+#include <stdlib.h> //malloc(), free(), exit(), EXIT_FAILURE, atoi()
+#include <ctype.h>  //isdigit()
 #include <string.h> //(obsolete)? 
 #include <assert.h> //assert()
 #include "stack.h"  //custom "class" stack
 
 // helper-function
 int isnum(char *a) {
-	if(*a == '\0') return 1;
-	else return isdigit(*a) && isnum(a+1);
+	if(*a == '\0') {
+		return 1;
+	} else {
+		return isdigit(*a) && isnum(a+1);
+	}
 }
 
 // Postfix-Rechner
@@ -17,16 +20,27 @@ int calc(char *expr[], int expr_length) {
 	stack *s = NULL;
 
 	for(k = 0; k < expr_length; k++) {
-		if(isnum(expr[k])) stack_push(&s, atoi(expr[k]));
-		else { // Operator erwartet
+		if(isnum(expr[k])) {
+			stack_push(&s, atoi(expr[k]));
+		} else { // Operator erwartet
 			n2 = stack_pop(&s);
 			n1 = stack_pop(&s);
 			switch(expr[k][0]) {
-				case '+': stack_push(&s, n1+n2); break;
-				case '-': stack_push(&s, n1-n2); break;
-				case '*': stack_push(&s, n1*n2); break;
-				case '/': stack_push(&s, n1/n2); break;
-				default: printf("Syntax error: %s unexpected\n", expr[k]); exit(EXIT_FAILURE);
+				case '+':
+					stack_push(&s, n1+n2);
+				break;
+				case '-':
+					stack_push(&s, n1-n2);
+				break;
+				case '*':
+					stack_push(&s, n1*n2);
+				break;
+				case '/':
+					stack_push(&s, n1/n2);
+				break;
+				default:
+					printf("Syntax error: %s unexpected\n", expr[k]);
+				exit(EXIT_FAILURE);
 			}
 		}
 	}
@@ -37,7 +51,6 @@ int calc(char *expr[], int expr_length) {
 		exit(EXIT_FAILURE);
 	}
 }
-
 
 int main(int argc, char *argv[]) {
 	printf("%d\n", calc(argv+1, argc-1));
