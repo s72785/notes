@@ -1,0 +1,197 @@
+\documentclass[12pt,a4paper]{scrreprt}
+\usepackage{tikz}
+\usetikzlibrary{positioning,calc}
+\usepackage{amsmath,amssymb,mathrsfs,dsfont}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage[colorlinks=false, pdfborderstyle={/S/U/W 1}
+]{hyperref}
+\usepackage{stmaryrd}
+\usepackage{comment}
+\oddsidemargin0mm \evensidemargin3mm \textwidth150mm \textheight23cm
+\parindent0mm \pagestyle{empty} \topmargin-1cm
+\newcommand{\E}{\mathds{E}}
+\newcommand{\V}{\mathds{V}}
+\newcommand{\C}{\mathds{C}}
+\newcommand{\N}{\mathds{N}}
+\newcommand{\Z}{\mathds{Z}}
+\newcommand{\R}{\mathds{R}}
+\pagestyle{headings}
+
+
+\newcommand{\Lsg}{\textbf{Lsg.:}}
+
+\begin{document} 
+\begin{flushleft}
+\href{mailto:anja.voss-boehme@htw-dresden.de}{Prof. Dr. Anja Voß-Böhme} \\
+\href{mailto:buder@htw-dresden.de}{Dipl.-Math. Thomas Buder}
+\end{flushleft}
+
+\begin{center}{\large\textbf Wirtschaftsmathematik I} \\ WS 2014/15 \end{center}
+
+\begin{center}{\large\textbf Übung 11 } 
+\end{center}
+
+
+\bigskip
+
+%## Rentenrechnung
+
+R_n = R \frac{q^n-1}{q-1}, q=1+i
+
+allg.
+
+K_n = k_0 q^n - R \frac{q^n-1}{q-1}
+
+Spezialfall: K_n = 0
+
+q^nK_0 = R \frac{q^n-1}{q-1}
+
+Tilgung:
+
+S_n = S q^n - A \frac{q^n-1}{q-1}
+
+\begin{enumerate}
+%1.
+\item
+
+Herr A ab 01.01.2012 pro Jahr 1200 € einzahlen bis 01.01.2022 (10y).
+i = 6\%
+
+ges.: Endbetrag 2022 = R_10
+
+1.1.12 +1200
+1.1.13 +1200 + 6\%*1200
+1.1.14 +1200 + 6\%*(2400 + 6\%*1200)
+
+R_10 = 1200 \frac{1,06^10-1}{0,06} = 15816,95
+Z = R_10 - 10*1200 = 3816,95
+
+%2.
+\item
+
+Frau B. ab 1.1. jährlich am Ende des Jahres
+100 EUR bis zum 18. Geb. (18y) bei Zins v. 5\%
+
+R_18 = 100 \frac{1,05^18-1}{0,05} = 2813,24
+
+R_18 = 10000 = R \frac{1,05^18-1}{0,05}
+R = 10000 frac{0,05}{1,05^18-1} = 355,46
+
+%3.
+\item
+
+Herr C. am 01.01.2015 300.000,00 , i=8\%, setzt sich zur Ruhe
+
+\begin{enumerate}
+
+%a
+\item jährlich 36.000 Entnahme
+
+Restbetrag am 1.1.2024
+
+K_9 = 300.000 1,08^9 - 36.000 \frac{1,08^9 - 1}{0,08} = 150.149,31
+
+%b
+\item
+
+20 Jahre lang konstanten Betrag abheben -> welchen?
+
+R = 300.000 1,08^20 \frac{0,08}{1,08^20 - 1} = 30.555,65
+
+%c
+\item
+
+K_10 = 300.000 1,08^10 - 30.555,65 \frac{1,08^10 - 1}{0,08} % = 205.031,17
+R = K_10 1,04^10 \frac{0,04}{1,04^10 - 1} = 25.278,50
+
+\end{enumerate}
+
+%4.
+\item
+
+Kredit über 10.000, i=10\%, 
+
+\begin{enumerate}
+%a
+\item in 10y in Ratentilgung
+
+Tilgung T = \frac{S}{n} = 10.000 / 10 = 1.000
+
+Tilgungsplan mit Ratentiltung
+\begin{tabular}{rrrrr}
+Jahr	& Schuld	& Rate	& Tilgung	& Zinsteil \\
+1.		& 10.000 & 2.000	& 1.000	& 1.000 \\
+2.		& 9.000	& 1.900	& 1.000	& 900 \\
+3.		& 8.000	& 1.800	& 1.000	& 800 \\
+4.		& 7.000	& 1.700	& 1.000	& 700 \\
+5.		& 6.000	& 1.600	& 1.000	& 600 \\
+6.		& 5.000	& 1.500	& 1.000	& 500 \\
+7.		& 4.000	& 1.400	& 1.000	& 400 \\
+8.		& 3.000	& 1.300	& 1.000	& 300 \\
+9.		& 2.000	& 1.200	& 1.000	& 200 \\
+10.		& 1.000	& 1.100	& 1.000	& 100 
+\end{tabular}
+
+%b
+\item in 5y mit Annuitätentilgung
+
+konstante Annuität = Zins + Tilgung
+
+S_5 = 10.000 q^5 - A \frac{1,1^5-1}{0,1}, S_5=0
+A = 10.000 q^5 \frac{0,1}{1,1^5-1} = 2637,97
+
+Tilgungsplan
+\begin{tabular}{rrrrr}
+Jahr	& Schuld	& Rate	& Tilgung	& Zinsteil \\
+1.		& 10.000	& 2.637,97	& 1.637,97	& 1.000 \\
+2.		& 8.362,03	& 2.637,97	& 1.811,77	& 836,20 \\
+3.		& 6.550,26	& 2.637,97	& 1.982,94	& 655,03 \\
+4.		& 4.578,30	& 2.637,97	& 2.180,14	& 457,83 \\
+5.		& 2.398,16	& 2.398,16	& 2.398,16	& 239,82
+\end{tabular}
+
+\end{enumerate}
+
+%5.
+\item
+
+Auto für 10.000 verkaufen
+monatl. Raten 300, i=0,5\% p.m.
+
+\begin{enumerate}
+%a
+\item
+
+300 = 10.000 \frac{1,005^n(1,005-1)}{1,005^n-1}
+\frac{300}{10.000} (1,005^n-1) = 1,005^n(1,005-1)
+6 * 1,005^n - 6 = 1,005^n
+(6-1) * 1,005^n  = 6
+{1,005^n}{ln 1,005^n}=\frac{6}{5}
+n = frac{ln(\frac{6}{5})}{ln(1,005)} = 36,56 => Laufzeit 37 Monate
+
+%b
+\item in 24 Monaten
+
+300 = S \frac{1,005^24(0,005)}{1,005^24-1}
+S = 300 \frac{1,005^24-1}{1,005^24(0,005)} = 6.768,86
+\Rightarrow Sonderzahlung = 3.231,14
+
+%c
+\item 2.200 sofort, 24 Raten a 300
+
+= S + SZ = 6768,86 + 2.200 = 8.968,86
+
+%d
+\item Wie große wäre die Restschuld von Familie F. nach 4 Jahren / Monaten, wenn sich beide Seiten auf Ratentilgung mit einer Laufzeit von 20 Monaten einigen?
+
+Ratentilgung T_{n+1}=T_{n} = 10.000/20
+Restschuld = (20-4)*500 = 8.000
+
+
+\end{enumerate}
+
+
+\end{enumerate}
+
+\end{document}
