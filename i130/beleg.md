@@ -13,9 +13,33 @@ Beleg: Aufg. 10.5, 10.6, 12.2-12.6 vorzeigen/demonstrieren
 Schreiben Sie eine Shell-Prozedur, die mehrere Dateien aus dem Verzeichnis /glb/studi in ein Unterverzeichnis Ihres Home-Directories kopiert.
 Die Namen der zu kopierenden Dateien sind als Parameter zu übergeben, Ihr Unterverzeichnis soll im Dialog abgefragt werden. Sollten kein bzw. mehr als 9 Parameter an die Prozedur übergeben worden sein, ist eine Fehlermeldung auszugeben und die Prozedur zu beenden. Im Fall, daß eine zu kopierende Datei nicht in /glb/studi enthalten ist, ist ebenfalls eine Fehlermeldung auszugeben. 
 
+#!/bin/sh
+sdir=/glb/studi
+if [ $# -eq 0 -o $# -gt 9 ]; then
+	echo "Fehler: 0 oder mehr als 9 Parameter";
+	echo denkbar sind:
+	ls ${sdir}
+	exit 1;
+fi
+#echo $#: $@
+echo Kopieren der Dateien $@
+echo -n In Verzeichnis ~/
+read tdir
+mkdir -p ~/${tdir}
+for i in $@; do
+	if [ -e ${sdir}/${i} ]; then
+		cp ${sdir}/${i} ~/${tdir}
+	else
+		echo "Nicht existierende Datei: ${sdir}/${i}"
+	fi
+done
+
+
 8.2
 Schreiben Sie eine Prozedur, die von allen gewöhnlichen Dateien eines der Prozedur als Parameter zu übergebenden Textverzeichnisses die Anzahl der Wörter ermittelt und die Dateinamen sowie (d.h. gefolgt von ...) die jeweilige Wortanzahl zeilenweise in eine einzurichtende Datei "Wortanalyse" schreibt. Der Name des Textverzeichnisses sei relativ zum aktuellen Verzeichnis.
 Hinweis: Verwenden Sie das find-Kommando!
+
+
 
 8.3
 Schreiben Sie eine Prozedur del, der beliebig viele Namen von zu löschenden Dateien (Dateinamen relativ zum aktuellen Verzeichnis) als Parameter übergeben werden sollen. Die Prozedur soll die Dateien aber nicht endgültig löschen, sondern in ein vorher im Homedirectory einzurichtendes Verzeichnis .muell übertragen.

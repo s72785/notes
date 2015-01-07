@@ -8,6 +8,18 @@ Modul | V/Ü/P/S | PVL | Prüfung
 [I480](i480/index.md "Wirtschaftsmathematik I (WiMa1)") | 4/2/0 | Übung | SP
 [S411](s411/index.md "Englisch B2 (IIb/d: I-285, IWb/d: I-185, IMb/d: I-385) English B2") | 0/3/0 | APL(ProjArb, Test) | -
 
+### Termine
+
+Modul Nr. / Modulbezeichnung      | Tag    | Zeit
+--------------------------------- |-------:|:------------:
+English (60min. written)          | 07.01. | 07:30 - 09:00
+I-480 Wirtschaftsmathematik I     | 02.02. | 07:30 - 10:30
+I-120 Programmierung I            | 04.02. | 16:30 - 18:30
+I-110 Grundlagen der Informatik I | 06.02. | 12:30 - 14:00
+I-130 Betriebssysteme I           | 10.02. | 12:00 - 13:30
+I-470 BWL 1                       | 13.02. | 13:00 - 14:30
+
+
 <!-- 
 [I121]( "Programmierung II Programming II") 	Pflichtmodul 	5 	
      	2/0/2
