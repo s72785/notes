@@ -39,6 +39,19 @@ done
 Schreiben Sie eine Prozedur, die von allen gewöhnlichen Dateien eines der Prozedur als Parameter zu übergebenden Textverzeichnisses die Anzahl der Wörter ermittelt und die Dateinamen sowie (d.h. gefolgt von ...) die jeweilige Wortanzahl zeilenweise in eine einzurichtende Datei "Wortanalyse" schreibt. Der Name des Textverzeichnisses sei relativ zum aktuellen Verzeichnis.
 Hinweis: Verwenden Sie das find-Kommando!
 
+#!/bin/sh
+ofile=Wortanalyse
+#dosnt work as it gives wc first followed by filename:
+#find $1 -xtype f -exec wc -w {} +
+echo -n > ./${ofile}
+if [ ! -d ./$1 ]; then
+	echo "Fehler! Verzeichnis existiert nicht: ./$1";
+	exit 1;
+fi
+for i in $(find ./$1 -xtype f); do
+	echo -n "${i} " >> ./${ofile}
+	cat ${i} | wc -w  >> ./${ofile}
+done
 
 
 8.3
@@ -48,6 +61,20 @@ Nach mehrmaliger Benutzung der Prozedur soll dieses Verzeichnis je nach Bedarf (
 9.1
 Erzeugen Sie in Ihrem Heimat-Verzeichnis eine eigene bzw. erweitern Sie die bereits vorhandene .profile-Datei in der Weise, daß ein kurzer Begrüßungstext erzeugt und das Bereitschaftssymbol auf Ihre Initialen, gefolgt von einer spitzen Klammer eingestellt wird.
 Sorgen Sie weiterhin dafür, daß Ihre neu angelegten Dateien alle Zugriffsrechte nur für Sie selbst erhalten. 
+
+#begruessungstext
+echo "albern aber gefordert: ein kurzer Begruessungstext"
+#initialen raussuchen, weil setzen ist langweilig
+mn=$(finger -s $USER|tac|head -1|tr -s [:blank:] ' ')
+fn=$(echo $mn|cut -d' ' -f3)
+cn=$(echo $mn|cut -d' ' -f2)
+initials=$(echo $cn|cut -c1)
+initials=${initials}$(echo $fn|cut -c1)
+PS1=${initials}\>
+export PS1
+#zugriffsrechte einschränken
+umask 077
+
 
 9.2
 Arbeiten Sie am Rechner iaix1.informatik das Programm lprog ab, das als Lademodul im Verzeichnis /glb/studi steht, und speichern Sie das Ergebnis in eine Datei mit dem Namen resultlprog in Ihrem text-Verzeichnis.
