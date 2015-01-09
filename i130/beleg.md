@@ -13,67 +13,79 @@ Beleg: Aufg. 10.5, 10.6, 12.2-12.6 vorzeigen/demonstrieren
 Schreiben Sie eine Shell-Prozedur, die mehrere Dateien aus dem Verzeichnis /glb/studi in ein Unterverzeichnis Ihres Home-Directories kopiert.
 Die Namen der zu kopierenden Dateien sind als Parameter zu übergeben, Ihr Unterverzeichnis soll im Dialog abgefragt werden. Sollten kein bzw. mehr als 9 Parameter an die Prozedur übergeben worden sein, ist eine Fehlermeldung auszugeben und die Prozedur zu beenden. Im Fall, daß eine zu kopierende Datei nicht in /glb/studi enthalten ist, ist ebenfalls eine Fehlermeldung auszugeben. 
 
-#!/bin/sh
-sdir=/glb/studi
-if [ $# -eq 0 -o $# -gt 9 ]; then
-	echo "Fehler: 0 oder mehr als 9 Parameter";
-	echo denkbar sind:
-	ls ${sdir}
-	exit 1;
-fi
-#echo $#: $@
-echo Kopieren der Dateien $@
-echo -n In Verzeichnis ~/
-read tdir
-mkdir -p ~/${tdir}
-for i in $@; do
-	if [ -e ${sdir}/${i} ]; then
-		cp ${sdir}/${i} ~/${tdir}
-	else
-		echo "Nicht existierende Datei: ${sdir}/${i}"
-	fi
-done
+    #!/bin/sh
+    sdir=/glb/studi
+    if [ $# -eq 0 -o $# -gt 9 ]; then
+    	echo "Fehler: 0 oder mehr als 9 Parameter";
+    	echo denkbar sind:
+    	ls ${sdir}
+    	exit 1;
+    fi
+    #echo $#: $@
+    echo Kopieren der Dateien $@
+    echo -n In Verzeichnis ~/
+    read tdir
+    mkdir -p ~/${tdir}
+    for i in $@; do
+    	if [ -e ${sdir}/${i} ]; then
+    		cp ${sdir}/${i} ~/${tdir}
+    	else
+    		echo "Nicht existierende Datei: ${sdir}/${i}"
+    	fi
+    done
 
 
 8.2
 Schreiben Sie eine Prozedur, die von allen gewöhnlichen Dateien eines der Prozedur als Parameter zu übergebenden Textverzeichnisses die Anzahl der Wörter ermittelt und die Dateinamen sowie (d.h. gefolgt von ...) die jeweilige Wortanzahl zeilenweise in eine einzurichtende Datei "Wortanalyse" schreibt. Der Name des Textverzeichnisses sei relativ zum aktuellen Verzeichnis.
 Hinweis: Verwenden Sie das find-Kommando!
 
-#!/bin/sh
-ofile=Wortanalyse
-#dosnt work as it gives wc first followed by filename:
-#find $1 -xtype f -exec wc -w {} +
-echo -n > ./${ofile}
-if [ ! -d ./$1 ]; then
-	echo "Fehler! Verzeichnis existiert nicht: ./$1";
-	exit 1;
-fi
-for i in $(find ./$1 -xtype f); do
-	echo -n "${i} " >> ./${ofile}
-	cat ${i} | wc -w  >> ./${ofile}
-done
+    #!/bin/sh
+    ofile=Wortanalyse
+    #dosnt work as it gives wc first followed by filename:
+    #find $1 -xtype f -exec wc -w {} +
+    echo -n > ./${ofile}
+    if [ ! -d ./$1 ]; then
+    	echo "Fehler! Verzeichnis existiert nicht: ./$1";
+    	exit 1;
+    fi
+    for i in $(find ./$1 -xtype f); do
+    	echo -n "${i} " >> ./${ofile}
+    	cat ${i} | wc -w  >> ./${ofile}
+    done
 
 
 8.3
 Schreiben Sie eine Prozedur del, der beliebig viele Namen von zu löschenden Dateien (Dateinamen relativ zum aktuellen Verzeichnis) als Parameter übergeben werden sollen. Die Prozedur soll die Dateien aber nicht endgültig löschen, sondern in ein vorher im Homedirectory einzurichtendes Verzeichnis .muell übertragen.
 Nach mehrmaliger Benutzung der Prozedur soll dieses Verzeichnis je nach Bedarf (z.B. am Sitzungsende) mit dem üblichen UNIX-Kommando rm geleert werden. Die Dialog-Abfrage, ob das Verzeichnis geleert werden soll, soll über ein kleines Menü erfolgen.
 
+    #!/bin/sh
+    recycle=~/.muell
+    mkdir -p ${recycle}
+    for i in $@; do
+    	mv ${i} ${recycle}
+    done
+    echo -n "Soll das Verzeichnis geleert werden? (j/N) "
+    read answer
+    if [ ${answer} = "j" -o ${answer} = "y" -o ${answer} = "J" -o ${answer} = "Y" ]; then
+    	rm -d -I -- ${recycle}/*
+    fi
+
 9.1
 Erzeugen Sie in Ihrem Heimat-Verzeichnis eine eigene bzw. erweitern Sie die bereits vorhandene .profile-Datei in der Weise, daß ein kurzer Begrüßungstext erzeugt und das Bereitschaftssymbol auf Ihre Initialen, gefolgt von einer spitzen Klammer eingestellt wird.
 Sorgen Sie weiterhin dafür, daß Ihre neu angelegten Dateien alle Zugriffsrechte nur für Sie selbst erhalten. 
 
-#begruessungstext
-echo "albern aber gefordert: ein kurzer Begruessungstext"
-#initialen raussuchen, weil setzen ist langweilig
-mn=$(finger -s $USER|tac|head -1|tr -s [:blank:] ' ')
-fn=$(echo $mn|cut -d' ' -f3)
-cn=$(echo $mn|cut -d' ' -f2)
-initials=$(echo $cn|cut -c1)
-initials=${initials}$(echo $fn|cut -c1)
-PS1=${initials}\>
-export PS1
-#zugriffsrechte einschränken
-umask 077
+    #begruessungstext
+    echo "albern aber gefordert: ein kurzer Begruessungstext"
+    #initialen raussuchen, weil setzen ist langweilig
+    mn=$(finger -s $USER|tac|head -1|tr -s [:blank:] ' ')
+    fn=$(echo $mn|cut -d' ' -f3)
+    cn=$(echo $mn|cut -d' ' -f2)
+    initials=$(echo $cn|cut -c1)
+    initials=${initials}$(echo $fn|cut -c1)
+    PS1=${initials}\>
+    export PS1
+    #zugriffsrechte einschränken
+    umask 077
 
 
 9.2
