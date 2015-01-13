@@ -19,7 +19,10 @@
 \usepackage{textcomp}
 \usepackage{mathptmx}
 \usepackage[scaled=0.9]{helvet}
+\usepackage{tikz}
+
 \makeatletter
+
 \def\ptmTeX{T\kern-.1667em\lower.5ex\hbox{E}\kern-.075emX\@}
 \DeclareRobustCommand{\ptmLaTeX}{L\kern-.3em
         {\setbox0\hbox{T}%
@@ -52,28 +55,37 @@
 \newcommand*\defaultmarker{\textsuperscript\textasteriskcentered}
 
 
-\title{\bf Carolina Dynamics Symposium}
+\title{\bf{ 
+
+\begin{tikzpicture}
+    \draw (0, 0) node[inner sep=0] {\includegraphics[width=4cm]{flyer/logoGF-large.svg}};
+%    \draw (1, 1) node {Hello world};
+\end{tikzpicture}
+%Global Foundries
+}
+}
 
 \author{%
-\Large \bf Clemson University
+\textbf{ Presentation Team\,3 WS\,2014/15 (1st-Year Business Information Technology Students)  %Clemson University
 %  Martin Schmoll\\
 %  Predrag Puno\v{s}evac
 }
-\date{\bf April 13 -- April 15, 2012 }
+}
+\date{\textbf January 15th, 2015 }
 
 \CutLine*{1}% Dotted line without scissors
-\CutLine{6}%  Dotted line with scissors
+\CutLine*{6}
 
 %\AddToBackground{1}{%  Background of a small page
 %  \put(0,0){\textcolor{Cerulean}{\rule{\paperwidth}{\paperheight}}}}
 
 
 \AddToBackground{1}{%  Background of a small page
-  \put(115,530){\includegraphics[scale=0.12]{tiger.eps}}}
+  \put(115,530){\includegraphics[scale=0.12]{flyer/logoGF.svg}}}
 
 
-\AddToBackground{6}{%  Background of a small page
-  \put(0,0){\textcolor{YellowOrange}{\rule{\paperwidth}{\paperheight}}}}
+%\AddToBackground{6}{%  Background of a small page
+%  \put(0,0){\textcolor{YellowOrange}{\rule{\paperwidth}{\paperheight}}}}
 
 
 \AddToBackground*{2}{% Background of a large page
@@ -85,52 +97,37 @@
 
 \begin{document}
 \maketitle
-\section{Overview} In behalf of organization committee, I would like
-to welcome you to the $10^{\mbox{th}}$ annual Carolina Dynamics
-Symposium held at Clemson University. The theme of the meeting is the
-new developments in Dynamical Systems, relations to other branches of
-mathematics and applications. The $10^{\mbox{th}}$ annual meeting of the
-Carolina Dynamical Systems group is an opportunity to reflect on humbled
-origins of the group and the history of dynamical systems in the
-Southeast. Unlike previous years, we have grown some and that shows in
-the format of the conference. For the first time we have invited
-speakers:
+\section{Company Facts}
+
+\begin{tabular}{ll}
+Headquarters	& 	Silicon Valley \\
+				&	Santa Clara, California, USA\\
+	\\
+History			&
 
 \begin{itemize}
-\item Yuliy Baryshnikov, Urbana;
-\item Robert Connelly, Cornell;
-\item Sheldon Newhouse, Michigan State;
-\item Sergei Tabachnikov, Penn State.
-\end{itemize}
+	\item	March, 2009: Created by the divestiture of the manufacturing arm of Advanced Micro Devices (AMD as a subsidiary of Mubadala Technology
+	\item	January, 2010: acquisition of Charted Semiconductor
+	\item	October 2014: acquisition of IBM’s chip-manufacturing business unit (IBM Microelectronics)	
+\end{itemize} \\
+	\\
+Management		&	
+\begin{tabular}{ccc}
+		&	&	\\
+Dr. Sanjay K. Jha		&	Ibrahim Ajami										&	John R. Bucher \\
+Chief Executive Officer	&	Executive Vice President and Chief Strategy Officer	&	Senior Vice President, Strategy \\
+\end{tabular} \\
+	\\
+Employees	&	
+\begin{itemize}
+\item Approximately 13.000 spanning three continents across 12 locations with manufacturing operations in Dresden, Malta, New York, and Singapore.
+\item These sites are supported by a global network of R&D, design enablement, and customer support operations in  Singapore, China, Taiwan, Japan, the United States, Germany, and the Netherlands.
+\end{itemize} \\
+	\\
+Main Product Lines	&	State of the art silicon wafers, commissioned work, 
+near future: Extreme Ultra Violet (EUV) lithography for structures smaller than 20nm \\
 
-We also have a special Sunday session on Control and Robotics. During
-the conference, we will pay a tribute to the life and work of recently
-deceased Russian mathematician Leonid Pavlovich Shilnikov whose
-scientific work in the field of Dynamical Systems has found fertile
-ground among the local mathematical community.
-
-
-We kick off on Friday, April 13 at 4:30 pm with a single invited lecture
-by Sheldon Newhouse which will be also departmental colloquium lecture
-for that week at the Department of Mathematical Sciences at Clemson
-University.
-
-
-We gather back Saturday April 14 at 9:00 am. There would be three 60
-minutes morning lectures. After the brake for the lunch we will get back
-to work at 2:30 pm. At this time we will split into the several
-sections. Sectional talks will be 35 minutes long with the 5 extra
-minutes reserved for questions. They are an ideal opportunity for
-graduate students, post-docs and recent Ph.D.s to talk about their
-research.
-
-
-We finish Saturday with conference banquet.
-
-A special session on Control and Robotics is planned for Sunday, April
-15 consisting of three 60 minutes invited lecture. We finish early 12:30
-pm so that people can get back home and get ready for Monday teaching
-duties.
+\end{tabular}
 
 \section{Schedule}
 
