@@ -13,6 +13,7 @@
 #ifndef	_MATH_H
 # include <math.h>
 #endif
+//# include <signal.h>
 
 void
 menue_cls() {
@@ -63,10 +64,11 @@ menue_programmbeenden() {
 
 	pass = myinputint( 4, (int)'*', 0, 1 );
 
-	if( pass != PWD ) {
-		return 1;
+	if( pass == PWD && menue_bestaetigen() ) {
+		//signal( SIGINT, SIG_DFL );
+		return 0;
 	}
-	return !(menue_bestaetigen());
+	return 1;
 }
 
 void
@@ -340,6 +342,8 @@ menue_hauptmenue( bank *this ) {
 	char antwort = '\0';
 	int i;
 
+	//doesnt work as return value will not arrive
+	//signal( SIGINT, menue_programmbeenden() );
 	menue_cls();
 	if(DEBUG_PRINT)printf("# DEBUG Modus ist aktiv!\n\n");
 	printf("APL Programmierung (Teil 1 bis 16.12.2014)\n1. Semester Wirtschaftsinformatik, WS/2014\n\tbei Prof. B. Hollas\t\tAutor: <s72785>\n\nEin interaktives Banksystem\n");
