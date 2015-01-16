@@ -194,8 +194,16 @@ Y --> l     Z --> i     J --> u     3 --> g
 
 Testen Sie Ihre Prozedur anhand des Programms prog.b5, das im Verzeichnis /glb/studi steht. 
 
+	$t=/tmp/results-file
+	if [ ( $# -ge 1 ) -a ( -f $1 ) ]; then
+	  $1 > $t &
+      cat $t |tr 7 f|tr Q e|tr X r|tr Y l|tr Z i|tr J u|tr 3 g
+	fi
+
 11.2
 Stellen Sie eine Prozedur auf, die Ihnen jede Minute einmal die Uhrzeit anzeigt; aktivieren Sie sie zuerst im Vordergrund und dann im Hintergrund. Beenden Sie die Prozedur vor Sitzungsende wieder. 
+
+    date |cut -d" " -f4
 
 12.1
 Entwickeln Sie eine Kommandoprozedur, mit der Sie den Wochentag Ihrer Geburt ermitteln können! Der Prozedur sind beim Aufruf in der Kommandozeile Tag, Monat und Jahr des Geburtsdatums jeweils als Zahl und in dieser Reihenfolge zu übergeben. Der Wochentag soll auf stdout ausgegenen werden. Beispiel:
@@ -217,7 +225,7 @@ a) die Datei kunden alphabetisch nach Namen
 
 b) die Datei artikel nach Artikelnummern
 
-    sort -k2 /glb/studi/artikel #> ~/artikel_byArtikelNummer
+    sort -k3 /glb/studi/artikel #> ~/artikel_byArtikelNummer
 
 c) die Datei auftraege erstens (erstrangig) nach Kundennummern und zweitens (zweitrangig) nach dem Liefertermin
 
@@ -227,9 +235,10 @@ c) die Datei auftraege erstens (erstrangig) nach Kundennummern und zweitens (zwe
 Stellen Sie eine Datei kundenauftraege für alle Kunden auf, die einen Auftrag erteilt haben. Sie enthalte: Kundennr., Name, Ort, Artikelnr., Preis, Stückzahl und Auftragsnr. 
 
 	#Kundennr., Name(2), Ort, Artikelnr., Preis, Stückzahl und Auftragsnr. 
-    sort -k 3 /glb/studi/kunden > kunden_byKundennr
-    sort -k 2 /glb/studi/artikel > artikel_byArtikelnr
-    sort -k 3 /glb/studi/auftraege > artikel_byArtikelnr
+    sort -k 3,3 /glb/studi/kunden > kunden_byKundennr
+    #Artikelname Artikelnummer Preis
+    sort -k 2,2 /glb/studi/artikel > artikel_byArtikelnr
+    sort -k 3,3 /glb/studi/auftraege > artikel_byArtikelnr
     #Kundennummer Artikelnummer Preis Stückzahl Auftragsnummer
     join --check-order -j1 2 -j2 3 -o 2.1 1.2 1.3 2.4 2.2 artikel_byArtikelnr auftraege_byArtikelnr | sort -k 1|uniq > auftraege_byKundennr
     #Kundennummer Kundenname(2) Wohnort Artikelnummer Preis Stückzahl Auftragsnummer
@@ -243,7 +252,7 @@ a) für den Versandt nach Orten,
 
 b) für die Abrechnung nach Kunden
 
-    sort -k 2,3 kundenauftraege
+    sort -k 2 kundenauftraege
 
 c) für die Lagerhaltung nach Artikelnummern.
 
@@ -260,13 +269,15 @@ Ordnen Sie die Datei Kundenaufträge so, daß bei
 
     awk '{print $2" "$3" "$4" "$1" "$5" "$6" "$7" "$8}' kundenauftraege
 
-(c) die Artikelnummern zuerst ausgegeben werden. 
+(c) die Artikelnummern
 
     awk '{print $5" "$2" "$3" "$4" "$1" "$6" "$7" "$8}' kundenauftraege
+
+zuerst ausgegeben werden. 
 
 12.6
 Die Datei stadt im Verzeichnis /glb/studi enthält alle deutschen Großstädte. Ermitteln Sie daraus die Städte mit mehr als einer halben Million Einwohner. Geben Sie die gefundenen Datensätze in der Reihenfolge
 Einwohnerzahl - Städtename - Bundesland
 aus und sortieren Sie die Städte der Größe nach! 
 
-    awk '{ if($2>500000) print $2" - "$1" - "$3}' /glb/studi/stadt |sort -t- -k 1
+    awk '{ if($2>500000) print $2" - "$1" - "$3}' /glb/studi/stadt |sort -t- -d -r -k 1
