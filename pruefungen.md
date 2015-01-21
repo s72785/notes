@@ -10,18 +10,19 @@ Modul | V/Ü/P/S | PVL | Prüfung
 
 ### Termine
 
-Modul Nr. / Modulbezeichnung      | Tag      | Zeit
---------------------------------- |---------:|:------------:
-I-120 Programmierung (APL1)       | 15.12.14 | in Übung
-S-411 English (Dokumentation)     | 19.12.14 | Abgabe
-S-411 English (60min. written)    | 07.01.15 | 07:30 - 09:00
-S-411 English (Sprachpraxis)      | 
-I-130 Betriebssysteme I (Beleg)   | 20.01.15 | Vorführen
-I-480 Wirtschaftsmathematik I     | 02.02.15 | 07:30 - 10:30
-I-120 Programmierung I            | 04.02.15 | 16:30 - 18:30
-I-110 Grundlagen der Informatik I | 06.02.15 | 12:30 - 14:00
-I-130 Betriebssysteme I           | 10.02.15 | 12:00 - 13:30
-I-470 BWL 1                       | 13.02.15 | 13:00 - 14:30
+Modul Nr. / Modulbezeichnung      | Tag      | Zeit          | Bewertung
+--------------------------------- |---------:|:-------------:|:---------:
+I-120 Programmierung (APL1)       | 15.12.14 | Vorführen     | bestanden
+S-411 English (Dokumentation)     | 19.12.14 | Abgabe        | 
+S-411 English (60min. written)    | 07.01.15 | 07:30 - 09:00 | 
+S-411 English (Sprachpraxis)      | 15.01.15 | 09:10 - 10:40 | 
+I-130 Betriebssysteme I (Beleg)   | 20.01.15 | Vorführen     | 
+I-120 Programmierung (APL2)       | 26.01.15 | Abgabe        | 
+I-480 Wirtschaftsmathematik I     | 02.02.15 | 07:30 - 10:30 | 
+I-120 Programmierung I            | 04.02.15 | 16:30 - 18:30 | 
+I-110 Grundlagen der Informatik I | 06.02.15 | 12:30 - 14:00 | 
+I-130 Betriebssysteme I           | 10.02.15 | 12:00 - 13:30 | 
+I-470 BWL 1                       | 13.02.15 | 13:00 - 14:30 | 
 
 
 <!-- 
