@@ -1,3 +1,8 @@
+/* This APL is a demo for an interactive bank system and dedicated to first steps in learning C programming language,  Copyright (C) 2014-2015  s72785
+ * This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+ * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+ * You should have received a copy of the GNU General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
 #ifndef _KONTO_CLASS_H
 # define _KONTO_CLASS_H
 
@@ -15,7 +20,7 @@ typedef struct _konto {
 //	int aktivetanliste;
 //	services service;
 //	enum waehrung_t { btc, eur, usd } waehrung;
-	struct _konto* naechster;	//pointer on next user in same slot (of the hashtable)
+	struct _konto *naechster;	//pointer on next user in same slot (of the hashtable)
 } konto;
 
 int
@@ -112,6 +117,24 @@ konto_eroeffnen( konto *this, int nummer ) {
 void
 konto_pinaendern(konto *this, int npin) {
 	this->pin = npin;
+}
+
+konto
+*konto_kontozeiger( long long kontonummer ) {
+	konto *zeiger=NULL;
+	
+	/* todo */
+	
+	return zeiger;
+}
+
+int
+
+konto_loeschen( konto *this ) {
+
+	/* todo */
+
+	return 0;
 }
 
 #endif // _KONTO_CLASS_H
