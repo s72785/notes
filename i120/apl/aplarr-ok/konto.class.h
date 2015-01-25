@@ -1,15 +1,10 @@
-/* This APL is a demo for an interactive bank system and dedicated to first steps in learning C programming language,  Copyright (C) 2014-2015  s72785
- * This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
- * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
- * You should have received a copy of the GNU General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
 #ifndef _KONTO_CLASS_H
-#define _KONTO_CLASS_H
+# define _KONTO_CLASS_H
 
-#include "mystdlib.h"
-
+//todo: redo as list / hashtable with sublists
+// deleting accounts
 typedef struct _konto {
-	unsigned long long ktonr;//: KTO_LAENGE_BIT;	//n-stellig -> m bit
+	int ktonr;//: KTO_LAENGE_BIT;	//n-stellig -> m bit
 	int pin;//: PIN_LAENGE_BIT;
 	double guthaben;
 	enum sperrung_t { gesperrt, eroeffnet, pin1, pin2, pin3, geloescht, gekuendigt } sperrung;
@@ -20,13 +15,8 @@ typedef struct _konto {
 //	int aktivetanliste;
 //	services service;
 //	enum waehrung_t { btc, eur, usd } waehrung;
-	//struct _konto *naechster;	//pointer on next user in same slot (of the hashtable)
+	struct _konto* naechster;	//pointer on next user in same slot (of the hashtable)
 } konto;
-
-int
-kontohash( unsigned long long kontonummer ) {
-	return hash( kontonummer, BS_GROESSE );
-}
 
 int
 konto_einzahlung( konto *this, double summe ) { /* rc: 1 - alles ok, 0 - Grenze ueberschritten */
@@ -110,22 +100,17 @@ konto_neuepin( konto *this ) {
 	}
 }
 
-/* returns NULL on fail or an account on success */
-konto
-*konto_eroeffnen( int nummer ) {
-	konto *this = NULL;
-	this = (konto*)malloc( sizeof(konto) );
-	if( this != NULL ) {
-		this->ktonr = nummer;	// determine account number
-		this->sperrung = eroeffnet;
-		this->guthaben = 0.0;
-		konto_neuepin( this );
-	}
-	return this;
+void
+konto_eroeffnen( konto *this, int nummer ) {
+	this->ktonr = nummer;	// determine account number
+	this->sperrung = eroeffnet;
+	this->guthaben = 0.0;
+	this->naechster = NULL;	// Null-pointer for "last" entry markup
+	konto_neuepin( this );
 }
 
 void
-konto_pinaendern( konto *this, int npin ) {
+konto_pinaendern(konto *this, int npin) {
 	this->pin = npin;
 }
 

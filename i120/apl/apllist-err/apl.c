@@ -13,7 +13,7 @@
 #define BS_GROESSE 10000 //10^2 f. 4-stellige Kontonummern im 1. Teil -> 4-stellig Hashes im 2. Teil
 #define PIN_LAENGE 4     //#define PIN_LAENGE_BIT 13
 //#define PIN_VERSUCHE 3
-#define DEBUG_PRINT 1    // debug-output 1=enabled, 0=disabled
+#define DEBUG_PRINT 0    // debug-output 1=enabled, 0=disabled
 #define WE "XBT"         // defining currency as the exercise did not mention any
 #define BETRAG_DELIMETER ','
 #define STELLEN_VKOMMA 8
