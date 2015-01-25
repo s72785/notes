@@ -4,20 +4,52 @@
  * You should have received a copy of the GNU General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #ifndef _MYSTDLIB_H
-# define _MYSTDLIB_H
+#define _MYSTDLIB_H
 
-#ifndef	_MATH_H
-# include <math.h> //for rand() and pow()
-#endif
-#ifndef	_TIME_H
-# include <time.h> //for clock() or time()
-#endif
+#include <math.h> //for rand() and pow()
+#include <time.h> //for clock() or time()
 
+/* 1=true, -1=false */
 int
-kontohash ( int kontonummer ) {
-	return 0;
+isprime( unsigned long long candidate ) {
+	unsigned long long i;
+
+	for( i = 2 ; i <= candidate - 1 ; i++ ) {
+		if ( candidate % i == 0 ) { 
+			return -1;
+			break;
+		}
+	}
+	if( i == candidate ) {
+		return 1;
+	}
+	return -1;//suppressing compiler warning
 }
 
+int
+nextprime( unsigned long long x ) {
+	unsigned long long i = 1;
+
+	while( 1 ){
+		if( isprime( x + i ) == 1 ) {
+			return ( x + i);
+		} else if ( isprime( x - i ) == 1 && ( x - i ) > 1 ) {
+			return ( x - i);
+		}
+		i++;
+	}
+}
+
+int
+hash( unsigned long long potentiellgrossezahl, unsigned long long oberegrenze ) {
+	return potentiellgrossezahl % nextprime( oberegrenze ) ;
+}
+
+//~ int
+//~ kontohash( unsigned long long kontonummer ) {
+	//~ return hash( kontonummer, BS_GROESSE );
+//~ }
+//~ 
 int /* rc: -1 = unknown argument, z = random number */
 intZufallszahl ( int stellen ) { /* renerate random number, avoid double ones */
 	int z;

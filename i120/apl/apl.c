@@ -6,6 +6,7 @@
 // external libs
 #include <stdio.h>
 #include <stdlib.h>
+#include <signal.h>
 
 // definitions for preprocessor
 #define PWD 987
@@ -20,10 +21,11 @@
 #define STELLEN_NKOMMA 8
 #define GUTHABEN_MIN 0.0 // min. 1 we Guthaben
 #define GUTHABEN_MAX 21000000.0	// max. Guthaben d. we
-#define KUNDENKONTO_PRIM 1000 // todo: 1000000000 // erstes Kundenkonto
+#define KUNDENKONTO_PRIM 1000ULL // todo: 1000000000 // erstes Kundenkonto
 #define BARGELDKONTO 1000 // Konto für Bargeld der Bank
 
 // header files for even more structure
+#include "list.class.h"	// general functions
 #include "mystdlib.h"	// general functions
 #include "konto.class.h"// class konto (account)
 #include "bank.class.h"	// class bank
@@ -32,10 +34,11 @@
 // main function - no asertions as this shall not crash
 int
 main( void ) {
-	bank schalterbank;
-	bank_init( &schalterbank, 50000.0 );
-	
-	while( menue_hauptmenue( &schalterbank ) );	//infty-loop, its a "Bank-OS" after all
-
+	bank *schalterbank = NULL;
+	schalterbank = malloc( sizeof(bank) );
+	bank_init( schalterbank, 50000.0 );
+	//signal( SIGINT, menue_programmbeenden() );
+	while( menue_hauptmenue( schalterbank ) );	//infty-loop, its a "Bank-OS" after all
+	//signal( SIGINT, SIG_DFL );
 	return 0;
 }
