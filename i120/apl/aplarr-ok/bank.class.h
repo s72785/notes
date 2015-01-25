@@ -1,15 +1,9 @@
 #ifndef _BANK_CLASS_H
-# define _BANK_CLASS_H
+#define _BANK_CLASS_H
 
-#ifndef _STDIO_H
-# include <stdio.h>
-#endif
-#ifndef	_MYIO_H
-# include "myio.h"
-#endif
-#ifndef _KONTO_CLASS_H
-# include "konto.class.h"
-#endif
+#include <stdio.h>
+#include "myio.h"
+#include "konto.class.h"
 
 /* Bank hat BS_GROESSE-1 Konten
  * Konto 0-1000 ist die Bank selbst
@@ -18,15 +12,15 @@
 // todo: redefine accounts as list
 // bilanz
 typedef struct bank_t {
-	int kontenzahl;//: KTO_LAENGE_BIT;
+	unsigned long long kontenzahl;//: KTO_LAENGE_BIT;
 //	double kundenvermoegen;
 	konto konten[BS_GROESSE];
-	int neuesterkunde;
+	unsigned long long neuesterkunde;
 } bank;
 
 void
 bank_kontoeroeffnen( bank *this ){
-	int nr = KUNDENKONTO_PRIM + this->kontenzahl++;
+	unsigned long long nr = KUNDENKONTO_PRIM + this->kontenzahl++;
 	this->konten[nr].ktonr = nr;	// determine account number
 	this->konten[nr].sperrung = eroeffnet;
 	this->konten[nr].guthaben = 0.0;

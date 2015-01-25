@@ -1,9 +1,10 @@
 #!/bin/sh
-gcc -g -lm -o apl apl.c 2> err
+#~ cc=gcc
+cc=clang
+${cc} -g -lm -o apl apl.c 2> err
 if [ $? -eq 0 ]; then
-	gcc -Wall -g -lm -o apl apl.c 2> err
+	${cc} -Wall -g -lm -o apl apl.c 2> err
 fi
-cat err | wc
 if [ $(cat err|wc -w) -eq 0 ]; then
 	./apl
 	#~ if [ $? -ne 0 ]; then
@@ -12,3 +13,6 @@ if [ $(cat err|wc -w) -eq 0 ]; then
 else
 	less err
 fi
+echo -n Zeilen in Fehlermeldungen:
+cat err | wc -l
+echo --------------------------

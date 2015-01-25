@@ -12,7 +12,7 @@
 #define BS_GROESSE 10000 //f. 4-stellige Kontonummern
 #define PIN_LAENGE 4	//#define PIN_LAENGE_BIT 13
 //#define PIN_VERSUCHE 3
-#define KTO_LAENGE 4	//#define KTO_LAENGE_BIT 13
+#define KTO_LAENGE 10	//#define KTO_LAENGE_BIT 13
 #define DEBUG_PRINT 0	// debug-output 1=enabled, 0=disabled
 #define WE "XBT" // defining currency as the exercise did not mention any
 #define BETRAG_DELIMETER ','

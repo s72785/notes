@@ -1,10 +1,10 @@
 #ifndef _KONTO_CLASS_H
-# define _KONTO_CLASS_H
+#define _KONTO_CLASS_H
 
 //todo: redo as list / hashtable with sublists
 // deleting accounts
 typedef struct _konto {
-	int ktonr;//: KTO_LAENGE_BIT;	//n-stellig -> m bit
+	unsigned long long ktonr;//: KTO_LAENGE_BIT;	//n-stellig -> m bit
 	int pin;//: PIN_LAENGE_BIT;
 	double guthaben;
 	enum sperrung_t { gesperrt, eroeffnet, pin1, pin2, pin3, geloescht, gekuendigt } sperrung;
@@ -17,6 +17,11 @@ typedef struct _konto {
 //	enum waehrung_t { btc, eur, usd } waehrung;
 	struct _konto* naechster;	//pointer on next user in same slot (of the hashtable)
 } konto;
+
+int
+kontohash( unsigned long long kontonummer ) {
+	return hash( kontonummer, BS_GROESSE );
+}
 
 int
 konto_einzahlung( konto *this, double summe ) { /* rc: 1 - alles ok, 0 - Grenze ueberschritten */
@@ -105,13 +110,19 @@ konto_eroeffnen( konto *this, int nummer ) {
 	this->ktonr = nummer;	// determine account number
 	this->sperrung = eroeffnet;
 	this->guthaben = 0.0;
-	this->naechster = NULL;	// Null-pointer for "last" entry markup
+	//this->naechster = NULL;	// Null-pointer for "last" entry markup
 	konto_neuepin( this );
 }
 
 void
 konto_pinaendern(konto *this, int npin) {
 	this->pin = npin;
+}
+
+void
+konto_loeschen( konto *this ) {
+	this->sperrung = gekuendigt;
+	//return 0;
 }
 
 #endif // _KONTO_CLASS_H
