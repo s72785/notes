@@ -7,9 +7,9 @@
 #define _BANKMENUE_H
 
 #include <stdio.h>
+#include <math.h>
 #include "myio.h"
 #include "konto.class.h"
-#include <math.h>
 
 void
 menue_cls() {
@@ -315,7 +315,7 @@ menue_kundenkonto( bank *this, unsigned long long k ) {
 }
 
 int
-menue_kundenlogin( bank *this ) { //ToDo
+menue_kundenlogin( bank *this ) {
 	int loop = 1;	//true for continuing "bank os"
 	unsigned long long kontonr = 0;
 	konto *k = NULL;
@@ -330,11 +330,10 @@ menue_kundenlogin( bank *this ) { //ToDo
 		k = bank_findekonto( this, kontonr );
 
 		if( kontonr < KUNDENKONTO_PRIM
-			/* todo */
 			|| k->sperrung == gesperrt
 		) { // unknown data, exit func
 			printf("Ungueltige Kontodaten!\n\n");
-			/* todo */
+
 			if(DEBUG_PRINT)printf("# KtoNr:    %010llu\n", k->ktonr);
 			if(DEBUG_PRINT)printf("# Sperrung: %d\n", k->sperrung);
 			if(DEBUG_PRINT)printf("# Guthaben: %17.8f %s\n", k->guthaben, WE);
@@ -343,14 +342,14 @@ menue_kundenlogin( bank *this ) { //ToDo
 			loop=0;
 			break;
 		}
-		/* todo */
+
 		if( k->sperrung == pin3 ) { // test on account status
 			if(DEBUG_PRINT)printf("# Dieses Konto ist gesperrt!\nBitte nehmen Sie Kontakt zum Service auf.\n\n");
 			mypause("\n\nWeiter mit Enter ...\n");
 			loop=0;
 			break;
 		}
-		/* todo */
+
 		if( k->pin != pin ) { //+ Pruefung PIN
 			menue_cls();
 			if(DEBUG_PRINT)printf("# PIN!!! %04d %04d %04d\n", k->pin, pin, pin==k->pin);

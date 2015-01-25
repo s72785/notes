@@ -2,25 +2,15 @@
 #ifndef _MYIO_H
 # define _MYIO_H
 
-#ifndef _STDIO_H
-# include <stdio.h>
-#endif
+#include <stdio.h>
 
 /* windows, can be implemented by somone who actually uses it */
 // conio.h ? or sth more modern
 /* linux */
-#ifndef	_TERMIOS_H
-# include <termios.h>
-#endif
-#ifndef	_UNISTD_H
-# include <unistd.h>
-#endif
-#ifndef	_FCNTL_H
-# include <fcntl.h>
-#endif
-#ifndef	_MATH_H
-# include <math.h>
-#endif
+#include <termios.h>
+#include <unistd.h>
+#include <fcntl.h>
+#include <math.h>
 
 int
 kbhit (void) {

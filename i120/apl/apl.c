@@ -21,7 +21,7 @@
 #define STELLEN_NKOMMA 8
 #define GUTHABEN_MIN 0.0 // min. 1 we Guthaben
 #define GUTHABEN_MAX 21000000.0	// max. Guthaben d. we
-#define KUNDENKONTO_PRIM 1000000000ULL // todo: 1000000000 // erstes Kundenkonto
+#define KUNDENKONTO_PRIM 10000000000ULL // 10.000.000.000 // erstes Kundenkonto
 #define BARGELDKONTO 1000000000ULL // Konto für Bargeld der Bank
 
 // header files for even more structure

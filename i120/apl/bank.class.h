@@ -17,8 +17,7 @@
  * Konto 0-1000 ist die Bank selbst
  * Kundenkonten beginnen ab 1001, s. KUNDENKONTO_PRIM
  * */
-// todo: redefine accounts as list
-// bilanz
+
 typedef struct bank_t {
 	list *konten[BS_GROESSE]; // list*->data* = konto*
 	unsigned long long neuesterkunde;

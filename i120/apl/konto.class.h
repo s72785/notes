@@ -6,8 +6,6 @@
 #ifndef _KONTO_CLASS_H
 #define _KONTO_CLASS_H
 
-//todo: redo as list / hashtable with sublists
-// deleting accounts
 typedef struct _konto {
 	unsigned long long ktonr;//: KTO_LAENGE_BIT;	//n-stellig -> m bit
 	int pin;//: PIN_LAENGE_BIT;
