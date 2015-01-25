@@ -339,47 +339,52 @@ menue_kundenlogin( bank *this ) {
 		) { // unknown data, exit func
 			printf("Ungueltige Kontodaten!\n\n");
 
-			if(DEBUG_PRINT)printf("# KtoNr:    %010llu\n", k->ktonr);
-			if(DEBUG_PRINT)printf("# Sperrung: %d\n", k->sperrung);
-			if(DEBUG_PRINT)printf("# Guthaben: %17.8f %s\n", k->guthaben, WE);
-			if(DEBUG_PRINT)printf("# PIN:      %d\n", k->pin);
+			if( k != NULL ) {
+				if(DEBUG_PRINT)printf("# KtoNr:    %010llu\n", k->ktonr);
+				if(DEBUG_PRINT)printf("# Sperrung: %d\n", k->sperrung);
+				if(DEBUG_PRINT)printf("# Guthaben: %17.8f %s\n", k->guthaben, WE);
+				if(DEBUG_PRINT)printf("# PIN:      %d\n", k->pin);
+			}
 			mypause("\nWeiter mit Enter ...\n");
 			loop=0;
 			break;
 		}
 
-		if( k->sperrung == pin3 ) { // test on account status
+		if( k != NULL && k->sperrung == pin3 ) { // test on account status
 			if(DEBUG_PRINT)printf("# Dieses Konto ist gesperrt!\nBitte nehmen Sie Kontakt zum Service auf.\n\n");
 			mypause("\n\nWeiter mit Enter ...\n");
 			loop=0;
 			break;
-		}
 
-		if( k->pin != pin ) { //+ Pruefung PIN
-			menue_cls();
-			if(DEBUG_PRINT)printf("# PIN!!! %04d %04d %04d\n", k->pin, pin, pin==k->pin);
-			switch( k->sperrung ) {
-				case eroeffnet:
-					k->sperrung=pin1;
-					printf("PIN-Fehlversuch 1/3!\n\n");
-					break;
-				case pin1:
-					k->sperrung=pin2;
-					printf("PIN-Fehlversuch 2/3!\n\n");
-					break;
-				case pin2:
-					k->sperrung=pin3;
-					printf("PIN-Fehlversuch 3/3!\n\n");
-					break;
-				default:
-					break;
+			if( k->pin != pin ) { //+ Pruefung PIN
+				menue_cls();
+				if(DEBUG_PRINT)printf("# PIN!!! %04d %04d %04d\n", k->pin, pin, pin==k->pin);
+				switch( k->sperrung ) {
+					case eroeffnet:
+						k->sperrung=pin1;
+						printf("PIN-Fehlversuch 1/3!\n\n");
+						break;
+					case pin1:
+						k->sperrung=pin2;
+						printf("PIN-Fehlversuch 2/3!\n\n");
+						break;
+					case pin2:
+						k->sperrung=pin3;
+						printf("PIN-Fehlversuch 3/3!\n\n");
+						break;
+					default:
+						break;
+				}
+				mypause("\n\nWeiter mit Enter ...\n");
+				kontonr = 0;
+			}else{
+				k->sperrung=eroeffnet;
+				menue_kundenkonto( this, kontonr );
+				loop = 0;
 			}
-			mypause("\n\nWeiter mit Enter ...\n");
-			kontonr = 0;
-		}else{
-			k->sperrung=eroeffnet;
-			menue_kundenkonto( this, kontonr );
-			loop = 0;
+
+		} else {
+			if(DEBUG_PRINT)printf("# Zugruffsfehler auf das Konto\n\n");
 		}
 	}
 

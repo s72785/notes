@@ -6,6 +6,8 @@
 #ifndef _KONTO_CLASS_H
 #define _KONTO_CLASS_H
 
+#include "mystdlib.h"
+
 typedef struct _konto {
 	unsigned long long ktonr;//: KTO_LAENGE_BIT;	//n-stellig -> m bit
 	int pin;//: PIN_LAENGE_BIT;
@@ -112,7 +114,7 @@ konto_neuepin( konto *this ) {
 konto
 *konto_eroeffnen( int nummer ) {
 	konto *this = NULL;
-	this = malloc( sizeof(konto) );
+	this = (konto*)malloc( sizeof(konto) );
 	if( this != NULL ) {
 		this->ktonr = nummer;	// determine account number
 		this->sperrung = eroeffnet;
