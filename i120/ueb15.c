@@ -27,7 +27,7 @@ char encaesar(char t, int c){
 char decaesar(char t, int c){
 	t = t - c + 128 % 128;
 	if (t<10) t+=117;
-	if (t>126) t-=c;
+	if (t>127) t-=c;
 	return t;
 }
 
@@ -55,7 +55,7 @@ int main() {
 	//printf("\n\nGeben Sie eine Chiffre an: ");
 	//while(!(chiffre >= 10 && chiffre <= 126)){ scanf("%d", &chiffre); }
 	
-	//for(i=0; i<=126;i++){
+	//for(i=0; i<=26;i++){
 		i=12;
 		//printf("\n\n%d: ", i);
 		if(0 != printfiledeciphered("bsp.txt", i)){

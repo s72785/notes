@@ -1,0 +1,152 @@
+Reihen
+
+\Sigma_{k=0}^{\infty} a_k
+s_n = \Sigma_k=0^n a_k
+
+Konergenzkriterien
+
+Trivialkriterium (not wendige Bedingung)
+
+Damit \Sigma a_k konvergiert muss a_k \rightarrow 0 .
+
+! a_k \rightarrow 0 \Rightarrow \Sigma a_k konvertiert
+
+Leibnitzkriterium
+
+Das Vorzeichen muss wechslen
+
+\Sigma_k=0^\infty (-1)^k a_k 
+
+kovergiert, falls
+
+\item Trivialkriterium
+\item a_k monoton fallend
+
+Quotientenkriterium
+
+\Soigma a_k konvergiert, falls
+
+1. Trivialkriterium
+2. lim_{k \rightarrow 0} |\frac{a_{k+1}}{a_k}|
+< 1 konvergent
+= 1 nicht hilfreich
+> 1 divergent
+
+Wurzelkriterium
+
+lim_{k \rightarrow 0} \sqrt[k]{|a_k|}
+< 1 konvergent
+= 1 nicht hilfreich
+> 1 divergent
+
+\begin{enumerate}
+%1.
+\item 
+\begin{enumerate}
+\item \Sigma_{n=0}^{\infty} \frac{n^6}{2^n}
+
+%lim anfügen
+QK: lim_{n \rightarow \infty} \frac{a_{n+1}}{a_n} = \frac{ frac{(n+1)^6}{2^{n+1}} }{ \frac{n^6}{2^n} } = frac{ (n+1)^6 2^n }{ n^{n+1} n^6 } =  frac{ (n+1)^6 }{ n^{1} n^6 } = frac{(n+1)^6}{n} \frac{1}{2} = (1 + \frac{1}{n})^6 \frac{1}{2} = 1^6 \frac{1}{2} = 1/2 < 1 < \infty \Rightarrow konvergent
+
+Grenzwert nicht bestimmtbar.
+
+\item \Sigma_{n=0}^{\infty} {(-1)^n}{3n+1}
+
+TK: ist erfüllt
+
+%lim anfügen
+LK: \Sigma_{n \rightarrow 0}^{\infty} (-1)^n \frac{1}{\underbrace{3n+1}_{a_n}} , a_n \rightarrow 0 \Rightarrow erfüllt, a_n monoton fallend, d.h. a_{n+1} <= a_n = 1 <= 4 \Righarrow erfüllt
+
+\Rightarrow konvergent
+
+\item \Sigma_{n=0}^{\infty} \sqrt{n+9}
+
+WK: nur gut wenn a_n leicht als Wurzel zu ziehen
+
+TK: lim_{n \rightarrow \infty} \sqrt{n+9} \lightning = \infty
+
+\Rightarrow divergent
+
+\item \Sigma_{n=1}^{\infty} (\frac{n+1}{9n})^n
+
+TK: lim_{n \rightarrow 0} (\frac{n+1}{9n})^n = (\frac{1}{9})^n = 0 \Rightarrow erfüllt
+
+WK: lim_{n \rightarrow \oinfty} \sqrt[n]{(\frac{n+1}{9n})^n} = \frac{n+1}{9n} < 1
+
+\Rightarrow konvergent
+
+\item \Sigma_{n=0}^{\infty} \frac{n!}{5^n}
+
+TK: lim_{n \rightarrow 0} \frac{n!}{5^n} = \infty > 0 
+
+o. QK: = \frac{(n+1)!}{5 n!} = \frac{n+1}{5} > 1
+
+\Rightarrow divergent
+
+\item \Sigma_{n=1}^{\infty} \frac{|sin n|}{n^2}
+
+TK: lim \frac{|sin n|}{n^2} \rightarrow 0 \Rightarrow erfüllt
+
+QK: \frac{ \frac{|sin (n+1)|}{(n+1)^2} }{ \frac{|sin n|}{n^2} } ?!
+
+VK:
+
+Vergleich mit bekannter Reihe, z.B. \frac{1}{n}, divergent \Rightarrow QT=1, versagt
+
+Vergleich mit \frac{1}{n^a}, konvergent f. a>1, divegrent für a<=1
+
+\Rightarrow \frac{|sin n|}{n^2} = \frac{1}{n^2} |sin n| konvergent, da a>1 und |sin n| < 1
+
+\item \Sigma_{n=0}^{\infty} \frac{2+(-1)^n}{n^2+7}
+
+VK: wir vermuten Konvergenz (Differenz der größten Potenz = 2)
+
+Eine Vergleichsform finden, die größer wird
+
+\frac{2+(-1)^n}{n^2+7} <= \frac{3}{ n^2 }
+
+\frac{2+(-1)^n}{n^2+7} <= ( \frac{3}{ n^2 } = 3 \frac{1}{ n^2 } ) < \infty
+
+\Rightarrow konvergent
+
+\item \Sigma_{n=0}^{\infty} \frac{2n^2 +1}{n^3-n^2-1}
+
+VK: wir vermuten Divergenz (Differenz der größten Potenz = 1) und machen die Zahlen kleiner
+
+\frac{2n^2 +1}{n^3-n^2-1} >= \frac{2n^2}{n^3-n^2}  >= ( \frac{2n^2}{n^3} = 2/n = 2*1/n \rightarrow \infty)
+
+\Rightarrow divergent
+
+\end{enumerate}
+
+%2.
+\item 
+
+\begin{enumerate}
+
+\item \Sima_{n=0}^{\infty} (-1)^{n+1} 2^{-n}
+
+geometr. Reihe \Sigma_{n=0}^{\infty} q^n  = \frac{1}{1-q}, |q|<1 mit Grenzwert 2
+
+ \Sima_{n=0}^{\infty} (-1)^{n+1} 2^{-n}
+ =  \Sima_{n=0}^{\infty} \frac{(-1)^{n}(-1)}{ 2^{n} }
+ =  (-1) \Sima_{n=0}^{\infty} (\frac{-1}{ 2 })^{n} = -\frac{2}{3}
+ 
+ \item \Sigma{n=0}{\infty} \frac{5+2^n}{10^n}
+ 
+=  \Sigma{n=0}{\infty} (\frac{5}{10^n} + \frac{2^n}{10^n})
+=  5 \Sigma{n=0}{\infty} \frac{1}{10^n} +  \Sigma{n=0}{\infty} (\frac{2}{10})^n
+=  5 \Sigma{n=0}{\infty} \frac{1^n}{10^n} +  \Sigma{n=0}{\infty} (\frac{2}{10})^n
+=  5 \Sigma{n=0}{\infty} (\frac{1}{10})^n +  \Sigma{n=0}{\infty} (\frac{2}{10})^n
+=  5 \frac{1}{1-\frac{1}{10}} + \frac{1}{1-\frac{1}{5}} = \frac{5}{4}
+
+\item \Sigma_{n=2}^{\infty}
+= \Sigma_{n=0}^{\infty} - \underbrace{(\frac{1}{3})^0}_{a_n, n=0} - \underbrace{(\frac{1}{3})^1}_{a_n, n=0}
+= \frac{1}{1-\frac{1}{3}} - 1 - \frac{1}{3}
+
+\item \Sigma_{n=0}^{\infty} (\frac{1}{n+1} - \frac{1}{n+2})
+= \frac{1}{1}- \frac{1}{2} +  \frac{1}{2}- \frac{1}{3} \ldots = 1 
+\end{enumerate}
+
+
+\end{enumerate}
