@@ -100,9 +100,14 @@ menue_pineditieren( konto *this ) { //for not leaking which entry was wrong, the
 void
 menue_zeigekontodaten( konto *this ) {
 	menue_cls();
-	printf("\nKonto-/Kunden-Nummer: %010llu\n", this->ktonr); //lessons learned: k leadin zeros in decimal with %0kd
-	printf("Ihre PIN:             %04d\n", this->pin);
-	printf("Ihr Kontostand:       %17.8f %s\n", this->guthaben, WE);
+	if( this != NULL ) {
+		printf("\nKonto-/Kunden-Nummer: %010llu\n", this->ktonr); //lessons learned: k leadin zeros in decimal with %0kd
+		printf("Ihre PIN:             %04d\n", this->pin);
+		printf("Ihr Kontostand:       %17.8f %s\n", this->guthaben, WE);
+	} else {
+		printf("Das Konto kann nicht angezeigt werden oder existiert nicht. ");
+	}
+	
 }
 
 //todo: input for float, general implementation
@@ -400,11 +405,13 @@ menue_hauptmenue( bank *this ) {
 		for(i=0 ; i < this->kontenzahl; i++) {
 			kto = bank_findekonto( this, (KUNDENKONTO_PRIM+i) );
 			
-			printf("# Konto %llu", (kto->ktonr) );
-			printf("# Konto %010llu", kto->ktonr );
-			printf("hat %17.8f ", kto->guthaben );
-			printf("%s Guthaben", WE );
-			printf(", PIN %04d \n", kto->pin );
+			if ( kto != NULL ) {
+				printf("# Konto %llu", (kto->ktonr) );
+				printf("# Konto %010llu", kto->ktonr );
+				printf("hat %17.8f ", kto->guthaben );
+				printf("%s Guthaben", WE );
+				printf(", PIN %04d \n", kto->pin );
+			}
 		}
 	}
 

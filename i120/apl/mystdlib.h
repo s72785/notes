@@ -38,6 +38,7 @@ nextprime( unsigned long long x ) {
 		}
 		i++;
 	}
+	return -1;
 }
 
 int
@@ -52,6 +53,7 @@ nextlowerprime( unsigned long long x ) {
 		}
 		i++;
 	}
+	return -1;
 }
 
 int
@@ -72,23 +74,24 @@ hash( unsigned long long potentiellgrossezahl, unsigned long long oberegrenze ) 
 
 int /* rc: -1 = unknown argument, z = random number */
 intZufallszahl ( int stellen ) { /* renerate random number, avoid double ones */
-	int z;
-	int a;
+	int z = 0;
+	int a = 0;
 
-	if( stellen <= 0 ) {
+	if( stellen > 0 ) {
+
+		z=0;
+
+		srand( (unsigned)clock() );
+
+		while( z == a || z == 0 || a == 0 ) {
+			a=z;
+			z = (int)rand() % (int)pow( 10, stellen );
+		}
+
+		return z;
+	} else {
 		return -1;//error code: ungueltiges Argument
 	}
-
-	z=0;
-
-	srand( (unsigned)clock() );
-
-	while( z == a || z == 0 || a == 0 ) {
-		a=z;
-		z = (int)rand() % (int)pow( 10, stellen );
-	}
-
-	return z;
 }
 
 int

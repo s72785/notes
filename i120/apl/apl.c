@@ -34,16 +34,22 @@
 // main function - no asertions as this shall not crash
 int
 main( void ) {
-	bank *schalterbank = NULL;
-	bank_init( schalterbank, 50000.0 );
-
+	bank schalterbank;
+	bank_init( &schalterbank, 50000.0 );
+	
 //~ bank_findekonto( bank *this, unsigned long long kontonummer )
 	list *ptrlst = NULL;
 	konto *ptrkto = NULL;
 	
-	bank *this = schalterbank;
+	bank *this = &schalterbank;
+	int i;
+	for (i=0; i < BS_GROESSE; i++ )
+		this->konten[i]=NULL;
+	
 	int hash = kontohash( BARGELDKONTO );
-	ptrlst = this->konten[ hash ];
+	printf("hsh %d \n", hash );
+	ptrlst = this->konten[ 6 ];
+
 	//~ ptrlst = bank_kontoliste( &schalterbank, BARGELDKONTO );
 
 //~ printf("%d \n", ptrlst == NULL );
@@ -71,10 +77,8 @@ main( void ) {
 		ptrlst = ptrlst->next;
 	}
 
-exit(0);
-	
 	//signal( SIGINT, menue_programmbeenden() );
-	while( menue_hauptmenue( schalterbank ) );	//infty-loop, its a "Bank-OS" after all
+	while( menue_hauptmenue( &schalterbank ) );	//infty-loop, its a "Bank-OS" after all
 	//signal( SIGINT, SIG_DFL );
 	return 0;
 }

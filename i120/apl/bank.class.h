@@ -19,7 +19,7 @@
  * */
 
 typedef struct bank_t {
-	list *konten[BS_GROESSE]; // list*->data* = konto*
+	list *konten[ BS_GROESSE ]; // list*->data* = konto*, todo: limit to prime <= BS_GROESSE
 	unsigned long long neuesterkunde;
 	unsigned long long kontenzahl;
 } bank;
@@ -66,11 +66,12 @@ konto
 		konto_neuepin( kto );
 printf("kto->pin:   %d\n", kto->pin);		
 		lst = this->konten[ kontohash( this->neuesterkunde ) ];
+if(lst != NULL ){
 printf("lst:        %d\n", lst != NULL );		
 		list_anfuegeelement( lst, kto );
 printf("lst->next:  %d\n", lst -> next!=NULL );		
 printf("lst->data:  %d\n", lst -> data!=NULL );		
-		
+}		
 		this->neuesterkunde = kto->ktonr;
 		this->kontenzahl++;
 	}
