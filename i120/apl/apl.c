@@ -11,7 +11,7 @@
 // definitions for preprocessor
 #define PWD 987
 #define KTO_LAENGE 10    //10-stellige Kontonummern für 2. Teil der APL
-#define BS_GROESSE 10000 //10^4 f. 4-stellige Kontonummern im 1. Teil -> 4-stellig Hashes im 2. Teil
+#define BS_GROESSE 100   //10^2 f. 4-stellige Kontonummern im 1. Teil -> 4-stellig Hashes im 2. Teil
 #define PIN_LAENGE 4     //#define PIN_LAENGE_BIT 13
 //#define PIN_VERSUCHE 3
 #define DEBUG_PRINT 1    // debug-output 1=enabled, 0=disabled
@@ -21,8 +21,8 @@
 #define STELLEN_NKOMMA 8
 #define GUTHABEN_MIN 0.0 // min. 1 we Guthaben
 #define GUTHABEN_MAX 21000000.0	// max. Guthaben d. we
-#define KUNDENKONTO_PRIM 1000ULL // todo: 1000000000 // erstes Kundenkonto
-#define BARGELDKONTO 1000 // Konto für Bargeld der Bank
+#define KUNDENKONTO_PRIM 1000000000ULL // todo: 1000000000 // erstes Kundenkonto
+#define BARGELDKONTO 1000000000ULL // Konto für Bargeld der Bank
 
 // header files for even more structure
 #include "list.class.h"	// general functions
@@ -34,11 +34,47 @@
 // main function - no asertions as this shall not crash
 int
 main( void ) {
-	bank *schalterbank = NULL;
-	schalterbank = malloc( sizeof(bank) );
-	bank_init( schalterbank, 50000.0 );
+	bank schalterbank;
+	bank_init( &schalterbank, 50000.0 );
+
+//~ bank_findekonto( bank *this, unsigned long long kontonummer )
+	list *ptrlst = NULL;
+	konto *ptrkto = NULL;
+	
+	bank *this = &schalterbank;
+	int hash = kontohash( BARGELDKONTO );
+	ptrlst = this->konten[ hash ];
+	//~ ptrlst = bank_kontoliste( &schalterbank, BARGELDKONTO );
+
+//~ printf("%d \n", ptrlst == NULL );
+	
+	while( ptrlst != NULL ) {
+
+		printf("lst %d \n", ptrlst != NULL );
+		if(ptrlst != NULL){
+			printf("lnx %d \n", ptrlst->next != NULL );
+			printf("ldt %d \n", ptrlst->data != NULL );
+			printf("kto %d \n", ptrkto != NULL );
+			
+			ptrkto = ptrlst->data;
+			if(ptrkto != NULL){
+				printf("knr %d \n", ptrkto->ktonr != 0 );
+				printf("kgh %d \n", ptrkto->guthaben != 0.0 );
+				printf("kpn %d \n", ptrkto->pin != 0 );
+			}
+		}
+		//~ if( ptrkto->ktonr == BARGELDKONTO ) {
+			//~ printf("%d\n", ptrkto != NULL );
+		//~ }else{
+			//~ printf("X");
+		//~ }
+		ptrlst = ptrlst->next;
+	}
+
+exit(0);
+	
 	//signal( SIGINT, menue_programmbeenden() );
-	while( menue_hauptmenue( schalterbank ) );	//infty-loop, its a "Bank-OS" after all
+	while( menue_hauptmenue( &schalterbank ) );	//infty-loop, its a "Bank-OS" after all
 	//signal( SIGINT, SIG_DFL );
 	return 0;
 }

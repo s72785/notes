@@ -111,7 +111,7 @@ konto_neuepin( konto *this ) {
 }
 
 /* returns NULL on fail or an account on success */
-void
+konto
 *konto_eroeffnen( int nummer ) {
 	konto *this = NULL;
 	this = malloc( sizeof(konto) );

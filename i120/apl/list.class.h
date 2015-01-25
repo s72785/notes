@@ -47,14 +47,20 @@ void
 
 /* 0:false,1:true */
 int
-list_anfuegeelement( list *this, void *elm ) {
+list_anfuegeelement( list *this, void *elm ) {	/* add elm at end of list */
 	list *lst = NULL;
 	lst = malloc( sizeof(list) );
+
 	if( lst != NULL ) {
 		lst->next = NULL;
 		lst->data = elm;
+		if(this == NULL) {
+			this=lst;
+		} else {
+			this->next=lst;
+		}
 	}
-	if (lst == NULL){
+	if ( elm != NULL && (this == NULL || this->data == NULL ) ) {
 		return 0;
 	} else {
 		return 1;

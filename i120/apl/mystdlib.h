@@ -41,15 +41,35 @@ nextprime( unsigned long long x ) {
 }
 
 int
+nextlowerprime( unsigned long long x ) {
+	unsigned long long i = 1;
+	while( 1 ){
+		if( ( x - 1 ) <= 2 ) {
+			return 2;
+		}
+		if ( isprime( x - i ) == 1 && ( x - i ) > 1 ) {
+			return ( x - i);
+		}
+		i++;
+	}
+}
+
+int
 hash( unsigned long long potentiellgrossezahl, unsigned long long oberegrenze ) {
-	return potentiellgrossezahl % nextprime( oberegrenze ) ;
+	//switch(oberegrenze) //maybe decide for hash function on parameter basis later
+	//mid number
+	//checksum
+	//crypto
+	//primes:
+	//~ printf("\n z:%llu o:%llu p:%d h:%llu \n", potentiellgrossezahl, oberegrenze, nextlowerprime( oberegrenze ), potentiellgrossezahl % nextlowerprime( oberegrenze ));
+	return potentiellgrossezahl % nextlowerprime( oberegrenze ) ;
 }
 
 //~ int
 //~ kontohash( unsigned long long kontonummer ) {
 	//~ return hash( kontonummer, BS_GROESSE );
 //~ }
-//~ 
+
 int /* rc: -1 = unknown argument, z = random number */
 intZufallszahl ( int stellen ) { /* renerate random number, avoid double ones */
 	int z;

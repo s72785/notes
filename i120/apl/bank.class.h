@@ -25,43 +25,10 @@ typedef struct bank_t {
 	unsigned long long kontenzahl;
 } bank;
 
-/*return*/
-konto
-*bank_kontoeroeffnen( bank *this ) {
-	konto *kto = NULL;
-	kto = malloc( sizeof(konto) );
-	
-	this->neuesterkunde++;
-	this->kontenzahl++;
-
-	kto->ktonr = this->neuesterkunde;
-	kto->pin = 0;
-	kto->guthaben = 0.0;
-	kto->sperrung = eroeffnet;
-
-	konto_neuepin( kto );
-	return kto;
-}
-
-void
-bank_init( bank *this, double kapital ) {
-	konto *kto = NULL;
-	int k = 0;
-	
-	if(DEBUG_PRINT)printf("%llu\n", (KUNDENKONTO_PRIM-1) );
-
-	this->neuesterkunde = KUNDENKONTO_PRIM-1;
-	this->kontenzahl = 0;
-	
-	for(k=0; k < (BS_GROESSE-1); k++) {
-		this->konten[k] = list_erstellen();
-	}
-	
-	kto = bank_kontoeroeffnen( this );
-	kto->guthaben = kapital;
-	kto->pin = 1928;
-	
-	list_anfuegeelement( this->konten[kontohash(BARGELDKONTO)], kto );
+list
+*bank_kontoliste( bank *this, unsigned long long ktonr ) {
+	int hash = kontohash( ktonr );
+	return this->konten[hash];
 }
 
 /* returns NULL if not found */
@@ -72,7 +39,7 @@ konto
 	
 	ptrlst = this->konten[kontohash( kontonummer )];
 	
-	while( ptrlst->next != NULL && ptrlst->next->data != NULL ) {
+	while( ptrlst != NULL && ptrlst->next != NULL && ptrlst->next->data != NULL ) {
 		ptrkto = ptrlst->data;
 		if( ptrkto->ktonr == kontonummer ) {
 			return ptrkto;
@@ -80,6 +47,67 @@ konto
 	}
 	
 	return NULL;
+}
+
+/* returns NULL if it failes */ 
+ konto
+*bank_kontoeroeffnen( bank *this ) {
+	konto *kto = NULL;
+	list *lst = NULL;
+
+	kto = konto_eroeffnen( this->neuesterkunde+1 );
+	
+	if( kto != NULL ) {
+	
+		kto->ktonr = this->neuesterkunde+1;
+		kto->pin = 0;
+		kto->guthaben = 0.0;
+		kto->sperrung = eroeffnet;
+
+		konto_neuepin( kto );
+printf("kto->pin:   %d\n", kto->pin);		
+		lst = this->konten[ kontohash( this->neuesterkunde ) ];
+printf("lst:        %d\n", lst != NULL );		
+		list_anfuegeelement( lst, kto );
+printf("lst->next:  %d\n", lst -> next!=NULL );		
+printf("lst->data:  %d\n", lst -> data!=NULL );		
+		
+		this->neuesterkunde = kto->ktonr;
+		this->kontenzahl++;
+	}
+
+	return kto;
+}
+
+void
+bank_init( bank *this, double kapital ) {
+	konto *kto = NULL;
+	int k = 0;
+	
+	this->neuesterkunde = KUNDENKONTO_PRIM-1;
+	this->kontenzahl = 0;
+	
+	//~ if(DEBUG_PRINT)printf("nk %llu\n", (unsigned long long)(this->neuesterkunde) );
+	//~ if(DEBUG_PRINT)printf("kz %llu\n", (unsigned long long)(this->kontenzahl) );
+
+	for(k=0; k < (BS_GROESSE-1); k++) {
+		this->konten[k] = list_erstellen();
+		//~ if(DEBUG_PRINT){
+			//~ if (this->konten[k]->data != NULL)
+				//~ printf("-");
+			//~ else
+				//~ printf("X");
+		//~ }
+	}
+		//~ if(DEBUG_PRINT)printf("\n");
+	
+	kto = bank_kontoeroeffnen( this );
+	kto->guthaben = kapital;
+	kto->pin = 1928;
+	
+	//~ if(DEBUG_PRINT)printf("nk %llu\n", (unsigned long long)(this->neuesterkunde) );
+	//~ if(DEBUG_PRINT)printf("kz %llu\n", (unsigned long long)(this->kontenzahl) );
+
 }
 
 int
