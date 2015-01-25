@@ -11,7 +11,7 @@
 // definitions for preprocessor
 #define PWD 987
 #define KTO_LAENGE 10    //10-stellige Kontonummern für 2. Teil der APL
-#define BS_GROESSE 100   //10^2 f. 4-stellige Kontonummern im 1. Teil -> 4-stellig Hashes im 2. Teil
+#define BS_GROESSE 10   //10^2 f. 4-stellige Kontonummern im 1. Teil -> 4-stellig Hashes im 2. Teil
 #define PIN_LAENGE 4     //#define PIN_LAENGE_BIT 13
 //#define PIN_VERSUCHE 3
 #define DEBUG_PRINT 1    // debug-output 1=enabled, 0=disabled
@@ -34,14 +34,14 @@
 // main function - no asertions as this shall not crash
 int
 main( void ) {
-	bank schalterbank;
-	bank_init( &schalterbank, 50000.0 );
+	bank *schalterbank = NULL;
+	bank_init( schalterbank, 50000.0 );
 
 //~ bank_findekonto( bank *this, unsigned long long kontonummer )
 	list *ptrlst = NULL;
 	konto *ptrkto = NULL;
 	
-	bank *this = &schalterbank;
+	bank *this = schalterbank;
 	int hash = kontohash( BARGELDKONTO );
 	ptrlst = this->konten[ hash ];
 	//~ ptrlst = bank_kontoliste( &schalterbank, BARGELDKONTO );
@@ -74,7 +74,7 @@ main( void ) {
 exit(0);
 	
 	//signal( SIGINT, menue_programmbeenden() );
-	while( menue_hauptmenue( &schalterbank ) );	//infty-loop, its a "Bank-OS" after all
+	while( menue_hauptmenue( schalterbank ) );	//infty-loop, its a "Bank-OS" after all
 	//signal( SIGINT, SIG_DFL );
 	return 0;
 }

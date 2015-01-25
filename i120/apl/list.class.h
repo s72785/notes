@@ -54,11 +54,16 @@ list_anfuegeelement( list *this, void *elm ) {	/* add elm at end of list */
 	if( lst != NULL ) {
 		lst->next = NULL;
 		lst->data = elm;
-		if(this == NULL) {
-			this=lst;
-		} else {
-			this->next=lst;
-		}
+		while( this==NULL || this->next!=NULL )
+			if(this == NULL) {
+				this=lst;
+			} else {
+				if ( this->next==NULL ) {
+					this->next=lst;
+				} else {
+					this = this->next;
+				}
+			}
 	}
 	if ( elm != NULL && (this == NULL || this->data == NULL ) ) {
 		return 0;

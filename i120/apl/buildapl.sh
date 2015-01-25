@@ -6,9 +6,9 @@ fi
 cat err | wc
 if [ $(cat err|wc -w) -eq 0 ]; then
 	./apl
-	if [ $? -ne 0 ]; then
-		gdb ./apl
-	fi
+	#~ if [ $? -ne 0 ]; then
+		#~ gdb ./apl
+	#~ fi
 else
 	less err
 fi
