@@ -12,17 +12,41 @@ Modul | V/Ü/P/S | PVL | Prüfung
 
 Modul Nr. / Modulbezeichnung      | Tag      | Zeit          | Bewertung
 --------------------------------- |---------:|:-------------:|:---------:
-I-120 Programmierung (APL1)       | 15.12.14 | Vorführen     | bestanden
-S-411 English (Dokumentation)     | 19.12.14 | Abgabe        | 
-S-411 English (60min. written)    | 07.01.15 | 07:30 - 09:00 | 
-S-411 English (Sprachpraxis)      | 15.01.15 | 09:10 - 10:40 | 
-I-130 Betriebssysteme I (Beleg)   | 20.01.15 | Vorführen     | 
-I-120 Programmierung (APL2)       | 26.01.15 | Abgabe        | 
+I-120 Programmierung I (APL1)     | 15.12.14 | Vorführen     | bestanden
+S-411 English (Dokumentation)     | 19.12.14 | Abgabe        | abgegeben
+S-411 English (60min. written)    | 07.01.15 | 07:30 - 09:00 | bestanden
+S-411 English (Sprachpraxis)      | 15.01.15 | 09:10 - 10:40 | bestanden
+I-130 Betriebssysteme I (Beleg)   | 20.01.15 | Vorführen     | abgelegt
+S-411 English (Feedback Session)  | 21.01.15 | 07:30 - 09:00 | 
+I-120 Programmierung I (APL2)     | 26.01.15 | Abgabe        | 
 I-480 Wirtschaftsmathematik I     | 02.02.15 | 07:30 - 10:30 | 
 I-120 Programmierung I            | 04.02.15 | 16:30 - 18:30 | 
 I-110 Grundlagen der Informatik I | 06.02.15 | 12:30 - 14:00 | 
 I-130 Betriebssysteme I           | 10.02.15 | 12:00 - 13:30 | 
 I-470 BWL 1                       | 13.02.15 | 13:00 - 14:30 | 
+
+### Wertungen
+
+Modul Nr. / Modulbezeichnung      | Bewertung
+:---------------------------------|:----------
+ **1. Semester**                  |
+----------------------------------|-----------
+I-110 Grundlagen der Informatik I | 
+I-120 Programmierung I (APL1)     | 
+I-130 Betriebssysteme I           | 
+I-480 Wirtschaftsmathematik I     | 
+I-470 Allgemeine BWL              | 
+S-411 English B2                  | ?
+----------------------------------|----------
+<!--
+quelle: http://www2.htw-dresden.de/~rawa/cgi-bin/pr_abfrage.php
+
+7400 (INF/M)	042	2014/1.	B/D	 	I-480 Wirtschaftsmathematik I	SP	02.02.	7:30 - 10:30	Z 254/ S 325/ S 327/ S 315	 Voß-Böhme	
+7400 (INF/M)	042	2014/1.	B/D	 	I-120 Programmierung I	SP	04.02.	16:30 - 18:30	S 239/ Z 254	 Hollas	
+7400 (INF/M)	042	2014/1.	B/D	 	I-110 Grundlagen der Informatik I	SP	06.02.	12:30 - 14:00	Z 254/ S 227/ S 228	 Nestler	SS 2015
+7400 (INF/M)	042	2014/1.	B/D	 	I-130 Betriebssysteme I	SP	10.02.	12:00 - 13:30	S 239/ Z 254	 Fritzsche	SS 2015
+7400 (INF/M)	042	2014/1.	B/D	 	I-470 Allg. Betriebswirtschaftslehre (BWL 1)	SP	13.02.	13:00 - 14:30	S 331/ S 409	 Grüning	
+-->
 
 
 <!-- 
