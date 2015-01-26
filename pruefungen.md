@@ -38,6 +38,16 @@ I-480 Wirtschaftsmathematik I     |
 I-470 Allgemeine BWL              | 
 S-411 English B2                  | ?
 ----------------------------------|----------
+<!--
+quelle: http://www2.htw-dresden.de/~rawa/cgi-bin/pr_abfrage.php
+
+7400 (INF/M)	042	2014/1.	B/D	 	I-480 Wirtschaftsmathematik I	SP	02.02.	7:30 - 10:30	Z 254/ S 325/ S 327/ S 315	 Voß-Böhme	
+7400 (INF/M)	042	2014/1.	B/D	 	I-120 Programmierung I	SP	04.02.	16:30 - 18:30	S 239/ Z 254	 Hollas	
+7400 (INF/M)	042	2014/1.	B/D	 	I-110 Grundlagen der Informatik I	SP	06.02.	12:30 - 14:00	Z 254/ S 227/ S 228	 Nestler	SS 2015
+7400 (INF/M)	042	2014/1.	B/D	 	I-130 Betriebssysteme I	SP	10.02.	12:00 - 13:30	S 239/ Z 254	 Fritzsche	SS 2015
+7400 (INF/M)	042	2014/1.	B/D	 	I-470 Allg. Betriebswirtschaftslehre (BWL 1)	SP	13.02.	13:00 - 14:30	S 331/ S 409	 Grüning	
+-->
+
 
 <!-- 
 [I121]( "Programmierung II Programming II") 	Pflichtmodul 	5 	
