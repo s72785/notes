@@ -1,0 +1,28 @@
+\documentclass[10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{pgf,tikz}
+\usetikzlibrary{arrows}
+\pagestyle{empty}
+\begin{document}
+\definecolor{uququq}{rgb}{0.25,0.25,0.25}
+\definecolor{qqqqzz}{rgb}{0,0,0.6}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\draw[->,color=black] (-4.65,0) -- (21.58,0);
+\foreach \x in {-4,-2,2,4,6,8,10,12,14,16,18,20}
+\draw[shift={(\x,0)},color=black] (0pt,2pt) -- (0pt,-2pt) node[below] {\footnotesize $\x$};
+\draw[->,color=black] (0,-5.18) -- (0,7.08);
+\foreach \y in {-4,-2,2,4,6}
+\draw[shift={(0,\y)},color=black] (2pt,0pt) -- (-2pt,0pt) node[left] {\footnotesize $\y$};
+\draw[color=black] (0pt,-10pt) node[right] {\footnotesize $0$};
+\clip(-4.65,-5.18) rectangle (21.58,7.08);
+\draw[color=qqqqzz, smooth,samples=100,domain=-4.646610638101985:21.58482744083992] plot(\x,{0-2*(\x)+3});
+\draw (0.01,3.26) node[anchor=north west] {(0,3)};
+\draw (1.5,0.27) node[anchor=north west] {(\textbackslash frac{3}{2},0)};
+\begin{scriptsize}
+\fill [color=uququq] (1.5,0) circle (1.5pt);
+\draw[color=uququq] (1.68,0.29) node {$A$};
+\fill [color=uququq] (0,3) circle (1.5pt);
+\draw[color=uququq] (0.19,3.28) node {$B$};
+\end{scriptsize}
+\end{tikzpicture}
+\end{document}
