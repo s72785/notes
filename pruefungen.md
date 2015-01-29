@@ -10,15 +10,16 @@ Modul | V/Ü/P/S | PVL | Prüfung
 
 ### Termine
 
-Modul Nr. / Modulbezeichnung      | Tag      | Zeit          | Bewertung
---------------------------------- |---------:|:-------------:|:---------:
-I-120 Programmierung I (APL1)     | 15.12.14 | Vorführen     | n.bewertet<!-- Note: 15/15pt, nachträglich nicht gewertet weil Prof. den Prüfungsablauf für juristisch zweifelhaft beuteilt hatte -->
-S-411 English (Dokumentation)     | 19.12.14 | Abgabe        | abgegeben
-S-411 English (60min. written)    | 07.01.15 | 07:30 - 09:00 | bestanden<!-- Note: 1,3 -->
-S-411 English (Sprachpraxis)      | 15.01.15 | 09:10 - 10:40 | bestanden
-I-130 Betriebssysteme I (Beleg)   | 20.01.15 | Vorführen     | abgelegt
-S-411 English (Feedback Session)  | 21.01.15 | 07:30 - 09:00 | abgelegt<!-- (Note: 1,0, gem. mit Sprachpraxis u. Dokmentation) -->
-I-120 Programmierung I (APL2)     | 26.01.15 | Abgabe        | abgegeben
+Modul Nr. / Modulbezeichnung      | Tag      | Zeit          | Bewertung  | Bemerkung
+:-------------------------------- | --------:|:-------------:|:----------:|:---------
+I-110 Grundlagen der Informatik I | 30.01.15 | Abgabe        | n.bewertet | Zugangsberechtigung zur Prüfung
+I-120 Programmierung I (APL1)     | 15.12.14 | Vorführen     | n.bewertet | Note: 15/15pt (30%, nachträglich nicht gewertet weil Prof. den Prüfungsablauf für juristisch zweifelhaft beuteilt hatte)
+S-411 English (Dokumentation)     | 19.12.14 | Abgabe        | abgegeben  | k.A.
+S-411 English (60min. written)    | 07.01.15 | 07:30 - 09:00 | bestanden  | Note: 1,3 (25%)
+S-411 English (Sprachpraxis)      | 15.01.15 | 09:10 - 10:40 | bestanden  | k.A.
+I-130 Betriebssysteme I (Beleg)   | 20.01.15 | Vorführen     | abgelegt   | Zugangsberechtigung zur Prüfung
+S-411 English (Feedback Session)  | 21.01.15 | 07:30 - 09:00 | abgelegt   | Note: 1,0 (25% Projektarbeit gem. mit Sprachpraxis, Dokmentation, Feedbackgespr.)
+I-120 Programmierung I (APL2)     | 26.01.15 | Abgabe        | abgegeben  | Note: ? (Vorab nicht angekündigte 2. APL, mehrfach veränderte Aufgabenstellung)
 I-480 Wirtschaftsmathematik I     | 02.02.15 | 07:30 - 10:30 | 
 I-120 Programmierung I            | 04.02.15 | 16:30 - 18:30 | 
 I-110 Grundlagen der Informatik I | 06.02.15 | 12:30 - 14:00 | 
@@ -31,31 +32,51 @@ I-470 BWL 1                       | 13.02.15 | 13:00 - 14:30 |
 https://apps.htw-dresden.de/index.php
 -->
 
-Modul Nr. / Modulbezeichnung               | Bewertung
-:------------------------------------------|:----------
- **1. Semester**                           |
-I-110 Grundlagen der Informatik I          | 
-I-120 Programmierung I                     | 
-I-130 Betriebssysteme I                    | 
-I-480 Wirtschaftsmathematik I              | 
-I-470 Allgemeine BWL                       | 
-S-411 English B2 I                         | ?
- **1. Semester**                           |
-I-121 Programmierung II                    | 
-I-140 Datenbanksysteme I                   | 
-I-410 Grundlagen der Wirtschaftsinformatik | 
-S-411 Englisch B2 II                       | 
-I-472 Buchführung und Abschluss            |
-I-481 Wirtschaftsmathematik II             | 
-W-922 Produktionswirtschaft                | 
- **2. Semester**                           |
-I-141 Datenbanksysteme II                  | 
-I-150 Software Engineering I               | 
- **3. Semester**                           |
- **4. Semester**                           |
- **5. Semester**                           |
--------------------------------------------|----------
-
+ Modul Nr. | Modulbezeichnung                     | Credits | Bewertung
+ ---------:|:------------------------------------ | -------:|:----------
+           | **1. Semester**                      |  **30** | 
+ I-110     | Grundlagen der Informatik I          |      5  | 
+ I-120     | Programmierung I                     |      5  | (3/10)(?) + (7/10)(?)
+ I-130     | Betriebssysteme I                    |      5  | 
+ I-480     | Wirtschaftsmathematik I              |      7  | 
+ I-470     | Allgemeine BWL                       |      5  | 
+ S-411     | English B2 I                         |      3  | (1/4)(1,0 + 1,3)
+           | **2. Semester**                      |  **29** |
+ I-121     | Programmierung II                    |      5  | 
+ I-140     | Datenbanksysteme I                   |      4  | 
+ I-410     | Grundlagen der Wirtschaftsinformatik |      4  | 
+ S-411     | Englisch B2 II                       |      3  | 
+ I-472     | Buchführung und Abschluss            |      4  | 
+ I-481     | Wirtschaftsmathematik II             |      5  | 
+ W-922     | Produktionswirtschaft                |      4  | 
+           | **3. Semester**                      |  **31** | 
+ I-141     | Datenbanksysteme II                  |      5  | 
+ I-150     | Software Engineering I               |      4  | 
+ I-160     | Rechnernetze/Kommunikationssysteme   |      5  | (3/10)(?) + (7/10)(?)
+ I-478     | Betriebliche Standardtools           |      3  | 
+ I-485     | Statistik                            |      5  | 
+ W-909     | Kosten- und Leistungsrechnung        |      4  | 
+ W-912     | Betriebliche Steuerlehre             |      5  | 
+           | **4. Semester**                      |  **29** | 
+ I-151     | Software Engineering II              |      5  | 
+ I-165     | Internet-Technologien I              |      3  | (3/10)(?) + (7/10)(?)
+ I-175     | Informatikrecht                      |      2  |
+ I-440     | Business Intelligence                |      5  | 
+ I-441     | Betriebliche Informationssysteme I   |      5  | 
+ I-450     | Geschäftsprozessmodellierung         |      4  | (4/10)(?) + (6/10)(?)
+           | Wahlpflicht-Block                    |      4  | 
+           | **5. Semester**                      |  **31** | 
+ I-442     | Betriebliche Informationssysteme II  |      5  | (3/10)(?) + (7/10)(?)
+ I-455     | Informationsmanagement I             |      4  | 
+ I-465     | Entwicklung Webbasierter Anwendungen |      5  | (3/10)(?) + (7/10)(?)
+ I-490     | Projektseminar                       |      5  | 
+ W-908     | Managementtechniken                  |      4  | 
+ W-911     | Marketing                            |      3  | 
+           | Wahlpflicht-Block                    |      4  | 
+           | **6. Semester**                      |  **30** | 
+           | Bachelorarbeit                       |     12  |
+ I-190     | Praxisprojekt                        |     18  | 
+ 
 <!--
 quelle: http://www2.htw-dresden.de/~rawa/cgi-bin/pr_abfrage.php
 
