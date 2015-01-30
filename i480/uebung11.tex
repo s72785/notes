@@ -29,7 +29,7 @@
 
 \begin{center}{\large\textbf Wirtschaftsmathematik I} \\ WS 2014/15 \end{center}
 
-\begin{center}{\large\textbf Übung 11 } 
+\begin{center}{\large\textbf{Übung 11}} 
 \end{center}
 
 
@@ -37,35 +37,41 @@
 
 %## Rentenrechnung
 
-R_n = R \frac{q^n-1}{q-1}, q=1+i
+
+$R_n = R \frac{q^n-1}{q-1}, q=1+i$
 
 allg.
 
-K_n = k_0 q^n - R \frac{q^n-1}{q-1}
+$K_n = k_0 q^n - R \frac{q^n-1}{q-1}$
 
-Spezialfall: K_n = 0
+Spezialfall: $K_n = 0$
 
-q^nK_0 = R \frac{q^n-1}{q-1}
+$q^n K_0 = R \frac{q^n-1}{q-1}$
 
 Tilgung:
 
-S_n = S q^n - A \frac{q^n-1}{q-1}
+$S_n = S q^n - A \frac{q^n-1}{q-1}$
 
 \begin{enumerate}
 %1.
 \item
 
-Herr A ab 01.01.2012 pro Jahr 1200 € einzahlen bis 01.01.2022 (10y).
-i = 6\%
+Herr A ab 01.01.2012 pro Jahr 1200\,EUR einzahlen bis 01.01.2022 (10y).
+$i = 6\%$
 
-ges.: Endbetrag 2022 = R_10
+ges.: Endbetrag $2022 = R_10$
 
-1.1.12 +1200
-1.1.13 +1200 + 6\%*1200
-1.1.14 +1200 + 6\%*(2400 + 6\%*1200)
 
-R_10 = 1200 \frac{1,06^10-1}{0,06} = 15816,95
+1.1.12 $+1200$
+
+1.1.13 $+1200 + 6\%*1200$
+
+1.1.14 $+1200 + 6\%*(2400 + 6\%*1200)$
+
+$
+R_10 = 1200 \frac{1,06^10-1}{0,06} = 15816,95 \\
 Z = R_10 - 10*1200 = 3816,95
+$
 
 %2.
 \item
@@ -73,15 +79,16 @@ Z = R_10 - 10*1200 = 3816,95
 Frau B. ab 1.1. jährlich am Ende des Jahres
 100 EUR bis zum 18. Geb. (18y) bei Zins v. 5\%
 
-R_18 = 100 \frac{1,05^18-1}{0,05} = 2813,24
+$R_18 = 100 \frac{1,05^18-1}{0,05} = 2813,24$
 
-R_18 = 10000 = R \frac{1,05^18-1}{0,05}
-R = 10000 frac{0,05}{1,05^18-1} = 355,46
+$R_18 = 10000 = R \frac{1,05^18-1}{0,05}$
+
+$R = 10000 frac{0,05}{1,05^18-1} = 355,46$
 
 %3.
 \item
 
-Herr C. am 01.01.2015 300.000,00 , i=8\%, setzt sich zur Ruhe
+Herr C. am 01.01.2015 300.000,00 ,$ i=8\% $, setzt sich zur Ruhe
 
 \begin{enumerate}
 
@@ -90,33 +97,35 @@ Herr C. am 01.01.2015 300.000,00 , i=8\%, setzt sich zur Ruhe
 
 Restbetrag am 1.1.2024
 
-K_9 = 300.000 1,08^9 - 36.000 \frac{1,08^9 - 1}{0,08} = 150.149,31
+$K_9 = 300.000 1,08^9 - 36.000 \frac{1,08^9 - 1}{0,08} = 150.149,31$
 
 %b
 \item
 
 20 Jahre lang konstanten Betrag abheben -> welchen?
 
-R = 300.000 1,08^20 \frac{0,08}{1,08^20 - 1} = 30.555,65
+$R = 300.000 1,08^20 \frac{0,08}{1,08^20 - 1} = 30.555,65$
 
 %c
 \item
 
-K_10 = 300.000 1,08^10 - 30.555,65 \frac{1,08^10 - 1}{0,08} % = 205.031,17
+$
+K_10 = 300.000 1,08^10 - 30.555,65 \frac{1,08^10 - 1}{0,08} % = 205.031,17 \\
 R = K_10 1,04^10 \frac{0,04}{1,04^10 - 1} = 25.278,50
+$
 
 \end{enumerate}
 
 %4.
 \item
 
-Kredit über 10.000, i=10\%, 
+Kredit über $10.000, i=10\%$, 
 
 \begin{enumerate}
 %a
 \item in 10y in Ratentilgung
 
-Tilgung T = \frac{S}{n} = 10.000 / 10 = 1.000
+Tilgung $T = \frac{S}{n} = 10.000 / 10 = 1.000$
 
 Tilgungsplan mit Ratentiltung
 \begin{tabular}{rrrrr}
@@ -138,8 +147,10 @@ Jahr	& Schuld	& Rate	& Tilgung	& Zinsteil \\
 
 konstante Annuität = Zins + Tilgung
 
-S_5 = 10.000 q^5 - A \frac{1,1^5-1}{0,1}, S_5=0
+$
+S_5 = 10.000 q^5 - A \frac{1,1^5-1}{0,1}, S_5=0	\\
 A = 10.000 q^5 \frac{0,1}{1,1^5-1} = 2637,97
+$
 
 Tilgungsplan
 \begin{tabular}{rrrrr}
@@ -163,19 +174,23 @@ monatl. Raten 300, i=0,5\% p.m.
 %a
 \item
 
-300 = 10.000 \frac{1,005^n(1,005-1)}{1,005^n-1}
-\frac{300}{10.000} (1,005^n-1) = 1,005^n(1,005-1)
-6 * 1,005^n - 6 = 1,005^n
-(6-1) * 1,005^n  = 6
-{1,005^n}{ln 1,005^n}=\frac{6}{5}
+$
+300 = 10.000 \frac{1,005^n(1,005-1)}{1,005^n-1}	\\
+\frac{300}{10.000} (1,005^n-1) = 1,005^n(1,005-1)	\\
+6 * 1,005^n - 6 = 1,005^n	\\
+(6-1) * 1,005^n  = 6	\\
+{1,005^n}{ln 1,005^n}=\frac{6}{5}	\\
 n = frac{ln(\frac{6}{5})}{ln(1,005)} = 36,56 => Laufzeit 37 Monate
+$
 
 %b
 \item in 24 Monaten
 
-300 = S \frac{1,005^24(0,005)}{1,005^24-1}
-S = 300 \frac{1,005^24-1}{1,005^24(0,005)} = 6.768,86
+$
+300 = S \frac{1,005^24(0,005)}{1,005^24-1}	\\
+S = 300 \frac{1,005^24-1}{1,005^24(0,005)} = 6.768,86	\\
 \Rightarrow Sonderzahlung = 3.231,14
+$
 
 %c
 \item 2.200 sofort, 24 Raten a 300
@@ -185,8 +200,9 @@ S = 300 \frac{1,005^24-1}{1,005^24(0,005)} = 6.768,86
 %d
 \item Wie große wäre die Restschuld von Familie F. nach 4 Jahren / Monaten, wenn sich beide Seiten auf Ratentilgung mit einer Laufzeit von 20 Monaten einigen?
 
-Ratentilgung T_{n+1}=T_{n} = 10.000/20
-Restschuld = (20-4)*500 = 8.000
+
+Ratentilgung $T_{n+1}=T_{n} = 10.000/20$
+Restschuld $= (20-4)*500 = 8.000$
 
 
 \end{enumerate}
