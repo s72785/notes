@@ -18,6 +18,11 @@
 \newcommand{\R}{\mathds{R}}
 \pagestyle{headings}
 
+%bilder einfuegen
+\usepackage{multirow}
+\usepackage{tikz}
+\usetikzlibrary{calc,decorations.markings}
+
 
 \newcommand{\Lsg}{\textbf{Lsg.:}}
 
@@ -40,19 +45,21 @@
 %1.
 \item
 
-$
-1m + 2 \cdot \frac{4}{5} + 2 \cdot \frac{4}{5}^2
+$1 + \Sigma_{l=1}^{\infty} 2 \cdot 0,8^l \ldots \\
+ = 1 + 2 \cdot ( \Sigma_{n=0}^{\infty} \frac{4}{5}^n - 0,8^0 ) \\
+= 1 + 2 \cdot ( \frac{n}{1-0,8} - 1 )$, \\
+weil  $\Sigma_{n=0}^{\infty} q^n = \frac{1}{1-q}, |q| < 1 \\
+= 1 + 2 \cdot ( 5 - 1 ) \\
+= 9 [m]
 $
 
 $=
 $
 
-$\Sigma_{l=1}^{\infty} 2 * 0,8^n
- = 1 + 2 \cdot ( \Sigma_{l=0}^{\infty} \frac{4}{5}^n - 0,8^0 )
-= 1 + 2 \cdot ( \frac{1}{1-0,8} - 1 ), weil  \Sigma_{l=0}^{\infty} q^n = \frac{1}{1-q}, |q| < 1
-= 1 + 2 \cdot ( 5 - 1 )
-= 9 [m]
 $
+1m + 2 \cdot \frac{4}{5} + 2 \cdot \frac{4}{5}^2 \ldots
+$
+
 
 %2.
 
@@ -61,7 +68,12 @@ $
 \begin{enumerate}
 
 \item
+
+
 $f(x) = x$		Diagonale von links unte nach rechts oben
+
+%[width=0.9\linewidth, height=0.95\textheight]
+%\includegraphics{gph_betrag-x}\captionof{figure}{Kreis}\label{$f(x)=|x|$} 
 
 $g(x) = |x|$		Spiegelung an x-Achse für $x<0$
 
@@ -205,12 +217,21 @@ Max: $(0,1)$
 
 $f(x)=sin^2(x)$
 
-Max: ${\pi}{2}+\pi k, k \in \Z$
+$k \in \Z$ \\
+Max: ${\pi}{2}+\pi k, k \in \Z$ \\
 Min: $\pi k , k \in \Z$
 
 \item
 
 $\frac{1}{1+cos^2(x)}$
+
+$k \in \Z$ \\
+Min: $( k \pi, \frac{1}{2} )$ \\
+Max: $( \frac{\pi}{2} + k \pi, 1 )$
+
+\item
+
+
 
 \end{enumerate}
 

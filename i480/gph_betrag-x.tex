@@ -1,9 +1,13 @@
 \documentclass[10pt]{article}
+
 \usepackage{pgf,tikz}
 \usetikzlibrary{arrows}
-\pagestyle{empty}
+%\pagestyle{empty}
+
 \begin{document}
 \definecolor{qqqqzz}{rgb}{0,0,0.6}
+
+\begin{varwidth}{\linewidth} 
 \begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
 \draw[->,color=black] (-2.25,0) -- (2.25,0);
 \foreach \x in {-2,2}
@@ -15,4 +19,5 @@
 \clip(-2.25,-0.5) rectangle (2.25,3.5);
 \draw[color=qqqqzz, smooth,samples=100,domain=-2.25:2.25] plot(\x,{abs((\x))});
 \end{tikzpicture}
+\end{varwidth}
 \end{document}
