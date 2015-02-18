@@ -23,17 +23,24 @@
 
 a) Bilanzanalyse
 
+Gewinn = Umsatz - Kosten 
+
 - Gewinnvortrag ist hälftig Eigenkapital = 1.800,00 EUR
+
+Gewinn = Gewinnvortrag 31.12.
+Ges.Kapital = Rechte Bilanzseite - Gewinnvortrag/2
 
 (EK-)Rentabilität: 
 	EigenKapital-Rentabilität: Gewinn/EK = Gewinnvortrag / (Gewinnvortrag/2 + GezKapital + KapitalRuecklagen ) = 3.600,00 / ( 1800 + 30.000,00 + 10.000,00 ) = 8,61%
-	GesantKapital-Rentabilität: Gewinn/GK = Gewinnvortrag / = 3.600,00 / 63.700,00 = 5,7%
+	GesamtKapital-Rentabilität: Gewinn/GK (GV/2 + Rest) = Gewinnvortrag / = 3.600,00 / 63.700,00 = 5,65%
+
 Liquidität: 
 	L1(Barmittel) = Kassenbestand + Bankkonten / KurzfrVerb + LieferantenKred = 4300 / 1900 = 226%
-	L2(MonUmlaufvermügen) = Kassenbestand + Bankkonten + Forderungen / KurzfrVerb + LieferantenKred = 4300 + 200 / 1900 = 237%
-	L3 = Kassenbestand + Bankkonten + Forderungen + Materiallager = 4300 + 200 + 9000 / 1900 = 711%
+	L2(Monet.Umlaufvermögen) = Kassenbestand + Bankkonten + ForderungenLL / KurzfrVerb + LieferantenKred = (4300 + 200) / 1900 = 237%
+	L3 = Kassenbestand + Bankkonten + ForderungenLL + Materiallager / KurzfrVerb + LieferantenKred = (4300 + 200 + 9000) / 1900 = 711%
+
 Eigenfinanzierungsgrad:
-	= EK / GK = 43.600,00 / 63.700 = 83%
+	= EigK / GesK = (GezKap + KapRueckl + GewVortr) / GesK = 43.600,00 / 63.700 = 83%
 
 b) Würden Sie diesem Unternehmen einen langfristigen Kredit in Höhe von 15.000 € gewähren?
 
@@ -41,15 +48,21 @@ Hier wäre Vorsicht geboten:
 - wenig Umlaufvermögen im Vergleich zu Lagerbeständen
 - eher geringe GK-Rentabilität
 
-c) 
+c) Welche Merkmale würden Sie neben der Bilanz in diesem Fall noch untersuchen?
 
 - Kreditwürdigkeit
 - Investitionsobjekt
 - vertragliche Sicherheiten / Auftragslage
-- Zinssatz
+- aktueller Zinssatz
 - Situation in Region / Branche
 
-3.
+3. Stellen Sie die OHG,
+GmbH und AG bezüglich
+- der Möglichkeit der Eigenkapitalerhöhung,
+- der Geschäftsführung und
+- der Gültigkeit gesetzlicher Vorgaben
+gegenüber.
+
 
 					|	OHG						GmbH				AG
 --------------------|--------------------------------------------------------------------------
@@ -71,7 +84,7 @@ Gsetzl. Vorgaben	|	BGB						BGB					BGB
 
 a) Matrix-Orga
 
-				| ProdMgr		Mgr Depot		OnTheRoad
+				| ProdMgr WW		Mgr Depot		OnTheRoad
 ----------------|-|--------------|----------------|--------------
 -Einkauf		|-[EK Prof]				
 -Prog			| [EK Dep]						
@@ -85,7 +98,7 @@ b) Probleme
 
 Diener zweier Herren sind weniger Effizient
 -Aufgaben können sich sehr ähneln
--Doppelte Arbeit kann die Folge sein
+-Doppelte Arbeit o. Inkonsequenz kann die Folge sein
 -Abstimmungsprobleme
 Bsp. Programmierteam
 
@@ -95,8 +108,15 @@ c) Unternehmensweit als Linienorganisation:
 - Personal - PersonalMgmt soll von Unternehmensbereichen getrennt sein
 - Einkauf - Lastverteilung innerhalb einer geschl. Abteilung
 
+Eher Matrix:
+Marketing
+Support - ein Anlaufpunkt, aber spezialisierte Stellen
+Vertrieb
+Programmierung - zentrales Management aber Teams/Entwicklungsbereiche trennen
 
 5.
+
+a)
 
 Merkmale			| Wichtung (1-+>5)
 --------------------|--------
@@ -112,5 +132,54 @@ Rechtskenntnisse	| 3
 Entscheidunsfreude	| 4
 Verantwortungsbew.	| 5
 
+b)
+
+- Bewerbungsanalyse
+- Assessment Center
+- Bewerbungsgespräch
+
 6.
 
+a)
+
+- Abgrenzung des Aufgabenbereiches
+- Orientierung für Gehaltsberechnung
+- Grundlage für Personalgespräche
+
+b)
+
+- Unterstellung: Wem ist die Stelle übergeordnet
+- Überstellung: Welche Stellen sind hier untergeodnet, auch ggf. Fachfremde
+- Tätigkeitsbeschreibung: Hauptaufgabe, Nebenaufgaben, Kompetenzen, Pflichten, Anforderungen, Zusammenarbeit mit anderen Stellen
+- Weiterbildungsmöglichkeiten: Ausbildungsart,-höhe,-häufigkeit,-budget
+- Leistungskriterien: Messpunkte für Leistingsfeststellungen
+- Entscheidungsbefugnisse: Welche Entscheidungen dürfen im eigenen Bereich gefällt werden, wofür muss mit anderen koordiniert werden
+
+7.
+
+Bedingungen		Entscheidungsmatrix
+				0	1	2	3	4	5	6	7
+Konto-Deckung	0	0	0	0	1	1	1	1
+Skonto >=2%		0	0	1	1	0	0	1	1
+Skonto <2%		0	1	0	1	0	1	0	1
+
+Handlungen im Zeitraum Skonto-Zahlung - ein BKT vor Fälligkeit:
+Zahlung aussetzen	0,1,2,3,4,7
+Betrag berechnen	5,6
+T-Zahlung anweisen	5,6
+
+
+8.
+
+9.
+
+a)
+
+Ein Unternehmen ist von seiner Umgebung abhängig. Unter anderem von Lieferanten und Kunden. Daher ist es auch über die reine Geschäftsbeziehung hinaus förderlich, eine gute Beziehung zur Umgebung zu unterhalten. Dies geschieht aufgrund gemeinsamer Normen und Werte, die auf Basis einer Ethik direkt zu konkreten Handlungen und indirekt zu erwünschten bzw. dem Ausbleiben unerwünschter Gegenreaktionen führen.
+
+b)
+
+Mitarbieter
+Lieferanten
+Soziale Peer-Groups im Umfeld (u.a. Vereine)
+Konkurrenten

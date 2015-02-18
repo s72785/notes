@@ -7,7 +7,7 @@ ablaufpläne, pseudocode
 
 rabattaufgabe, kfz (A 1,2)
 
-rekursion, ietration
+rekursion, itration
 
 listen, stack verktoren, queue
 binäre bäume (aufbau durchlauf, preorder, inorder, postorder)
