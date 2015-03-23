@@ -3,10 +3,20 @@ notes
 
 just notes of lectures I attended or am interested in. additional information in index.md-files.
 
-1. Semester
------------
+2. Semester
 
-**Pflichtmodule**
+[i121 - ](i121/index.md)
+
+* keine Übungen in 12.KW
+
+[PW]()
+
+* Ausfall von V u. Pr in 13.KW
+
+-----------------------------------------------------
+
+1. Semester - [6/6 bestanden](pruefungen.md)!
+-----------
 
 [i110 - Grundlagen der Informatik I](i110/index.md)
 
