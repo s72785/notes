@@ -9,11 +9,11 @@ Modul | V/Ü/P/S | PVL | Prüfung
 [I480](i480/index.md "Wirtschaftsmathematik I (WiMa1) / Mathematics") | 4/2/0 | Übung | SP
 [S411](s411/index.md "Englisch B2 (IIb/d: I-285, IWb/d: I-185, IMb/d: I-385) / English B2") | 0/3/0 | 2x APL(ProjArb, Test) | -
 [I121](i121/index.md "Programmierung I / Programming II")  | 2/0/2 | APL1, SP1
-[I140](i140/index.md) "Datenbanksysteme I (DBS I)" | 2/0/2 |  PVL, SP1
-[I410](i410/index.md) "Grundlagen der Wirtschaftsinformatik" | 2/1/0 | SP1
-[I472](i472/index.md) "Buchführung und Abschluss" | 2/1/0 | SP1
-[I481](i481/index.md) "Wirtschaftsmathematik II (WiMa2)" | 2/2/0 | SP1
-[W922](w922/index.md) "Produktionswirtschaft (BWL 2)" | 2/1/0 | PVL, SP1
+[I140](i140/index.md "Datenbanksysteme I (DBS I)") | 2/0/2 |  PVL, SP1
+[I410](i410/index.md "Grundlagen der Wirtschaftsinformatik") | 2/1/0 | SP1
+[I472](i472/index.md "Buchführung und Abschluss") | 2/1/0 | SP1
+[I481](i481/index.md "Wirtschaftsmathematik II (WiMa2)") | 2/2/0 | SP1
+[W922](w922/index.md "Produktionswirtschaft (BWL 2)") | 2/1/0 | PVL, SP1
 
 Semester | Kurse | Prüfungen | Bestanden
 :-------:|:-----:|:---------:|:---------:
