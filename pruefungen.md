@@ -3,11 +3,22 @@
 Modul | V/Ü/P/S | PVL | Prüfung
  ---- | ------- | --- | -------
 [I110](i110/index.md "Grundlagen der Informatik I") | 2/2/0 | PVL | SP
-[I120](i120/index.md "Programmierung I Programming I") | 2/1/2 | APL | SP	 	 	 	 	 
-[I130](i130/index.md "Betriebssysteme I Operating Systems I") | 2/0/2 | PVL | SP
-[I470](i470/index.md "Allgemeine Betriebswirtschaftslehre (BWL 1)") | 3/1/0 | - | SP
-[I480](i480/index.md "Wirtschaftsmathematik I (WiMa1)") | 4/2/0 | Übung | SP
-[S411](s411/index.md "Englisch B2 (IIb/d: I-285, IWb/d: I-185, IMb/d: I-385) English B2") | 0/3/0 | APL(ProjArb, Test) | -
+[I120](i120/index.md "Programmierung I / Programming I") | 2/1/2 | APL | SP	 	 	 	 	 
+[I130](i130/index.md "Betriebssysteme I / Operating Systems I") | 2/0/2 | PVL | SP
+[I470](i470/index.md "Allgemeine Betriebswirtschaftslehre (BWL 1) / Economics") | 3/1/0 | - | SP
+[I480](i480/index.md "Wirtschaftsmathematik I (WiMa1) / Mathematics") | 4/2/0 | Übung | SP
+[S411](s411/index.md "Englisch B2 (IIb/d: I-285, IWb/d: I-185, IMb/d: I-385) / English B2") | 0/3/0 | 2x APL(ProjArb, Test) | -
+[I121](i121/index.md "Programmierung I / Programming II")  | 2/0/2 | APL1, SP1
+[I140](i140/index.md) "Datenbanksysteme I (DBS I)" | 2/0/2 |  PVL, SP1
+[I410](i410/index.md) "Grundlagen der Wirtschaftsinformatik" | 2/1/0 | SP1
+[I472](i472/index.md) "Buchführung und Abschluss" | 2/1/0 | SP1
+[I481](i481/index.md) "Wirtschaftsmathematik II (WiMa2)" | 2/2/0 | SP1
+[W922](w922/index.md) "Produktionswirtschaft (BWL 2)" | 2/1/0 | PVL, SP1
+
+Semester | Kurse | Prüfungen | Bestanden
+:-------:|:-----:|:---------:|:---------:
+1.       | 6     | 6         | 6
+2.       | 7     | 7         |
 
 ### Termine
 
@@ -23,11 +34,13 @@ S-411 English (Feedback Session)  | 21.01.15 | 07:30 - 09:00 | abgelegt   | Note
 I-120 Programmierung I (APL2)     | 26.01.15 | Abgabe        | abgegeben  | Note: 2,0 (30%, Vorab nicht angekündigte 2. APL, mehrfach veränderte Aufgabenstellung)
 I-480 Wirtschaftsmathematik I     | 02.02.15 | 07:30 - 10:30 | bestanden  | 4,0 (muss viel mehr üben)
 I-120 Programmierung I            | 04.02.15 | 16:30 - 18:30 | bestanden  | 1,7 (70%)
-I-110 Grundlagen der Informatik I | 06.02.15 | 12:30 - 14:00 | bestanden  | 4,0
+I-110 Grundlagen der Informatik I | 06.02.15 | 12:30 - 14:00 | bestanden  | 4,0 (grobe Fehleinschätzung)
 I-130 Betriebssysteme I           | 10.02.15 | 12:00 - 13:30 | bestanden  | 1,0
 I-470 BWL 1                       | 13.02.15 | 13:00 - 14:30 | bestanden  | 2,7
-I- Produktionswirtschaft (PVL)    | 14.KW    | Abgabe |
-S-411 English (Projekt)           | 21.05.15 | Abgabe |
+I- Produktionswirtschaft (PVL)    | 14.KW    | Abgabe | 
+S-411 English (Projekt)           | 21.05.15 | Abgabe | 
+I-140 Datenbanken (APL)           |          | Abgabe | 
+I-121 Programmierung II (APL)     |          | Abgabe | 
 
 ### Wertungen
 
