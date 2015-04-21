@@ -7,7 +7,8 @@
 * [Eine Übersicht für math. Symbole](http://garsia.math.yorku.ca/MPWP/LATEXmath/latexsym.html)
 * [Unterstreichen und Umrahmen](http://www.jkrieger.de/tools/latex/textlayout.html)
 * [Weitere Symbole](http://tug.ctan.org/info/symbols/comprehensive/symbols-a4.pdf)
-  
+* [noch ein cheatsheet](http://www.piware.de/docs/latex-ref.txt)
+
 ## Grundzeichen
 
 LaTeX | Alternativ | Beschreibung
