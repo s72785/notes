@@ -3,6 +3,19 @@ notes
 
 just notes of lectures I attended or am interested in. additional information in index.md-files.
 
+2. Semester
+
+**Pflichtmodule**
+
+[i121](i121/index.md "Programmierung II")  | 2/0/2 | APL1, SP1
+[i140](i140/index.md "Datenbanksysteme I - DBS I") | 2/0/2 |  PVL, SP1
+[i410](i410/index.md "Grundlagen der Wirtschaftsinformatik") | 2/1/0 | SP1
+[i472](i472/index.md "Buchführung und Abschluss") | 2/1/0 | SP1
+[i481](i481/index.md "Wirtschaftsmathematik II (WiMa2)") | 2/2/0 | SP1
+[w922](w922/index.md "Produktionswirtschaft - BWL 2") | 2/1/0 | PVL, SP1
+[s411](s411/index.md "Englisch B2") | | PVL, SP1
+
+
 1. Semester
 -----------
 
