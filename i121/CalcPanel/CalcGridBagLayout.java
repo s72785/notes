@@ -15,15 +15,15 @@ class CalcGridBagLayout extends Panel {
 	TextField tf; 
 	//~ JTextField tf;
 	
-	double mem = 0.0;
-	double op1 = 0.0;
-	double op2 = 0.0;
+	Double mem = 0.0;
+	Double op1 = 0.0;
+	Double op2 = 0.0;
 	int tastenJeZeile = 5;
 	String opt = "";
 
 	ActionListener optL = new ActionListener(){
 		public void actionPerformed( ActionEvent e ){
-			if( e.getActionCommand() == "CE" ) {
+			if( e.getActionCommand().equals("CE") ) {
 				reset();
 				return;
 			}
@@ -58,13 +58,13 @@ class CalcGridBagLayout extends Panel {
 				//neuen operant speichern
 				opt = e.getActionCommand();
 				//ausgabe
-				tf.setText(
-					(
-						//~ ( Double.valueOf(op1) == Double.valueOf((int)op1) ) ? (int)op1 : op1
-						op1
-					)  + ""
-				);
-				if( opt == "=" ) {
+				if( new Double(new Double(op1).doubleValue() - new Double(op1).intValue()).equals(0.0) ) {
+					tf.setText(( new Double(op1).intValue() ) + "" );
+				} else {
+					tf.setText( op1 + "" );
+				}
+				//~ tf.setText(( new Double(new Double(op1).doubleValue() - new Double(op1).intValue()).equals(0.0) ? new Double(op1).intValue() : tf.setText( op1 + "" ) ) + "" );
+				if( opt.equals("=") ) {
 					clearFlag = true;
 					calcFlag = false;
 				}
@@ -75,7 +75,7 @@ class CalcGridBagLayout extends Panel {
 	
 	ActionListener memL = new ActionListener(){
 		public void actionPerformed( ActionEvent e ){
-			double ax = Double.valueOf( tf.getText() ).doubleValue();
+			Double ax = Double.valueOf( tf.getText() ).doubleValue();
 			switch( e.getActionCommand() ) {
 				case "M+": mem += ax;
 				break;
@@ -94,7 +94,7 @@ class CalcGridBagLayout extends Panel {
 				tf.setText( "" );
 				clearFlag = false;
 			}
-			if( c == "." ) {
+			if( c.equals(".") ) {
 				if( dotFlag ) {
 					c = "";
 				} else {
@@ -106,12 +106,12 @@ class CalcGridBagLayout extends Panel {
 	};
 	
 	String Tasten[] = { //.length
+		//~ "-/+", "sin", "cos", "1/x", "e",
+		//~ "\u221a", "tan", "exp", "log", "^x",
 		"M+", "7", "8", "9", "/",
 		"M-", "4", "5", "6", "*",
 		"MR", "1", "2", "3", "-",
 		"CE", "0", ".", "=", "+"
-		//~ ,"^x", "sin", "cos", "1/x", "tau"
-		//~ ,"\u221a", "tan", "exp", "log", "e"
 	};
 	
 	ActionListener Aktionen[] = {

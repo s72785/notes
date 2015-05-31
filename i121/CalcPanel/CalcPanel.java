@@ -1,5 +1,7 @@
 import java.awt.*;
 import java.awt.event.*;
+//~ import java.lang.double.*;
+//~ import java.lang.Integer.*;
 
 /* adding swing component for aligment option */
 /* prof sais: thou shall not mix swing and awt */
@@ -22,7 +24,7 @@ class CalcPanel extends Panel {
 
 	ActionListener optL = new ActionListener(){
 		public void actionPerformed( ActionEvent e ){
-			if( e.getActionCommand() == "CE" ) {
+			if( e.getActionCommand().equals("CE") ) {
 				reset();
 				return;
 			}
@@ -57,13 +59,12 @@ class CalcPanel extends Panel {
 				//neuen operant speichern
 				opt = e.getActionCommand();
 				//ausgabe
-				tf.setText(
-					(
-						//~ ( Double.valueOf(op1) == Double.valueOf((int)op1) ) ? (int)op1 : op1
-						op1
-					)  + ""
-				);
-				if( opt == "=" ) {
+				if( new Double(new Double(op1).doubleValue() - new Double(op1).intValue()).equals(0.0) ) {
+					tf.setText(( new Double(op1).intValue() ) + "" );
+				} else {
+					tf.setText( op1 + "" );
+				}
+				if( opt.equals("=") ) {
 					clearFlag = true;
 					calcFlag = false;
 				}
@@ -93,7 +94,7 @@ class CalcPanel extends Panel {
 				tf.setText( "" );
 				clearFlag = false;
 			}
-			if( c == "." ) {
+			if( c.equals(".") ) {
 				if( dotFlag ) {
 					c = "";
 				} else {

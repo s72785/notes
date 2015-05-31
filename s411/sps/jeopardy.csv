@@ -1,0 +1,27 @@
+Category,Points,Answer,Question
+tor,100,3,How many hops do we route at minimum?
+tor,200,2 mio,How many users has tor each day?
+tor,300,2004,When did the project start?
+tor,400,bridge,What is a relay inside the network?
+tor,500,tor bb,What is the tor browser bundle?
+PGP,100,OpenPGP,What is the protocol/standard?
+PGP,200,1024 RSA,What is a short key?
+PGP,300,Elgamal,What is an encryption algorithm?
+PGP,400,DSA.,What is a signing algorithm?
+PGP,500,Secret.,What is a private key?
+Bitcoin,100,฿,What is the Bitcoin symbol?
+Bitcoin,200,10 min,What is time until first average transaction verification?
+Bitcoin,300,1 Satoshi.,What is the smallest amount?
+Bitcoin,400,every 4y,How often does block halfing happen?
+Bitcoin,500,10.000 BTC,How much have two pizzas been?
+Stellar,100,2014,When was stellar started?
+Stellar,200,interoperability of currencies,What is stellar about?
+Stellar,300,Jed Mccaleb and Joyce Kim,Who has founded Stellar?
+Stellar,400,non-profit,What is the commercial intrest of Stellar?
+Stellar,500,asset exchange,What is the main use case of Stellar?
+World Wide Web,100,The acronym for World Wide Web (three syllables itself) is this many syllables.,What is nine?
+World Wide Web,200,The language of the Web.,What is HTML?
+World Wide Web,300,"The three major graphics on the web are GIF, PNG, and this.",What is JPG?
+World Wide Web,400,This person invented the World Wide Web.,"Who is Al Gore? Oh wait, who is Tim Berners-Lee?"
+World Wide Web,500,The acronym for the file transfer protocol of the Web.,What is HTTP?
+Final Jeopardy,0,This is what Free Software is about,What is Freedom?
