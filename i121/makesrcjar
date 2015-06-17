@@ -1,0 +1,2 @@
+jar cvf .jar /*.java
+#https://docs.oracle.com/javase/tutorial/deployment/jar/build.html
