@@ -124,8 +124,12 @@ class Picture extends Panel {
 			//~ C.getBlue(),
 			//~ (int)Math.round(255*prozent/100)
 		//~ );
-		// in wahrscheiunlich schneller
+		// in wahrscheinlich schneller
 		return new Color( (C.getRGB() & 0x00FFFFFF) | ((int)Math.round(255*prozent/100)<<24) , true );
+		/*
+		 * 1. alpha löschen (logisch-ung mit 00), andere Werte beibehakten (mit FF jeweils für rgb)
+		 * 2. alpha auf % bringen mit (logisch-oder beim) anteil auf 255 - Reihenfolge der Operationen, z.B. Multiplikation wichtig
+		 * */
 	}
 		
 	@Override
