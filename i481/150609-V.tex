@@ -1,0 +1,100 @@
+\usepackage{csquotes}
+\usepackage{ulem}
+
+09.06.2015, Voß-Böhme
+
+s. Blatt Lokales Extremum ohne Nebenbedingungen
+
+\[
+%
+z=(x^2+y^2)e^{-x} \\
+z_x = e^{-x}(2x-x^2-y^2) \\
+z_{xx} = e^{-x}(2-4x-x^2-y^2) \\
+z_{xy}=e^{-x}(-2y) \\
+z_y = e^{-x} \cdot 2y \\
+z_{yx} = -e^{-x} \cdot 2y \text{Beachte: } z_{yx} = z_{xy} \\ 
+z_{yy} = e^{-x} \cdot 2\\
+%
+\text{stationäre Punkte:} (0,0), (2,0) \\
+%
+\text{det}\begin{pmatrix}
+2 & 0 \\
+0 & 2
+\end{pmatrix} = 2 \cdot 2 - 0 \cdot 0 = 2 > 0 \\
+\Rightarrow \text{ist lokales Extremum}, z_{xx}(0,0) \Rightarrow \text{Min.} \\
+\text{det}\begin{pmatrix}
+ -2e^{-2} & 0 \\
+ 0 & 
+\end{pmatrix} = -2e^{-2} \cdot 2e^{-2} - 0 \cdot 0 = -4e^{-4} < 0 \Rightarrow \text{kein Extremum}
+\]
+
+10.6.2 Extrema mit Nebenbedingungen
+
+Geg.: Funktion $z=f(x,y), (x,y) \in D < \R^2$ und eine \uline{Nebenbedingung (Zielfunktion)}
+
+\[
+\phi(x,y)=0
+\]
+
+Ges.: Alle Punkte $(x_1,y_1), \ldots ,(x_n,y_n)$, so dass $f(x,y) \underbrace[<=]{>=} f(x,y)$ für alle $(x,y)$ mit $\phi(x,y)=0$.
+
+Lösung: mithilfe der \uline{Lagrange-Methode}: Statt Zielfunktion $f$ und Nebenbedingung $\phi(x,y)=0$
+wird eine Hilfsfunktion, sog. \uline{Lagrangefkt.} $F(x,y,\lamda)=f(x,y)-\lamda\phi(x,y)$ betrachtet.
+
+Bsp.
+
+Zielfunktion: $f)A,K)=20A+10K \rightarrow$ min.
+
+Nebenbedingung: $100A^{0,8}K^{0,2}=100000$, $\phi(A,K)=0$, $100A^{0,8}K^{0,2}-10000=0$
+
+$\Rightarrow$
+
+%(1)
+Lagrange-Funktion $F(A,K,\lamda)=\underbrace{10A+10K}{f(A,K)} + \lamda\underbrace{(100A^{0,8}K^{0,2}-10000)}{\phi(A,K)}$
+
+%(2)
+F_A=20+\lamda 100 0,8 A^{-0,2} K^{0,2} = 0		%(i)
+F_K=10 + \lamda 100 A^{0,8} 0,2 K^{-0,8} = 0	%(ii)
+F_{\lamda} = 100 A^{0,8} K{0,2} - 10000 = 0		%(iii)
+
+(i) \lamda 80(\frac{K}{A})^0,2 = -20
+ \lamda = -\frac{1}{4}(\frac{K}{A})^0,2
+(ii) \lamda 20(\frac{A}{K})^{0,8} = -10
+\lamda = -\frac{1}{2}(\frac{K}{A})^{0,8}
+(i)=(iii) \Rightarrow A=2K in (iii) einsetzen \Rightarrow Schnittpunkt
+100 (2K)^{0,8} K^{0,2}=10000
+2^{0,8} K = 100
+K=\frac{100}{208}
+A=2K=\frac{200}{208}
+
+f(\frac{200}{208},\frac{100}{208}) = 2871,5, \lamda=-\frac{1}{4}(\frac{A}{K})^{0,2} = -\frac{1}{4}2^{0,2}=-0,29
+Also stationärer Punkt bei A-114,87, K=57,43 (\lamda = -0,29), f(A,K)=2871,5 .
+
+Bedeutung des \uline{Lagrange-Multiplikators} \lamda
+
+Falls Nebenbed. $\phi(x,y)=0$, \quote{gelockert} wird in Nebenbedingung $\phi(x,y)-c$, dann wächst
+\uline{extremaler Funktionswert} um den Wert $-\lamda c$ .
+
+Bsp.: Wie verändern sich die minimalen Kosten (bzw. was sind die minimalen Kosten) für einen Output von 10100?
+
+Statt nebenbed. $100A^{0,8} K^{0,2}-10000=0$ bzw. $100A^{0,8} K^{0,2}-10000=0$
+jetzt  $100A^{0,8} K^{0,2}-10100$ bzw. $100A^{0,8} K ^{0,2} - 10000 = 100$
+bereits klar: im Originalproblem minimale Kosten: $f(A,K)=2871,5$, $\lamda=-0,29$
+
+\[
+\Rightarrow -\lamda c = +0,29 \cdot 100 = +29 \text{d.h. minimale Kosten im veränderten Problem wachsen um 29~GE auf 2900,5~GE}
+\]
+
+10.7 Lineare Optimierung
+
+\quote{Optimum} = Min./Max. unter Nebenbedingungen (Restriktionen).
+
+\uline{Math. Modellierung}
+
+(1) Entscheidungsvariablen definieren: x_1, x_2 \ldots Anbaufläche f. Erbsen/Möhren
+(2) Zielfunktion festelegen: $200 x_1 + 300 x_2 \rightarrow $ max. (Gesamtgewinn maximieren).
+(3) Restriktionen/Ressourcen-Beschränkung beschreiben: x_1,x_2 >= 0, x_1+x_2 <= 30 Morgen.
+100 x_1 + 50 x_2 <= 2500 Zeitaufwand
+x1 + 2x_2 <=50 Tage
+
+Falls Zielfkt. und Restriktionen mit linearen Funktionen beschrieben sind, spricht man von einem \uline{Linearen Optimierungsproblem (LOP/LOA)}.

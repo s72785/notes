@@ -1,0 +1,72 @@
+%\nonstopmode
+%\input{settings/report}%erst ab Section,Vorwoort am besten weglassen 
+%\input{settings/report2}%erst ab Section,Inhaltsangabe am besten weglassen, zweispaltig, gutes Vorwort, kein Untertitel
+\input{settings/IEEE/ger}%keiene Inhatsangabe
+%\include{settings/diplom}%wie Buchform deu
+\input{settings/praeamble}
+%\input{settings/diplom}%kein align
+%\input{settings/Einstellungen}%kein align
+\RequirePackage{ifthen}
+\usepackage{makeidx}
+\makeindex
+\begin{document}
+\title{Mathe Hefter}
+%\subject{Untertitel}
+\author{Johannes Sebastian Wolfgang Kirchhof}
+%\thanks{Danke an ..}
+%\date{<Datum einf�gen>}%Falls abweichend vom erstellungsdatum
+
+% Deckblatt, Falls man es verfeinern will
+%\titlepage
+%\input{opt/titelpage}
+\vspace{10cm}
+\maketitle
+\begin{picture}(40,40)
+%	\input{figure/gnuplot/gnu}
+\end{picture}
+%\input{figure/gnuplot/gnu}
+%\setcounter{page}{} 
+%\thispagestyle{empty}
+\input{settings/extra}
+
+%Selbstständikteitserklärung/Eidesstattliche_Versicherung hinzufügen
+%\input{opt/Selbststaeendigkeitserklaerung}
+%Vorwort
+
+%\begin{abstract}
+%Vorwort zu dem Text
+%\end{abstract}
+
+%\input{opt/Eidesstattliche_Versicherung}
+%Inhaltsverzeichnis
+\tableofcontents
+
+% Demonstration der Vorlage
+%\clearpage
+
+%\makenomenclature
+%q\input{opt/abk}%Abkürzungen importieren
+
+%Einbinden der einzelnen Dokumente
+\input{quellen/math}
+\input{quellen/math-new}
+
+%Bibliographie darf im deutschen nicht in den Anhang!
+%\bibliography{natur}
+%\clearpage
+
+\listoffigures
+\listoftables
+\printindex
+
+%\begin{picture}
+%\input{figure/gnuplot/gnu}
+%\end{picture}
+%\IfDefined{printnomenclature}{\printnomenclature}
+%\bibliography{quellen/quellen-bsp}				%Datei implementiren
+% Anhang
+%\appendix
+%\input{content/Z-Anhang}
+
+%% Dokument ENDE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}

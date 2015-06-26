@@ -1,0 +1,179 @@
+\begin{document}
+
+\begin{enumerate}
+
+\item %1.
+
+totales Differential
+
+f : \R^2 \rightarrow \R : f(x,y) = 5x^2y-4y^2 .
+
+df(x,y) = f_x(x,y)*dx + f_y(x,y)*dy
+
+"Wie ändert sich f(x,y) ungeföhr,wenn x -> x+dx und y->y+dy ?"
+
+f(x,y) = 5x^2y-4y^2
+
+df(x,y) = f_x + f_y
+
+f_x(x,y) = (10xy) dx
+
+f_y(x,y) = (5x^2-8y) dy
+
+df(x,y) = (10xy) dx + (5x^2-8y) dy
+
+\item %2.
+
+y(p_1 , p_2 ) = 8p_1^{\frac{1}{4}} p_2^{frac{3}{4}}
+
+\begin{enumerate}
+
+\item totales Differential aufstellen %a
+
+y(100,200) =  8*100^{\frac{1}{4}} *200^{frac{3}{4}} = 1345,43
+
+p_1 = 100 + 1 = 101
+p_2 = 200 - 2 = 198
+
+\item ungefähre Änderung %b
+
+dy(p_1 , p_2 ) = y_{p_1}(p_1,p_2) dp_1 + y_{p_2}(p_1,p_2) dp_2
+= 8p_2^{\frac{3}{4}}*\frac{1}{4}p_1^{-\frac{3}{4}}*dp_1 + 8p_1^{\frac{1}{4}}*\frac{3}{4}*p_2^{-\frac{1}{4}}*dp_2
+= 2p_2^{\frac{3}{4}}p_1^{-\frac{3}{4}}dp_1 + 6p_1^{\frac{1}{4}}p_2^{-\frac{1}{4}}dp_2
+
+dy(100,200) = 2*200^{\frac{3}{4}}*100^{-\frac{3}{4}} * dp_1 + 6*100^{\frac{1}{4}}*200^{-\frac{1}{4}}*dp_2 = -6,73
+
+\Rightarrow ungefährt 7 Einheiten weniger
+
+\item exakte Änderung
+
+y(100,200) - y(101,198) = -6,78
+
+\end{enumerate}
+
+\item verallgemeinerte Kettenregel  %3.
+
+z = f(x(t),y(t))
+z'(t) = f_x*x'(t) + f_y*y'(t)
+
+\begin{enumerate}
+
+\item %a
+
+z=f(x(t),y(t))=x^2y + y^3
+
+z'=2yx * 2t + (x^2*1+3y^2)*e^t
+
+mit
+
+x(t)=t^2
+y(t)=e^t
+
+z(t)=t^4e^t + e^3t
+z'= \ldots
+
+\item %b
+
+z = f (x(t), y(t)) = (x − y)^2
+
+mit
+
+x(t) = 2 \cos t, y(t) = 2 \sin t
+
+an der Stelle
+
+t=\frac{\pi}{3}
+
+z'=f_x * x'(t) + f_y * y'(t)
+= 2*(x-y)^1*1 * 2(-\sin t) + 2*(x-y)^1*(-1) * 2 \cos t
+= -4(x-y) \sin t -4(x-y) \cos t
+= -4(x-y) (\sin t + \cos t)
+= -4(2 \cos t - 2 \sin t)(\sin t + \cos t)
+= -8( \cos t - \sin t)( \cos t + \sin t)
+= -8( \cos^2 t - \sin^2 t)
+= 4
+\end{enumerate}
+
+\item %4.
+
+\begin{enumerate}
+
+\item %a
+
+y(x) gegeben durch
+
+2x^2 + xy=3y^2 
+
+y(x) ist implizit gegeben durch F(x,y(x)) 
+y(x) = \ldots \text{geht nicht!}
+
+implizite Ableitung von F(x,y(x))=0
+\begin{comment}
+1) Ableitung (! y ist eine Fkt in Abh. von x)
+2) nach y'(x) umstellen
+\end{comment}
+
+2x^2+xy(x)-3y(x)^2 = 0 %mit Produktregel für a*y(x)
+'(x) = 4x + 1y(x) + x*y'(x) - 3(2*y(x)^1 * y'(x)) = 0
+-4x-y(x) = (y'(x))( x-6y(x) )
+y'(x) = \frac{ -4x-y(x) }{ x-6y(x) }
+
+
+\item %b
+
+x^2+y^2 = 16
+
+x^2+y(x)^2-16 = 0
+
+2x + 2y(x)*y'(x) = 0
+y'(x) = \frac{ -2x }{ 2y }
+
+\end{enumerate}
+
+\item %5.
+
+f^{(n)}(x) = ?
+
+f(x) = \ln(1+x)
+
+f'(x)  = \frac{1}{1+x}*1
+f''(x) = ( (1+x)^{-1} )'
+ = -1(1+x)^{-2}*1
+f'''(x) = ( (1+x)^{-1} )''
+ = 2*(1+x)^-3*1
+f^{(4)}(x) = -6(1+x)^{-4}*1
+
+f^{(n)} = (-1)^{n-1} (n-1)! * (1+x)^{-n}
+
+Beweis per (Vollst.) Induktion
+
+Induktionsanfang:
+
+n=1, ja.
+
+Induktionsvoraussetzung:
+
+für n \in \N
+
+f^{(n)} = (-1)^{n-1} * (n-1)! * (1+x)^{-n}
+
+Induktionsbehauptung:
+
+gilt auch für n+1, d.h.
+
+f^{(n+1)} = (-1)^{n} * n! * (1+x)^{-n+1}
+
+Indiktionsbeweis:
+
+f^{(n+1)}(x) = [f^{(n)}(x)]'
+= (-1)^{n-1} * (n-1)! * (-n) * (1+x)^{-n-1} %(-1)*n=(-n)
+= (-1)^{n-1} * (n-1)! * (1+x)^{-n}
+
+q.e.d.
+
+
+\end{enumerate}
+
+
+
+\end{document}

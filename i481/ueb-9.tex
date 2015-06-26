@@ -1,0 +1,89 @@
+\begin{enumerate}
+
+\item %1.
+
+\begin{enumerate}
+
+\item %a
+
+%inclide a tikz picture
+\includestandalone%[width=.8\textwidth]
+{ueb-9-1.tex}
+
+lineare regression y=ax+b
+\[
+s = \sum_{i=1}^{7} | y(x_i)-y_i | \rightarrow \text{min}
+s(a,b) = \sum_{i=1}^{7}(y(x_i)-y_i)^2 \rightarrow min
+[ s(a,b) = \sum_{i=1}^{7} y(x_i)-y_i \rightarrow min ]
+\text{Methode der kleinsten Quadrate}
+\]
+
+\[
+s(a,b) =
++(a*100+b-40)^2
++(a*200+b-50)^2
++(a*300+b-50)^2
++(a*400+b-70)^2
++(a*500+b-65)^2
++(a*600+b-65)^2
++(a*700+b-80)^2
+s_a(a,b)=0=
++2(a100+b-40)*100
++2(a200+b-50)*200
++2(a300+b-50)*300
++2(a400+b-70)*400
++2(a500+b-65)*500
++2(a600+b-65)*600
++2(a700+b-80)*700
+s_b(a,b)=0=
++2(a100+b-40)*1
++2(a200+b-50)*1
++2(a300+b-50)*1
++2(a400+b-70)*1
++2(a500+b-65)*1
++2(a600+b-65)*1
++2(a700+b-80)*1
+a=0,059
+b=36,4
+y=0,059x+36,4
+\]
+
+\item %b
+
+
+
+\item %c
+
+\item %d
+
+Prognose f. 450: y=0,059*450+36,4 \sim 63
+
+Allgemein: Stichprobe $(x_1, y_1), \ldots, (x_n, y_n)$
+\[
+y=ax+b
+s(a,b)=\sum_{i=1}^{n} (y(x_i)-y_i)^2 = \sum_{i=1}^{n} (ax_i+b-y_i)^2 \rightarrow \min
+s_a(a,b)=2 \sum_{i=1}^{n} (ax_i+b-y_i)*x_i = 0
+s_b(a,b)=2 \sum_{i=1}^{n} (ax_i+b-y_i)*1 = 0
+a = \frac{ \sum_{i=1}^{n} x_1 \cdot \sum_{i=1}^{n} y_1 - \frac{ \sum_{i=1}{n} x_i \sum_{i=1}{n} y_i }{n} }{ \sum x_1^2 - \frac{\sum x_1 \sum y_1}{ n } }
+b = y-ax
+\]
+
+
+
+
+\end{enumerate}
+
+\item %2.
+
+\item %3.
+
+\begin{itemize}
+\item besteht überhaupt ein Zusammenhang \rightarrow Prämisse überprüfen
+\item Ausreißer \rightarrow kann man ignorieren wenn offensichtlich
+\end{itemize}
+
+\item %4.
+
+Wir erstellen eine dritte Ableitung für die dritte Variable und beachten diese in den ertsen beiden.
+
+\end{enumerate}

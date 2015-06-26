@@ -1,0 +1,36 @@
+\documentclass[10pt]{standalone}
+\usepackage{pgf,tikz}
+\usetikzlibrary{arrows}
+\pagestyle{empty}
+\begin{document}
+\definecolor{qqqqff}{rgb}{0,0,1}
+\begin{tikzpicture}[scale=1.2,decoration={markings,mark=at position 5mm with {\arrow[black]{stealth};}}]
+%[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\draw[->,color=black] (-40.55,0) -- (749.34,0);
+\foreach \x in {,100,200,300,400,500,600,700}
+\draw[shift={(\x,0)},color=black] (0pt,2pt) -- (0pt,-2pt) node[below] {\footnotesize $\x$};
+\draw[->,color=black] (0,-28.79) -- (0,133.06);
+\foreach \y in {,100}
+\draw[shift={(0,\y)},color=black] (2pt,0pt) -- (-2pt,0pt) node[left] {\footnotesize $\y$};
+\draw[color=black] (0pt,-10pt) node[right] {\footnotesize $0$};
+\clip(-40.55,-28.79) rectangle (749.34,133.06);
+\draw [domain=-40.55:749.34] plot(\x,{(--36.4--0.059*\x)/1});
+\begin{scriptsize}
+\fill [color=qqqqff] (200,50) circle (3.5pt);
+\draw[color=qqqqff] (226.85,73.24) node {$P_2$};
+\fill [color=qqqqff] (100,40) circle (3.5pt);
+\draw[color=qqqqff] (126.57,62.69) node {$P_1$};
+\fill [color=qqqqff] (300,50) circle (3.5pt);
+\draw[color=qqqqff] (327.12,73.24) node {$P_3$};
+\fill [color=qqqqff] (400,70) circle (3.5pt);
+\draw[color=qqqqff] (425.64,92.59) node {$P_4$};
+\fill [color=qqqqff] (500,65) circle (3.5pt);
+\draw[color=qqqqff] (525.92,87.32) node {$P_5$};
+\fill [color=qqqqff] (600,65) circle (3.5pt);
+\draw[color=qqqqff] (626.19,87.32) node {$P_6$};
+\fill [color=qqqqff] (700,80) circle (3.5pt);
+\draw[color=qqqqff] (726.47,103.15) node {$P_7$};
+\draw[color=black] (-100.36,55.65) node {$s$};
+\end{scriptsize}
+\end{tikzpicture}
+\end{document}

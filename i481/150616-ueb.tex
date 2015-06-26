@@ -1,0 +1,135 @@
+\begin{enumerate}
+
+\item 
+
+Schiff	& Kapazität & 10.000 m^3
+		& Ladefähigkiet & 7000 t
+
+	& G_1 & G_2 & G_3 \\
+Menge	& 3500	& 4000	& 2000 \\
+Raum	& 1,2	& 1,1	& 1,5	\\
+Ertrag	& 25	& 30	& 35	\\
+
+x .. Menge von G_1 in t
+y .. Menge von G_2 in t
+z .. Menge von G_3 in t
+
+Zielfunktion: 25x +30y + 35z \rightarrow max
+
+unter den NB: 	1,2x +1,1y +1,5z <= 10.000	y<=4000
+				x,y,z>=0	z<=2000
+				x<=3500		x+y+z<=7000
+				
+\item LKW
+
+20t
+Vol. 12m^3
+G_1, G_2, 8 Einh. vorrätig
+
+			G_1	& G_2 \\
+Gewicht		& 2	& 3	\\
+Volumen		& 2	& 1	\\
+Wert		& 3	& 2	\\
+
+x .. Menge in G_1 in Stk
+y .. Menge in G_2 in Stk
+
+z=3x+2y \rightarrow max
+
+unter den NB:
+
+x,y => 0
+2x+3y<=20
+2x+y<=12
+x<=8
+y<=8
+
+\item %3.
+
+\begin{enumerate}
+
+\item %a
+
+Gemüse A und B
+
+Land 90 Ar
+
+						& Einkauf in €	& Be in h	& Ertrag in € \\
+		Saat A pro Ar	& 10			& 3			& 36
+		Saat V pro Ar	& 5				& 6			& 45
+
+Saatgut max. 800€
+Betriebs-h max. 420h
+
+x .. Menge von Gemüse A für ein Ar
+y .. Menge von Gemüse B für ein Ar
+
+Fläche in Ar
+z = 36x+45y \rightarrow max
+
+unter den NB
+
+x,y>=0
+x+y<=90		% x=0, y=90
+			% y=0, x=90
+10x+5y<=800	% x=0, y=160
+			% y=0, x=80
+3x+6y<=420	% x=0, y=70
+			% y=0, x=140
+
+z = 36x+45y \rightarrow max
+45y=z-36x
+y=z/45 - 36/45x
+= z/45 - 4/5x
+
+x=40
+y=50
+führt zu max. z von 3690 €
+
+\item %b
+
+mind. 600 mg	Vitamin B
+mind. 300 mg	Vitamin H
+
+				& Vitamin B in mg	& Vitamin H in mg	& Kosten
+Medikament A	& 30				& 10				& 12
+Medikament B	& 10				& 20				& 8
+
+x .. Menge von Medikament A
+y .. Menge von Medikament B
+
+Zielfunktion: geringe Kosten
+12x + 8y = z \rightarrow min
+
+unter den NB:
+
+x,y>=0
+10x+20y=>300	% (30,0)
+				% (0,15)
+30x+10y=>600	% (0,60)
+				% (20,0)
+
+Zulässig ist der Bereich NO der Geraden
+
+x=18
+y=6
+z=144 €
+
+\item %c
+
+leerer Bereich \rightarrow keine Lösung, da keine Kandidaten
+
+\item %d
+
+		& Preis/100g	& Bonbon in g
+Kirsch	& 2				& 
+Apfel	& 2				& 
+
+Lösungsmenge ist unendlich groß 0 bis 500g Kirsch
+
+\end{enumerate}
+
+\item %4.
+
+
+\end{enumerate}
