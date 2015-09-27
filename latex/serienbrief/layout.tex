@@ -16,20 +16,20 @@
 %headings}
 
 
-\addressstd		%voreingestellte tiefer gestellte Anschrift
-%\addresshigh		%hochgestellte Anschrift
+%\addressstd		%voreingestellte tiefer gestellte Anschrift
+\addresshigh		%hochgestellte Anschrift
 
 %\windowrules 		%Fenster um Adress AN
 \nowindowrules		%Fenster um Adress AUS
 
-%\nowindowtics		%Faltmarkierung am Rand AUS
-\windowtics		%Faltmarkierung am Rand AN
+\nowindowtics		%Faltmarkierung am Rand AUS
+%\windowtics		%Faltmarkierung am Rand AN
 
 %\centeraddress		%Die Empfängeranschrift wird im Brieffenster vertikal zentriert
-\normaladdress		%Die Empfängeranschrift wird im Anschriftenfeld unten gesetzt
+%\normaladdress		%Die Empfängeranschrift wird im Anschriftenfeld unten gesetzt
 
-\backaddressrule	%Anzeigen der Absenderadresse im Sichtfeld des Kuverts: AN
-%\nobackaddressrule	%Anzeigen der Absenderadresse im Sichtfeld des Kuverts: AUS
+%\backaddressrule	%Anzeigen der Absenderadresse im Sichtfeld des Kuverts: AN
+\nobackaddressrule	%Anzeigen der Absenderadresse im Sichtfeld des Kuverts: AUS
 
 %\makelabels		%Erstellt ein Etikett der Empfänger-Adresse
 %\labelstyle{plain}	%Layout der Adress-Etiketten
@@ -41,44 +41,53 @@
 \font\fb=cmss12    scaled 1095
 \font\fc=cmss10    scaled 1000
 \def\briefkopf{
+
  \settowidth{\UKAwd}{\fa Vorname Nachname}
  \settowidth{\ADDRwd}{\fc EARN/BITNET: yx99 at dkauni2}
- \vspace*{7truemm}
- \raisebox{-11.3mm}{%
-   \setlength{\unitlength}{1truemm}
-   \begin{picture}(15,15)(0,0)
-     \thicklines
-     \put(7.5,7.5){\circle{15}}
-     \put(7.5,7.5){\circle{10}}
-     \put(7.5,7.5){\circle{ 5}}
-   \end{picture}%
- }
- {\fc\hspace{.7em}}
- \parbox[t]{\UKAwd}{
-        \centering{\fa \hspace{.7em}} \\           			%Name Firma
-        \centering{\fa Vorname Nachname} \\%[.5ex]  		%Bezeichnung Firma
-        \centering{ \includegraphics[width=200pt,height=10pt]{bild.jpg}}		%Name
-        }
+ %\vspace*{7truemm}
+
+ %~ \raisebox{-11.3mm}{%
+   %~ \setlength{\unitlength}{1truemm}
+   %~ \begin{picture}(15,15)(0,0)
+     %~ \thicklines
+     %~ \put(7.5,7.5){\circle{15}}
+     %~ \put(7.5,7.5){\circle{10}}
+     %~ \put(7.5,7.5){\circle{ 5}}
+   %~ \end{picture}%
+ %~ }
+ %~ {\fc\hspace{.7em}}
+
+ %~ \parbox[t]{\UKAwd}{
+        %\centering{\fa \hspace{.7em}} \\           			%Name Firma
+        %~ \centering{\fa Chaos Computer Club Dresden} \\%[.5ex]  		%Bezeichnung Firma
+        %\centering{\fa Lignerallee 3} \\
+        %\centering{\fa 01069 Dresden}
+ %~ }
 
  \hfill
  \parbox[t]{\ADDRwd}{
-        \fc Straße \ Hausnummer \\
-        \fc PLZ Ort\\
-        \fc Telefon: (01234) 12345 \\
-	\fc Mobil: (01234) 12345 \\
-	\fc E-Mail: email@email.de
-        } }
-\signature{Vorname Nachname}
-\place{Ort}
+	\includegraphics[width=70px,height=136px]{ts-c3d2-logo.png} \\
+%        \fc Straße \ Hausnummer \\
+%        \fc PLZ Ort\\
+%        \fc Telefon: (01234) 12345 \\
+	\fc Web: https://c3d2.de/ \\
+	\fc E-Mail: datenspuren@c3d2.de
+ }
+}
+\signature{Das Orga-Team}
+\place{Dresden}
 \address{\briefkopf}
-\phone{(01234)}{12345}
-\def\FS{Vorname Nachname,
-        Straße 2, PLZ Ort\rule[-1ex]{0pt}{0pt}}
+%\phone{(01234)}{12345}
+\def\FS{
+%Vorname Nachname,        Straße 2, PLZ Ort\rule[-1ex]{0pt}{0pt}
+}
 
 
-\backaddress{Vorname Nachname, Straße 2, PLZ Ort}
+%\backaddress{Vorname Nachname, Straße 2, PLZ Ort}
 %\date{dd.mm.jjjj}	%Datum abweichend von aktuellen Tag
 
 %\setreflinetop{260pt}	%Abstand für Schriftbereich vom oberen Rand aus
-\bottomtext{Geschäftsangaben}		%Angabefeld für Geschäftsangaben; Ausgabe auf der ersten Briefseite
+\bottomtext{%Angabefeld für Geschäftsangaben; Ausgabe auf der ersten Briefseite
+%\centering{ https://c3d2.de/ \hspace{3cm} datenspuren@c3d2.de }
+}		
 \setbottomtexttop{720pt}
