@@ -1,0 +1,28 @@
+%%% Hauptdatei %%%
+%
+%
+%
+% Copyright by strobelstefan.de
+%
+%
+%
+% normalerweise muss hier nichts geändert werden
+
+
+\input{pakete} 	%bindet die Datei mit den verwendeten LaTeX-Paketen ein
+
+\input{layout}	%bindet die Datei für Layout und Kopfzeile ein
+
+
+\def\mailto#1{       % zum ausdrucken von
+                     % Serienbriefen
+  \begin{letter}{#1}
+  \input{text}    % Datei, die den Text enthaelt
+  \end{letter}}
+
+
+
+\begin{document}
+\input{address}		%bindet die Adress-Datei ein
+\end{document}
+ 
