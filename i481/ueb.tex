@@ -1,0 +1,118 @@
+\documentclass[12pt,a4paper]{scrreprt}
+\usepackage{tikz}
+\usetikzlibrary{positioning,calc}
+\usepackage{amsmath,amssymb,mathrsfs,dsfont}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage[colorlinks=false, pdfborderstyle={/S/U/W 1}
+]{hyperref}
+\usepackage{stmaryrd}
+\usepackage{comment}
+\oddsidemargin0mm \evensidemargin3mm \textwidth150mm \textheight23cm
+\parindent0mm \pagestyle{empty} \topmargin-1cm
+\newcommand{\E}{\mathds{E}}
+\newcommand{\V}{\mathds{V}}
+\newcommand{\C}{\mathds{C}}
+\newcommand{\N}{\mathds{N}}
+\newcommand{\Z}{\mathds{Z}}
+\newcommand{\R}{\mathds{R}}
+\pagestyle{headings}
+
+
+\begin{document}
+
+%das muss ich alles können und noch mehr.. mehr üben!
+
+\begin{enumerate}
+
+\item %1. (8)
+
+\begin{enumerate}
+
+\item
+Bestimme die Gleichung der Tangente am Graphen der Funktion
+
+\[
+f(x) = e^{2x}\cos x
+\]
+
+\item %b
+Bestimme den Grenzwert
+
+\[
+\lim_{x \rightarrow 0}\left. \frac{2x^2}{e^x-e^{-x}} \right. 
+\]
+
+mit Hilfe einer geeigneten Regel für die Grenzwertberechnung.
+
+% 0 / v = 0
+% was für eine  Regel?
+
+\item
+Ermitteln Die eine gebrochen-rationale Funktion mit den Eigenschaften
+
+\begin{itemize}
+\item Nullstellen bei 1 und -1 %x_x={1,-1}
+\item Polstelle bei 0 %x=0
+\item Asymptote bei -2 %y(x)=-2
+\end{itemize}
+
+\end{enumerate}
+
+\item %2. (10)
+Der Absatz und die Kosten% für ein Produkt eines Unternehmens
+
+\begin{itemize}
+\item Preis-Absatzfunktion $p(x) = 222-6x, x \in [ 0, 37 ]$
+\item Kostenfunktion $K(x)=293 + 159x-12x^2+x^3, x>=0$
+\item $p$ ist der Preis, $x$ die produzierte und abgesetzte Menge
+\end{itemize}
+
+\begin{enumerate}
+\item 
+Ermittle für welche Menge $x$ maximaler Gewinn erzielt wird. Weise das Maximum nach. %Wert ermitteln, Nachweis: 2.\,Ableitung < 0, und 3.\,Ableitung \neq 0
+
+\item 
+Bestimme das Mononieverhalten der Kostenfunktion
+
+\item 
+Untersuche das Krümmungsverhalten der Erlösfunktion $E(x)=xp(x)$
+
+\item 
+Ermittle die Elastizität des Preises bezüglich des Absatzes. Für welche Mengen reagiert der Preis proportional-elastisch (d.h. $|\epsilon_p(x)|=1$ )? 
+
+\end{enumerate}
+
+\item 3. (7)
+Ein Unternehmen vertreibt zwei Güter deren Nachfrage von den Preisen wie folgt anhängt:
+
+\[
+x_1(p_1, p_2) = 10 - p_1 + 2p_2
+,
+x_2(p_1, p_2) = 8 + 2p_1 - 6p_2
+\]
+
+Dabei sind $p_i$ die Preise und $x_i$ die nachgefragten Mengen nach Gut $i, i={1,2}$. 
+
+\item %4. (5)
+In einer Fabrik werden drei Sorten A, B, C von Seiten hergestellt und für 150 Euro (A), 100 Euro (B) und 50 Euro (C) je Stück verkauft.
+Für Seile vom Typ A werden 16\,kg Plastik und 4kg\,Kupfer benötigt, bei B 6\,kg Plastik und 12\,kg Kupfer und C 4\,kg Plastik und kein Kupfer.
+Aus produktionstechnischen Gründen darf die produzierte Menge von B nicht größer sein als die doppelte Menge von A.
+Außerdem beträgt der Materialvorrat im Lager nur 252\,kg Plastik und 168\,kg Kupfer.
+Stellen Sie ein mathematisches Optimierungsproblem für die Maximierung des Erlöses der Fabrik auf \emph{ohne} es zu lösen.
+
+
+\item %5. (2)
+Ermittle die Fläche, die der Graph der Funktion
+
+\[
+f: [1,2] \rightarrow \R: f_k(x)=\frac{1}{k} (x-1)(x-2)^2
+\]
+
+für festes k>0 mit der x-Achse im 1. Quadranten
+einschließt.
+
+
+\end{enumerate}
+
+\end{document}
