@@ -1,0 +1,9 @@
+AuthType Basic
+#Digest
+# Basic
+AuthName "Zugriffskontrolle"
+AuthUserFile c:\xampp15\htdocs\ewa\G05\conf\.htpasswd
+Require user ewa
+#Options Indexes MultiViews
+#Order Deny,Allow
+#Deny from all
