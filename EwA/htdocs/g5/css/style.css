@@ -104,3 +104,13 @@ figure img {
 }
 /*
 */
+.fa-home::before {
+	content: "";
+}
+a .fa {
+	display: inline-block;
+	font-size: 1em;
+	margin-right: 1ex;
+	text-align: right;
+	width: 2em;
+}
