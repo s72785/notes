@@ -75,6 +75,7 @@ LaTeX | Alternativ | Beschreibung
 \supset | | Obermenge
 \subset | | Untermenge
 \circ | | Verknüpfungskreis (f. Relationen)
+\varnothing || leere Menge
 
 ## Geometrie
 
