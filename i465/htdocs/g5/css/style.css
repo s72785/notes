@@ -120,6 +120,11 @@ figure img {
 */
 .fa-home::before {
 	content: "";
+	/*background-color: darkred;*/
+	color: white;
+	border-radius: 3px;
+	border: 1px solid grey;
+	padding: 0.1em;
 }
 a .fa {
 	display: inline-block;
