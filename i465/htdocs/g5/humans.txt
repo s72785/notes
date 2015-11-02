@@ -37,5 +37,5 @@
 
 	Sprache    : Deutsch
 	Doctype    : HTML5
-	Components : HTML5, CSS, Webfonts
+	Components : HTML5, CSS, Webfonts, WebCache
 	IDE        : GNU/Linux, vi, XAMPP, FileZilla
