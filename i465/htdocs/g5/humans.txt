@@ -1,0 +1,41 @@
+## TEAM 
+
+	Position : void
+	Name     : V.
+	From     : unknown
+	Location : bar
+
+	Position : void
+	Name     : Wolf
+	Contact  : classroom
+	Repo     : http://github.com/s72785/
+	From     : the internet
+	Location : deep web
+
+	Position : void
+	Name     : P.
+	From     : nature
+	Location : woods
+
+	Position : void
+	Name     : ?
+	Contact  :
+	Twitter  :
+	Facebook :
+	From     : fantasy
+	Location : unknown
+
+## Danke an
+
+	Name     : Prof.: Wiedemann
+	WWW      : http://www.htw-dresden.de/en/faculty-of-informaticsmathematics/personal/professuren/prof-dr-thomas-wiedemann.html
+	Contact  : 
+	From     : academia
+	Location : labs
+
+## Site
+
+	Sprache    : Deutsch
+	Doctype    : HTML5
+	Components : HTML5, CSS, Webfonts
+	IDE        : GNU/Linux, vi, XAMPP, FileZilla
