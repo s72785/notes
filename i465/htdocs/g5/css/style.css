@@ -95,8 +95,10 @@ figure {
 	transform: translateX(-1em) translateY(-2em) rotate(5deg);
 	/* filter: drop-shadow();/**/
 	/*box-shadow: 2px; */
-	border-shadow: 2px 2px 2em yellow;
-	border-radius: 3px;
+/*	border-shadow: 2px 2px 2em yellow;/**/
+	-moz-box-shadow: 2px 2px 2px 2px #ff0;
+	box-shadow: 5px 5px 5px 3px #666;/*#ffc;/**/
+	border-radius: 9px;
 }
 figcaption  {
 	text-align: center;
