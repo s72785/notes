@@ -6,7 +6,7 @@ CACHE MANIFEST
 FALLBACK:
 #fallback on following for offline network
 NETWORK: 
-./ ./offline.html
+./offline.html
 #parts on net
 CACHE:
 #parts to cache
