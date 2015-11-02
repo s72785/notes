@@ -1,0 +1,29 @@
+CACHE MANIFEST 
+# the above is a required line
+# this is a comment 
+# spaces are ignored
+# blank lines are ignored
+FALLBACK:
+#fallback on following for offline network
+NETWORK: 
+./ ./offline.html
+#parts on net
+CACHE:
+#parts to cache
+./index.html
+./shop/index.html
+./shop/itemform.html
+./shop/itemview.html
+./about/index.html
+./about/jslicenses.html
+./humans.txt
+./photos.txt
+./robots.txt
+./css/style.css
+./css/font-awesome.min.css
+./fonts/fontawesome-webfont.eot
+./fonts/fontawesome-webfont.svg
+./fonts/fontawesome-webfont.ttf
+./fonts/fontawesome-webfont.woff
+./fonts/fontawesome-webfont.woff2
+./offline.html
