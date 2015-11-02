@@ -15,7 +15,8 @@ header {
 	order: 1;
 }
 h1, h2, h3, h4 {
-	/*text-shadow: 0.3ex red;/* experimental */
+	-moz-text-shadow: #000 2px 2px 2px;
+	text-shadow: #000 2px 2px 6px;
 }
 footer {
 	background: #efc0ef;
@@ -93,12 +94,7 @@ figure {
 	padding: 0.2em;
 	background: white;
 	transform: translateX(-1em) translateY(-2em) rotate(5deg);
-	/* filter: drop-shadow();/**/
-	/*box-shadow: 2px; */
-/*	border-shadow: 2px 2px 2em yellow;/**/
-	-moz-box-shadow: 2px 2px 2px 2px #ff0;
-	box-shadow: 5px 5px 5px 3px #666;/*#ffc;/**/
-	border-radius: 9px;
+		border-radius: 9px;
 }
 figcaption  {
 	text-align: center;
@@ -137,6 +133,8 @@ a .fa {
 	margin-right: 1ex;
 	text-align: right;
 	width: 2em;
+	-moz-text-shadow: #000 2px 2px 2px;
+	text-shadow: #000 5px 5px 12px;
 }
 /**/
 .toggleitem {
@@ -186,4 +184,12 @@ a .fa {
 .close a::after{
 	margin-top:1em;
 	content:"schließen";
+}
+.boxshadow {
+	-moz-box-shadow: 2px 2px 2px 2px #ff0;
+	box-shadow: 5px 5px 5px 3px #666;/*#ffc;/**/
+}
+#wiedemann-foto-figure {
+	float: right;
+	margin: 0 0 0 2em;
 }
