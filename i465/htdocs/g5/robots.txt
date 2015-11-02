@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+Allow: /img
+Allow: /css
+Allow: /fonts
+Allow: /shop
+
+Disallow: /admin/
+Disallow: /conf/
+Disallow: /daten/
+
+Sitemap: 
