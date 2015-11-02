@@ -196,3 +196,14 @@ a .fa {
 	float: right;
 	margin: 0 0 0 2em;
 }
+.hflip {
+	transform: scaleX(-1);
+}.vflip {
+	transform: scaleY(-1);
+}
+.blk {
+	display: block;
+}
+.ilblk {
+	display: inline-block;
+}
