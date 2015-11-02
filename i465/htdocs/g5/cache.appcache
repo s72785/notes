@@ -3,11 +3,15 @@ CACHE MANIFEST
 # this is a comment 
 # spaces are ignored
 # blank lines are ignored
+# sections are uppercase key words
+
 FALLBACK:
 #fallback on following for offline network
+/ ./offline.html
+
 NETWORK: 
-./offline.html
 #parts on net
+
 CACHE:
 #parts to cache
 ./index.html
@@ -27,3 +31,4 @@ CACHE:
 ./fonts/fontawesome-webfont.woff
 ./fonts/fontawesome-webfont.woff2
 ./offline.html
+http://iasp2.informatik.htw-dresden.de/wiedem/imgw/wiedem_Foto2009_200.jpg
