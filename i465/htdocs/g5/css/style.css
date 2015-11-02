@@ -89,6 +89,7 @@ figure {
 	border: dashed;
 	padding: 0.2em;
 	background: white;
+	transform: translateX(-1em) translateY(-2em) rotate(5deg);
 }
 figcaption  {
 	text-align: center;
@@ -120,11 +121,6 @@ figure img {
 */
 .fa-home::before {
 	content: "";
-	/*background-color: darkred;*/
-	color: white;
-	border-radius: 3px;
-	border: 1px solid grey;
-	padding: 0.1em;
 }
 a .fa {
 	display: inline-block;
@@ -132,4 +128,50 @@ a .fa {
 	margin-right: 1ex;
 	text-align: right;
 	width: 2em;
+}
+/**/
+.toggleitem {
+	display: none;
+}
+.ib-label {
+	color: black;
+	border: 1px solid;
+	border-color: red;
+	border-radius: 0.3em;
+	width: 90%;
+	display: inline-block;
+	padding: 0.3em;
+	
+}
+.toggleblock .centerblock {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background:rgba(0 0 0 );
+}
+.toggleblock .centeritem {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translateY(-50%) translateX(-50%);
+	border:3px solid;
+	background: #ffff80;
+	padding: 0.3em;
+}
+.toggleblock input[type="checkbox"] {
+	position: absolute;
+	left: -900em;
+}
+.toggleblock input[type="checkbox"]:checked ~ .toggleitem {
+	display: inline-block;
+	background: rgba(0, 0, 0, 0.7 );
+}
+.toggleblock input[type="checkbox"]:checked + label {
+	background-color: red;
+}
+.close a::after{
+	margin-top:1em;
+	content:"schließen";
 }
