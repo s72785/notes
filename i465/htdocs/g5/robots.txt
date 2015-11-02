@@ -4,6 +4,7 @@ Allow: /img
 Allow: /css
 Allow: /fonts
 Allow: /shop
+Allow: /about
 
 Disallow: /admin/
 Disallow: /conf/
