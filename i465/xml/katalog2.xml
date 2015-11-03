@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--<!DOCTYPE katalog SYSTEM "katalog.dtd">-->
+
+<katalog
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="katalog.xsd">
+>
+	<buch>
+<!-- req -->
+		<titel lang="de">Enigma</titel>
+		<id name="isbn">9876543245</id>
+		<autor id="" typ="writer" order="1"></autor>
+		<verlag id=""></verlag>
+		<preisdaten netto="90" ust="19"/>
+		<lager id="" name="">123</lager>
+		<gewicht einheit="g">123</gewicht>
+<!-- opt -->
+		<kurzinhalt>Beschreibung</kurzinhalt>
+		<container format="quader">
+			<abmessung name="laenge" einheit="mm">10</abmessung>
+			<abmessung name="breite" einheit="mm">15</abmessung>
+			<abmessung name="hoehe" einheit="mm">5</abmessung>
+		</container>
+		<bild>
+			<grafik src="./x.jpg"/>
+		</bild>
+	</buch>
+	<buch>
+		<titel lang="de">Enigma2</titel>
+		<id name="isbn">9876545695</id>
+		<autor id="" typ="writer" order="1"></autor>
+		<verlag id=""></verlag>
+		<preisdaten netto="10" ust="19"></preisdaten>
+		<lager id="" name="">123</lager>
+		<gewicht einheit="g">123</gewicht>
+
+		<kurzinhalt>Beschreibung</kurzinhalt>
+		<container format="quader">
+			<abmessung name="laenge" einheit="cm">7</abmessung>
+			<abmessung name="breite" einheit="cm">4</abmessung>
+			<abmessung name="hoehe" einheit="cm">3</abmessung>
+		</container>
+		<bild>
+			<grafik src="./x.jpg"/>
+		</bild>
+	</buch>
+</katalog>

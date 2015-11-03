@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	elementFormDefault="qualified"
+	attributeFormDefault="unqualified"
+>
+
+<!-- types -->
+
+<xs:simpleType name="LaengeEinheitType">
+    <xs:restriction base="xs:NMTOKEN">
+        <xs:enumeration value="mm"/>
+        <xs:enumeration value="cm"/>
+        <xs:enumeration value="m"/>
+        <xs:enumeration value="in"/>
+        <xs:enumeration value="ft"/>
+        <xs:enumeration value="yd"/>
+    </xs:restriction>
+</xs:simpleType>
+
+<!-- elms -->
+
+	<xs:element name="katalog">
+		<xs:complexType mixed="true">
+			<xs:choice minOccurs="0" maxOccurs="unbounded">
+				<xs:element ref="buch" />
+				<xs:element ref="datentraeger" />
+				<xs:element ref="hoerbuch" />
+			</xs:choice>
+			<xs:attribute name="name" use="optional" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="datentraeger">
+		<xs:complexType mixed="true">
+			<xs:attribute name="lang" use="optional" default="de" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="hoerbuch">
+		<xs:complexType mixed="true">
+			<xs:attribute name="lang" use="optional" default="de" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="id">
+		<xs:complexType mixed="true">
+			<xs:attribute name="name" use="optional" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="buch">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="titel" />
+				<xs:element ref="id" />
+				<xs:element ref="autor" />
+				<xs:element ref="verlag" />
+				<xs:element ref="preisdaten" />
+				<xs:element ref="lager" />
+				<xs:element ref="gewicht" />
+				<xs:choice minOccurs="0" maxOccurs="unbounded">
+					<xs:element ref="kurzinhalt" />
+					<xs:element ref="container" />
+					<xs:element ref="bild" />
+				</xs:choice>
+			</xs:sequence>
+			<xs:attribute name="lang" use="optional" default="de" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="titel">
+		<xs:complexType mixed="true">
+			<xs:attribute name="lang" use="optional" default="de" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="autor">
+		<xs:complexType mixed="true">
+			<xs:attribute name="id" />
+			<xs:attribute name="typ" use="optional" />
+			<xs:attribute name="order" use="optional" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="verlag">
+		<xs:complexType mixed="true">
+			<xs:attribute name="id" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="preisdaten">
+		<xs:complexType mixed="true">
+			<xs:attribute name="waehrung" type="xs:string" default="EUR" />
+			<xs:attribute name="netto" type="xs:decimal" default="0"/>
+			<xs:attribute name="brutto" use="optional" default="0" />
+			<xs:attribute name="ust" use="optional">
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:enumeration value="0" />
+						<xs:enumeration value="7" />
+						<xs:enumeration value="19" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="lager">
+		<xs:complexType mixed="true">
+			<xs:attribute name="name" use="optional" />
+			<xs:attribute name="id" use="optional" />
+			<xs:attribute name="einheit" use="optional" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="gewicht">
+		<xs:complexType mixed="true">
+			<xs:attribute name="einheit" use="optional" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="kurzinhalt">
+		<xs:complexType mixed="true" />
+	</xs:element>
+	<xs:element name="container">
+		<xs:complexType>
+			<xs:choice minOccurs="0" maxOccurs="unbounded">
+				<xs:element ref="abmessung" />
+				<xs:element ref="dateigroesse" />
+			</xs:choice>
+			<xs:attribute name="format" use="optional" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="dateigroesse">
+		<xs:complexType mixed="true" />
+	</xs:element>
+	<xs:element name="abmessung" default="0">
+		<xs:complexType mixed="true">
+			<xs:attribute name="name" type="xs:string"/>
+			<xs:attribute name="einheit" type="LaengeEinheitType" use="optional" default="mm"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="bild">
+		<xs:complexType>
+			<xs:choice maxOccurs="unbounded">
+				<xs:element ref="grafik" />
+			</xs:choice>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="grafik">
+		<xs:complexType mixed="true">
+			<xs:attribute name="src" use="optional" />
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
