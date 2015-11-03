@@ -3,15 +3,14 @@
 
 <katalog>
 	<buch>
-<!-- req -->
 		<titel lang="de">Enigma</titel>
 		<id name="isbn">9876543245</id>
-		<autor id="" type="writer" order="1"></autor>
+		<autor id="" typ="writer" order="1"></autor>
 		<verlag id=""></verlag>
 		<preisdaten netto="" brutto="" ust=""></preisdaten>
 		<lager id="" name="">123</lager>
 		<gewicht einheit="g">123</gewicht>
-<!-- opt -->
+
 		<kurzinhalt>Beschreibung</kurzinhalt>
 		<container format="quader">
 			<abmessung name="laenge" einheit="mm">10</abmessung>
@@ -22,6 +21,23 @@
 			<grafik src="./x.jpg"/>
 		</bild>
 	</buch>
-	<hoerbuch>
-	</hoerbuch>
+	<buch>
+		<titel lang="de">Enigma2</titel>
+		<id name="isbn">9876545695</id>
+		<autor id="" typ="writer" order="1"></autor>
+		<verlag id=""></verlag>
+		<preisdaten netto="10" ust=""></preisdaten>
+		<lager id="" name="">123</lager>
+		<gewicht einheit="g">123</gewicht>
+
+		<kurzinhalt>Beschreibung</kurzinhalt>
+		<container format="quader">
+			<abmessung name="laenge" einheit="cm">7</abmessung>
+			<abmessung name="breite" einheit="cm">4</abmessung>
+			<abmessung name="hoehe" einheit="cm">3</abmessung>
+		</container>
+		<bild>
+			<grafik src="./x.jpg"/>
+		</bild>
+	</buch>
 </katalog>

@@ -8,7 +8,7 @@
 	-->
 
 <!ENTITY % buch.lang "
-de, en
+de, en, fr, pl, no
 ">
 
 <!ENTITY % container.format "
@@ -17,10 +17,10 @@ quader, zylinder, daten
 <!--
 
 <!ENTITY % abmessung.einheit "
-mm, in
+mm, cm, m, in, yd, ft
 ">
 <!ENTITY % gewicht.einheit "
-g, oz
+g, kg, oz
 ">
 -->
 <!--
@@ -30,6 +30,7 @@ g, oz
 	-->
 
 <!NOTATION g SYSTEM "Buch/Gewicht/Gramm">
+<!NOTATION kg SYSTEM "Buch/Gewicht/Kilogramm">
 <!NOTATION oz SYSTEM "Buch/Gewicht/Unze">
 
 <!NOTATION daten SYSTEM "Buch/Format/Daten">
@@ -37,6 +38,8 @@ g, oz
 <!NOTATION zylinder SYSTEM "Buch/Format/Zylinder">
 
 <!NOTATION mm SYSTEM "Buch/Abmessung/Millimeter">
+<!NOTATION cm SYSTEM "Buch/Abmessung/Centimeter">
+<!NOTATION m SYSTEM "Buch/Abmessung/Meter">
 <!NOTATION in SYSTEM "Buch/Abmessung/Zoll">
 
 <!NOTATION GIF SYSTEM "image/gif">
@@ -78,7 +81,7 @@ g, oz
 <!ELEMENT autor (#PCDATA)>
 <!ATTLIST autor
   id      CDATA    #REQUIRED
-  type    CDATA    #IMPLIED
+  typ    CDATA    #IMPLIED
   order   CDATA    #IMPLIED
   >
 <!ELEMENT verlag (#PCDATA)>
@@ -99,7 +102,7 @@ g, oz
   >
 <!ELEMENT gewicht (#PCDATA)>
 <!ATTLIST gewicht
-  einheit NOTATION (g | oz) "g"
+  einheit NOTATION (g | kg | oz) "g"
   >
 <!ELEMENT kurzinhalt (#PCDATA)>
 <!ELEMENT container (abmessung | dateigroesse)*>
@@ -110,7 +113,7 @@ g, oz
 <!ELEMENT abmessung (#PCDATA)>
 <!ATTLIST abmessung 
   name    CDATA    #REQUIRED
-  einheit NOTATION (mm | in) "mm"
+  einheit NOTATION (mm | cm | m | in) "mm"
   >
 <!ELEMENT bild (grafik)+>
 <!ELEMENT grafik (#PCDATA)>
@@ -123,4 +126,4 @@ g, oz
 Wissens-Quelle:
 http://www.data2type.de/xml-xslt-xslfo/xml/xml-in-a-nutshell/dokumenttyp-definitionen/
 
--->x
+-->
