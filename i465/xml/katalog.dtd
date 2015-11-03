@@ -1,0 +1,126 @@
+<!--
+	status:draft
+-->
+<!--
+*********************
+	ENTITIES
+*********************
+	-->
+
+<!ENTITY % buch.lang "
+de, en
+">
+
+<!ENTITY % container.format "
+quader, zylinder, daten
+">
+<!--
+
+<!ENTITY % abmessung.einheit "
+mm, in
+">
+<!ENTITY % gewicht.einheit "
+g, oz
+">
+-->
+<!--
+*********************
+	NOTATIONS
+*********************
+	-->
+
+<!NOTATION g SYSTEM "Buch/Gewicht/Gramm">
+<!NOTATION oz SYSTEM "Buch/Gewicht/Unze">
+
+<!NOTATION daten SYSTEM "Buch/Format/Daten">
+<!NOTATION quader SYSTEM "Buch/Format/Quader">
+<!NOTATION zylinder SYSTEM "Buch/Format/Zylinder">
+
+<!NOTATION mm SYSTEM "Buch/Abmessung/Millimeter">
+<!NOTATION in SYSTEM "Buch/Abmessung/Zoll">
+
+<!NOTATION GIF SYSTEM "image/gif">
+
+<!NOTATION JPG SYSTEM "image/jpeg">
+
+<!NOTATION PNG SYSTEM "image/png">
+
+<!--
+*********************
+	DECLARATIONS
+*********************
+	-->
+
+<!ELEMENT katalog (buch | datentraeger | hoerbuch)*>
+<!ATTLIST katalog
+  name    CDATA    #IMPLIED
+  >
+<!ELEMENT datentraeger (#PCDATA)>
+<!ATTLIST datentraeger
+  lang    NMTOKEN  "de"
+  >
+<!ELEMENT hoerbuch (#PCDATA)>
+<!ATTLIST hoerbuch
+  lang    NMTOKEN  "de"
+  >
+<!ELEMENT id (#PCDATA)*>
+<!ATTLIST id
+  name    CDATA    #IMPLIED
+  >
+<!ELEMENT buch (titel, id, autor, verlag, preisdaten, lager, gewicht, (kurzinhalt | container | bild)*)>
+<!ATTLIST buch
+  lang    NMTOKEN  "de"
+  >
+<!ELEMENT titel (#PCDATA)>
+<!ATTLIST titel
+  lang    CDATA    #IMPLIED
+  >
+<!ELEMENT autor (#PCDATA)>
+<!ATTLIST autor
+  id      CDATA    #REQUIRED
+  type    CDATA    #IMPLIED
+  order   CDATA    #IMPLIED
+  >
+<!ELEMENT verlag (#PCDATA)>
+<!ATTLIST verlag
+  id      CDATA    #REQUIRED
+  >
+<!ELEMENT preisdaten (#PCDATA)>
+<!ATTLIST preisdaten
+  netto   CDATA    #REQUIRED
+  brutto  CDATA    #IMPLIED
+  ust     CDATA    #IMPLIED
+  >
+<!ELEMENT lager (#PCDATA)>
+<!ATTLIST lager
+  name    CDATA    #IMPLIED
+  id      CDATA    #IMPLIED
+  einheit CDATA    #IMPLIED
+  >
+<!ELEMENT gewicht (#PCDATA)>
+<!ATTLIST gewicht
+  einheit NOTATION (g | oz) "g"
+  >
+<!ELEMENT kurzinhalt (#PCDATA)>
+<!ELEMENT container (abmessung | dateigroesse)*>
+<!ATTLIST container
+  format  NOTATION  (quader | zylinder | daten) "daten"
+  >
+<!ELEMENT dateigroesse (#PCDATA)>
+<!ELEMENT abmessung (#PCDATA)>
+<!ATTLIST abmessung 
+  name    CDATA    #REQUIRED
+  einheit NOTATION (mm | in) "mm"
+  >
+<!ELEMENT bild (grafik)+>
+<!ELEMENT grafik (#PCDATA)>
+<!ATTLIST grafik
+  src     CDATA    #IMPLIED
+  >
+
+<!--
+
+Wissens-Quelle:
+http://www.data2type.de/xml-xslt-xslfo/xml/xml-in-a-nutshell/dokumenttyp-definitionen/
+
+-->

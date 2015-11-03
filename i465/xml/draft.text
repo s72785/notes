@@ -1,0 +1,64 @@
+## was ich zu büchern so denke
+
+katalog:
+	text
+	audio
+	bild
+
+audio:
+	hoerbuch
+
+text:
+	buch
+	zeitung
+	zeitschrift
+	band
+	kapitel
+	abschnitt
+	unterabschnitt
+	aufsatz
+	absatz
+	unterabsatz
+	aufzaehlung
+	#CDATA
+
+buch:
+	meta
+	text
+
+band:
+	meta
+	text
+
+meta:
+	titel
+	untertitel
+	sprache
+	autor
+	packung
+
+packung:
+	laenge
+	hoehe
+	breite
+	gewicht
+
+kapitel:
+	meta
+
+## was der prof zu büchern denkt
+
+
+	buch
+	buecher
+	produktcode
+	autor name="" id=""
+	verlag name="" id=""
+	preis nett brutto ust
+	lager bestand
+	gewicht einheit=g
+opt
+	kurzinhalt
+	abmessung laeng breite hoehe einheit=mm
+	grafik link=uri
+	
