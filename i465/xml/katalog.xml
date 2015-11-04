@@ -7,7 +7,7 @@
 		<id name="isbn">9876543245</id>
 		<autor id="" typ="writer" order="1"></autor>
 		<verlag id=""></verlag>
-		<preisdaten netto="" brutto="" ust=""></preisdaten>
+		<preisdaten netto="10" brutto="11.9" ust="19"></preisdaten>
 		<lager id="" name="">123</lager>
 		<gewicht einheit="g">123</gewicht>
 
@@ -26,7 +26,7 @@
 		<id name="isbn">9876545695</id>
 		<autor id="" typ="writer" order="1"></autor>
 		<verlag id=""></verlag>
-		<preisdaten netto="10" ust=""></preisdaten>
+		<preisdaten netto="20" ust="19"></preisdaten>
 		<lager id="" name="">123</lager>
 		<gewicht einheit="g">123</gewicht>
 
