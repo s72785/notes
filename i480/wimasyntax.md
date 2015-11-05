@@ -66,6 +66,7 @@ LaTeX | Alternativ | Beschreibung
 
 LaTeX | Alternativ | Beschreibung
 :--- | :--- | :--- 
+\overline | | Negation
 \in | | Element von
 \notin | | nicht Elm. von
 \bigtriangleup | \triangle | Symmetrische Differenz
