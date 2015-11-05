@@ -153,6 +153,10 @@ a .fa {
 	padding: 0.3em;
 	
 }
+.ib-label:hover {
+	color: red;
+	text-decoration: underline;
+}
 .toggleblock .centerblock {
 	position: absolute;
 	top: 0;
@@ -182,6 +186,8 @@ a .fa {
 }
 .toggleblock input[type="checkbox"]:checked + label {
 	background-color: red;
+	color: black;
+	font-weight: bold;
 }
 
 .close a::after{
@@ -206,4 +212,8 @@ a .fa {
 }
 .ilblk {
 	display: inline-block;
+}
+nav > ul li label {
+	background: rgba(0,0,0,0) !important;
+	vertical-align: top;
 }
