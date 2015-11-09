@@ -1,3 +1,0 @@
-/* icons in css */
-wolf-face : http://emojipedia.org/wolf-face/
-gh-ico    : https://fortawesome.github.io/Font-Awesome/
