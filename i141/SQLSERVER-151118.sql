@@ -137,7 +137,7 @@ BEGIN
 	
 END;
 
-EXEC CurseProc @ProjNr = '31';
+--EXEC CurseProc @ProjNr = '31';
 
 -- 5. Abfragen
 -- Formulieren Sie die folgenden Abfragen sowohl als implizite Joins (WHERE-Klausel), als auich als explizite Joins (JOIN ON-Klausel).
@@ -157,13 +157,36 @@ SELECT p.*,m.Nachname,m.Vorname,m.Ort,z.Istanteil FROM Projekt p JOIN Mitarbeite
 -- 5.4 Listen Sie für ALLE Projekte ProNr, Proname und die Summe der Istanteile auf, auch für die Projekte, die z.Zt. nicht bearbeitet werden.
 --     Erstellen Sie diese Abfrage
 -- a) als JOIN (beachten Sie die Wahl des richtigen JOINs) sowie
-SELECT p.ProNr, p.ProName, SUM(z.Istanteil) FROM Projekt p RIGHT JOIN Zuordnung z ON p.ProNr = z.ProNr GROUP BY p.ProNr,p.ProName ;
+SELECT p.ProNr, p.ProName, SUM(z.Istanteil) FROM Projekt p LEFT JOIN Zuordnung z ON p.ProNr = z.ProNr GROUP BY p.ProNr,p.ProName ;
 -- b) als UNION (Für eine "leere" Spalte muss ein (konstanter) DUMMY-Wert mit passendem Datentyp im SELECT-Statement gesetzt werden).
-SELECT * FROM Projekt;
+SELECT p.*,  z.* FROM Projekt UNION Zuordnung;
+
+SELECT p.ProNr, p.Proname, SUM(z.Istanteil) AS SummeIstanteile FROM Projekt p
+JOIN Zuordnung z ON p.ProNr = z.ProNr
+GROUP BY p.ProNr, p.Proname;
+UNION
+SELECT p.ProNr, p.Proname, 0 AS SummeIstanteile FROM Projekt p
+LEFT JOIN Zuordnung z ON p.ProNr = z.ProNr
+WHERE z.Istanteil IS NULL;
+
+
 -- 5.5 Ermitteln Sie für ALLE `Mitarbeiter` die Reserven als Differenz zwischen 1 und ihrer Gesamtplananteile.
 --     (Hinweis: Nutzen Sie die Erfahrung aus Aufgabe 5.4)
+--ohne NULL
+SELECT z.MitID, (1-SUM(Plananteil)) AS Reserve FROM Zuordnung z GROUP BY z.MitID;
+--mit NULL
+SELECT m.MitId, (1 - sum(z.Plananteil)) AS Reserve FROM Mitarbeiter m
+JOIN Zuordnung z on m.MitId = z.MitId
+GROUP BY m.MitId
+UNION
+SELECT m.MitId, 0 AS Reserve FROM Mitarbeiter m
+LEFT JOIN Zuordnung z on m.MitId = z.MitId
+WHERE z.Plananteil IS NULL;
+
+--sysprocedures?! wie kann man tabellen-details dann z.B. in DQLDeveloper oder mit ODBC abfragen?
 --bei windows mit sp_help, unter sqldeveloper nicht mehr als eine zeile
 --sp_help Mitarbeiter
 --andere möglichkeiten muss man erst suchen
 --SELECT * FROM SYSOBJECTS ORDER BY name ASC;
 --SELECT * FROM SYSISCOLS;
+--Prof. Graefe will nochmal selbst nachlesen
