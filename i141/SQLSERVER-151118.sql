@@ -137,6 +137,7 @@ BEGIN
 	
 END;
 
+
 --EXEC CurseProc @ProjNr = '31';
 
 -- 5. Abfragen
@@ -159,8 +160,6 @@ SELECT p.*,m.Nachname,m.Vorname,m.Ort,z.Istanteil FROM Projekt p JOIN Mitarbeite
 -- a) als JOIN (beachten Sie die Wahl des richtigen JOINs) sowie
 SELECT p.ProNr, p.ProName, SUM(z.Istanteil) FROM Projekt p LEFT JOIN Zuordnung z ON p.ProNr = z.ProNr GROUP BY p.ProNr,p.ProName ;
 -- b) als UNION (Für eine "leere" Spalte muss ein (konstanter) DUMMY-Wert mit passendem Datentyp im SELECT-Statement gesetzt werden).
-SELECT p.*,  z.* FROM Projekt UNION Zuordnung;
-
 SELECT p.ProNr, p.Proname, SUM(z.Istanteil) AS SummeIstanteile FROM Projekt p
 JOIN Zuordnung z ON p.ProNr = z.ProNr
 GROUP BY p.ProNr, p.Proname;
@@ -179,7 +178,7 @@ SELECT m.MitId, (1 - sum(z.Plananteil)) AS Reserve FROM Mitarbeiter m
 JOIN Zuordnung z on m.MitId = z.MitId
 GROUP BY m.MitId
 UNION
-SELECT m.MitId, 0 AS Reserve FROM Mitarbeiter m
+SELECT m.MitId, 1 AS Reserve FROM Mitarbeiter m
 LEFT JOIN Zuordnung z on m.MitId = z.MitId
 WHERE z.Plananteil IS NULL;
 
