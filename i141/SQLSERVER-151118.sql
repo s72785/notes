@@ -78,7 +78,7 @@ INSERT INTO Projekt (ProNr,ProName,ProOrt,Aufwand) VALUES ('47','Oracle-Prakt.',
 -- mit n-hinreichend große Zahl für die Konvertierung in eine Zeichenkette
 
 --4.
---DROP PROCEDURE CurseProc;
+DROP PROCEDURE CurseProc;
 CREATE PROCEDURE CurseProc @ProjNr INT
 AS
 BEGIN
@@ -114,7 +114,7 @@ BEGIN
 		OPEN MitCursor
 		--also: FETCH NEXT FROM @Cursor INTO @Var
 		FETCH MitCursor
-			INTO @MID, @MName, @MBeruf, @MPAnt, @MIAnt, @MAAbw
+			INTO @MID, @MNName, @MVName, @MBeruf, @MPAnt, @MIAnt, @MAAbw
 		IF @@FETCH_STATUS <> 0 
 			PRINT '<< Kein MA zugeteilt >>'   
 		ELSE
@@ -129,14 +129,15 @@ BEGIN
 				PRINT 'Abweichung:	' + CONVERT(CHAR(10), @MAAbw)
 				--fetch next
 				FETCH MitCursor
-					INTO @MID, @MName, @MBeruf, @MPAnt, @MIAnt, @MAAbw
+			INTO @MID, @MNName, @MVName, @MBeruf, @MPAnt, @MIAnt, @MAAbw
 			END
 		CLOSE MitCursor
 		DEALLOCATE MitCursor
 	END
 	
 END;
-EXEC CursorProz @Mitnr = '103';
+
+EXEC CurseProc @ProjNr = '31';
 
 -- 5. Abfragen
 -- Formulieren Sie die folgenden Abfragen sowohl als implizite Joins (WHERE-Klausel), als auich als explizite Joins (JOIN ON-Klausel).
