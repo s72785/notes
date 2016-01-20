@@ -568,7 +568,7 @@ IS
       WHERE e.FzNr = f.FzNr;
 	CURSOR bauteile_cur
 	IS
-		SELECT e.EbNr, e.FzNr, e.BtNr, b.Teilename
+		SELECT e.EbNr, e.FzNr, e.BtNr, b.Teilename, b.Baugruppe
       FROM Einbau e, Bauteil b
       WHERE e.FzNr = v_car_nr AND e.BtNr = b.BtNr;
 	CURSOR a73_cur( en Bauteil.Baugruppe%TYPE )
@@ -585,17 +585,17 @@ IS
 		--EXIT WHEN c_pos%NOTFOUND;
 		FOR car IN kfz_cur
 		LOOP
-			DBMS_OUTPUT.PUT_LINE(car.FzNr || ' - ' || car.Bezeichnung);
+			DBMS_OUTPUT.PUT_LINE(car.Bezeichnung);
 			v_car_nr := car.FzNr;
 			FOR bg IN bauteile_cur
 			LOOP
-				DBMS_OUTPUT.PUT_LINE('' || bg.EbNr || ' - ' || bg.Teilename);
-			OPEN a73_cur(bg.EbNr);
+				DBMS_OUTPUT.PUT_LINE('  ' || bg.BtNr || ' - ' || bg.Teilename);
+			OPEN a73_cur(bg.BtNr);
 			--FOR bt IN a73_cur
 			LOOP
 				FETCH a73_cur INTO v_bt_nr, v_bt_name;
 				EXIT WHEN a73_cur%NOTFOUND;
-				DBMS_OUTPUT.PUT_LINE('  ' || --bt.EbNr 
+				DBMS_OUTPUT.PUT_LINE('    ' || --bt.EbNr 
 					v_bt_nr || ' - ' || 
 					--bt.Teilename
 					v_bt_name);
