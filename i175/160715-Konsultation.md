@@ -1,13 +1,13 @@
 Beginn: 12:00 Uhr
 Ende: 12:33 Uhr 
-Fachl. Nachfragen ggf. per Mail
+Fachl. Nachfragen ggf. per Mail an Prof. Westfeld
 
 ## SP
 
 * 120min (eher 90min Aufwand)
 * ca. 60 Pt f. 100%; Zusatzpunkte denkbar
-* TMG, UrhG, KunstUrhG
-* ca. 70% bestanden im Vorjahr (meist. wg. nicht-teilnahme)
+* TMG, UrhG, KunstUrhG; farbliche Kennzeichnung erlaubt, keine Kommentare!, Notizzettel/Lesezeichen max. §# bzw. Überschriften
+* ca. 70% bestanden im Vorjahr (durchgefallen meist. wg. unentschuldigtem Fehlen)
 
 ## Aufgaben
 
