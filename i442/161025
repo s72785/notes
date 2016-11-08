@@ -1,0 +1,106 @@
+## Aufgabe 2
+
+```
+REPORT ZZE_IW14_472785011.
+*DATA dummytext TYPE string VALUE 'Daten aus'.
+*DATA sp TYPE string VALUE ' | '.
+*DATA: f1 TYPE scarr,
+*      f2 TYPE scarr.
+DATA cnt TYPE i VALUE 0. "Wir brauchen einen Integer für den Zähler
+DATA val TYPE i VALUE 0. "noch ein Integer für die Gesamtzahl aus der DB
+
+*Kopfzeile
+WRITE:/(11) '       CNT',
+       (10) 'LIFNR', "Nr. des Kreditors
+       (35) 'NAME1', "Firma - Name des Kreditors
+       (35) 'ORT01', "Ort des Kreditors
+       (12) 'ERNAM', "Name des Anlegers
+       (08) 'ERDAT'  "Anlagedatum des Kreditors
+.
+
+ULINE.
+TABLES LFA1."in logDB "KDF", heißt KREDITOR
+SELECT COUNT(*) FROM LFA1 INTO val
+  WHERE
+        NAME1 LIKE '%Zwei%'
+        AND ORT01 EQ 'Dresden'
+        AND ERDAT GT '20160101' "'01.01.2016' "AND ERDAT LT 20170000
+.
+SELECT *
+      FROM LFA1
+      WHERE
+        NAME1 LIKE '%Zwei%'
+        AND ORT01 EQ 'Dresden'
+        AND ERDAT GT '20160101' "'01.01.2016' "AND ERDAT LT 20170000
+      "LIMIT 30
+.
+*Implizit wird eine Working Area für die Tabelle mit den Namen Tabelle-Spalte definiert
+cnt = cnt + 1.
+WRITE:/
+        cnt, "vormals SY-LINNO,
+        LFA1-LIFNR, "Nr. des Kreditors
+        LFA1-NAME1, "Firma - Name des Kreditors
+*        LFA1-MANDT, "Mandant"
+        LFA1-ORT01, "Ort des Kreditors
+        LFA1-ERNAM, "Name des Anlegers
+        LFA1-ERDAT  "Anlagedatum des Kreditors
+.
+ENDSELECT.
+ULINE.
+WRITE:/ cnt, ', von ', val, ' Datensätze insgesamt'.
+ULINE.
+```
+
+```
+REPORT ZZE_IW14_472785023.
+*DATA dummytext TYPE string VALUE 'Daten aus'.
+*DATA sp TYPE string VALUE ' | '.
+*DATA: f1 TYPE scarr,
+*      f2 TYPE scarr.
+DATA cnt TYPE i VALUE 0. "Wir brauchen einen Integer für den Zähler
+DATA val TYPE i VALUE 0. "noch ein Integer für die Gesamtzahl aus der DB
+
+*Kopfzeile
+WRITE:/(11) '       CNT',
+       (10) 'LIFNR', "Nr. des Kreditors
+       (35) 'NAME1', "Firma - Name des Kreditors
+       (35) 'ORT01', "Ort des Kreditors
+       (12) 'ERNAM', "Name des Anlegers
+       (10) 'ERDAT',  "Anlagedatum des Kreditors
+       (10) 'KUNNR'  "Anlagedatum des Kreditors
+.
+
+ULINE.
+TABLES LFA1."in logDB "KDF", heißt KREDITOR
+SELECT COUNT(*) FROM LFA1 INTO val
+  WHERE
+*        NAME1 LIKE '%Zwei%'
+*        AND ORT01 EQ 'Dresden'
+*        AND ERDAT GT '20160101' "'01.01.2016' "AND ERDAT LT 20170000
+        NOT KUNNR EQ ''
+.
+SELECT *
+      FROM LFA1
+*      WHERE
+*        NAME1 LIKE '%Zwei%'
+*        AND ORT01 EQ 'Dresden'
+*        AND ERDAT GT '20160101' "'01.01.2016' "AND ERDAT LT 20170000
+        NOT KUNNR EQ '',
+*      LIMIT 30
+''.
+*Implizit wird eine Working Area für die Tabelle mit den Namen Tabelle-Spalte definiert
+cnt = cnt + 1.
+WRITE:/(11) cnt, "vormals SY-LINNO,
+       (10) LFA1-LIFNR, "Nr. des Kreditors
+       (35) LFA1-NAME1, "Firma - Name des Kreditors
+*       (35) LFA1-MANDT, "Mandant"
+       (35) LFA1-ORT01, "Ort des Kreditors
+       (12) LFA1-ERNAM, "Name des Anlegers
+       (10) LFA1-ERDAT, "Anlagedatum des Kreditors
+       (10) LFA1-KUNNR, "Kundennummer, so vorhanden ;)
+''.
+ENDSELECT.
+ULINE.
+WRITE:/ cnt, ', von ', val, ' Datensätze insgesamt'.
+ULINE.
+```
